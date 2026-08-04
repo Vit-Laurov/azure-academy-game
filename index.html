@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Azure Academy — AZ-900 Quest Trainer</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AZ-900 Quest">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="shell">
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">A</div>
+      <div>
+        <div class="brand-text">Azure Academy</div>
+        <div class="brand-sub">AZ-900 Quest Trainer</div>
+      </div>
+    </div>
+
+    <nav class="nav-group">
+      <div class="nav-label">Play</div>
+      <div class="nav-item" data-page="quests" onclick="goTo('quests')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 6 19 18 12 22 5 18 5 6 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="19 6 12 9.5 5 6"></polyline></svg>
+        </span>
+        Daily Quests
+        <span id="chest-badge" class="nav-badge" style="display:none"></span>
+      </div>
+      <div class="nav-item" data-page="shop" onclick="goTo('shop')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </span>
+        Loot Shop
+      </div>
+    </nav>
+
+    <nav class="nav-group">
+      <div class="nav-label">Progress</div>
+      <div class="nav-item" data-page="mastery" onclick="goTo('mastery')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9Z"></path></svg>
+        </span>
+        Mastery
+      </div>
+      <div class="nav-item" data-page="collection" onclick="goTo('collection')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+        </span>
+        Collection
+      </div>
+      <div class="nav-item" data-page="profile" onclick="goTo('profile')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </span>
+        Profile
+      </div>
+      <div class="nav-item" data-page="history" onclick="goTo('history')">
+        <span class="nav-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"></path><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path><path d="M12 7v5l4 2"></path></svg>
+        </span>
+        History
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="streak-pill" id="streak-pill">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+        <div>
+          <div id="streak-text">0 day streak</div>
+          <div id="streak-sub" class="streak-sub"></div>
+        </div>
+      </div>
+      <div class="day-timer" id="day-timer"></div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div id="page-quests" class="page"></div>
+    <div id="page-shop" class="page"></div>
+    <div id="page-mastery" class="page"></div>
+    <div id="page-collection" class="page"></div>
+    <div id="page-profile" class="page"></div>
+    <div id="page-history" class="page"></div>
+  </main>
+</div>
+
+<div id="chest-overlay" class="chest-overlay hidden" onclick="closeChestAnimation(event)">
+  <div class="chest-scene">
+    <div class="chest-particles" id="chest-particles"></div>
+    <div class="chest-icon" id="chest-icon">📦</div>
+    <div class="chest-reveal" id="chest-reveal"></div>
+    <div class="chest-hint">Click anywhere to continue</div>
+  </div>
+</div>
+
+<div id="fact-overlay" class="fact-overlay hidden">
+  <div class="fact-card">
+    <div class="fact-kicker">💡 Daily Azure Fact</div>
+    <div class="fact-title" id="fact-title"></div>
+    <div class="fact-text" id="fact-text"></div>
+    <button class="btn btn-primary" onclick="closeDailyFactModal()">Got it</button>
+  </div>
+</div>
+
+<script src="database.js"></script>
+<script src="save.js"></script>
+<script src="loot.js"></script>
+<script src="mastery.js"></script>
+<script src="chestfx.js"></script>
+<script src="dailyfact.js"></script>
+<script src="practical.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
