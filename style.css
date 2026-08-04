@@ -68,6 +68,7 @@ h1,h2,h3,.num{font-family:'Space Grotesk',sans-serif}
   padding:28px 20px;
   position:sticky;top:0;height:100vh;
   overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 #sidebar::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
@@ -355,11 +356,20 @@ progress::-webkit-progress-value{background:linear-gradient(90deg,var(--accent),
 }
 
 @media (max-height: 500px) and (orientation: landscape){
-  #sidebar{padding:16px 14px;gap:0}
-  .brand{padding-bottom:14px;margin-bottom:6px}
-  .nav-group{margin-top:12px}
-  .nav-item{padding:9px 12px;font-size:14px}
-  .sidebar-footer{padding-top:12px}
+  #sidebar{padding:10px 14px;gap:0}
+  #sidebar::before{display:none}
+  .brand{padding-bottom:8px;margin-bottom:4px;gap:8px}
+  .brand-mark{width:30px;height:30px;font-size:14px}
+  .brand-text{font-size:14px}
+  .brand-sub{font-size:10px}
+  .nav-group{margin-top:6px}
+  .nav-label{padding-bottom:4px;font-size:10px}
+  .nav-item{padding:6px 12px;font-size:13px;gap:10px;margin-bottom:1px}
+  .nav-icon{width:16px;height:16px}
+  .sidebar-footer{padding-top:6px;gap:6px}
+  .streak-pill{padding:7px 10px;font-size:12px;gap:6px}
+  .streak-sub{display:none}
+  .day-timer{margin-top:4px;font-size:10px}
 }
 
 /* ===== admin_guide.html compatibility layer ===== */
