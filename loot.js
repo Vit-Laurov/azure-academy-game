@@ -4,10 +4,43 @@ function itemById(id){return (AZURE_DB.loot||[]).find(x=>x.id===id)}
 function effectValue(key){let total=0;(S.collection||[]).forEach(id=>{let it=itemById(id),e=it&&it.effectCode;if(e&&typeof e[key]==='number')total+=e[key]});return total}
 function categoryXpBonus(cat){let total=0;(S.collection||[]).forEach(id=>{let it=itemById(id),e=it&&it.effectCode;if(e&&e.categoryXpBonus&&e.categoryXpBonus[cat])total+=e.categoryXpBonus[cat]});total+=masteryBonusForCategory(cat);return total}
 function hasEffect(key){return (S.collection||[]).some(id=>{let it=itemById(id);return it&&it.effectCode&&it.effectCode[key]})}
+function unlockedTitles(){return (S.collection||[]).map(itemById).filter(it=>it&&it.effectCode&&it.effectCode.title).map(it=>it.effectCode.title)}
+
+const PET_LINES=[
+  'Blorp!','I believe in your RBAC skills.','Tip: Cool tier is cheaper for rarely-read blobs.',
+  "Don't forget today's streak!",'Squish squish.','One more question? 👀','Almost exam-ready!',
+  'Availability Zones are my favorite rooms.','You got this.'
+];
+const PET_CHEERS=[
+  "You've got this! 💪",'Doing great — keep going!','Believe in yourself!',
+  'One step closer to AZ-900!','Nice work so far!','You can do this.','Stay sharp!','Proud of you!'
+];
+let petTimer=null;
+function ownedPetName(){
+  let found=(S.collection||[]).map(itemById).find(it=>it&&it.effectCode&&it.effectCode.pet);
+  return found?found.effectCode.pet:null;
+}
+function initPetCompanion(){
+  let el=document.getElementById('pet-companion');
+  if(!el)return;
+  if(!ownedPetName()){el.classList.add('hidden');if(petTimer){clearInterval(petTimer);petTimer=null}return}
+  el.classList.remove('hidden');
+  if(petTimer)return;
+  petTimer=setInterval(petHop,40000+Math.random()*40000);
+}
+function triggerPetReaction(lines){
+  let el=document.getElementById('pet-companion'),bubble=document.getElementById('pet-bubble');
+  if(!el||!bubble||el.classList.contains('hidden'))return;
+  bubble.textContent=lines[Math.floor(Math.random()*lines.length)];
+  el.classList.add('hop');bubble.classList.add('show');
+  setTimeout(()=>{el.classList.remove('hop');bubble.classList.remove('show')},2800);
+}
+function petHop(){triggerPetReaction(PET_LINES)}
+function petClicked(){triggerPetReaction(PET_CHEERS)}
 function themes(){let t=['default'];(S.collection||[]).forEach(id=>{let it=itemById(id);let th=it&&it.effectCode&&it.effectCode.theme;if(th&&!t.includes(th))t.push(th)});return t}
 function applyTheme(){document.body.className='';if(S.activeTheme&&S.activeTheme!=='default')document.body.classList.add('theme-'+S.activeTheme)}
 
-const themeSwatchColor={default:'#5B5FEF',bastion:'#4D9FFF',iac:'#B873F5',gryphon:'#F4B740',phoenix:'#EF5A6F'};
+const themeSwatchColor={default:'#5B5FEF',bastion:'#3FD17A',iac:'#B873F5',gryphon:'#F4B740',phoenix:'#EF5A6F'};
 const themeLabel={default:'Default',bastion:'Bastion',iac:'Infrastructure as Code',gryphon:'Gryphon',phoenix:'Phoenix'};
 
 const svgWrap=inner=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
@@ -100,6 +133,7 @@ function buyLoot(id){
   S.drops.unshift(`Bought: ${it.name}`);
   lastBoughtId=id;
   saveState();render();
+  initPetCompanion();
   setTimeout(()=>{lastBoughtId=null},700);
 }
 function buyStreakFreeze(){

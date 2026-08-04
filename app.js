@@ -276,6 +276,7 @@ function finishQuest(){
     S.xp+=effectValue('wrongConsolationXp');
   }
   S.history[S.mode].push({
+    id:q.id,
     q:q.q,
     your:s.selected===null?'':('ABCD'[s.selected]+'. '+q.a[s.selected]),
     correctAnswer:'ABCD'[q.c]+'. '+q.a[q.c],
@@ -481,12 +482,23 @@ function renderCollectionPage(){
     <div class="page-header">
       <div><div class="page-title">Collection</div><div class="page-subtitle">${owned.length} / ${AZURE_DB.loot.length} items</div></div>
     </div>`;
+  if(owned.length){
+    let effectLines=owned.map(itemById).filter(Boolean).map(it=>`<div class="loot-effect" style="margin-bottom:6px">${it.name}: ${it.effect}</div>`).join('');
+    let titles=unlockedTitles();
+    html+=`<div class="card">
+      <div class="card-title">Active Effects</div>
+      <div class="card-sub">Everything your collection is currently doing for you, all in one place.</div>
+      ${effectLines}
+      ${titles.length?`<div class="loot-meta" style="margin-top:10px">${titles.map(t=>`<span class="loot-badge">🏆 ${t}</span>`).join('')}</div>`:''}
+    </div>`;
+  }
   if(!owned.length){
     html+=`<div class="empty-state">No items yet. Open chests or visit the Loot Shop.</div>`;
   }else{
     html+=`<div class="loot-grid">${owned.map(id=>{
       let it=itemById(id);if(!it)return'';
       return `<div class="loot-card ${it.rarity}">
+        <div class="loot-icon ${it.rarity}">${iconFor(it.type)}</div>
         <div class="loot-name ${it.rarity}">${it.name}</div>
         <div class="loot-meta"><span class="loot-badge">${it.type}</span><span class="loot-badge">${it.rarity}</span></div>
         <div class="loot-desc">${it.desc}</div>
@@ -548,6 +560,8 @@ function renderHistoryPage(){
     <div class="page-header">
       <div><div class="page-title">Today's History</div><div class="page-subtitle">Review what you missed today</div></div>
     </div>`;
+  let showWeak=hasEffect('weakSummary');
+  let weakIds=new Set((S.weakness||[]).map(w=>w.item&&w.item.id).filter(Boolean));
   let any=false;
   modeOrder.forEach(m=>{
     let h=S.history[m]||[];
@@ -555,7 +569,9 @@ function renderHistoryPage(){
     any=true;
     html+=`<div class="card"><div class="card-title">${cfg(m).icon} ${cfg(m).title}</div>`;
     h.forEach(x=>{
+      let isRecurring=showWeak&&weakIds.has(x.id);
       html+=`<div class="history-item ${x.correct?'ok':''}">
+        ${isRecurring?'<div class="feedback-banner warn" style="margin-bottom:8px"><span class="label">🔁 Recurring weak spot</span>You\'ve missed this one before — worth a closer look.</div>':''}
         <div class="history-q">${x.q}</div>
         ${!x.correct?`<div class="history-row your">Your answer: ${x.your||'—'}</div>`:''}
         <div class="history-row correct">Correct: ${x.correctAnswer}</div>
@@ -569,6 +585,7 @@ function renderHistoryPage(){
 }
 
 goTo('quests');
+initPetCompanion();
 setInterval(function(){
   if(S.day!==today()){render();}
   else{updateDayTimer();updateChestBadge();}
