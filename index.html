@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<button id="mobile-nav-toggle" class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+<div id="mobile-nav-backdrop" class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
 <svg id="bg-pattern" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <g id="ic-cloud"><g transform="translate(-12,-12)"><path d="M17 18H8a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8h.4a4 4 0 0 1-.3 8Z"/></g></g>

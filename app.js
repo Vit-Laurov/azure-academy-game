@@ -103,6 +103,19 @@ function goTo(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   renderPage(page);
+  closeMobileNav();
+}
+function toggleMobileNav(){
+  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
+  if(!sb||!bd)return;
+  sb.classList.toggle('open');
+  bd.classList.toggle('visible');
+}
+function closeMobileNav(){
+  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
+  if(!sb||!bd)return;
+  sb.classList.remove('open');
+  bd.classList.remove('visible');
 }
 
 function renderPage(page){
