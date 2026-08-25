@@ -14,6 +14,9 @@ function defaultState(){
     lastFactShownDay:null,
     factOrder:[],
     factPos:0,
+    soundEnabled:true,
+    learnRead:[],
+    review:{currentId:null,currentQuestion:null,selected:null,checked:false,correct:false},
     dayStartXP:0,
     dayStartShards:0,
     collection:[],
@@ -33,10 +36,17 @@ function defaultState(){
 function loadState(){
   try{
     const s=JSON.parse(localStorage.getItem(SAVE_KEY));
-    return s&&s.version==='14'?s:defaultState();
+    return s&&s.version==='14'?Object.assign(defaultState(),s):defaultState();
   }catch(e){
     return defaultState();
   }
 }
-function saveState(){localStorage.setItem(SAVE_KEY,JSON.stringify(S))}
+function saveState(){
+  try{
+    localStorage.setItem(SAVE_KEY,JSON.stringify(S));
+  }catch(e){
+    console.error('Save failed',e);
+    if(typeof showToast==='function')showToast('⚠️ Progress could not be saved (storage full or unavailable). Export a backup soon.');
+  }
+}
 let S=loadState();

@@ -2,9 +2,30 @@ const config={
   easy:{title:'Easy Patrol',short:'Easy',icon:'🛡️',limit:10,xp:20,shards:1,goal:'Core definitions and concepts.',reward:'+20 XP / correct'},
   normal:{title:'Explorer Quest',short:'Normal',icon:'🧭',limit:8,xp:35,shards:2,goal:'Scenarios and choosing the right service.',reward:'+35 XP / correct'},
   heroic:{title:'Heroic Challenge',short:'Heroic',icon:'⚔️',limit:5,xp:60,shards:3,goal:'Harder scenarios closer to the real exam.',reward:'+60 XP / correct'},
-  practical:{title:'Azure Lab',short:'Lab',icon:'🧪',limit:2,xp:90,shards:4,goal:'Explain the concept in your own words.',reward:'+90 XP / +35 XP after review'}
+  practical:{title:'Azure Lab',short:'Lab',icon:'🖥️',limit:2,xp:90,shards:4,goal:'Explain the concept in your own words.',reward:'+90 XP / +35 XP after review'}
 };
 const modeOrder=['easy','normal','heroic','practical'];
+
+let audioCtx=null;
+function playChime(freq=880,duration=0.3){
+  if(!S.soundEnabled)return;
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.frequency.value=freq;o.type='sine';
+    g.gain.setValueAtTime(0.15,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+duration);
+    o.connect(g);g.connect(audioCtx.destination);
+    o.start();o.stop(audioCtx.currentTime+duration);
+  }catch(e){console.warn('Audio playback failed',e)}
+}
+function toggleSound(){S.soundEnabled=!S.soundEnabled;saveState();render()}
+
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g, ch => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[ch]));
+}
 
 function loadAdminOverrides(){
   try{
@@ -103,25 +124,13 @@ function goTo(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   renderPage(page);
-  closeMobileNav();
-}
-function toggleMobileNav(){
-  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
-  if(!sb||!bd)return;
-  sb.classList.toggle('open');
-  bd.classList.toggle('visible');
-}
-function closeMobileNav(){
-  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
-  if(!sb||!bd)return;
-  sb.classList.remove('open');
-  bd.classList.remove('visible');
 }
 
 function renderPage(page){
   newDay();applyTheme();maybeShowDailyFact();
   if(page==='quests')renderQuestsPage();
   else if(page==='shop')renderShopPage();
+  else if(page==='learn')renderLearnPage();
   else if(page==='mastery')renderMasteryPage();
   else if(page==='collection')renderCollectionPage();
   else if(page==='profile')renderProfilePage();
@@ -196,6 +205,8 @@ function renderQuestsPage(){
     </div>
 
     ${renderActiveModeCard()}
+
+    ${renderReviewSection()}
   `;
   mount('quests',html);
 }
@@ -203,7 +214,7 @@ function renderQuestsPage(){
 function renderHexPath(){
   let nodes=modeOrder.map((m,i)=>{
     let s=st(m),c=cfg(m),done=s.count>=c.limit,active=S.mode===m;
-    return `<div class="hex-node ${done?'done':''} ${active?'active':''}" onclick="setMode('${m}')">
+    return `<div class="hex-node ${done?'done':''} ${active?'active':''}" tabindex="0" role="button" onclick="setMode('${m}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMode('${m}')}">
         <div class="hex"><span class="hex-icon">${c.icon}</span><span class="hex-label">${c.short}</span></div>
         <span class="hex-progress">${s.count}/${c.limit}</span>
       </div>${i<modeOrder.length-1?'<div class="hex-link '+(done?'done':'')+'"></div>':''}`;
@@ -267,12 +278,14 @@ function checkAnswer(){
   s.checked=true;
   s.correct=s.selected===q.c;
   if(!s.correct){
+    playChime(220,0.25);
     let exists=S.weakness.some(w=>w.item&&w.item.id===q.id);
     if(!exists){
       S.weakness.unshift({mode:S.mode,item:q,missed:new Date().toISOString()});
       S.weakness=S.weakness.slice(0,30);
     }
   }else{
+    playChime(880);
     S.weakness=S.weakness.filter(w=>!(w.item&&w.item.id===q.id));
   }
   saveState();render();
@@ -302,6 +315,86 @@ function finishQuest(){
   saveState();render();
 }
 
+function weaknessPool(){return (S.weakness||[]).map(w=>w.item).filter(q=>q&&q.q)}
+
+function chooseReview(){
+  let r=S.review,pool=weaknessPool();
+  if(!pool.length)return;
+  let picked=pool[Math.floor(Math.random()*pool.length)];
+  r.currentId=picked.id;
+  r.currentQuestion=JSON.parse(JSON.stringify(picked));
+  r.selected=null;r.checked=false;r.correct=false;
+  saveState();render();
+}
+
+function selectReviewAnswer(i){
+  let r=S.review;
+  if(r.checked)return;
+  r.selected=i;saveState();render();
+}
+
+function checkReviewAnswer(){
+  let r=S.review,q=r.currentQuestion;
+  if(!q||r.selected===null||r.checked)return;
+  r.checked=true;
+  r.correct=r.selected===q.c;
+  if(r.correct){
+    S.weakness=S.weakness.filter(w=>!(w.item&&w.item.id===q.id));
+    S.xp+=8;
+    playChime(880);
+  }else{
+    playChime(220,0.25);
+  }
+  saveState();render();
+}
+
+function nextReviewQuestion(){
+  let r=S.review;
+  r.currentId=null;r.currentQuestion=null;r.selected=null;r.checked=false;r.correct=false;
+  saveState();render();
+}
+
+function renderReviewSection(){
+  let pool=weaknessPool();
+  if(S.review.currentQuestion)return renderReviewQuizCard();
+  if(!pool.length){
+    return `<div class="card"><div class="card-title">🔁 Weak Spot Review</div><div class="card-sub">No weak questions yet — miss a few and they'll show up here for extra practice.</div></div>`;
+  }
+  return `<div class="card">
+    <div class="card-title">🔁 Weak Spot Review</div>
+    <div class="card-sub">${pool.length} question${pool.length===1?'':'s'} you've missed before. Doesn't count toward today's quest limits — pure extra practice, +8 XP per correct answer.</div>
+    <button class="btn btn-primary" onclick="chooseReview()">Start Review</button>
+  </div>`;
+}
+
+function renderReviewQuizCard(){
+  let r=S.review,q=r.currentQuestion;
+  let ansHtml=q.a.map((x,i)=>{
+    let cls=[];
+    if(r.selected===i)cls.push('selected');
+    if(r.checked&&i===q.c)cls.push('correct');
+    if(r.checked&&r.selected===i&&i!==q.c)cls.push('wrong');
+    return `<button class="opt ${cls.join(' ')}" ${r.checked?'disabled':''} onclick="selectReviewAnswer(${i})">
+      <span class="opt-key">${'ABCD'[i]}</span><span>${x}</span>
+    </button>`;
+  }).join('');
+  let feedback='';
+  if(r.checked){
+    feedback=r.correct
+      ?`<div class="feedback-banner good"><div><span class="label">✓ Correct — cleared from your weak spots</span>${q.e}</div></div>`
+      :`<div class="feedback-banner bad"><div><span class="label">✗ Incorrect — the right answer is ${'ABCD'[q.c]}: ${q.a[q.c]}</span>${q.e}</div></div>`;
+  }
+  return `<div class="card quest-card">
+    <span class="quest-tag">🔁 Weak Spot Review</span>
+    <div class="quest-q">${q.q}</div>
+    ${ansHtml}
+    ${feedback||'<p class="muted-hint" style="margin-top:14px">Pick an answer A–D, then click Check.</p>'}
+    <div class="btn-row">
+      <button class="btn btn-primary" ${r.selected===null||r.checked?'disabled':''} onclick="checkReviewAnswer()">Check answer</button>
+      <button class="btn btn-ghost" ${!r.checked?'disabled':''} onclick="nextReviewQuestion()">Next question</button>
+    </div>
+  </div>`;
+}
 function renderLabCard(){
   let s=st(),labs=AZURE_DB.labs,c=cfg();
   if(!s.currentId||!labs.some(l=>l.id===s.currentId)){
@@ -324,7 +417,7 @@ function renderLabCard(){
     <span class="quest-tag">${c.icon} ${c.title} · ${s.count+1}/${c.limit}</span>
     <div class="quest-q">${l.t}</div>
     <p class="muted-hint" style="margin-bottom:12px">${l.d}</p>
-    <textarea oninput="labInput(this.value)" placeholder="Write your explanation in 2-3 sentences...">${s.notes||''}</textarea>
+    <textarea oninput="labInput(this.value)" placeholder="Write your explanation in 2-3 sentences...">${escapeHtml(s.notes||'')}</textarea>
     ${feedbackHtml}
     <div class="btn-row">
       <button class="btn btn-primary" onclick="checkLab()">Check answer</button>
@@ -434,7 +527,7 @@ function resetCurrent(){
   s.notes='';s.feedback='';s.passed=false;s.reviewable=false;s.surrendered=false;s.attempts=0;
   saveState();render();
 }
-function fullReset(){if(confirm('Are you sure you want to reset all progress? This action cannot be undone.')){S=defaultState();saveState();goTo('quests')}}
+function fullReset(){if(confirm('Are you sure you want to reset all progress? This action cannot be undone.')){S=defaultState();saveState();initPetCompanion();goTo('quests')}}
 
 function exportProgress(){
   let payload=JSON.stringify(S,null,2);
@@ -487,6 +580,7 @@ function showToast(msg){
 }
 
 function renderShopPage(){mount('shop',renderLoot())}
+function renderLearnPage(){mount('learn',renderLearn())}
 function renderMasteryPage(){mount('mastery',renderMastery())}
 
 function renderCollectionPage(){
@@ -551,6 +645,7 @@ function renderProfilePage(){
       <div class="card-title">Settings</div>
       <div class="card-sub">Local settings and progress reset.</div>
       <div class="btn-row">
+        <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
         <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
         <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
       </div>
@@ -586,7 +681,7 @@ function renderHistoryPage(){
       html+=`<div class="history-item ${x.correct?'ok':''}">
         ${isRecurring?'<div class="feedback-banner warn" style="margin-bottom:8px"><span class="label">🔁 Recurring weak spot</span>You\'ve missed this one before — worth a closer look.</div>':''}
         <div class="history-q">${x.q}</div>
-        ${!x.correct?`<div class="history-row your">Your answer: ${x.your||'—'}</div>`:''}
+        ${!x.correct?`<div class="history-row your">Your answer: ${escapeHtml(x.your)||'—'}</div>`:''}
         <div class="history-row correct">Correct: ${x.correctAnswer}</div>
         <div class="history-explain">${x.e}</div>
       </div>`;

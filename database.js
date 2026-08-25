@@ -4362,6 +4362,409 @@ window.AZURE_DB = {
     {"title":"Fault tolerance vs redundancy","text":"Redundancy means having duplicate components ready to take over. Fault tolerance is the broader ability of the overall system to keep operating correctly even when one or more of those components actually fails."},
     {"title":"Microsoft Trust Center","text":"The Trust Center is Microsoft's central hub for compliance documentation — covering GDPR, ISO standards, and dozens of other regulatory frameworks Azure has been independently audited against."}
   ],
+  "learnContent": {
+  "cloudConcepts": {
+    "trackName": "Cloud Concepts",
+    "icon": "☁️",
+    "lessons": [
+      {
+        "id": "cc_b1",
+        "tier": "beginner",
+        "title": "So... what actually IS the cloud?",
+        "hook": "You've heard \"it's in the cloud\" a hundred times. But what is it, actually?",
+        "body": [
+          "Strip away the marketing and \"the cloud\" is just someone else's computer, sitting in a giant building called a datacenter, that you rent access to over the internet.",
+          "Instead of buying a server, plugging it in, and babysitting it in your office closet, you rent exactly the computing power you need from a company like Microsoft — and hand it back the moment you're done."
+        ],
+        "takeaway": "Cloud computing = renting computers instead of owning them."
+      },
+      {
+        "id": "cc_b2",
+        "tier": "beginner",
+        "title": "Why \"renting\" beats \"owning\" (usually)",
+        "hook": "Would you rather buy a car for one road trip, or just call a rideshare?",
+        "body": [
+          "Buying on-premises hardware is CapEx (Capital Expenditure) — a big chunk of cash upfront, whether you use the server at 10% or 100% capacity.",
+          "Cloud is OpEx (Operational Expenditure) — you pay for what you actually use, like a taxi fare instead of buying the whole car."
+        ],
+        "takeaway": "CapEx = buy the car. OpEx = call the ride."
+      },
+      {
+        "id": "cc_b3",
+        "tier": "beginner",
+        "title": "The backup goalkeeper principle",
+        "hook": "Ever notice football teams carry a substitute goalkeeper, even though the starter rarely gets injured?",
+        "body": [
+          "That's redundancy — having a backup ready, just in case. Cloud providers do the same with servers, spreading your app across multiple machines so one failure doesn't take everything down.",
+          "High availability means your app keeps running through small hiccups. Disaster recovery is the bigger plan for when an entire region has a really bad day."
+        ],
+        "takeaway": "Redundancy = a substitute goalkeeper for your app."
+      },
+      {
+        "id": "cc_b4",
+        "tier": "beginner",
+        "title": "Elasticity: growing pants for your app",
+        "hook": "Ever worn pants with an elastic waistband after a big meal?",
+        "body": [
+          "Elasticity means your resources automatically expand when demand spikes — like Black Friday traffic — and shrink back down once things calm down.",
+          "You're never stuck paying for a giant server 24/7 just to handle the one hour a day it's actually busy."
+        ],
+        "takeaway": "Elasticity = pants that stretch only when you need them to."
+      },
+      {
+        "id": "cc_b5",
+        "tier": "beginner",
+        "title": "Scaling up vs scaling out",
+        "hook": "Do you hire one genius who works 100-hour weeks, or ten normal people?",
+        "body": [
+          "Scaling up (vertical) means making one machine bigger — more CPU, more RAM. It's simple, but eventually you hit a ceiling.",
+          "Scaling out (horizontal) means adding more machines to share the load. It's how most cloud-native apps grow — easier to keep expanding indefinitely."
+        ],
+        "takeaway": "Scale up = a stronger worker. Scale out = more workers."
+      },
+      {
+        "id": "cc_b6",
+        "tier": "beginner",
+        "title": "Public, Private, and Hybrid — pick your flavor",
+        "hook": "Renting an apartment, owning a house, or a bit of both?",
+        "body": [
+          "Public cloud (like Azure) means you share physical infrastructure with other customers, split by strong virtual walls — cheap, flexible, someone else maintains the building.",
+          "Private cloud is infrastructure dedicated entirely to one organization — more control, more cost, more maintenance, like owning the house outright.",
+          "Hybrid cloud mixes both — some workloads on-premises, some in the public cloud, connected together. Most real companies live here."
+        ],
+        "takeaway": "Public = rent. Private = own. Hybrid = a bit of both."
+      },
+      {
+        "id": "cc_b7",
+        "tier": "beginner",
+        "title": "Pay for what you use, not what you might use",
+        "hook": "You don't pay a flat fee for electricity no matter how many lights are on — so why would servers be different?",
+        "body": [
+          "Consumption-based pricing means your bill reflects actual usage: CPU seconds, gigabytes stored, requests handled — not a fixed subscription regardless of demand.",
+          "This is a major reason cloud can be cheaper than on-premises: you stop paying for capacity that's just sitting idle overnight."
+        ],
+        "takeaway": "Cloud billing works like your electricity meter, not a gym membership."
+      },
+      {
+        "id": "cc_b8",
+        "tier": "beginner",
+        "title": "Why cloud makes you faster, not just cheaper",
+        "hook": "Building your own kitchen takes months. Renting one that's already built takes minutes.",
+        "body": [
+          "On-premises, spinning up a new server can mean weeks of ordering hardware, racking it, configuring it. In Azure, the same server exists in a few clicks or one line of code.",
+          "That speed — called agility — lets teams experiment and fail fast without a six-month hardware commitment hanging over every decision."
+        ],
+        "takeaway": "Cloud doesn't just save money — it saves time to try things."
+      }
+    ]
+  },
+  "coreServices": {
+    "trackName": "Core Azure Services",
+    "icon": "🧱",
+    "lessons": [
+      {
+        "id": "cs_b1",
+        "tier": "beginner",
+        "title": "IaaS, PaaS, SaaS — the pizza analogy",
+        "hook": "Nobody explains this better than pizza.",
+        "body": [
+          "IaaS (Infrastructure as a Service) is like buying flour, dough, and an oven — you get the raw ingredients (virtual machines, networking) and do the cooking yourself.",
+          "PaaS (Platform as a Service) is ordering a pizza kit — someone gives you the dough and sauce already prepped; you just add your toppings (your code) and Microsoft handles the oven (the OS, patching, scaling).",
+          "SaaS (Software as a Service) is calling for delivery — the pizza just shows up, ready to eat. Think Microsoft 365."
+        ],
+        "takeaway": "IaaS = raw ingredients. PaaS = pizza kit. SaaS = delivery."
+      },
+      {
+        "id": "cs_b2",
+        "tier": "beginner",
+        "title": "What is a Virtual Machine, really?",
+        "hook": "It's a computer... pretending to be a computer, inside another computer.",
+        "body": [
+          "A Virtual Machine (VM) is software that behaves exactly like a physical computer — its own OS, its own storage, its own personality — but it's actually just a slice of a much bigger physical server.",
+          "That's how Azure fits thousands of customers onto the same hardware without anyone noticing: everyone gets their own private \"apartment\" inside the same building."
+        ],
+        "takeaway": "A VM is your own private apartment inside a shared building."
+      },
+      {
+        "id": "cs_b3",
+        "tier": "beginner",
+        "title": "Storage: not all boxes are the same",
+        "hook": "Would you store a mattress and a paperclip in the same size box?",
+        "body": [
+          "Blob Storage holds unstructured stuff — photos, videos, backups. Think of it as a giant warehouse of labeled boxes, no fixed shape required.",
+          "Azure Files works like a shared network drive your apps can map to, exactly like the office server everyone already knows how to use.",
+          "Managed Disks are the dedicated hard drive attached to a specific VM — personal storage, not shared with anyone else."
+        ],
+        "takeaway": "Blob = warehouse. Files = shared drive. Disks = personal hard drive."
+      },
+      {
+        "id": "cs_b4",
+        "tier": "beginner",
+        "title": "Regions and their backup buddy",
+        "hook": "Chain restaurants pick multiple cities on purpose — so one bad night in one city doesn't sink the whole business.",
+        "body": [
+          "An Azure Region is a specific geographic area with one or more datacenters — like \"West Europe\" or \"East US\".",
+          "Most regions are paired with another region hundreds of miles away. If a disaster hits one, the paired region is ready to help pick up the slack."
+        ],
+        "takeaway": "Regions are locations. Region pairs are backup buddies for disasters."
+      },
+      {
+        "id": "cs_b5",
+        "tier": "beginner",
+        "title": "Availability Zones: separate wings of the same building",
+        "hook": "Ever notice hospitals put backup generators in a different wing than the main power room?",
+        "body": [
+          "An Availability Zone is a physically separate location within a region — its own power, cooling, and networking.",
+          "Spreading your app across zones means a single equipment failure, even a whole datacenter going dark, doesn't take your app down with it."
+        ],
+        "takeaway": "Availability Zones = separate wings, separate power, shared building."
+      },
+      {
+        "id": "cs_b6",
+        "tier": "beginner",
+        "title": "The universal remote control for Azure",
+        "hook": "Imagine one remote that controls your TV, your lights, and your thermostat — regardless of brand.",
+        "body": [
+          "Azure Resource Manager (ARM) is the single control layer behind everything in Azure. Whether you click in the Portal, type a command in the CLI, or run a script — it all goes through ARM.",
+          "That consistency is what makes automation possible: one API, every resource type, no exceptions."
+        ],
+        "takeaway": "Portal, CLI, PowerShell — different remotes, same ARM underneath."
+      },
+      {
+        "id": "cs_b7",
+        "tier": "beginner",
+        "title": "Your own gated community, digitally",
+        "hook": "Not every stranger should be able to walk into your neighborhood.",
+        "body": [
+          "A Virtual Network (VNet) is your own private, isolated slice of network inside Azure. Resources inside it can talk to each other freely, but nothing gets in from outside unless you allow it.",
+          "It's the digital version of a gated community — your own streets, your own rules for who's allowed through the gate."
+        ],
+        "takeaway": "A VNet is a gated community for your Azure resources."
+      },
+      {
+        "id": "cs_b8",
+        "tier": "beginner",
+        "title": "App Service: a furnished office, not an empty warehouse",
+        "hook": "Would you rather rent a fully furnished office, or an empty warehouse you have to build out yourself?",
+        "body": [
+          "Azure App Service is a managed platform for hosting web apps and APIs. You just deploy your code — Microsoft handles the servers, patching, and scaling underneath.",
+          "Compare that to a plain VM, where you're responsible for literally everything below your application, right down to Windows Updates."
+        ],
+        "takeaway": "App Service is move-in ready. A VM is a bare shell you build out yourself."
+      },
+      {
+        "id": "cs_b9",
+        "tier": "beginner",
+        "title": "Serverless: paying a vending machine, not a full-time cashier",
+        "hook": "You don't pay a cashier's salary just so a vending machine can sell you a snack at 2am.",
+        "body": [
+          "Azure Functions run your code only when something triggers it — a file upload, a timer, an API call — and you're billed only for that brief moment of execution.",
+          "\"Serverless\" doesn't mean there's no server; it means you never think about it. No idle server sitting around costing you money between events."
+        ],
+        "takeaway": "Serverless = you only pay when the vending machine actually dispenses something."
+      },
+      {
+        "id": "cs_b10",
+        "tier": "beginner",
+        "title": "Containers: the shipping container of software",
+        "hook": "A shipping container works the same on a truck, a train, or a cargo ship — nobody has to repack it.",
+        "body": [
+          "A container packages your app together with everything it needs to run — libraries, settings, dependencies — so it behaves identically no matter where it's deployed.",
+          "Azure Kubernetes Service (AKS) is the managed system that runs and coordinates lots of these containers for you, restarting failed ones automatically."
+        ],
+        "takeaway": "Containers travel with everything they need — no surprises at the destination."
+      }
+    ]
+  },
+  "securityGovernance": {
+    "trackName": "Security, Identity & Governance",
+    "icon": "🛡️",
+    "lessons": [
+      {
+        "id": "sg_b1",
+        "tier": "beginner",
+        "title": "Identity: your ID card for every door",
+        "hook": "In the cloud, nothing happens until someone proves who they are.",
+        "body": [
+          "Microsoft Entra ID (formerly Azure AD) is the ID card system for everything in Azure. Every user, every app, every automated script has to show its badge before it can do anything.",
+          "This one identity system is the foundation almost every other security feature — MFA, RBAC, Conditional Access — is built on top of."
+        ],
+        "takeaway": "No badge, no entry. Identity comes first."
+      },
+      {
+        "id": "sg_b2",
+        "tier": "beginner",
+        "title": "RBAC: not everyone gets the master key",
+        "hook": "The intern shouldn't have the same keycard as the CEO.",
+        "body": [
+          "Role-Based Access Control lets you hand out exactly the right level of access — read-only for some, full control for others — scoped to exactly the resources someone actually needs.",
+          "It's the digital version of an office keycard system: marketing can't walk into the server room, and IT can't approve expense reports."
+        ],
+        "takeaway": "RBAC = keycards, not master keys."
+      },
+      {
+        "id": "sg_b3",
+        "tier": "beginner",
+        "title": "Why one password was never enough",
+        "hook": "A single lock only slows a thief down for so long.",
+        "body": [
+          "Multi-Factor Authentication (MFA) adds a second lock: something you know (password) plus something you have (your phone) or something you are (fingerprint).",
+          "Even if a password leaks, the attacker still needs your phone in their hand. It's the single cheapest, highest-impact security upgrade that exists."
+        ],
+        "takeaway": "One lock can be picked. Two locks change the math."
+      },
+      {
+        "id": "sg_b4",
+        "tier": "beginner",
+        "title": "Zero Trust: the airport, not the front door key",
+        "hook": "An airport checks your ID at security, at the gate, and sometimes again before boarding — not just once at the entrance.",
+        "body": [
+          "Zero Trust means never assuming something is safe just because it's already \"inside\" your network. Every request gets verified, every time, regardless of where it's coming from.",
+          "Its three rules: verify explicitly, use the least access necessary, and always assume a breach could already be happening."
+        ],
+        "takeaway": "Zero Trust checks ID at every gate, not just the front door."
+      },
+      {
+        "id": "sg_b5",
+        "tier": "beginner",
+        "title": "The bouncer who only checks twice when something's off",
+        "hook": "Most nights the bouncer just waves you through. The night you show up at 4am from somewhere you've never been? Different story.",
+        "body": [
+          "Conditional Access applies extra checks — like requiring MFA — only when a sign-in looks risky: unfamiliar location, unusual device, odd time of day.",
+          "This keeps daily logins fast and frictionless for normal use, while still slamming the door on suspicious activity."
+        ],
+        "takeaway": "Conditional Access saves the tough questions for when something looks wrong."
+      },
+      {
+        "id": "sg_b6",
+        "tier": "beginner",
+        "title": "Your security report card",
+        "hook": "A report card doesn't fix your grades — but it sure tells you where to focus.",
+        "body": [
+          "Microsoft Defender for Cloud continuously scans your resources against security best practices and hands you a single number: your Secure Score.",
+          "Watching that score trend up or down over time tells you, at a glance, whether your overall security posture is getting better or worse."
+        ],
+        "takeaway": "Secure Score is your environment's report card, updated continuously."
+      },
+      {
+        "id": "sg_b7",
+        "tier": "beginner",
+        "title": "Key Vault: the bank safety deposit box for secrets",
+        "hook": "You wouldn't tape your house key to the front door — so why hardcode a password into your code?",
+        "body": [
+          "Azure Key Vault is a locked, access-controlled vault for secrets, encryption keys, and certificates — nothing sensitive ever needs to sit in plain text in your application.",
+          "Only identities you explicitly grant access can open the vault, and every access is logged."
+        ],
+        "takeaway": "Secrets belong in a vault, not taped to the front door."
+      },
+      {
+        "id": "sg_b8",
+        "tier": "beginner",
+        "title": "Landlord vs tenant: who fixes what?",
+        "hook": "Your landlord fixes the building's plumbing. You're the one who has to lock your own apartment door.",
+        "body": [
+          "The Shared Responsibility Model splits security duties between Microsoft and you. The more of the stack Microsoft manages — SaaS more than PaaS, PaaS more than IaaS — the more they handle for you.",
+          "But your data, your identities, and who has access? That's always on you, no matter which service model you're using."
+        ],
+        "takeaway": "Microsoft maintains the building. You still have to lock your own door."
+      }
+    ]
+  },
+  "managementMonitoring": {
+    "trackName": "Management & Monitoring",
+    "icon": "📊",
+    "lessons": [
+      {
+        "id": "mm_b1",
+        "tier": "beginner",
+        "title": "Resource Groups: the moving boxes of Azure",
+        "hook": "When you move house, you don't throw everything in one giant pile.",
+        "body": [
+          "A Resource Group is a labeled box that holds everything belonging to one project — its VM, its storage, its database — so you can manage, bill, and delete it all together.",
+          "Delete the box, and everything inside goes with it. Handy for cleanup — dangerous if you grab the wrong box."
+        ],
+        "takeaway": "Resource Groups = labeled moving boxes for your project."
+      },
+      {
+        "id": "mm_b2",
+        "tier": "beginner",
+        "title": "Cost Management: no surprise bills",
+        "hook": "Ever gone over your phone's data plan without noticing?",
+        "body": [
+          "Azure Cost Management tracks exactly what you're spending, in real time, broken down by resource — so \"the cloud\" never turns into a mystery invoice at the end of the month.",
+          "Azure Advisor goes a step further, actively suggesting where you're overpaying for things you're barely using."
+        ],
+        "takeaway": "Cost Management is your real-time data usage meter."
+      },
+      {
+        "id": "mm_b3",
+        "tier": "beginner",
+        "title": "Policy: rules that enforce themselves",
+        "hook": "A sign says \"slow down.\" A speed bump makes you.",
+        "body": [
+          "A company rulebook is just a sign — people can ignore it. Azure Policy is the speed bump: it can automatically block, flag, or even fix resources that don't follow the rules, no human enforcement needed.",
+          "Want every storage account encrypted, no exceptions? Policy makes that true automatically, instead of hoping everyone remembers."
+        ],
+        "takeaway": "Policy doesn't ask nicely — it's the speed bump, not the sign."
+      },
+      {
+        "id": "mm_b4",
+        "tier": "beginner",
+        "title": "The org chart of Azure",
+        "hook": "A big company doesn't run without departments, divisions, and someone above all of them.",
+        "body": [
+          "A Subscription is a billing and access boundary — think of it as one department's budget.",
+          "A Management Group sits above multiple subscriptions purely to apply governance — like company-wide policy — across all of them at once, without touching billing."
+        ],
+        "takeaway": "Subscriptions are departments. Management Groups are the org chart above them."
+      },
+      {
+        "id": "mm_b5",
+        "tier": "beginner",
+        "title": "The dashboard warning lights of your cloud",
+        "hook": "Your car doesn't wait for the engine to die before it tells you something's wrong.",
+        "body": [
+          "Azure Monitor collects data from your resources and can alert you the moment something looks off — before users even notice.",
+          "Azure Service Health goes further, telling you specifically which of YOUR resources are affected by any ongoing Azure-wide incident, not just a generic status page."
+        ],
+        "takeaway": "Monitor is your dashboard. Service Health tells you if the outage is actually your problem."
+      },
+      {
+        "id": "mm_b6",
+        "tier": "beginner",
+        "title": "The pizza delivery guarantee",
+        "hook": "\"Delivered in 30 minutes or it's free\" is a promise with teeth.",
+        "body": [
+          "A Service Level Agreement (SLA) is Microsoft's formal, measurable uptime commitment — like 99.9% availability.",
+          "That number sounds close to 100%, but 99.9% still allows under 9 hours of downtime a year. Miss the promise, and Microsoft owes you service credits."
+        ],
+        "takeaway": "An SLA is a guarantee with a number attached — and a penalty if it's broken."
+      },
+      {
+        "id": "mm_b7",
+        "tier": "beginner",
+        "title": "A personal trainer for your cloud spend",
+        "hook": "A good trainer doesn't just watch you work out — they tell you what to actually change.",
+        "body": [
+          "Azure Advisor analyzes your actual resource usage and proactively recommends ways to cut costs, boost performance, and tighten security — personalized to your setup, not generic advice.",
+          "It's the difference between a static checklist and a coach who's actually looking at your numbers."
+        ],
+        "takeaway": "Advisor doesn't just monitor — it tells you what to fix."
+      },
+      {
+        "id": "mm_b8",
+        "tier": "beginner",
+        "title": "Sticky notes for your cloud resources",
+        "hook": "How do you find one specific box in a garage full of unlabeled boxes?",
+        "body": [
+          "Tags are simple name/value labels — like Environment:Production or Owner:Marketing — that you stick onto resources.",
+          "They're what makes cost reports readable and governance automation possible at scale — without them, a big Azure environment is just a pile of unlabeled boxes."
+        ],
+        "takeaway": "Tags are the sticky notes that keep a big cloud environment from becoming chaos."
+      }
+    ]
+  }
+},
   "masteryTracks": [
     {
       "id": "cloudConcepts",
