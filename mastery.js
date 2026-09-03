@@ -32,6 +32,9 @@ function buyMasteryRank(trackId){
   S.drops=S.drops||[];
   let tier=masteryTierLabel(newRank);
   S.drops.unshift(`⭐ ${t?t.name:trackId} Mastery Rank ${newRank}${tier?' — '+tier+'!':''} (+${(newRank*0.5).toFixed(1)}% XP)`);
+  if([5,10,20,40].includes(newRank)&&typeof showAchievementToast==='function'){
+    showAchievementToast(`${tier} Reached!`,`${t?t.name:trackId} · Rank ${newRank}`);
+  }
   saveState();render();
 }
 

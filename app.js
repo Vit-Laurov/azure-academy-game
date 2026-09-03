@@ -88,6 +88,7 @@ function checkStreakMilestone(){
       claimed=m.day;
       S.drops=S.drops||[];
       S.drops.unshift(`🔥 ${m.day}-day streak! +${m.shards} Shards`);
+      if(typeof showAchievementToast==='function')showAchievementToast(`${m.day}-Day Streak!`,`+${m.shards} Shards`);
     }
   });
 }
@@ -137,7 +138,7 @@ function renderPage(page){
   else if(page==='history')renderHistoryPage();
   refreshSidebar();
 }
-function render(){renderPage(currentPage)}
+function render(){renderPage(currentPage);if(typeof checkLevelUpFX==='function')checkLevelUpFX()}
 function mount(page,html){document.getElementById('page-'+page).innerHTML=html}
 
 function pendingChestCount(){
@@ -445,8 +446,9 @@ function checkLab(){
 
 function showHint(){
   let s=st(),l=AZURE_DB.labs.find(x=>x.id===s.currentId);
-  let groups=l.keywords.map(g=>g.slice(0,2).join(' / '));
-  s.feedback=`<span class="label">Hint</span>Try to mention: <b>${groups.join(' • ')}</b>.`;
+  let showCount=Math.max(1,Math.ceil(l.keywords.length/2));
+  let groups=l.keywords.slice(0,showCount).map(g=>g.slice(0,2).join(' / '));
+  s.feedback=`<span class="label">Hint</span>Try to mention ideas like: <b>${groups.join(' • ')}</b> — plus a bit more in your own words.`;
   saveState();render();
 }
 
@@ -498,7 +500,7 @@ function renderCampaignCard(){
   let gained=S.xp-(S.dayStartXP||0),shardsGained=S.shards-(S.dayStartShards||0);
   let title=acc>=95?'Azure Champion':acc>=80?'Cloud Raider':acc>=60?'Resource Ranger':'Cloud Apprentice';
   let chest=!S.claimed.campaign
-    ?`<div class="feedback-banner warn">⏳ Claim your Campaign Chest today — it won't carry over to tomorrow.</div><button class="btn btn-gold" onclick="claimChest('campaign')">👑 Open Daily Campaign Chest</button>`
+    ?`<div class="feedback-banner warn">⏳ Defeat the boss today — the fight won't carry over to tomorrow.</div><button class="btn btn-gold" onclick="startBossFight()">⚔️ Challenge the Boss</button>`
     :`<div class="feedback-banner good"><span class="label">Campaign chest claimed</span></div>`;
   return `<div class="card">
     <div class="card-title">👑 Daily Campaign complete</div>
@@ -648,6 +650,15 @@ function renderProfilePage(){
         <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
         <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
         <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🎬 Preview animations</div>
+      <div class="card-sub">Trigger any chest tier on demand — doesn't touch your real progress, XP, or Shards.</div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="previewChest('common')">Common</button>
+        <button class="btn btn-ghost" onclick="previewChest('rare')">Rare/Epic</button>
+        <button class="btn btn-ghost" onclick="previewChest('legendary')">Legendary</button>
       </div>
     </div>
     <div class="card">

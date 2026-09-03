@@ -127,8 +127,20 @@
 
 <div id="chest-overlay" class="chest-overlay hidden" onclick="closeChestAnimation(event)">
   <div class="chest-scene">
-    <div class="chest-particles" id="chest-particles"></div>
-    <div class="chest-icon" id="chest-icon">📦</div>
+    <div class="reward-stage" id="reward-stage">
+      <div class="rs-flash"></div>
+      <div class="rs-banner" id="reward-banner"></div>
+      <div class="rs-beam"></div>
+      <div class="rs-glow"></div>
+      <div class="rs-ring"></div>
+      <div class="rs-floor"></div>
+      <div class="rs-item" id="reward-item"></div>
+      <div class="rs-chest">
+        <div class="rs-lid"><div class="rs-band a"></div><div class="rs-band b"></div></div>
+        <div class="rs-base"><div class="rs-band a"></div><div class="rs-band b"></div></div>
+        <div class="rs-lock"></div>
+      </div>
+    </div>
     <div class="chest-reveal" id="chest-reveal"></div>
     <div class="chest-hint">Click anywhere to continue</div>
   </div>
@@ -142,6 +154,22 @@
     <button class="btn btn-primary" onclick="closeDailyFactModal()">Got it</button>
   </div>
 </div>
+
+<div id="boss-overlay" class="boss-overlay hidden">
+  <div class="boss-scene">
+    <div class="boss-impact-flash" id="boss-impact-flash"></div>
+    <div class="boss-slash" id="boss-slash"></div>
+    <div id="boss-scene-content"></div>
+  </div>
+</div>
+
+<div id="fx-overlay" class="fx-overlay hidden">
+  <div class="fx-flash" id="fx-flash"></div>
+  <div class="fx-pulse" id="fx-pulse"></div>
+  <div class="fx-content" id="fx-content"></div>
+</div>
+
+<div id="achievement-toast" class="achievement-toast" onclick="this.classList.remove('show')"></div>
 
 <div id="pet-companion" class="pet-companion hidden" onclick="petClicked()">
   <div id="pet-bubble" class="pet-bubble"></div>
@@ -164,8 +192,10 @@
 <script src="loot.js"></script>
 <script src="mastery.js"></script>
 <script src="chestfx.js"></script>
+<script src="fx.js"></script>
 <script src="dailyfact.js"></script>
 <script src="learn.js"></script>
+<script src="bossfight.js"></script>
 <script src="practical.js"></script>
 <script src="app.js"></script>
 </body>

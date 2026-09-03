@@ -407,7 +407,7 @@ body:has(#guide){display:block;padding:32px 40px;max-width:1100px;margin:0 auto}
 .previewCard.legendary{border-color:var(--legendary);box-shadow:0 0 18px -4px #F4B74055}
 .previewIcon{font-size:38px;display:block;margin-bottom:8px}
 .themePreview{min-height:110px;border-radius:var(--r-lg);padding:16px;border:1px solid var(--line);margin:8px 0}
-.themePreview.bastion{background:#0D1626;color:#cfe4ff;border-color:var(--rare)}
+.themePreview.bastion{background:#0D1F16;color:#c8f5da;border-color:var(--uncommon)}
 .themePreview.iac{background:#160D26;color:#e9d9ff;border-color:var(--epic)}
 .themePreview.gryphon{background:#211A0D;color:#ffe9b8;border-color:var(--legendary)}
 .themePreview.phoenix{background:#260D12;color:#ffd9de;border-color:var(--red)}
@@ -431,36 +431,151 @@ textarea#exportBox{margin-top:10px}
 .chest-overlay.hidden{display:none}
 
 .chest-scene{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:20px}
-.chest-icon{
-  width:150px;height:150px;line-height:1;filter:drop-shadow(0 0 0 transparent);
-  transform:scale(0.9);transition:filter .3s ease;
+
+/* ===== Reward stage (from reference animation file) — chest, glow, beam, ring, item, banner ===== */
+.reward-stage{position:relative;width:320px;height:340px;perspective:1000px}
+.reward-stage .rs-floor{
+  position:absolute;left:50%;bottom:30px;
+  width:280px;height:52px;transform:translateX(-50%);
+  border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.7),transparent 70%);
+  filter:blur(4px)
 }
-.chest-icon svg{width:100%;height:100%}
-.chest-icon.shaking{animation:chestShake .55s ease-in-out 2}
-.chest-icon.opened{animation:chestPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
-@keyframes chestShake{
-  0%,100%{transform:rotate(0deg) scale(0.9)}
-  20%{transform:rotate(-6deg) scale(0.92)}
-  40%{transform:rotate(6deg) scale(0.92)}
-  60%{transform:rotate(-4deg) scale(0.94)}
-  80%{transform:rotate(4deg) scale(0.94)}
+.reward-stage .rs-chest{
+  position:absolute;left:50%;bottom:64px;
+  width:155px;height:112px;
+  transform:translateX(-50%);transform-origin:center bottom;z-index:10
 }
-@keyframes chestPop{
-  0%{transform:scale(0.94) rotate(0)}
-  55%{transform:scale(1.35) rotate(-4deg)}
-  100%{transform:scale(1.15) rotate(0)}
+.reward-stage .rs-base,.reward-stage .rs-lid{
+  position:absolute;left:0;width:155px;
+  background:linear-gradient(135deg,#6d3c1c,#2d1709);
+  border:4px solid #d39e3c;
+  box-shadow:inset 0 0 0 3px #2b170a,0 10px 24px rgba(0,0,0,.5)
+}
+.reward-stage .rs-base{bottom:0;height:74px;border-radius:8px 8px 12px 12px}
+.reward-stage .rs-lid{top:0;height:49px;border-radius:28px 28px 8px 8px;transform-origin:50% 100%}
+.reward-stage .rs-band{position:absolute;top:0;bottom:0;width:16px;background:linear-gradient(90deg,#87601d,#ffd166,#87601d)}
+.reward-stage .rs-band.a{left:27px}.reward-stage .rs-band.b{right:27px}
+.reward-stage .rs-lock{position:absolute;left:50%;top:52px;transform:translateX(-50%);width:27px;height:34px;border-radius:5px;background:linear-gradient(#ffe38c,#b97816);border:3px solid #5e3c0c;z-index:12}
+.reward-stage .rs-glow,.reward-stage .rs-beam,.reward-stage .rs-ring,.reward-stage .rs-flash{position:absolute;pointer-events:none}
+.reward-stage .rs-glow{left:50%;bottom:78px;width:190px;height:190px;transform:translateX(-50%) scale(.1);border-radius:50%;opacity:0;filter:blur(5px);z-index:4}
+.reward-stage .rs-beam{left:50%;bottom:105px;width:95px;height:285px;transform:translateX(-50%) scaleY(0);transform-origin:bottom;opacity:0;filter:blur(10px);z-index:3}
+.reward-stage .rs-ring{left:50%;bottom:98px;width:80px;height:80px;transform:translateX(-50%) scale(.1);border:4px solid rgba(255,255,255,.75);border-radius:50%;opacity:0;z-index:7}
+.reward-stage .rs-flash{inset:0;background:white;opacity:0;z-index:30}
+.reward-stage .rs-item{
+  position:absolute;left:50%;bottom:108px;width:80px;height:80px;
+  transform:translateX(-50%) scale(.1);opacity:0;border-radius:15px;z-index:15;
+  display:grid;place-items:center;font-size:40px;font-weight:900;color:white;border:3px solid rgba(255,255,255,.9)
+}
+.reward-stage .rs-item svg{width:42px;height:42px;stroke:white}
+.reward-stage .rs-banner{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  opacity:0;padding:10px 22px;border-radius:10px;font-weight:900;letter-spacing:.06em;
+  z-index:21;white-space:nowrap;font-size:13px;
 }
 
-.chest-particles{position:absolute;top:50%;left:50%;width:0;height:0;pointer-events:none}
-.chest-particle{
-  position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;
-  background:var(--amber);opacity:0;
-  animation:particleBurst .9s ease-out forwards;
+/* rarity tier colors */
+.reward-stage.tier-common .rs-glow{background:radial-gradient(circle,#fff 0 7%,rgba(148,163,184,.8) 20%,rgba(148,163,184,.16) 55%,transparent 72%)}
+.reward-stage.tier-common .rs-beam{background:linear-gradient(to top,rgba(148,163,184,.8),rgba(255,255,255,.8),transparent)}
+.reward-stage.tier-common .rs-item{background:radial-gradient(circle,#d8e0e8,#536170);box-shadow:0 0 20px #94a3b8}
+.reward-stage.tier-common .rs-banner{background:rgba(148,163,184,.18);border:1px solid #94a3b8;color:#e2e8f0}
+
+.reward-stage.tier-epic .rs-glow{background:radial-gradient(circle,#fff 0 8%,rgba(168,85,247,.95) 20%,rgba(168,85,247,.2) 55%,transparent 72%)}
+.reward-stage.tier-epic .rs-beam{background:linear-gradient(to top,rgba(168,85,247,.95),rgba(255,255,255,.9),transparent)}
+.reward-stage.tier-epic .rs-item{background:radial-gradient(circle,#d8b4fe,#6b21a8);box-shadow:0 0 32px #a855f7}
+.reward-stage.tier-epic .rs-banner{background:rgba(168,85,247,.24);border:1px solid #a855f7;color:#f3e8ff}
+
+.reward-stage.tier-legendary .rs-glow{background:radial-gradient(circle,#fff 0 8%,rgba(251,191,36,.98) 20%,rgba(245,158,11,.24) 55%,transparent 72%)}
+.reward-stage.tier-legendary .rs-beam{background:linear-gradient(to top,rgba(251,191,36,.98),rgba(255,255,255,.95),transparent)}
+.reward-stage.tier-legendary .rs-item{background:radial-gradient(circle,#fff0b5,#b45309);box-shadow:0 0 38px #fbbf24}
+.reward-stage.tier-legendary .rs-banner{background:rgba(245,158,11,.26);border:1px solid #fbbf24;color:#fff4cb}
+
+/* COMMON tier timings */
+.reward-stage.tier-common.play .rs-chest{animation:rsCChest 1.8s both}
+.reward-stage.tier-common.play .rs-lid{animation:rsCLid 1.8s both}
+.reward-stage.tier-common.play .rs-glow{animation:rsCGlow 1.8s both}
+.reward-stage.tier-common.play .rs-beam{animation:rsCBeam 1.8s both}
+.reward-stage.tier-common.play .rs-item{animation:rsCItem 1.8s both}
+.reward-stage.tier-common.play .rs-banner{animation:rsCBanner 1.8s both}
+@keyframes rsCChest{
+  0%,8%{transform:translateX(-50%)}
+  13%{transform:translateX(-56%) rotate(-3deg)}
+  18%{transform:translateX(-44%) rotate(3deg)}
+  23%{transform:translateX(-53%) rotate(-2deg)}
+  28%{transform:translateX(-47%) rotate(2deg)}
+  34%{transform:translateX(-50%)}
+  42%{transform:translateX(-50%) translateY(-22px) scale(1.06)}
+  50%{transform:translateX(-50%) translateY(0) scale(.96)}
+  58%,100%{transform:translateX(-50%)}
 }
-@keyframes particleBurst{
-  0%{opacity:1;transform:translate(0,0) scale(1)}
-  100%{opacity:0;transform:translate(var(--px),var(--py)) scale(0.3)}
+@keyframes rsCLid{0%,47%{transform:rotateX(0)}55%,100%{transform:rotateX(-118deg)}}
+@keyframes rsCGlow{0%,34%{opacity:0;transform:translateX(-50%) scale(.1)}52%{opacity:.75;transform:translateX(-50%) scale(1.5)}100%{opacity:.18;transform:translateX(-50%) scale(.8)}}
+@keyframes rsCBeam{0%,49%{opacity:0;transform:translateX(-50%) scaleY(0)}57%{opacity:.75;transform:translateX(-50%) scaleY(.9)}100%{opacity:0;transform:translateX(-50%) scaleY(.5)}}
+@keyframes rsCItem{0%,50%{opacity:0;transform:translateX(-50%) translateY(0) scale(.1)}59%{opacity:1}71%{transform:translateX(-50%) translateY(-128px) scale(1.12)}83%,100%{opacity:1;transform:translateX(-50%) translateY(-112px) scale(1)}}
+@keyframes rsCBanner{0%,79%{opacity:0;transform:translateX(-50%) translateY(-14px)}90%,100%{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* EPIC tier timings */
+.reward-stage.tier-epic.play .rs-chest{animation:rsEChest 2.25s both}
+.reward-stage.tier-epic.play .rs-lid{animation:rsELid 2.25s both}
+.reward-stage.tier-epic.play .rs-glow{animation:rsEGlow 2.25s both}
+.reward-stage.tier-epic.play .rs-beam{animation:rsEBeam 2.25s both}
+.reward-stage.tier-epic.play .rs-item{animation:rsEItem 2.25s both}
+.reward-stage.tier-epic.play .rs-banner{animation:rsEBanner 2.25s both}
+.reward-stage.tier-epic.play .rs-ring{animation:rsERing 2.25s both}
+.reward-stage.tier-epic.play .rs-flash{animation:rsEFlash 2.25s both}
+@keyframes rsEChest{
+  0%,5%{transform:translateX(-50%)}
+  9%{transform:translateX(-62%) rotate(-6deg)}
+  13%{transform:translateX(-38%) rotate(6deg)}
+  17%{transform:translateX(-60%) rotate(-5deg)}
+  21%{transform:translateX(-40%) rotate(5deg)}
+  25%{transform:translateX(-56%) rotate(-3deg)}
+  29%{transform:translateX(-44%) rotate(3deg)}
+  33%{transform:translateX(-50%)}
+  40%{transform:translateX(-50%) translateY(-48px) scale(1.15)}
+  47%{transform:translateX(-50%) translateY(8px) scale(.88)}
+  52%{transform:translateX(-50%) translateY(-7px) scale(1.04)}
+  58%,100%{transform:translateX(-50%)}
 }
+@keyframes rsELid{0%,45%{transform:rotateX(0)}51%,100%{transform:rotateX(-145deg)}}
+@keyframes rsEGlow{0%,36%{opacity:0;transform:translateX(-50%) scale(.05)}49%{opacity:1;transform:translateX(-50%) scale(2.8)}60%{opacity:.72;transform:translateX(-50%) scale(1.3)}100%{opacity:.25;transform:translateX(-50%) scale(.9)}}
+@keyframes rsEBeam{0%,44%{opacity:0;transform:translateX(-50%) scaleY(0)}50%{opacity:1;transform:translateX(-50%) scaleY(1.55)}62%{opacity:.6}100%{opacity:0;transform:translateX(-50%) scaleY(.5)}}
+@keyframes rsEItem{0%,47%{opacity:0;transform:translateX(-50%) translateY(0) scale(.05) rotate(-18deg)}54%{opacity:1}64%{transform:translateX(-50%) translateY(-185px) scale(1.48) rotate(24deg)}73%{transform:translateX(-50%) translateY(-116px) scale(.84) rotate(-7deg)}82%{transform:translateX(-50%) translateY(-145px) scale(1.1) rotate(3deg)}90%,100%{opacity:1;transform:translateX(-50%) translateY(-136px) scale(1) rotate(0)}}
+@keyframes rsEBanner{0%,68%{opacity:0;transform:translateX(-50%) translateY(-35px) scale(.7)}77%{opacity:1;transform:translateX(-50%) translateY(0) scale(1.16)}87%,100%{opacity:1;transform:translateX(-50%) scale(1)}}
+@keyframes rsERing{0%,46%{opacity:0;transform:translateX(-50%) scale(.05)}51%{opacity:1}62%{opacity:0;transform:translateX(-50%) scale(6)}100%{opacity:0}}
+@keyframes rsEFlash{0%,46%{opacity:0}49%{opacity:.75}53%,100%{opacity:0}}
+
+/* LEGENDARY tier timings */
+.reward-stage.tier-legendary.play{animation:rsLStage 3.1s both}
+.reward-stage.tier-legendary.play .rs-chest{animation:rsLChest 3.1s both}
+.reward-stage.tier-legendary.play .rs-lid{animation:rsLLid 3.1s both}
+.reward-stage.tier-legendary.play .rs-glow{animation:rsLGlow 3.1s both}
+.reward-stage.tier-legendary.play .rs-beam{animation:rsLBeam 3.1s both}
+.reward-stage.tier-legendary.play .rs-item{animation:rsLItem 3.1s both}
+.reward-stage.tier-legendary.play .rs-banner{animation:rsLBanner 3.1s both}
+.reward-stage.tier-legendary.play .rs-ring{animation:rsLRing 3.1s both}
+.reward-stage.tier-legendary.play .rs-flash{animation:rsLFlash 3.1s both}
+@keyframes rsLStage{0%,15%{filter:brightness(1)}24%{filter:brightness(.45)}39%{filter:brightness(.35)}51%{filter:brightness(1.75)}58%{filter:brightness(.85)}100%{filter:brightness(1)}}
+@keyframes rsLChest{
+  0%,8%{transform:translateX(-50%)}
+  11%{transform:translateX(-64%) rotate(-7deg)}
+  14%{transform:translateX(-36%) rotate(7deg)}
+  17%{transform:translateX(-62%) rotate(-6deg)}
+  20%{transform:translateX(-38%) rotate(6deg)}
+  23%{transform:translateX(-58%) rotate(-4deg)}
+  26%{transform:translateX(-42%) rotate(4deg)}
+  30%{transform:translateX(-50%)}
+  38%{transform:translateX(-50%) translateY(-64px) scale(1.2)}
+  46%{transform:translateX(-50%) translateY(12px) scale(.84)}
+  53%{transform:translateX(-50%) translateY(-10px) scale(1.07)}
+  60%,100%{transform:translateX(-50%)}
+}
+@keyframes rsLLid{0%,44%{transform:rotateX(0)}50%,100%{transform:rotateX(-155deg)}}
+@keyframes rsLGlow{0%,28%{opacity:0;transform:translateX(-50%) scale(.03)}45%{opacity:.9;transform:translateX(-50%) scale(1.5)}51%{opacity:1;transform:translateX(-50%) scale(3.4)}69%{opacity:.78;transform:translateX(-50%) scale(1.55)}100%{opacity:.34;transform:translateX(-50%) scale(1)}}
+@keyframes rsLBeam{0%,44%{opacity:0;transform:translateX(-50%) scaleY(0)}51%{opacity:1;transform:translateX(-50%) scaleY(1.8)}71%{opacity:.9}100%{opacity:0;transform:translateX(-50%) scaleY(.9)}}
+@keyframes rsLItem{0%,48%{opacity:0;transform:translateX(-50%) translateY(0) scale(.03) rotateY(0)}54%{opacity:1}68%{transform:translateX(-50%) translateY(-205px) scale(1.62) rotateY(360deg)}82%{transform:translateX(-50%) translateY(-170px) scale(1.14) rotateY(720deg)}91%,100%{opacity:1;transform:translateX(-50%) translateY(-165px) scale(1) rotateY(720deg)}}
+@keyframes rsLBanner{0%,78%{opacity:0;transform:translateX(-50%) translateY(-45px) scale(.65)}87%{opacity:1;transform:translateX(-50%) translateY(0) scale(1.22)}94%,100%{opacity:1;transform:translateX(-50%) scale(1)}}
+@keyframes rsLRing{0%,47%{opacity:0;transform:translateX(-50%) scale(.04)}52%{opacity:1}66%{opacity:0;transform:translateX(-50%) scale(7.5)}100%{opacity:0}}
+@keyframes rsLFlash{0%,47%{opacity:0}50%{opacity:1}53%{opacity:.15}56%,100%{opacity:0}}
 
 .chest-reveal{
   margin-top:6px;min-width:260px;max-width:360px;
@@ -481,10 +596,6 @@ textarea#exportBox{margin-top:10px}
 .chest-reveal .reveal-item.rare{color:var(--rare);border-color:var(--rare);box-shadow:0 0 14px -4px var(--rare)}
 .chest-reveal .reveal-item.epic{color:var(--epic);border-color:var(--epic);box-shadow:0 0 16px -3px var(--epic)}
 .chest-reveal .reveal-item.legendary{color:var(--legendary);border-color:var(--legendary);box-shadow:0 0 22px -2px var(--legendary)}
-
-.chest-icon.glow-rare{filter:drop-shadow(0 0 22px var(--rare))}
-.chest-icon.glow-epic{filter:drop-shadow(0 0 24px var(--epic))}
-.chest-icon.glow-legendary{filter:drop-shadow(0 0 28px var(--legendary))}
 
 .chest-hint{font-size:12px;color:var(--text-faint);opacity:0;transition:opacity .4s ease .3s}
 .chest-hint.show{opacity:1}
@@ -639,3 +750,143 @@ textarea#exportBox{margin-top:10px}
   background:var(--bg-elevated);color:var(--text-faint);border:1px solid var(--line);
 }
 .tier-badge.available{color:var(--teal);border-color:#2DD4BF40;background:var(--teal-dim)}
+
+/* ===== Boss battle ===== */
+.boss-overlay{
+  position:fixed;inset:0;z-index:900;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,7,16,0);opacity:0;pointer-events:none;
+  transition:background .3s ease,opacity .3s ease;padding:20px;
+}
+.boss-overlay.visible{background:rgba(5,7,16,.88);opacity:1;pointer-events:auto}
+.boss-overlay.hidden{display:none}
+.boss-scene{
+  max-width:480px;width:100%;background:var(--card);border:1px solid var(--line-bright);
+  border-radius:var(--r-lg);padding:26px;text-align:center;
+}
+.boss-hp-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.hp-block{flex:1}
+.hp-label{font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text-dim)}
+.hp-bar{height:14px;border-radius:999px;background:var(--bg-elevated);border:1px solid var(--line);overflow:hidden}
+.hp-fill{height:100%;transition:width .5s ease}
+.hp-fill.player{background:linear-gradient(90deg,var(--teal),#5CE897)}
+.hp-fill.boss{background:linear-gradient(90deg,var(--red),#FF7B8C)}
+.boss-vs{font-weight:700;color:var(--text-faint);font-size:13px}
+.boss-sprite{
+  font-size:64px;margin-bottom:16px;position:relative;
+  animation:bossIdle 2.4s ease-in-out infinite;
+}
+@keyframes bossIdle{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.04) translateY(-4px)}}
+.boss-sprite.hit-flash{animation:bossHit .45s ease}
+@keyframes bossHit{
+  0%{transform:scale(1) translateX(0)}
+  20%{transform:scale(.82,1.1) translateX(-10px) rotate(-6deg)}
+  45%{transform:scale(1.12,.9) translateX(8px) rotate(4deg)}
+  70%{transform:scale(.94,1.04) translateX(-4px) rotate(-2deg)}
+  100%{transform:scale(1) translateX(0) rotate(0)}
+}
+.boss-sprite.boss-defeat{animation:bossDefeat 1.1s ease forwards}
+@keyframes bossDefeat{
+  0%{transform:scale(1);opacity:1;filter:brightness(1)}
+  30%{transform:scale(1.3) rotate(8deg);filter:brightness(2.2)}
+  60%{transform:scale(.6) rotate(-14deg);opacity:.5;filter:brightness(.6)}
+  100%{transform:scale(.2) rotate(20deg);opacity:0}
+}
+.boss-sprite.boss-victorious{animation:bossVictorious 1.6s ease-in-out infinite}
+@keyframes bossVictorious{0%,100%{transform:scale(1.15) translateY(0)}50%{transform:scale(1.25) translateY(-8px)}}
+
+.hp-block.hit-flash .hp-bar{animation:playerHit .4s ease}
+@keyframes playerHit{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(2) saturate(2)}
+}
+
+/* screen-wide impact flash, tinted by who got hit */
+.boss-scene{position:relative;overflow:hidden}
+.boss-impact-flash{position:absolute;inset:0;opacity:0;pointer-events:none;z-index:5}
+.boss-impact-flash.hit-boss{background:#fff;animation:impactFlash .35s ease}
+.boss-impact-flash.hit-player{background:var(--red);animation:impactFlash .35s ease}
+@keyframes impactFlash{0%{opacity:0}30%{opacity:.55}100%{opacity:0}}
+
+/* directional slash spark on attack */
+.boss-slash{
+  position:absolute;top:50%;left:50%;width:120px;height:6px;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  transform:translate(-50%,-50%) rotate(-30deg) scaleX(0);opacity:0;
+  pointer-events:none;z-index:6;filter:blur(.5px);
+}
+.boss-slash.show{animation:slashSweep .35s ease}
+@keyframes slashSweep{0%{opacity:0;transform:translate(-50%,-50%) rotate(-30deg) scaleX(0)}40%{opacity:1;transform:translate(-50%,-50%) rotate(-30deg) scaleX(1.6)}100%{opacity:0;transform:translate(-50%,-50%) rotate(-30deg) scaleX(2.2)}}
+
+.boss-q-text{font-size:15.5px;font-weight:600;margin-bottom:16px;line-height:1.5}
+.boss-result-title{font-size:24px;font-weight:700;margin-bottom:10px;opacity:0}
+.boss-result-title.show{animation:resultPop .6s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes resultPop{0%{opacity:0;transform:scale(.5)}60%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+.boss-result.win .boss-result-title{color:var(--teal)}
+.boss-result.lose .boss-result-title{color:var(--red)}
+.boss-result p{color:var(--text-dim);margin-bottom:18px;font-size:14px}
+
+/* ===== fx-flash (shared: reused by the level-up / daily-complete overlay below) ===== */
+.fx-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:30}
+.fx-flash.show{animation:fxFlash .5s ease}
+@keyframes fxFlash{0%{opacity:0}35%{opacity:.75}100%{opacity:0}}
+
+/* ===== Level up / Daily complete overlay ===== */
+.fx-overlay{
+  position:fixed;inset:0;z-index:950;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,7,16,0);opacity:0;pointer-events:none;
+  transition:background .3s ease,opacity .3s ease;
+}
+.fx-overlay.visible{background:rgba(5,7,16,.85);opacity:1;pointer-events:auto}
+.fx-overlay.hidden{display:none}
+.fx-overlay .fx-flash{z-index:1}
+.fx-overlay .fx-pulse{
+  position:absolute;left:50%;top:50%;width:90px;height:90px;
+  transform:translate(-50%,-50%) scale(.1);border-radius:50%;opacity:0;
+  border:4px solid currentColor;pointer-events:none;z-index:2;
+}
+.fx-overlay .fx-pulse.show{animation:fxPulseBig 1.4s ease both}
+@keyframes fxPulseBig{0%{opacity:0;transform:translate(-50%,-50%) scale(.1)}30%{opacity:1}62%{opacity:0;transform:translate(-50%,-50%) scale(6)}100%{opacity:0}}
+.fx-content{position:relative;z-index:3;text-align:center;cursor:pointer}
+.fx-level-text{
+  font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:800;
+  letter-spacing:.06em;color:var(--accent-bright);text-shadow:0 0 34px var(--accent);
+  opacity:0;transform:scale(.4);
+}
+.fx-level-text.show{animation:fxLevelText 1.4s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes fxLevelText{0%{opacity:0;transform:scale(.35)}55%{opacity:1;transform:scale(1.2)}75%{transform:scale(.95)}100%{opacity:1;transform:scale(1)}}
+.fx-level-sub{color:var(--text-dim);font-size:14px;margin-top:10px;opacity:0}
+.fx-level-sub.show{animation:fxFadeIn .5s ease .6s both}
+@keyframes fxFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.fx-check{font-size:76px;color:var(--teal);text-shadow:0 0 32px var(--teal);opacity:0;transform:scale(.3)}
+.fx-check.show{animation:fxCheck 1.2s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes fxCheck{0%{opacity:0;transform:scale(.2) rotate(-18deg)}55%{opacity:1;transform:scale(1.35) rotate(8deg)}75%,100%{opacity:1;transform:scale(1) rotate(0)}}
+.fx-daily-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#86efac;margin-top:14px;opacity:0}
+.fx-daily-title.show{animation:fxFadeIn .5s ease .5s both}
+.fx-hint{color:var(--text-faint);font-size:12px;margin-top:18px}
+
+/* ===== Achievement toast (non-blocking) ===== */
+.achievement-toast{
+  position:fixed;top:20px;right:20px;z-index:980;width:280px;
+  padding:16px 18px;border-radius:14px;
+  background:var(--card);border:1px solid var(--line-bright);
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+  transform:translateX(130%);opacity:0;pointer-events:none;cursor:pointer;
+}
+.achievement-toast.show{animation:toastInOut 4.2s ease both}
+@keyframes toastInOut{
+  0%{opacity:0;transform:translateX(130%)}
+  8%{opacity:1;transform:translateX(-6px)}
+  14%{transform:translateX(0) scale(1.03)}
+  20%{transform:translateX(0) scale(1)}
+  88%{opacity:1;transform:translateX(0)}
+  100%{opacity:0;transform:translateX(130%)}
+}
+.achievement-toast .ach-kicker{font-size:11px;color:var(--amber);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.achievement-toast .ach-title{font-size:16px;font-weight:700;margin-top:5px;color:var(--text)}
+.achievement-toast .ach-sub{font-size:12.5px;color:var(--text-dim);margin-top:4px}
+@media (max-width:880px){
+  .achievement-toast{right:12px;left:12px;width:auto;top:calc(env(safe-area-inset-top,0px) + 70px)}
+}
