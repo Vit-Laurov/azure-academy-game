@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Azure Academy — Admin Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>🛠 Azure Academy — Admin / Design Guide</h1>
+<div class="card">
+  <p>This admin page edits values through <b>localStorage overrides</b>. The game reads them on startup.</p>
+  <p class="small">It cannot rewrite database.js directly without a server, but this is enough for local testing and balancing.</p>
+  <button onclick="saveOverrides()" class="warnbtn">Save Admin Overrides</button>
+  <button onclick="resetOverrides()">Reset Admin Overrides</button>
+  <button onclick="exportOverrides()">Export Overrides JSON</button>
+  <textarea id="exportBox" placeholder="Exported JSON appears here. You can copy it back to me later." style="min-height:80px"></textarea>
+</div>
+
+<div id="guide"></div>
+
+<script src="database.js"></script>
+<script>
+const CONFIG_KEY='azureAcademyV13Config';
+let working = JSON.parse(JSON.stringify(AZURE_DB));
+
+function loadOverrides(){
+  try{
+    const raw=localStorage.getItem(CONFIG_KEY);
+    if(!raw)return;
+    const cfg=JSON.parse(raw);
+    if(cfg.dropTables)working.dropTables=cfg.dropTables;
+    if(cfg.loot)working.loot=cfg.loot;
+  }catch(e){alert('Failed to load overrides: '+e.message)}
+}
+
+function saveOverrides(){
+  const cfg={dropTables:working.dropTables,loot:working.loot};
+  localStorage.setItem(CONFIG_KEY,JSON.stringify(cfg));
+  alert('Saved. Refresh index.html to use new values.');
+}
+
+function resetOverrides(){
+  if(!confirm('Reset all admin overrides?'))return;
+  localStorage.removeItem(CONFIG_KEY);
+  location.reload();
+}
+
+function exportOverrides(){
+  document.getElementById('exportBox').value=JSON.stringify({dropTables:working.dropTables,loot:working.loot},null,2);
+}
+
+function icon(r){return r==='legendary'?'🟠':r==='epic'?'🟣':r==='rare'?'🔵':r==='uncommon'?'🟢':'⚪'}
+function itemEmoji(type){
+  const map={Weapon:'🗡️',Armor:'🧥',Trinket:'🎒',Pet:'🐾',Ring:'💍',Shield:'🛡️',Boots:'🥾',Amulet:'📿',Companion:'🐦',Mount:'🦅',Title:'🏷️'};
+  return map[type]||'🎁';
+}
+
+function updateDrop(mode, field, value){
+  working.dropTables[mode][field]=Number(value);
+}
+function updateRoll(mode, idx, value){
+  working.dropTables[mode].rolls[idx][1]=Number(value);
+}
+function updateItem(i, field, value){
+  if(field==='cost') working.loot[i][field]=Number(value);
+  else working.loot[i][field]=value;
+}
+function updateEffect(i, value){
+  try{
+    working.loot[i].effectCode=JSON.parse(value);
+    render();
+  }catch(e){
+    alert('Effect JSON is invalid: '+e.message);
+  }
+}
+
+function renderDropTables(){
+  return `<div class="card"><h2>🎲 Drop Tables</h2>
+  <p class="small">Guaranteed XP/Shards happen every chest. Rarity roll decides if an item drops.</p>
+  ${Object.entries(working.dropTables).map(([mode,t])=>`
+    <div class="reviewItem">
+      <h3>${mode}</h3>
+      <label>Guaranteed XP <input class="adminInput" type="number" value="${t.xp}" onchange="updateDrop('${mode}','xp',this.value)"></label>
+      <label>Guaranteed Shards <input class="adminInput" type="number" value="${t.shards}" onchange="updateDrop('${mode}','shards',this.value)"></label>
+      <h4>Rarity chances</h4>
+      ${t.rolls.map((r,i)=>`
+        <label>${r[0]} %
+          <input class="adminInput" type="number" value="${r[1]}" onchange="updateRoll('${mode}',${i},this.value)">
+        </label>`).join('')}
+      <p class="small">Current total: ${t.rolls.reduce((a,b)=>a+Number(b[1]),0)}%</p>
+    </div>`).join('')}
+  </div>`;
+}
+
+function renderItems(){
+  return `<div class="card"><h2>🎁 Items / Effects Editor</h2>
+  <div class="adminGrid">
+  ${working.loot.map((it,i)=>`
+    <div class="reviewItem">
+      <div class="previewCard ${it.rarity}">
+        <span class="previewIcon">${itemEmoji(it.type)}</span>
+        <h3 class="${it.rarity}">${icon(it.rarity)} ${it.name}</h3>
+        <p><span class="tag">${it.type}</span><span class="tag">${it.rarity}</span><span class="tag">${it.cost} Shards</span></p>
+        <p>${it.desc}</p>
+        <p><b>Effect:</b> ${it.effect}</p>
+      </div>
+      <label>Name <input class="adminInput" value="${it.name}" onchange="updateItem(${i},'name',this.value)"></label>
+      <label>Type <input class="adminInput" value="${it.type}" onchange="updateItem(${i},'type',this.value)"></label>
+      <label>Rarity 
+        <select class="adminInput" onchange="updateItem(${i},'rarity',this.value);render()">
+          ${['common','uncommon','rare','epic','legendary'].map(r=>`<option ${it.rarity===r?'selected':''}>${r}</option>`).join('')}
+        </select>
+      </label>
+      <label>Cost <input class="adminInput" type="number" value="${it.cost}" onchange="updateItem(${i},'cost',this.value)"></label>
+      <label>Description <textarea class="adminInput" onchange="updateItem(${i},'desc',this.value)">${it.desc}</textarea></label>
+      <label>Effect text <textarea class="adminInput" onchange="updateItem(${i},'effect',this.value)">${it.effect}</textarea></label>
+      <label>Effect JSON <textarea class="adminInput" onchange="updateEffect(${i},this.value)">${JSON.stringify(it.effectCode,null,2)}</textarea></label>
+    </div>`).join('')}
+  </div></div>`;
+}
+
+function renderThemes(){
+  return `<div class="card"><h2>🎨 Theme previews</h2>
+    <div class="adminGrid">
+      <div class="themePreview"><h3>default</h3><p>Default dark Azure academy style.</p><button>Sample button</button></div>
+      <div class="themePreview bastion"><h3>Bastion</h3><p>Unlocked by Bastion Boots.</p><button>Sample button</button></div>
+      <div class="themePreview iac"><h3>IaC</h3><p>Unlocked by Bicep Goblin.</p><button>Sample button</button></div>
+      <div class="themePreview gryphon"><h3>Gryphon</h3><p>Unlocked by Azure Gryphon Mount.</p><button>Sample button</button></div>
+      <div class="themePreview phoenix"><h3>Phoenix</h3><p>Unlocked by Sentinel Phoenix.</p><button>Sample button</button></div>
+    </div>
+  </div>`;
+}
+
+function renderHelp(){
+  return `<div class="card"><h2>🧩 Supported item effect keys</h2>
+  <ul>
+    <li><code>{"xpBonusEasy":0.02}</code> — +2% XP from Easy questions</li>
+    <li><code>{"xpBonusAll":0.05}</code> — +5% XP from all questions</li>
+    <li><code>{"categoryXpBonus":{"Governance":0.05}}</code> — +5% XP for a category</li>
+    <li><code>{"wrongConsolationXp":5}</code> — small XP after wrong quiz answer</li>
+    <li><code>{"hintReduction":1}</code> — Practical hint appears 1 attempt earlier</li>
+    <li><code>{"easyClearShardBonus":1}</code> — extra shards from Easy chest</li>
+    <li><code>{"heroicClearShardBonus":2}</code> — extra shards from Heroic chest</li>
+    <li><code>{"campaignShardBonus":1}</code> — extra shards from Campaign chest</li>
+    <li><code>{"weakSummary":true}</code> — highlights recurring weak questions in History</li>
+    <li><code>{"theme":"bastion"}</code> — unlocks a theme</li>
+    <li><code>{"pet":"Blob Slime"}</code> — cosmetic pet, shows a floating companion in-app</li>
+    <li><code>{"title":"Cloud Raider"}</code> — cosmetic title, shown on Collection page</li>
+  </ul>
+  <p class="small" style="margin-top:14px;opacity:.7">Note: this tool only covers Drop Tables and Loot items. Mastery ranks, streak milestones, daily facts, and Learn lessons are fixed content in <code>database.js</code> and aren't editable here.</p>
+  </div>`;
+}
+
+function render(){
+  document.getElementById('guide').innerHTML = `
+    <div class="card"><h2>Database</h2>
+    <p>Easy: ${working.bank.easy.length} | Normal: ${working.bank.normal.length} | Heroic: ${working.bank.heroic.length} | Practical: ${working.labs.length}</p>
+    </div>
+    ${renderDropTables()}
+    ${renderItems()}
+    ${renderThemes()}
+    ${renderHelp()}
+  `;
+}
+
+loadOverrides();
+render();
+</script>
+</body>
+</html>
