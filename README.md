@@ -4,7 +4,7 @@ A gamified, offline-first web app for studying toward the Microsoft **AZ-900 (Az
 
 Built entirely in **vanilla HTML, CSS, and JavaScript** — no frameworks, no build step, no backend, no accounts. It runs straight from static files, hosted for free on GitHub Pages, and works fully offline once loaded (progress is saved locally in the browser).
 
-**▶️ Live demo:** *(add your GitHub Pages link here once it's live, e.g. `https://your-username.github.io/`)*
+**▶️ Live demo:** *(add your GitHub Pages link here once it's live, e.g. `https://vit-laurov.github.io/azure-academy-game/`)*
 
 ---
 
