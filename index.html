@@ -11,6 +11,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="mobile-topbar" class="mobile-topbar">
+  <button id="mobile-nav-toggle" class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </button>
+  <span class="mobile-topbar-title">Azure Academy</span>
+</div>
+<div id="mobile-nav-backdrop" class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
 <svg id="bg-pattern" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <g id="ic-cloud"><g transform="translate(-12,-12)"><path d="M17 18H8a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8h.4a4 4 0 0 1-.3 8Z"/></g></g>
@@ -111,6 +118,7 @@
         </div>
       </div>
       <div class="day-timer" id="day-timer"></div>
+      <div class="about-link" onclick="showAboutModal()">ℹ️ About this app</div>
     </div>
   </aside>
 
@@ -152,6 +160,26 @@
     <div class="fact-title" id="fact-title"></div>
     <div class="fact-text" id="fact-text"></div>
     <button class="btn btn-primary" onclick="closeDailyFactModal()">Got it</button>
+  </div>
+</div>
+
+<div id="about-overlay" class="fact-overlay hidden">
+  <div class="fact-card about-card">
+    <div class="fact-kicker">🎮 Welcome</div>
+    <div class="fact-title">Azure Academy — AZ-900 Quest Trainer</div>
+    <div class="fact-text">
+      <p>This is a free, gamified study tool for the Microsoft AZ-900 (Azure Fundamentals) exam — daily quests, XP, loot, and a Learn section, instead of a plain flashcard deck.</p>
+      <p><b>What's inside:</b></p>
+      <ul>
+        <li>275+ quiz questions across Easy / Normal / Heroic difficulty, plus open-answer Lab exercises</li>
+        <li>A daily streak system, Mastery ranks, and a Loot Shop with collectible items</li>
+        <li>A Boss Fight to close out each day, and a Weak Spot Review mode for questions you've missed</li>
+        <li>A Learn section with short, bite-sized lessons (Beginner tier live, more levels coming)</li>
+      </ul>
+      <p><b>Where this is headed:</b> more Learn tiers (Intermediate/Advanced/Senior), richer visuals, and possibly other certifications down the line. It's a personal side project, actively evolving — expect some rough edges.</p>
+      <p style="opacity:.75">Your progress is saved only in this browser (no account, no server). Export a backup from Profile → Backup if you want a safety net.</p>
+    </div>
+    <button class="btn btn-primary" onclick="closeAboutModal()">Let's go</button>
   </div>
 </div>
 

@@ -125,6 +125,19 @@ function goTo(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   renderPage(page);
+  closeMobileNav();
+}
+function toggleMobileNav(){
+  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
+  if(!sb||!bd)return;
+  sb.classList.toggle('open');
+  bd.classList.toggle('visible');
+}
+function closeMobileNav(){
+  let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
+  if(!sb||!bd)return;
+  sb.classList.remove('open');
+  bd.classList.remove('visible');
 }
 
 function renderPage(page){
@@ -529,7 +542,7 @@ function resetCurrent(){
   s.notes='';s.feedback='';s.passed=false;s.reviewable=false;s.surrendered=false;s.attempts=0;
   saveState();render();
 }
-function fullReset(){if(confirm('Are you sure you want to reset all progress? This action cannot be undone.')){S=defaultState();saveState();initPetCompanion();goTo('quests')}}
+function fullReset(){if(confirm('Are you sure you want to reset all progress? This action cannot be undone.')){S=defaultState();saveState();initPetCompanion();goTo('quests');maybeShowWelcome()}}
 
 function exportProgress(){
   let payload=JSON.stringify(S,null,2);
@@ -703,8 +716,27 @@ function renderHistoryPage(){
   mount('history',html);
 }
 
+function showAboutModal(){
+  let overlay=document.getElementById('about-overlay');
+  if(!overlay)return;
+  overlay.classList.remove('hidden');
+  requestAnimationFrame(()=>overlay.classList.add('visible'));
+}
+function closeAboutModal(){
+  let overlay=document.getElementById('about-overlay');
+  if(!overlay)return;
+  overlay.classList.remove('visible');
+  setTimeout(()=>overlay.classList.add('hidden'),300);
+  if(!S.hasSeenWelcome){S.hasSeenWelcome=true;saveState()}
+}
+function maybeShowWelcome(){
+  if(S.hasSeenWelcome)return;
+  showAboutModal();
+}
+
 goTo('quests');
 initPetCompanion();
+maybeShowWelcome();
 setInterval(function(){
   if(S.day!==today()){render();}
   else{updateDayTimer();updateChestBadge();}

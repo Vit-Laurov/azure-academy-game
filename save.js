@@ -3,6 +3,7 @@ function defaultState(){
   const d=new Date().toDateString();
   return{
     version:'14',
+    hasSeenWelcome:false,
     day:d,
     mode:'easy',
     xp:0,
