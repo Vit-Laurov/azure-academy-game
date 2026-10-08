@@ -119,11 +119,31 @@ function choose(mode){
 }
 
 let currentPage='quests';
+const SECTION_ACCENTS={
+  learn:{a:'var(--teal)',b:'#5EEADB',g:'var(--teal-dim)'},
+  shop:{a:'var(--amber)',b:'#FFC966',g:'var(--amber-dim)'},
+  exam:{a:'var(--red)',b:'#FF7B8C',g:'var(--red-dim)'}
+};
+function applySectionAccent(page){
+  let s=SECTION_ACCENTS[page];
+  let st=document.body.style;
+  if(s){
+    st.setProperty('--section-accent',s.a);
+    st.setProperty('--section-accent-bright',s.b);
+    st.setProperty('--section-accent-glow',s.g);
+  }else{
+    st.removeProperty('--section-accent');
+    st.removeProperty('--section-accent-bright');
+    st.removeProperty('--section-accent-glow');
+  }
+}
+
 function goTo(page){
   currentPage=page;
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
+  applySectionAccent(page);
   renderPage(page);
   closeMobileNav();
 }
@@ -144,6 +164,7 @@ function renderPage(page){
   newDay();applyTheme();maybeShowDailyFact();
   if(page==='quests')renderQuestsPage();
   else if(page==='shop')renderShopPage();
+  else if(page==='exam')renderExamPage();
   else if(page==='learn')renderLearnPage();
   else if(page==='mastery')renderMasteryPage();
   else if(page==='collection')renderCollectionPage();
@@ -184,6 +205,56 @@ function updateChestBadge(){
   el.textContent=n;
 }
 
+const PROFILE_KEY='azureAcademyProfileV1';
+function getProfile(){
+  try{
+    let raw=localStorage.getItem(PROFILE_KEY);
+    if(raw)return JSON.parse(raw);
+  }catch(e){}
+  return {name:''};
+}
+function getInitials(name){
+  name=(name||'').trim();
+  if(!name)return 'A';
+  let parts=name.split(/\s+/).slice(0,2).map(w=>w[0].toUpperCase()).join('');
+  return parts||'A';
+}
+function updateBrandMark(){
+  let mark=document.getElementById('brand-mark');
+  if(mark)mark.textContent=getInitials(getProfile().name);
+}
+function setProfileName(name){
+  try{localStorage.setItem(PROFILE_KEY,JSON.stringify({name:(name||'').trim()}))}catch(e){}
+  updateBrandMark();
+  render();
+}
+function saveProfileName(){
+  let input=document.getElementById('profile-name-input');
+  let name=input?input.value:'';
+  setProfileName(name);
+  closeProfileOnboarding();
+  maybeShowWelcome();
+}
+function saveProfileSettingsName(){
+  let input=document.getElementById('profile-settings-name-input');
+  let name=input?input.value:'';
+  setProfileName(name);
+}
+function closeProfileOnboarding(){
+  let overlay=document.getElementById('profile-overlay');
+  if(!overlay)return;
+  overlay.classList.remove('visible');
+  setTimeout(()=>overlay.classList.add('hidden'),300);
+}
+function maybeShowProfileOnboarding(){
+  if(getProfile().name)return false;
+  let overlay=document.getElementById('profile-overlay');
+  if(!overlay)return false;
+  overlay.classList.remove('hidden');
+  requestAnimationFrame(()=>overlay.classList.add('visible'));
+  return true;
+}
+
 function refreshSidebar(){
   document.getElementById('streak-text').textContent=S.streak+' day streak';
   let sub=document.getElementById('streak-sub');
@@ -191,12 +262,43 @@ function refreshSidebar(){
     let next=nextStreakMilestone();
     let parts=[];
     if(next)parts.push(`${next.day-S.streak} day${next.day-S.streak===1?'':'s'} to +${next.shards} shard milestone`);
-    else parts.push('All milestones reached 🏆');
+    else parts.push('All milestones reached <svg class="ic-inline" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg>');
     if((S.streakFreezes||0)>0)parts.push(`🧊 x${S.streakFreezes}`);
-    sub.textContent=parts.join(' · ');
+    sub.innerHTML=parts.join(' · ');
   }
   updateDayTimer();
   updateChestBadge();
+  updateBrandRing();
+  updateBrandMark();
+}
+
+function updateBrandRing(){
+  let ring=document.getElementById('brand-ring-fill');
+  let fill=document.getElementById('brand-xp-fill');
+  let sub=document.getElementById('brand-sub');
+  if(!ring&&!fill&&!sub)return;
+  let level=levelOf(S.xp);
+  let intoLevel=S.xp-(level-1)*200;
+  let pct=Math.min(100,Math.round((intoLevel/200)*100));
+  let circumference=125.6;
+  if(ring)ring.setAttribute('stroke-dashoffset',String(circumference*(1-pct/100)));
+  if(fill)fill.style.width=pct+'%';
+  if(sub)sub.textContent=`Lvl ${level} · ${intoLevel}/200 XP`;
+}
+
+const SIDEBAR_COLLAPSE_KEY='azureAcademySidebarCollapsed';
+function toggleSidebarCollapse(){
+  let sb=document.getElementById('sidebar');
+  if(!sb)return;
+  let collapsed=sb.classList.toggle('collapsed');
+  try{localStorage.setItem(SIDEBAR_COLLAPSE_KEY,collapsed?'1':'0')}catch(e){}
+}
+function initSidebarCollapse(){
+  let sb=document.getElementById('sidebar');
+  if(!sb)return;
+  try{
+    if(localStorage.getItem(SIDEBAR_COLLAPSE_KEY)==='1')sb.classList.add('collapsed');
+  }catch(e){}
 }
 
 function renderQuestsPage(){
@@ -229,14 +331,16 @@ function renderHexPath(){
   let nodes=modeOrder.map((m,i)=>{
     let s=st(m),c=cfg(m),done=s.count>=c.limit,active=S.mode===m;
     return `<div class="hex-node ${done?'done':''} ${active?'active':''}" tabindex="0" role="button" onclick="setMode('${m}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMode('${m}')}">
-        <div class="hex"><span class="hex-icon">${c.icon}</span><span class="hex-label">${c.short}</span></div>
+        <div class="hex"><span class="hex-icon">${c.icon}</span></div>
+        <span class="hex-label">${c.short}</span>
         <span class="hex-progress">${s.count}/${c.limit}</span>
       </div>${i<modeOrder.length-1?'<div class="hex-link '+(done?'done':'')+'"></div>':''}`;
   }).join('');
   let allDone=modeOrder.every(m=>st(m).count>=cfg(m).limit);
   let bossLink=`<div class="hex-link ${allDone?'done':''}"></div>`;
   let bossNode=`<div class="hex-node boss ${allDone?'done':''} ${S.claimed.campaign?'done':''}">
-      <div class="hex"><span class="hex-icon">👑</span><span class="hex-label">Boss</span></div>
+      <div class="hex"><span class="hex-icon">👑</span></div>
+      <span class="hex-label">Boss</span>
       <span class="hex-progress">${S.claimed.campaign?'Done':allDone?'Ready':'Locked'}</span>
     </div>`;
   return `<div class="hexpath">${nodes}${bossLink}${bossNode}</div>`;
@@ -611,7 +715,7 @@ function renderCollectionPage(){
       <div class="card-title">Active Effects</div>
       <div class="card-sub">Everything your collection is currently doing for you, all in one place.</div>
       ${effectLines}
-      ${titles.length?`<div class="loot-meta" style="margin-top:10px">${titles.map(t=>`<span class="loot-badge">🏆 ${t}</span>`).join('')}</div>`:''}
+      ${titles.length?`<div class="loot-meta" style="margin-top:10px">${titles.map(t=>`<span class="loot-badge"><svg class="ic-inline" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg> ${t}</span>`).join('')}</div>`:''}
     </div>`;
   }
   if(!owned.length){
@@ -640,17 +744,17 @@ function renderProfilePage(){
       <div><div class="page-title">Profile</div><div class="page-subtitle">${levelTitle()}</div></div>
     </div>
     <div class="card" style="display:flex;gap:18px;align-items:center">
-      <div class="avatar-ring">${l}</div>
+      <div class="avatar-ring">${getInitials(getProfile().name)}</div>
       <div style="flex:1">
-        <div style="font-weight:600;font-size:16px;margin-bottom:2px">${levelTitle()}</div>
-        <div class="muted-hint">Level ${l} · ${S.xp} XP total</div>
+        <div style="font-weight:600;font-size:16px;margin-bottom:2px">${getProfile().name||levelTitle()}</div>
+        <div class="muted-hint">${getProfile().name?levelTitle()+' · ':''}Level ${l} · ${S.xp} XP total</div>
         <div class="level-track"><div class="level-fill" style="width:${pct}%"></div></div>
         <div class="muted-hint mono">${S.xp%200} / 200 XP to next level</div>
       </div>
     </div>
     <div class="grid">
       <div class="metric"><div class="metric-label">Azure Shards</div><div class="metric-value">${S.shards}</div></div>
-      <div class="metric"><div class="metric-label">Current streak</div><div class="metric-value">${S.streak} 🔥</div></div>
+      <div class="metric"><div class="metric-label">Current streak</div><div class="metric-value">${S.streak} <svg class="ic-inline" viewBox="0 0 24 24"><path d="M12 2c1 4-3 5-3 9a5 5 0 0 0 10 0c0-2-1-3-2-4 0 2-1 3-2 2 1-3-1-5-3-7Z"/></svg></div></div>
       <div class="metric"><div class="metric-label">Answered today</div><div class="metric-value">${totalAnswered}</div></div>
       <div class="metric"><div class="metric-label">Accuracy today</div><div class="metric-value">${totalAnswered?Math.round(totalCorrect/totalAnswered*100):0}%</div></div>
       <div class="metric"><div class="metric-label">Collection</div><div class="metric-value">${ownedIds().length}/${AZURE_DB.loot.length}</div></div>
@@ -659,8 +763,14 @@ function renderProfilePage(){
     <div class="card">
       <div class="card-title">Settings</div>
       <div class="card-sub">Local settings and progress reset.</div>
+      <div style="display:flex;gap:8px;margin-bottom:16px">
+        <input id="profile-settings-name-input" type="text" value="${getProfile().name}" placeholder="Your name" maxlength="40"
+          onkeydown="if(event.key==='Enter'){saveProfileSettingsName()}" class="profile-name-input" style="margin-bottom:0;flex:1">
+        <button class="btn btn-ghost" onclick="saveProfileSettingsName()">Save</button>
+      </div>
       <div class="btn-row">
         <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
+        <button class="btn btn-ghost" onclick="toggleLightMode()">${document.documentElement.getAttribute('data-theme')==='light'?'🌙 Dark mode':'☀️ Light mode'}</button>
         <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
         <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
       </div>
@@ -692,6 +802,7 @@ function renderHistoryPage(){
     <div class="page-header">
       <div><div class="page-title">Today's History</div><div class="page-subtitle">Review what you missed today</div></div>
     </div>`;
+  html+=(typeof renderExamHistorySection==='function'?renderExamHistorySection():'');
   let showWeak=hasEffect('weakSummary');
   let weakIds=new Set((S.weakness||[]).map(w=>w.item&&w.item.id).filter(Boolean));
   let any=false;
@@ -712,7 +823,8 @@ function renderHistoryPage(){
     });
     html+=`</div>`;
   });
-  if(!any)html+=`<div class="empty-state">You haven't answered any questions today yet.</div>`;
+  let hasExamHistory=((S.history&&S.history.exam)||[]).length>0;
+  if(!any&&!hasExamHistory)html+=`<div class="empty-state">You haven't answered any questions today yet.</div>`;
   mount('history',html);
 }
 
@@ -734,9 +846,45 @@ function maybeShowWelcome(){
   showAboutModal();
 }
 
+const LIGHT_MODE_KEY='azureAcademyLightMode';
+function toggleLightMode(){
+  let isLight=document.documentElement.getAttribute('data-theme')==='light';
+  let next=isLight?'dark':'light';
+  if(next==='light')document.documentElement.setAttribute('data-theme','light');
+  else document.documentElement.removeAttribute('data-theme');
+  try{localStorage.setItem(LIGHT_MODE_KEY,next)}catch(e){}
+  render();
+}
+function initLightMode(){
+  let saved=null;
+  try{saved=localStorage.getItem(LIGHT_MODE_KEY)}catch(e){}
+  let wantLight;
+  if(saved==='light')wantLight=true;
+  else if(saved==='dark')wantLight=false;
+  else wantLight=typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;
+  if(wantLight)document.documentElement.setAttribute('data-theme','light');
+}
+
+function initButtonRipple(){
+  document.addEventListener('click',function(e){
+    let btn=e.target&&e.target.closest?e.target.closest('.btn'):null;
+    if(!btn)return;
+    let rect=btn.getBoundingClientRect();
+    let x=e.clientX-rect.left,y=e.clientY-rect.top;
+    btn.style.setProperty('--x',x+'px');
+    btn.style.setProperty('--y',y+'px');
+    btn.classList.remove('rippling');
+    void btn.offsetWidth;
+    btn.classList.add('rippling');
+  });
+}
+
+initLightMode();
 goTo('quests');
 initPetCompanion();
-maybeShowWelcome();
+initSidebarCollapse();
+initButtonRipple();
+if(!maybeShowProfileOnboarding())maybeShowWelcome();
 setInterval(function(){
   if(S.day!==today()){render();}
   else{updateDayTimer();updateChestBadge();}

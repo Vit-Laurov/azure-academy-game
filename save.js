@@ -25,7 +25,7 @@ function defaultState(){
     claimed:{easy:false,normal:false,heroic:false,campaign:false},
     activeTheme:'default',
     weakness:[],
-    history:{easy:[],normal:[],heroic:[],practical:[]},
+    history:{easy:[],normal:[],heroic:[],practical:[],exam:[]},
     daily:{
       easy:{count:0,done:[],current:null,currentId:null,currentQuestion:null,selected:null,checked:false,correct:false},
       normal:{count:0,done:[],current:null,currentId:null,currentQuestion:null,selected:null,checked:false,correct:false},

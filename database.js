@@ -1304,6 +1304,110 @@ window.AZURE_DB = {
         ],
         "c": 3,
         "e": "Post-migration optimization happens after the transition is complete, when resource sizes and settings are fine-tuned based on real metrics for a better performance-to-cost ratio. Assessment happens before the migration, during analysis of the current state. Data migration is the transfer itself, which has already happened by this point. Planning precedes the entire process and isn't about fine-tuning an environment that's already been migrated."
+      },
+      {
+        "id": "easy_100",
+        "category": "Cloud concepts",
+        "q": "A company avoids spending money upfront on physical servers and instead pays a monthly bill based on usage. This spending model is called:",
+        "a": [
+          "Operational expenditure (OpEx)",
+          "Capital expenditure (CapEx)",
+          "Fixed asset depreciation",
+          "One-time licensing fee"
+        ],
+        "c": 0,
+        "e": "OpEx means paying for resources as an ongoing operating cost, which matches the pay-as-you-go cloud billing model. CapEx means buying assets upfront, the opposite of what's described. Depreciation is an accounting method for owned assets, not a billing model. A one-time licensing fee is also an upfront cost, not recurring usage-based billing."
+      },
+      {
+        "id": "easy_101",
+        "category": "Cloud concepts",
+        "q": "Because Microsoft buys hardware and datacenter capacity in massive volume across millions of customers, it can offer lower prices than a single company buying its own servers. What is this principle called?",
+        "a": [
+          "Elasticity",
+          "Economies of scale",
+          "Fault tolerance",
+          "Colocation"
+        ],
+        "c": 1,
+        "e": "Economies of scale describes how buying in bulk reduces the per-unit cost, which is how large cloud providers offer lower prices than individual companies could achieve on their own. Elasticity is about automatically adjusting capacity to demand, not pricing from bulk purchasing. Fault tolerance is about surviving component failures. Colocation means renting rack space for your own hardware in someone else's datacenter."
+      },
+      {
+        "id": "easy_102",
+        "category": "Cloud concepts",
+        "q": "An application is designed so that if one server fails, the workload keeps running on other servers without the user noticing any interruption. What property does this describe?",
+        "a": [
+          "Elasticity",
+          "Economies of scale",
+          "Fault tolerance",
+          "Vertical scaling"
+        ],
+        "c": 2,
+        "e": "Fault tolerance means a system keeps operating correctly even when one or more of its components fail. Elasticity is about automatically scaling resources up or down with demand, not about surviving failures. Economies of scale is a pricing concept. Vertical scaling means increasing the resources of a single server, which does not by itself protect against that server failing."
+      },
+      {
+        "id": "easy_103",
+        "category": "Cloud concepts",
+        "q": "A company measures the percentage of time its application is up and reachable, aiming for 99.9% or higher. What is this measurement generally called?",
+        "a": [
+          "Elasticity",
+          "Economies of scale",
+          "Total cost of ownership",
+          "High availability"
+        ],
+        "c": 3,
+        "e": "High availability refers to keeping a system running and accessible for as close to 100% of the time as possible, usually expressed as a percentage uptime target. Elasticity is about scaling resources with demand. Economies of scale is a cost concept. Total cost of ownership estimates overall spending, not uptime."
+      },
+      {
+        "id": "easy_104",
+        "category": "Cloud concepts",
+        "q": "A company sets up a secondary copy of its application in another Azure region so that if the primary region goes down, it can switch over and keep running. What is this strategy called?",
+        "a": [
+          "Disaster recovery",
+          "Vertical scaling",
+          "Economies of scale",
+          "Colocation"
+        ],
+        "c": 0,
+        "e": "Disaster recovery is the practice of preparing for and recovering from a major outage, often by failing over to a secondary region. Vertical scaling means resizing a single resource, not failing over to another location. Economies of scale is a pricing concept. Colocation means hosting your own hardware in a shared facility."
+      },
+      {
+        "id": "easy_105",
+        "category": "Cloud concepts",
+        "q": "A team increases the CPU and memory of a single virtual machine to handle more load, rather than adding more virtual machines. What is this called?",
+        "a": [
+          "Horizontal scaling",
+          "Vertical scaling",
+          "Elasticity",
+          "Fault tolerance"
+        ],
+        "c": 1,
+        "e": "Vertical scaling (scaling up) means increasing the resources of an existing single machine, such as more CPU or RAM. Horizontal scaling (scaling out) means adding more machines instead. Elasticity is the automatic version of scaling in or out with demand. Fault tolerance is about surviving failures, not increasing capacity."
+      },
+      {
+        "id": "easy_106",
+        "category": "Cloud concepts",
+        "q": "A team adds more virtual machines behind a load balancer to handle more load, instead of upgrading the size of any single machine. What is this called?",
+        "a": [
+          "Vertical scaling",
+          "High availability",
+          "Horizontal scaling",
+          "Economies of scale"
+        ],
+        "c": 2,
+        "e": "Horizontal scaling (scaling out) means adding more instances of a resource to share the load. Vertical scaling (scaling up) means making one machine bigger instead. High availability is about uptime, and economies of scale is about pricing from bulk purchasing — neither describes adding more instances."
+      },
+      {
+        "id": "easy_107",
+        "category": "Cloud models",
+        "q": "A team writes a small piece of code that runs automatically when triggered, and is billed only for the seconds it actually executes, with no server to manage at all. What is this model called?",
+        "a": [
+          "Infrastructure as a Service (IaaS)",
+          "Platform as a Service (PaaS)",
+          "Colocation",
+          "Serverless / Functions as a Service (FaaS)"
+        ],
+        "c": 3,
+        "e": "Serverless computing (FaaS) runs individual pieces of code on demand and bills only for actual execution time, with the provider fully managing any underlying servers. IaaS still requires managing virtual machines. PaaS manages the runtime but usually bills for allocated capacity, not just execution seconds. Colocation involves the customer's own physical hardware."
       }
     ],
     "normal": [
@@ -2606,6 +2710,188 @@ window.AZURE_DB = {
         ],
         "c": 3,
         "e": "Azure Traffic Manager or Front Door are designed for routing traffic across multiple regions, unlike Load Balancer, which only works within a single region at the network layer. A Network Security Group just filters traffic by rules, it doesn't address routing between regions. Azure Bastion provides VM access and has nothing to do with routing traffic between regions."
+      },
+      {
+        "id": "normal_100",
+        "category": "Cloud concepts",
+        "q": "A retailer's finance team wants to shift Azure spending from a large upfront purchase to a recurring monthly operating cost that scales with actual usage, so it doesn't tie up capital in hardware. Which cloud pricing characteristic are they taking advantage of?",
+        "a": [
+          "Consumption-based pricing (OpEx)",
+          "Economies of scale",
+          "Vertical scaling",
+          "Community cloud"
+        ],
+        "c": 0,
+        "e": "Cloud consumption-based pricing shifts spending from CapEx (buying hardware) to OpEx (paying for what you use as you go), which is exactly what avoids tying up capital. Economies of scale explains why the provider's prices are lower, not why the company's own spending pattern changed. Vertical scaling is about resource sizing. Community cloud is a deployment model shared among similar organizations."
+      },
+      {
+        "id": "normal_101",
+        "category": "Cloud concepts",
+        "q": "A budgeting team compares hosting an application on-premises versus in Azure and wants to include not just server cost but also power, cooling, staff time, and maintenance over several years in the comparison. What are they calculating?",
+        "a": [
+          "Return on investment (ROI)",
+          "Total cost of ownership (TCO)",
+          "Economies of scale",
+          "Capital expenditure (CapEx)"
+        ],
+        "c": 1,
+        "e": "Total cost of ownership captures the full cost of running infrastructure over its lifetime, including indirect costs like power, cooling, and staff — not just the sticker price of hardware. ROI measures the financial return on an investment, not the full cost. Economies of scale explains provider pricing, not the customer's own cost comparison. CapEx is only the upfront hardware cost, a subset of TCO."
+      },
+      {
+        "id": "normal_102",
+        "category": "Cloud concepts",
+        "q": "An e-commerce app automatically adds web server instances during a flash sale and automatically removes them a few hours later once traffic drops, without anyone manually intervening. Which cloud characteristic is being demonstrated?",
+        "a": [
+          "Scalability",
+          "High availability",
+          "Elasticity",
+          "Fault tolerance"
+        ],
+        "c": 2,
+        "e": "Elasticity specifically refers to resources being added and removed automatically in response to real-time demand. Scalability is the broader, more general ability of a system to grow (which can be manual), so it's less precise here than elasticity. High availability is about uptime, not resource adjustment. Fault tolerance is about surviving component failures."
+      },
+      {
+        "id": "normal_103",
+        "category": "Cloud concepts",
+        "q": "A SaaS company wants to guarantee that customers can keep using its application even if an entire Azure region experiences a major outage, by having the application ready to run from a second region within minutes. Which practice does this describe?",
+        "a": [
+          "Vertical scaling",
+          "Economies of scale",
+          "Colocation",
+          "Disaster recovery"
+        ],
+        "c": 3,
+        "e": "Disaster recovery planning includes being able to fail over to a secondary region to keep the application running through a major outage. Vertical scaling addresses capacity on a single machine, not regional failover. Economies of scale is a pricing benefit. Colocation refers to hosting owned hardware in a third-party facility."
+      },
+      {
+        "id": "normal_104",
+        "category": "Cloud concepts",
+        "q": "A gaming company notices its VM-based backend is maxed out on CPU during peak hours. Rather than replacing the VM with a bigger one, it puts several identical VMs behind a load balancer to spread the traffic. What scaling approach did it choose?",
+        "a": [
+          "Horizontal scaling",
+          "Vertical scaling",
+          "Elasticity",
+          "High availability"
+        ],
+        "c": 0,
+        "e": "Adding more machines of the same size to share load is horizontal scaling (scaling out). Vertical scaling would mean resizing the existing VM to be bigger instead. Elasticity refers specifically to automatic scaling in response to demand, which isn't stated here since the company made a manual architectural choice. High availability is about uptime, not how capacity is added."
+      },
+      {
+        "id": "normal_105",
+        "category": "Cloud models",
+        "q": "A finance department wants to move its accounting software to the cloud but doesn't want to manage any servers, operating systems, or even the application code — it just wants to log in and use the finished product. Which service model fits best?",
+        "a": [
+          "PaaS",
+          "SaaS",
+          "IaaS",
+          "Hybrid cloud"
+        ],
+        "c": 1,
+        "e": "SaaS delivers a complete, ready-to-use application, with the provider managing everything underneath, matching a department that only wants to log in and use it. PaaS still requires deploying and managing an application. IaaS requires managing the OS and more. Hybrid cloud describes mixing environments, not a service tier."
+      },
+      {
+        "id": "normal_106",
+        "category": "Cloud models",
+        "q": "A startup wants full control over the operating system and installed software for its custom application, but doesn't want to buy or maintain physical servers. Which service model should it choose?",
+        "a": [
+          "SaaS",
+          "PaaS",
+          "IaaS",
+          "FaaS"
+        ],
+        "c": 2,
+        "e": "IaaS provides virtual machines and storage while letting the customer fully control the OS and installed software, which matches wanting OS-level control without owning hardware. SaaS gives no control over the underlying software at all. PaaS abstracts away the OS, which conflicts with wanting full OS control. FaaS runs isolated functions, not a customer-managed OS."
+      },
+      {
+        "id": "normal_107",
+        "category": "Cloud concepts",
+        "q": "A hospital network is required by regulation to keep patient records on infrastructure it physically controls, but wants to run its public patient-facing appointment website in Azure. Which deployment approach fits this requirement?",
+        "a": [
+          "Public cloud only",
+          "Private cloud only",
+          "Community cloud",
+          "Hybrid cloud"
+        ],
+        "c": 3,
+        "e": "Hybrid cloud combines on-premises or private infrastructure with public cloud, which lets the hospital keep regulated records under its own control while still using Azure for the public-facing site. Public cloud only wouldn't satisfy the requirement to keep records on infrastructure it controls. Private cloud only would mean not using Azure at all for the website. Community cloud is shared by multiple organizations with common needs, not a mix of on-prem and public."
+      },
+      {
+        "id": "normal_108",
+        "category": "Cloud concepts",
+        "q": "A logistics company runs workloads on both Azure and another cloud provider at the same time, partly to avoid depending entirely on a single vendor. What is this strategy called?",
+        "a": [
+          "Multi-cloud",
+          "Hybrid cloud",
+          "Private cloud",
+          "Colocation"
+        ],
+        "c": 0,
+        "e": "Multi-cloud means using more than one public cloud provider, often specifically to reduce dependence on any single vendor. Hybrid cloud refers to combining on-premises/private infrastructure with public cloud, not two public clouds. Private cloud is dedicated infrastructure for one organization. Colocation means placing owned hardware in a third-party facility."
+      },
+      {
+        "id": "normal_109",
+        "category": "Cloud concepts",
+        "q": "A startup wants to launch a new product idea, test it with real customers, and be able to shut the whole thing down within days if it doesn't succeed, without having wasted money on hardware it now has to sell off. Which cloud benefit does this best illustrate?",
+        "a": [
+          "Economies of scale",
+          "Agility",
+          "Fault tolerance",
+          "High availability"
+        ],
+        "c": 1,
+        "e": "Agility refers to the speed and low commitment with which cloud resources can be provisioned and deprovisioned, letting teams experiment and change direction quickly without being stuck with unwanted hardware. Economies of scale is about the provider's bulk-purchasing cost advantage. Fault tolerance and high availability both concern uptime and reliability, not speed of change."
+      },
+      {
+        "id": "normal_110",
+        "category": "Cloud concepts",
+        "q": "A company runs a virtual machine in Azure. Under the shared responsibility model, who is responsible for patching the guest operating system running inside that VM?",
+        "a": [
+          "Microsoft",
+          "Both equally, with no distinction",
+          "The customer",
+          "Neither — patching is automatic in all cases"
+        ],
+        "c": 2,
+        "e": "In IaaS, the customer controls and is responsible for the guest operating system, including patching it. Microsoft is responsible for the underlying physical infrastructure and virtualization layer, not the OS inside a customer's VM. It isn't a shared 50/50 task, and patching is not automatic by default for IaaS VMs."
+      },
+      {
+        "id": "normal_111",
+        "category": "Cloud concepts",
+        "q": "A company moves its email system from an on-premises server to Microsoft 365 (SaaS). Under the shared responsibility model, what does the company still remain responsible for?",
+        "a": [
+          "Patching the operating system",
+          "Maintaining the physical servers",
+          "Managing the application code",
+          "Managing its own data and user access"
+        ],
+        "c": 3,
+        "e": "Even in SaaS, the customer always retains responsibility for its own data and controlling who has access to it. Microsoft handles the OS, physical servers, and application code entirely in a SaaS model like Microsoft 365 — the customer has no server or code to manage at all."
+      },
+      {
+        "id": "normal_112",
+        "category": "Cloud concepts",
+        "q": "A media company wants its video streaming service to keep working smoothly even during a scheduled maintenance update to one of the servers behind it. Which characteristic should its architecture prioritize?",
+        "a": [
+          "High availability",
+          "Economies of scale",
+          "Vertical scaling",
+          "Total cost of ownership"
+        ],
+        "c": 0,
+        "e": "High availability design (such as running multiple redundant instances) keeps a service accessible even while individual components are being updated or maintained. Economies of scale and total cost of ownership are cost concepts unrelated to uptime during maintenance. Vertical scaling addresses capacity of a single resource, not continuity during updates."
+      },
+      {
+        "id": "normal_113",
+        "category": "Cloud concepts",
+        "q": "An analytics team needs a burst of 200 virtual machines for a six-hour overnight data processing job, then needs zero the rest of the day. Which cloud characteristic makes this practical and cost-effective?",
+        "a": [
+          "Economies of scale alone",
+          "Elasticity and consumption-based pricing",
+          "Vertical scaling alone",
+          "High availability alone"
+        ],
+        "c": 1,
+        "e": "Elasticity lets the team spin up 200 VMs on demand and remove them right after, and consumption-based pricing means they only pay for those six hours rather than owning that capacity permanently. Economies of scale explains why prices are lower overall but not why a short burst is affordable. Vertical scaling only resizes a single machine, not launching 200 at once. High availability concerns uptime, not short-term capacity bursts."
       }
     ],
     "heroic": [
@@ -3583,6 +3869,84 @@ window.AZURE_DB = {
         ],
         "c": 2,
         "e": "Choosing Azure regions according to each country's data residency requirements ensures that employee data from that country is stored in compliance with local regulations, and the compliance team can document this based on the actual location of resources. Service pricing tiers do vary between regions, but that doesn't primarily address the regulatory requirement on data location. The language setting in the user profile only affects how the interface is displayed, not the physical location of stored data. The storage redundancy type addresses resilience against an outage, not the question of which country or region the data is legally allowed to reside in."
+      },
+      {
+        "id": "heroic_75",
+        "category": "Cloud",
+        "q": "A company's application must stay online during a full regional Azure outage, not just survive a single server crash. Which combination of properties is most directly responsible for that specific capability, as opposed to merely tolerating one failed component?",
+        "a": [
+          "Fault tolerance within a single datacenter",
+          "Vertical scaling of the primary VM",
+          "Disaster recovery with a secondary region",
+          "Horizontal scaling within one region"
+        ],
+        "c": 2,
+        "e": "Surviving the loss of an entire region specifically requires disaster recovery architecture with a ready secondary region, since fault tolerance and horizontal scaling within one region don't help if that whole region goes down. Fault tolerance protects against individual component failures, not a full regional outage. Vertical scaling only changes the size of one VM and offers no redundancy at all."
+      },
+      {
+        "id": "heroic_76",
+        "category": "Cloud",
+        "q": "A team says their system is 'elastic' because it can handle ten times the normal load. A colleague points out this alone doesn't prove elasticity. What additional behavior would actually confirm elasticity rather than just scalability?",
+        "a": [
+          "The system can be manually resized to handle ten times the load",
+          "The system uses larger virtual machines instead of more machines",
+          "The system has passed a one-time load test at ten times capacity",
+          "The system automatically scales back down once demand drops, without manual action"
+        ],
+        "c": 3,
+        "e": "Elasticity specifically requires automatic scaling in both directions — up under load and back down once demand falls — done without manual intervention. Being able to handle high load through manual resizing demonstrates scalability, not elasticity, since a human is still involved. Using bigger machines describes vertical scaling, a method, not proof of elasticity. Passing a one-time load test shows capacity exists, not that it adjusts automatically over time."
+      },
+      {
+        "id": "heroic_77",
+        "category": "Cloud",
+        "q": "A CFO wants to reduce upfront capital spending and instead pay based on usage, but is also told that at very high, constant usage levels, reserved capacity purchased upfront can sometimes be cheaper overall than pure pay-as-you-go. Which statement best reconciles both points?",
+        "a": [
+          "Consumption-based pricing reduces upfront risk, but reserved/upfront commitments can lower long-term cost for predictable, steady workloads",
+          "Consumption-based pricing is always cheaper than any upfront commitment, without exception",
+          "Reserved capacity eliminates the benefits of moving to the cloud entirely",
+          "CapEx and OpEx produce identical costs regardless of usage pattern"
+        ],
+        "c": 0,
+        "e": "Cloud pricing flexibility means a company can choose pure consumption-based pricing to avoid upfront risk, or commit to reserved capacity for predictable workloads to get a lower rate — both options can coexist and be chosen per workload. It's not true that pay-as-you-go is always cheaper; reserved pricing exists precisely because it can beat it for steady usage. Reserved capacity is still a cloud commitment, not a step back to owning hardware, so it doesn't eliminate cloud benefits. CapEx and OpEx are different cost structures with different cash-flow and risk implications, not identical outcomes."
+      },
+      {
+        "id": "heroic_78",
+        "category": "Cloud",
+        "q": "A company uses AWS for one application and Azure for another, purely for cost-optimization reasons, with no need to keep any on-premises infrastructure. A separate team keeps some servers physically on-site while also using Azure. How should these two situations be classified?",
+        "a": [
+          "Both are hybrid cloud",
+          "Multi-cloud, and hybrid cloud, respectively",
+          "Both are multi-cloud",
+          "Hybrid cloud, and multi-cloud, respectively"
+        ],
+        "c": 1,
+        "e": "Using two different public cloud providers with no on-premises component is multi-cloud, while combining on-premises infrastructure with a public cloud is hybrid cloud — these are distinct concepts describing different combinations. Calling both hybrid cloud ignores that the first team has no on-premises servers at all. Calling both multi-cloud ignores that the second team is combining on-prem with one cloud, not two clouds. Reversing the order swaps the two correctly-matched definitions."
+      },
+      {
+        "id": "heroic_79",
+        "category": "Cloud models",
+        "q": "A team wants to run individual pieces of backend logic that execute only in response to specific events, scale to zero when idle, and require no server or runtime management at all. A colleague suggests PaaS instead. What is the key distinction that makes serverless (FaaS) the better fit here?",
+        "a": [
+          "FaaS and PaaS are functionally identical, so either works equally well",
+          "PaaS cannot run backend code at all",
+          "FaaS scales to zero and bills per execution, while typical PaaS still expects a running, provisioned app even when idle",
+          "FaaS requires managing the underlying virtual machines, while PaaS does not"
+        ],
+        "c": 2,
+        "e": "The defining difference is that FaaS can scale all the way down to zero instances and bill only for actual execution, while a typical PaaS-hosted app remains provisioned and billed even during idle periods. They are not identical — that's exactly why the distinction matters here. PaaS absolutely can run backend code; that's its core purpose. It's FaaS, not PaaS, that hides virtual machines entirely from the customer."
+      },
+      {
+        "id": "heroic_80",
+        "category": "Cloud",
+        "q": "An application is described as having 99.99% uptime. A reviewer argues this number alone doesn't prove the system is fault tolerant. What is the strongest justification for that argument?",
+        "a": [
+          "99.99% uptime is mathematically impossible without fault tolerance",
+          "Uptime percentage and fault tolerance always measure exactly the same thing",
+          "Fault tolerance is only relevant to on-premises systems, not cloud-hosted ones",
+          "A high uptime percentage could be achieved with quick manual recovery after failures, rather than the system continuing to run through a failure automatically"
+        ],
+        "c": 3,
+        "e": "A system could hit a high uptime percentage through very fast detection and manual or automated restart after each failure, without ever having redundant components that let it keep running uninterrupted through the failure itself — that's the distinction between recovering quickly and being fault tolerant. High uptime is achievable through several different strategies, not exclusively fault tolerance, so it isn't mathematically tied to it. The two concepts measure related but different things: one is an outcome (uptime), the other is an architectural property (surviving failure without interruption). Fault tolerance is just as relevant to cloud-hosted systems as on-premises ones."
       }
     ]
   },
@@ -4488,7 +4852,7 @@ window.AZURE_DB = {
   "learnContent": {
     "cloudConcepts": {
       "trackName": "Cloud Concepts",
-      "icon": "☁️",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17.5 19H9a5 5 0 1 1 1.3-9.8A6 6 0 0 1 22 12.5 4.5 4.5 0 0 1 17.5 19Z\"/></svg>",
       "lessons": [
         {
           "id": "cc_b1",
@@ -4578,12 +4942,67 @@ window.AZURE_DB = {
             "That speed — called agility — lets teams experiment and fail fast without a six-month hardware commitment hanging over every decision."
           ],
           "takeaway": "Cloud doesn't just save money — it saves time to try things."
+        },
+        {
+          "id": "cc_i1",
+          "tier": "intermediate",
+          "title": "Reserved vs Pay-As-You-Go",
+          "hook": "A CFO asks: if pay-as-you-go is so flexible, why would anyone commit to anything upfront?",
+          "body": [
+            "Consumption-based pricing (pure pay-as-you-go) charges only for what's used, with zero commitment — ideal for unpredictable or short-lived workloads. But Azure also offers Reserved Instances and Savings Plans: committing to 1 or 3 years of usage in exchange for a substantially lower rate, often 40-70% cheaper than pay-as-you-go.",
+            "The trade-off is simple: pay-as-you-go optimizes for flexibility, reservations optimize for cost on predictable, steady-state workloads. A production database that runs 24/7 for years is a reservation candidate. A dev/test environment torn down every weekend is not."
+          ],
+          "takeaway": "Reservations are basically a cloud gym membership — cheaper per visit, brutal if you actually stop showing up."
+        },
+        {
+          "id": "cc_i2",
+          "tier": "intermediate",
+          "title": "Elasticity vs Scalability — the precise line",
+          "hook": "Two systems can both handle 10x traffic. Only one of them is actually elastic.",
+          "body": [
+            "Scalability is the general ability of a system to handle increased load — whether that scaling happens automatically or requires a human to click a button. Elasticity is a stricter form of scalability: resources expand and contract automatically, in both directions, without manual intervention.",
+            "This distinction shows up directly on the exam. A system an engineer manually resizes for a big event is scalable, but not elastic — a person, not the platform, made the decision. True elasticity also requires scaling back down on its own once demand drops."
+          ],
+          "takeaway": "Scalability is 'can it grow.' Elasticity is 'does it grow up — and shrink back down — without you lifting a finger.'"
+        },
+        {
+          "id": "cc_i3",
+          "tier": "intermediate",
+          "title": "Fault Tolerance vs HA vs DR — untangled",
+          "hook": "Three terms that get used interchangeably in conversation — and are absolutely not interchangeable on the exam.",
+          "body": [
+            "Fault tolerance is an architectural property: the system keeps running correctly through a component failure, invisibly, because redundant parts silently take over. High availability is the measurable outcome — an uptime percentage target, like 99.9%, that a fault-tolerant system is built to hit. Disaster recovery is the plan for when fault tolerance wasn't enough — an entire region goes down and you fail over somewhere else.",
+            "A useful ordering: fault tolerance is the mechanism, high availability is the promise, disaster recovery is the backup plan for when the promise gets broken anyway."
+          ],
+          "takeaway": "Fault tolerance is the seatbelt. High availability is the safety rating. Disaster recovery is the spare tire in the trunk."
+        },
+        {
+          "id": "cc_i4",
+          "tier": "intermediate",
+          "title": "Deployment models — where the boundaries actually are",
+          "hook": "Public, private, hybrid, multi-cloud — four terms, and the exam loves testing the boundaries between them.",
+          "body": [
+            "Public cloud means shared infrastructure owned by a provider like Microsoft. Private cloud means dedicated infrastructure for one organization only. Hybrid cloud specifically means combining on-premises or private infrastructure with public cloud. Multi-cloud means using two or more public cloud providers together.",
+            "The trap: hybrid and multi-cloud aren't opposites — a company can be both at once, running on-premises servers, Azure, and AWS simultaneously. What distinguishes them is the specific combination of environments involved, not simply 'using more than one thing.'"
+          ],
+          "takeaway": "Hybrid mixes 'mine' with 'rented.' Multi-cloud just rents from two landlords at once."
+        },
+        {
+          "id": "cc_i5",
+          "tier": "intermediate",
+          "title": "Total Cost of Ownership, properly defined",
+          "hook": "The sticker price of a server is the least interesting number on the invoice.",
+          "body": [
+            "Total Cost of Ownership (TCO) accounts for the full lifetime cost of infrastructure — not just hardware, but power, cooling, physical space, IT staff time, maintenance, and eventual replacement. Azure's TCO Calculator exists specifically because comparing 'server cost' to 'Azure cost' in isolation dramatically understates on-premises spending.",
+            "On the exam, TCO is less about a formula and more about scope: whenever a question asks you to compare on-premises versus cloud cost 'holistically' or 'over several years,' TCO — not simple CapEx — is the concept being tested."
+          ],
+          "takeaway": "CapEx is what's on the receipt. TCO is what's actually left your bank account by the time the server dies."
         }
       ]
     },
     "coreServices": {
       "trackName": "Core Azure Services",
-      "icon": "🧱",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"6\" rx=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"18\" height=\"6\" rx=\"1.5\"/></svg>",
       "lessons": [
         {
           "id": "cs_b1",
@@ -4696,12 +5115,67 @@ window.AZURE_DB = {
             "Azure Kubernetes Service (AKS) is the managed system that runs and coordinates lots of these containers for you, restarting failed ones automatically."
           ],
           "takeaway": "Containers travel with everything they need — no surprises at the destination."
+        },
+        {
+          "id": "cs_i1",
+          "tier": "intermediate",
+          "title": "Zonal vs zone-redundant — the guarantee that actually matters",
+          "hook": "Owning an Availability Zone and being protected by Availability Zones are two very different guarantees.",
+          "body": [
+            "A zonal service is deployed to one specific zone you choose — if that zone fails, your resource fails with it, though you can rebuild elsewhere manually. A zone-redundant service automatically replicates across multiple zones simultaneously, so a single zone failure causes no interruption at all, with no manual action needed.",
+            "This matters because not every Azure service supports zone redundancy the same way, and picking 'zonal' when you actually needed 'zone-redundant' is a common real-world — and exam — misconfiguration."
+          ],
+          "takeaway": "Zonal is 'I picked a nice apartment.' Zone-redundant is 'I own the whole building, so one flooded unit doesn't matter.'"
+        },
+        {
+          "id": "cs_i2",
+          "tier": "intermediate",
+          "title": "Why ARM templates don't break on the second run",
+          "hook": "Run the same ARM template twice. Nothing breaks the second time — and that's the whole point.",
+          "body": [
+            "ARM templates are declarative: you describe the desired end state of your infrastructure, and Azure figures out how to get there — not a step-by-step script of commands. This gives them idempotency: deploying the same template repeatedly produces the same result, rather than creating duplicates or throwing errors.",
+            "Bicep is a newer, more readable language that compiles down to the same underlying ARM JSON — same engine, friendlier syntax. Both stand in contrast to imperative approaches, like manually clicking through the Portal, which describe steps to take rather than an outcome to reach."
+          ],
+          "takeaway": "Declarative is telling a chef what dish you want. Imperative is standing in the kitchen micromanaging every chop."
+        },
+        {
+          "id": "cs_i3",
+          "tier": "intermediate",
+          "title": "Peering builds the road. NSGs run the checkpoint.",
+          "hook": "Two VNets, fully peered, still won't talk to each other if one firewall rule says no.",
+          "body": [
+            "VNet peering connects two virtual networks so resources in each can communicate using private IP addresses over Microsoft's backbone, as if on the same network. But peering only handles routing — it doesn't override security. A Network Security Group on either side can still block that traffic with its own rules.",
+            "This is a genuinely common exam scenario: 'peering is configured correctly, but traffic still isn't flowing' — the answer is almost always an NSG rule, not the peering setup itself."
+          ],
+          "takeaway": "Peering builds the road. The NSG is the checkpoint deciding who's actually allowed to drive on it."
+        },
+        {
+          "id": "cs_i4",
+          "tier": "intermediate",
+          "title": "LRS, ZRS, GRS, GZRS — what each one survives",
+          "hook": "Four acronyms, and the exam expects you to know exactly what each one protects against.",
+          "body": [
+            "Locally Redundant Storage (LRS) keeps three copies within one datacenter — cheapest, but a datacenter-level event takes all three out. Zone-Redundant Storage (ZRS) spreads those copies across different Availability Zones in the same region, surviving a datacenter failure. Geo-Redundant Storage (GRS) adds a second copy set in a paired region hundreds of miles away. Geo-Zone-Redundant Storage (GZRS) combines both.",
+            "The pattern to memorize: each tier up trades a bit more cost for protection against a bigger category of disaster — rack, zone, region."
+          ],
+          "takeaway": "LRS bets against a bad day. GZRS bets against a bad day, a bad zone, and a bad region — all at once."
+        },
+        {
+          "id": "cs_i5",
+          "tier": "intermediate",
+          "title": "VM, App Service, Functions, Containers — picking correctly",
+          "hook": "Four ways to run code in Azure — and choosing the wrong one is the most common architecture mistake on paper.",
+          "body": [
+            "Virtual Machines give full OS control at the cost of managing everything above the hardware — right when you need OS-level customization or are lifting-and-shifting existing software. App Service is the default for standard web apps when you just want to deploy code and let Azure handle scaling and patching. Functions fit short-lived, event-triggered logic that should scale to zero between runs. Containers fit when you need portability and consistency across environments, or you're orchestrating many services.",
+            "The exam rarely asks 'what is a VM' at this level — it asks 'given this scenario, which is the best fit,' and the deciding factor is almost always: how much control do you need, versus how much do you want Azure to manage for you."
+          ],
+          "takeaway": "VMs are a house you renovate yourself. Functions are a hotel room you only pay for the night you sleep there."
         }
       ]
     },
     "securityGovernance": {
       "trackName": "Security, Identity & Governance",
-      "icon": "🛡️",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z\"/></svg>",
       "lessons": [
         {
           "id": "sg_b1",
@@ -4790,12 +5264,67 @@ window.AZURE_DB = {
             "But your data, your identities, and who has access? That's always on you, no matter which service model you're using."
           ],
           "takeaway": "Microsoft maintains the building. You still have to lock your own door."
+        },
+        {
+          "id": "sg_i1",
+          "tier": "intermediate",
+          "title": "RBAC scope & inheritance",
+          "hook": "Grant a role at the subscription level, and it quietly shows up everywhere underneath it — whether you meant it to or not.",
+          "body": [
+            "RBAC role assignments apply at a scope — Management Group, Subscription, Resource Group, or individual Resource — forming a hierarchy where permissions inherit downward. A Contributor role granted at the subscription level automatically applies to every resource group and resource inside it, unless something more specific overrides it.",
+            "The practical implication, and a favorite exam trap: assigning broad roles at a high scope 'to save time' quietly grants far more access than intended. Best practice is assigning roles at the narrowest scope that still gets the job done."
+          ],
+          "takeaway": "RBAC inheritance is like a landlord's master key — hand it out at the building level, and every tenant's door opens too."
+        },
+        {
+          "id": "sg_i2",
+          "tier": "intermediate",
+          "title": "Built-in vs custom roles",
+          "hook": "Azure ships with over 100 built-in roles. The exam wants you to know when that still isn't enough.",
+          "body": [
+            "Built-in roles (Owner, Contributor, Reader, and dozens of service-specific ones) cover the vast majority of real-world needs and should always be preferred first — Microsoft maintains them and they cover common permission sets cleanly. A custom role becomes necessary only when no built-in role matches the exact combination of permissions required.",
+            "Custom roles add ongoing maintenance overhead — they don't automatically gain new permissions as Azure adds features, unlike many built-in roles. That's why 'use a built-in role unless you have a specific, documented reason not to' is correct almost every time."
+          ],
+          "takeaway": "A custom role is a suit tailored just for you. Great fit — but you're on the hook for every future alteration yourself."
+        },
+        {
+          "id": "sg_i3",
+          "tier": "intermediate",
+          "title": "Conditional Access, decomposed",
+          "hook": "Every Conditional Access policy is really just one sentence: 'if this, then that.'",
+          "body": [
+            "Every policy is built from the same pieces: assignments (who and what — which users, apps, or conditions like location or device state trigger it) and access controls (what happens as a result — block access, require MFA, require a compliant device). The policy engine evaluates signals in real time and applies the control only when conditions match.",
+            "This is why Conditional Access is risk-based rather than static: the same user gets a frictionless sign-in most days, but hits an MFA challenge the moment a signal looks unusual — a different country, an unmanaged device, an impossible travel pattern."
+          ],
+          "takeaway": "Conditional Access is a bouncer with a clipboard, not a lock on the door — strict only when something on the list looks off."
+        },
+        {
+          "id": "sg_i4",
+          "tier": "intermediate",
+          "title": "Defender for Cloud — free vs paid plans",
+          "hook": "Defender for Cloud is free. Defender for Cloud is also not free. Both statements are true at once.",
+          "body": [
+            "The Foundational CSPM tier is free by default for all Azure subscriptions, giving you Secure Score, basic recommendations, and inventory visibility. Enabling the paid Defender plans on top — for servers, storage, databases, containers, and more — unlocks active threat detection, just-in-time VM access, and vulnerability scanning, charged per resource protected.",
+            "The exam-relevant distinction: the free tier tells you what's wrong. The paid plans actively watch for and alert on attacks happening right now — visibility versus active defense."
+          ],
+          "takeaway": "Free Defender is a smoke detector. Paid Defender is a smoke detector that also calls the fire department for you."
+        },
+        {
+          "id": "sg_i5",
+          "tier": "intermediate",
+          "title": "Compliance & the Trust Center",
+          "hook": "A single customer can't realistically audit a hyperscale datacenter themselves — so Microsoft got audited for them, repeatedly, by everyone.",
+          "body": [
+            "Microsoft undergoes independent third-party audits against dozens of standards — ISO 27001, GDPR, HIPAA, SOC 2, and many more — and publishes results through the Microsoft Trust Center and Service Trust Portal. This gives customers documented evidence of Microsoft's side of the shared responsibility model without auditing a datacenter themselves.",
+            "On the exam, whenever a question is about proving compliance to a regulator or auditor, the Trust Center and its documentation are almost always the intended answer — not a custom internal process."
+          ],
+          "takeaway": "The Trust Center is Microsoft handing you their own report card before the teacher even asks for it."
         }
       ]
     },
     "managementMonitoring": {
       "trackName": "Management & Monitoring",
-      "icon": "📊",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 20V10M12 20V4M20 20v-7\"/></svg>",
       "lessons": [
         {
           "id": "mm_b1",
@@ -4884,6 +5413,61 @@ window.AZURE_DB = {
             "They're what makes cost reports readable and governance automation possible at scale — without them, a big Azure environment is just a pile of unlabeled boxes."
           ],
           "takeaway": "Tags are the sticky notes that keep a big cloud environment from becoming chaos."
+        },
+        {
+          "id": "mm_i1",
+          "tier": "intermediate",
+          "title": "Management Groups & Policy inheritance",
+          "hook": "Apply one policy at the very top of your Azure tenant, and it silently governs every subscription you'll ever create — including ones that don't exist yet.",
+          "body": [
+            "Management Groups form a hierarchy above subscriptions, and both RBAC and Azure Policy inherit downward through it the same way. A policy assigned at the root management group applies automatically to every subscription, resource group, and resource beneath it — even subscriptions added later.",
+            "This is why large organizations use management group hierarchies deliberately: a handful of policies at the top — like 'no resources outside approved regions' — enforce organization-wide rules without configuring each subscription individually."
+          ],
+          "takeaway": "A root-level policy is less like a rule and more like gravity — everything underneath is affected, whether it knew the rule existed or not."
+        },
+        {
+          "id": "mm_i2",
+          "tier": "intermediate",
+          "title": "Azure Monitor is three tools wearing one name tag",
+          "hook": "'Azure Monitor' isn't one tool — it's an umbrella covering at least three very different jobs.",
+          "body": [
+            "Metrics are lightweight, near real-time numerical data — CPU percentage, request count — good for dashboards and fast alerting. Logs, via Log Analytics, are detailed, queryable event data, better for deep investigation after something goes wrong. Application Insights specifically monitors application-level behavior — response times, exceptions, dependency calls — rather than infrastructure health.",
+            "On the exam, picking the right component usually comes down to one question: do you need a fast number on a dashboard (Metrics), or do you need to investigate what actually happened (Logs / Application Insights)?"
+          ],
+          "takeaway": "Metrics tell you the patient's pulse. Logs are the full medical chart you pull out when the pulse looks wrong."
+        },
+        {
+          "id": "mm_i3",
+          "tier": "intermediate",
+          "title": "Budgets warn you. Advisor tries to prevent the warning.",
+          "hook": "A budget in Azure doesn't stop spending — it just promises to tell you when you've blown past it.",
+          "body": [
+            "Azure Budgets let you set a spending threshold with alerts firing at defined percentages — 50%, 90%, 100% — but a budget is a notification mechanism, not enforcement, by default. Azure Advisor works alongside this proactively, scanning actual usage and recommending specific cost-saving actions, like resizing an underutilized VM or deleting an unattached disk.",
+            "The pairing to remember: Budgets are reactive — 'tell me when I've spent too much.' Advisor is proactive — 'here's what to fix before you overspend.'"
+          ],
+          "takeaway": "A Budget is a smoke alarm. Advisor is the friend who keeps pointing out you left the stove on in the first place."
+        },
+        {
+          "id": "mm_i4",
+          "tier": "intermediate",
+          "title": "Why chaining services lowers your composite SLA",
+          "hook": "Two services, each individually rated at 99.9% uptime. Combined, your guaranteed uptime is not 99.9%.",
+          "body": [
+            "When an application depends on multiple Azure services chained together, the composite SLA is calculated by multiplying the individual SLAs, not matching the lowest one. Two services each at 99.9% combine to roughly 99.8% — worse than either alone, because either one failing breaks the chain.",
+            "This is exactly why architects add redundant paths for critical dependencies: a redundant component raises the composite SLA back up, since the combined path only fails if both redundant options fail at the same time."
+          ],
+          "takeaway": "Chaining services multiplies your risk, not your reliability — every extra link is one more way for the chain to snap."
+        },
+        {
+          "id": "mm_i5",
+          "tier": "intermediate",
+          "title": "Tags become governance once Policy enforces them",
+          "hook": "A single tag on a single resource is trivial. A thousand resources with inconsistent tags is a governance nightmare — and entirely preventable.",
+          "body": [
+            "At scale, tags stop being a manual convenience and become something enforced through Azure Policy — requiring a CostCenter tag on every resource, or blocking deployment of anything missing an Environment tag. This is what makes large-scale cost reporting and automated governance reliable, rather than dependent on everyone remembering to tag things by hand.",
+            "The exam angle: whenever a scenario describes needing consistent tagging across an entire organization, the answer is policy-enforced tagging, not a reminder in a wiki page somewhere."
+          ],
+          "takeaway": "A tag is a sticky note. A tag enforced by Policy is a sticky note that physically won't let the box leave the warehouse without it."
         }
       ]
     }
@@ -4892,7 +5476,7 @@ window.AZURE_DB = {
     {
       "id": "cloudConcepts",
       "name": "Cloud Concepts",
-      "icon": "☁️",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17.5 19H9a5 5 0 1 1 1.3-9.8A6 6 0 0 1 22 12.5 4.5 4.5 0 0 1 17.5 19Z\"/></svg>",
       "categories": [
         "Cloud concepts",
         "Cloud models",
@@ -4903,7 +5487,7 @@ window.AZURE_DB = {
     {
       "id": "coreServices",
       "name": "Core Azure Services",
-      "icon": "🧱",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"6\" rx=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"18\" height=\"6\" rx=\"1.5\"/></svg>",
       "categories": [
         "Architecture",
         "Compute",
@@ -4917,7 +5501,7 @@ window.AZURE_DB = {
     {
       "id": "securityGovernance",
       "name": "Security, Identity & Governance",
-      "icon": "🛡️",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z\"/></svg>",
       "categories": [
         "Identity",
         "Governance",
@@ -4927,7 +5511,7 @@ window.AZURE_DB = {
     {
       "id": "managementMonitoring",
       "name": "Management & Monitoring",
-      "icon": "📊",
+      "icon": "<svg class=\"ic-track\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 20V10M12 20V4M20 20v-7\"/></svg>",
       "categories": [
         "Cost",
         "Management",
@@ -5160,11 +5744,26 @@ window.AZURE_DB = {
       "shards": 12,
       "xp": 50,
       "rolls": [
-        ["none", 20],
-        ["common", 35],
-        ["uncommon", 27],
-        ["rare", 15],
-        ["epic", 3]
+        [
+          "none",
+          20
+        ],
+        [
+          "common",
+          35
+        ],
+        [
+          "uncommon",
+          27
+        ],
+        [
+          "rare",
+          15
+        ],
+        [
+          "epic",
+          3
+        ]
       ]
     },
     "easy": {
@@ -5258,6 +5857,1278 @@ window.AZURE_DB = {
           1
         ]
       ]
+    }
+  },
+  "examPool": [
+    {
+      "id": "exam_0",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company currently spends heavily on new server hardware every three years, regardless of whether it's fully utilized. Moving to Azure and paying only for consumed compute would shift this spending from which model to which model?",
+      "a": [
+        "CapEx to OpEx",
+        "OpEx to CapEx",
+        "OpEx to TCO",
+        "TCO to CapEx"
+      ],
+      "c": 0,
+      "e": "Buying hardware upfront is Capital Expenditure (CapEx) — a large investment regardless of use. Paying for consumption as it happens is Operational Expenditure (OpEx). Moving to the cloud is the classic CapEx-to-OpEx shift tested throughout AZ-900."
+    },
+    {
+      "id": "exam_1",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A startup wants to launch a new product quickly and avoid a large upfront hardware purchase in case the product doesn't succeed. Which cloud benefit does this scenario primarily describe?",
+      "a": [
+        "Redundancy",
+        "Agility",
+        "High availability",
+        "Fault tolerance"
+      ],
+      "c": 1,
+      "e": "Agility refers to the ability to rapidly provision and de-provision resources, letting organizations experiment and pivot quickly without heavy upfront investment. The scenario is about speed and low commitment, not uptime or automatic scaling."
+    },
+    {
+      "id": "exam_2",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "During a regional promotional event, an e-commerce site's traffic increases tenfold for six hours, then returns to normal. Which cloud characteristic allows the infrastructure to expand and then automatically shrink back afterward?",
+      "a": [
+        "Redundancy",
+        "Fault tolerance",
+        "Elasticity",
+        "Scalability"
+      ],
+      "c": 2,
+      "e": "Elasticity specifically means resources scale both up and down automatically in response to demand, without manual intervention. Scalability is the broader, more general ability to handle growth, which may or may not be automatic."
+    },
+    {
+      "id": "exam_3",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company wants to guarantee that if an entire Azure datacenter loses power, their application keeps running without any downtime. Which concept BEST addresses this requirement?",
+      "a": [
+        "Elasticity",
+        "Scalability",
+        "Agility",
+        "High availability"
+      ],
+      "c": 3,
+      "e": "High availability is about designing a system to remain operational and accessible even when individual components fail, often expressed as an uptime percentage such as 99.9%."
+    },
+    {
+      "id": "exam_4",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which statement correctly distinguishes Disaster Recovery (DR) from High Availability (HA)?",
+      "a": [
+        "DR recovers from regional outages; HA handles smaller failures",
+        "DR guarantees zero downtime in every single case",
+        "HA only applies to on-premises systems, never cloud",
+        "DR and HA are simply two different names for identical concepts"
+      ],
+      "c": 0,
+      "e": "High availability keeps a system running through everyday component failures. Disaster recovery is the broader plan for recovering after a catastrophic, region-wide event — a different scope and severity of failure."
+    },
+    {
+      "id": "exam_5",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A retail company operates its own datacenter for sensitive financial data but also uses Azure for its public-facing website during peak seasons. Which deployment model does this describe?",
+      "a": [
+        "Multi-cloud",
+        "Hybrid cloud",
+        "Public cloud",
+        "Private cloud"
+      ],
+      "c": 1,
+      "e": "Combining on-premises (or private) infrastructure with public cloud resources is the definition of a hybrid cloud deployment."
+    },
+    {
+      "id": "exam_6",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company uses both Microsoft Azure and another public cloud provider simultaneously for different workloads, with no on-premises infrastructure involved. Which deployment model is this?",
+      "a": [
+        "Private cloud",
+        "Community cloud",
+        "Multi-cloud",
+        "Hybrid cloud"
+      ],
+      "c": 2,
+      "e": "Multi-cloud specifically refers to using services from two or more public cloud providers. Hybrid cloud, by contrast, requires a combination with private or on-premises infrastructure."
+    },
+    {
+      "id": "exam_7",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which of the following is the BEST example of Total Cost of Ownership (TCO) as opposed to simple upfront cost comparison?",
+      "a": [
+        "Comparing one server's sticker price to one month of Azure spend",
+        "Comparing list prices from two different hardware vendors",
+        "Comparing license fees between two operating system vendors",
+        "Five-year hardware, power, and staff cost vs. five-year Azure cost"
+      ],
+      "c": 3,
+      "e": "TCO accounts for the full lifetime cost of ownership — not just the purchase price, but ongoing operational costs like power, cooling, space, and staffing — compared against the equivalent cloud costs over the same period."
+    },
+    {
+      "id": "exam_8",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A finance team wants Azure spending to closely track actual usage, with no obligation to pay for unused capacity. Which pricing model satisfies this requirement?",
+      "a": [
+        "Consumption-based pricing",
+        "CapEx-based procurement",
+        "A three-year Reserved Instance",
+        "A fixed annual license"
+      ],
+      "c": 0,
+      "e": "Consumption-based (pay-as-you-go) pricing charges only for resources actually used, with no long-term commitment — the opposite of a reservation, which trades flexibility for a lower rate."
+    },
+    {
+      "id": "exam_9",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which scenario BEST illustrates vertical scaling (scaling up)?",
+      "a": [
+        "Removing unused VMs overnight",
+        "Upgrading a VM from 4 vCPUs to 16 vCPUs",
+        "Adding five more VMs behind a load balancer",
+        "Migrating a VM to another region"
+      ],
+      "c": 1,
+      "e": "Vertical scaling (scaling up) means increasing the resources of an existing single machine. Adding more machines instead is horizontal scaling (scaling out)."
+    },
+    {
+      "id": "exam_10",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which scenario BEST illustrates horizontal scaling (scaling out)?",
+      "a": [
+        "Reducing a VM's CPU core count",
+        "Upgrading a single VM to a larger size",
+        "Adding more VM instances behind a load balancer",
+        "Switching a VM's operating system"
+      ],
+      "c": 2,
+      "e": "Horizontal scaling (scaling out) adds more machines to distribute load, rather than making one machine larger."
+    },
+    {
+      "id": "exam_11",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "An organization needs its cloud provider to demonstrate compliance with ISO 27001 and GDPR for an upcoming audit. Where would they find this documentation?",
+      "a": [
+        "Azure Advisor",
+        "Azure Marketplace",
+        "Azure Cost Management",
+        "Microsoft Trust Center"
+      ],
+      "c": 3,
+      "e": "The Microsoft Trust Center (and Service Trust Portal) publishes Microsoft's compliance certifications and audit reports, giving customers documented evidence for their own compliance needs."
+    },
+    {
+      "id": "exam_12",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which of the following is an example of a cloud economic benefit resulting directly from 'economies of scale'?",
+      "a": [
+        "Lower per-unit compute cost from Microsoft's bulk purchasing",
+        "The exact same services being available in every Azure region",
+        "Consistent resource tagging enforced across all subscriptions",
+        "A guarantee of 100 percent uptime across every Azure service"
+      ],
+      "c": 0,
+      "e": "Economies of scale means the cost per unit decreases as purchasing volume increases. Microsoft's massive scale lets it negotiate better hardware pricing and pass some of that savings to customers."
+    },
+    {
+      "id": "exam_13",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company wants a solution that can automatically detect increased demand and provision more resources without a human approving each change. Which term describes this capability?",
+      "a": [
+        "High availability",
+        "Elasticity",
+        "Manual scaling",
+        "Redundancy"
+      ],
+      "c": 1,
+      "e": "Elasticity implies automatic, demand-driven scaling in both directions — no human needs to intervene for resources to expand or contract."
+    },
+    {
+      "id": "exam_14",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which of these is generally considered a potential DISADVANTAGE of public cloud compared to on-premises infrastructure, according to AZ-900 exam guidance?",
+      "a": [
+        "A higher upfront capital cost than on-premises",
+        "An inability to scale resources on demand",
+        "Less direct physical control over hardware",
+        "Slower provisioning of new compute resources"
+      ],
+      "c": 2,
+      "e": "Because the cloud provider owns and operates the physical infrastructure, customers have less direct physical control than they would with hardware in their own datacenter — a common trade-off discussed on the exam."
+    },
+    {
+      "id": "exam_15",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company deploys identical copies of its application across three different Azure regions on different continents. What is the PRIMARY benefit of this approach?",
+      "a": [
+        "Faster ARM template deployment speed",
+        "Lower monthly billing across all regions",
+        "Simplified role-based access control setup",
+        "Protection from a large regional disaster"
+      ],
+      "c": 3,
+      "e": "Deploying across widely separated regions protects against a disaster that could take an entire region offline — a disaster recovery strategy, not primarily a cost or governance benefit."
+    },
+    {
+      "id": "exam_16",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which best describes the relationship between fault tolerance and redundancy?",
+      "a": [
+        "Redundancy is a key mechanism used to achieve fault tolerance",
+        "Redundancy is always manual; fault tolerance is always automatic",
+        "They are unrelated concepts",
+        "Fault tolerance applies only to storage"
+      ],
+      "c": 0,
+      "e": "Redundancy (having backup components ready) is a key building block used to achieve fault tolerance, which is the broader property of a system continuing to operate correctly despite a failure."
+    },
+    {
+      "id": "exam_17",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A business wants to convert a large capital expense for new servers into a smaller, predictable monthly operating expense. Which cloud characteristic makes this possible?",
+      "a": [
+        "Increased physical security",
+        "Consumption-based pricing",
+        "Global datacenter footprint",
+        "Role-Based Access Control"
+      ],
+      "c": 1,
+      "e": "Pay-as-you-go, consumption-based pricing is what enables the shift from a large upfront capital cost to smaller, ongoing operational costs."
+    },
+    {
+      "id": "exam_18",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which of the following is an example of the shared responsibility model as applied to an IaaS virtual machine?",
+      "a": [
+        "No shared responsibility exists for IaaS",
+        "Microsoft secures everything, including app code",
+        "Microsoft secures the host; customer patches the guest OS",
+        "Customer secures Microsoft's datacenters"
+      ],
+      "c": 2,
+      "e": "In IaaS, Microsoft secures the physical infrastructure and virtualization layer, but the customer remains responsible for the guest OS, patching, and anything they deploy on top of it."
+    },
+    {
+      "id": "exam_19",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A company evaluating cloud adoption is most concerned with being able to try a new workload cheaply and abandon it quickly if it doesn't work out. Which benefit are they prioritizing?",
+      "a": [
+        "Global reach",
+        "Fault tolerance",
+        "Compliance",
+        "Agility"
+      ],
+      "c": 3,
+      "e": "Agility is specifically about the speed and low cost of experimenting — provisioning and de-provisioning resources quickly with minimal risk."
+    },
+    {
+      "id": "exam_20",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which of these best distinguishes 'scalability' from 'elasticity' on the AZ-900 exam?",
+      "a": [
+        "Scalability may be manual; elasticity is always automatic",
+        "They are identical, fully interchangeable exam terms",
+        "Scalability always requires planned downtime",
+        "Elasticity applies only to storage services"
+      ],
+      "c": 0,
+      "e": "Scalability is the broader concept — a system CAN handle more load, possibly through manual resizing. Elasticity is a more specific, automatic form of scalability that also shrinks back down."
+    },
+    {
+      "id": "exam_21",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "An organization's leadership wants proof that Azure datacenters undergo independent, third-party security audits. Which Microsoft resource directly addresses this need?",
+      "a": [
+        "Azure Resource Manager",
+        "Microsoft Trust Center",
+        "Azure Advisor",
+        "Azure Cost Management"
+      ],
+      "c": 1,
+      "e": "The Trust Center centralizes Microsoft's compliance certifications and independent audit reports, exactly the kind of evidence needed to satisfy this leadership concern."
+    },
+    {
+      "id": "exam_22",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "A small business wants to avoid maintaining physical servers altogether but still needs occasional, unpredictable bursts of extra compute capacity. Which cloud benefit is MOST relevant?",
+      "a": [
+        "A fixed three-year Reserved Instance",
+        "More physical space in a datacenter",
+        "Elasticity with consumption-based pricing",
+        "Manual vertical scaling alone"
+      ],
+      "c": 2,
+      "e": "Elasticity handles the unpredictable bursts automatically, and consumption-based pricing ensures they only pay for the extra capacity while it's actually being used."
+    },
+    {
+      "id": "exam_23",
+      "track": "cloudConcepts",
+      "category": "Cloud concepts",
+      "q": "Which statement about the relationship between CapEx and cloud computing is MOST accurate?",
+      "a": [
+        "CapEx and OpEx don't apply to cloud",
+        "Cloud eliminates OpEx entirely",
+        "Cloud increases CapEx, reduces OpEx",
+        "Cloud shifts most spending from CapEx to OpEx"
+      ],
+      "c": 3,
+      "e": "Cloud adoption doesn't eliminate spending — it shifts the majority of infrastructure-related spending from upfront CapEx to ongoing, consumption-based OpEx."
+    },
+    {
+      "id": "exam_24",
+      "track": "coreServices",
+      "category": "Compute",
+      "q": "A company needs to run a legacy Windows application that requires full control over the operating system, including custom driver installations. Which Azure service is the BEST fit?",
+      "a": [
+        "Azure Virtual Machines",
+        "Azure App Service",
+        "Azure Functions",
+        "Azure Container Instances"
+      ],
+      "c": 0,
+      "e": "Virtual Machines provide full control over the guest OS, which is required here. PaaS and serverless options abstract away OS-level control."
+    },
+    {
+      "id": "exam_25",
+      "track": "coreServices",
+      "category": "Compute",
+      "q": "A development team wants to deploy a web API and have Azure automatically handle patching, scaling, and load balancing, without managing any servers directly. Which service fits BEST?",
+      "a": [
+        "Azure Virtual Network",
+        "Azure App Service",
+        "Azure Bastion",
+        "Azure Virtual Machines"
+      ],
+      "c": 1,
+      "e": "App Service is a fully managed PaaS specifically designed for hosting web apps and APIs, with Azure handling the underlying infrastructure."
+    },
+    {
+      "id": "exam_26",
+      "track": "coreServices",
+      "category": "Compute",
+      "q": "A company wants to run a small piece of code only when a new file is uploaded to storage, and not be charged when no files are being uploaded. Which Azure service is designed for this?",
+      "a": [
+        "Azure App Service",
+        "Azure Virtual Machines",
+        "Azure Functions",
+        "Azure Kubernetes Service"
+      ],
+      "c": 2,
+      "e": "Azure Functions is Azure's serverless compute offering, triggered by events like a file upload, and billed only for actual execution time."
+    },
+    {
+      "id": "exam_27",
+      "track": "coreServices",
+      "category": "Compute",
+      "q": "A team is containerizing a complex application made up of many microservices that need to be orchestrated, scaled, and restarted automatically. Which Azure service is the BEST fit?",
+      "a": [
+        "Azure Blueprints",
+        "Azure Functions",
+        "Azure Virtual Machines",
+        "Azure Kubernetes Service (AKS)"
+      ],
+      "c": 3,
+      "e": "AKS is Azure's managed Kubernetes service, purpose-built for orchestrating multiple interdependent containerized services at scale."
+    },
+    {
+      "id": "exam_28",
+      "track": "coreServices",
+      "category": "Compute",
+      "q": "Which Azure compute service requires the customer to manually apply operating system patches and updates?",
+      "a": [
+        "Azure Virtual Machines",
+        "Azure App Service",
+        "Azure Logic Apps",
+        "Azure Functions"
+      ],
+      "c": 0,
+      "e": "As an IaaS offering, Virtual Machines put OS patching responsibility on the customer. The PaaS and serverless options in the other choices handle OS maintenance for you."
+    },
+    {
+      "id": "exam_29",
+      "track": "coreServices",
+      "category": "Storage",
+      "q": "A media company needs to store millions of video files that are accessed unpredictably and don't follow a fixed folder structure. Which storage service is the BEST fit?",
+      "a": [
+        "Azure managed disks",
+        "Azure Blob Storage",
+        "Azure SQL Database",
+        "Azure Files"
+      ],
+      "c": 1,
+      "e": "Blob Storage is designed for large volumes of unstructured data like video and image files, accessed via a flat namespace rather than a traditional folder hierarchy."
+    },
+    {
+      "id": "exam_30",
+      "track": "coreServices",
+      "category": "Storage",
+      "q": "An organization wants to migrate an on-premises file share to Azure so that existing applications can continue accessing it using the standard SMB protocol. Which service should they use?",
+      "a": [
+        "Azure managed disks",
+        "Azure Blob Storage",
+        "Azure Files",
+        "Azure Table Storage"
+      ],
+      "c": 2,
+      "e": "Azure Files specifically provides fully managed file shares accessible over SMB (and NFS), making it ideal for lift-and-shift scenarios expecting a traditional network drive."
+    },
+    {
+      "id": "exam_31",
+      "track": "coreServices",
+      "category": "Storage",
+      "q": "A company has compliance data that must be retained for seven years but is almost never accessed. Which Blob Storage access tier minimizes cost for this scenario?",
+      "a": [
+        "Cool",
+        "Premium",
+        "Hot",
+        "Archive"
+      ],
+      "c": 3,
+      "e": "The Archive tier offers the lowest storage cost, intended for data that's rarely accessed and can tolerate a retrieval delay of several hours — ideal for long-term compliance retention."
+    },
+    {
+      "id": "exam_32",
+      "track": "coreServices",
+      "category": "Storage",
+      "q": "Which Blob Storage access tier is MOST appropriate for data accessed frequently, such as images served by an active website?",
+      "a": [
+        "Hot",
+        "Standard",
+        "Archive",
+        "Cool"
+      ],
+      "c": 0,
+      "e": "The Hot tier is optimized for frequently accessed data, offering the lowest access cost at the expense of higher storage cost compared to Cool or Archive."
+    },
+    {
+      "id": "exam_33",
+      "track": "coreServices",
+      "category": "Storage",
+      "q": "A company wants storage that survives the loss of an entire Azure region, not just a single datacenter. Which redundancy option should they choose?",
+      "a": [
+        "Locally Redundant Storage (LRS)",
+        "Geo-Redundant Storage (GRS)",
+        "No redundancy needed",
+        "Zone-Redundant Storage (ZRS)"
+      ],
+      "c": 1,
+      "e": "GRS replicates data to a second, geographically distant paired region, protecting against a full regional outage — something LRS and ZRS alone do not cover."
+    },
+    {
+      "id": "exam_34",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "A company wants two Azure resources in different Virtual Networks to communicate privately using Microsoft's backbone network instead of the public internet. What should they configure?",
+      "a": [
+        "Azure Firewall",
+        "A Network Security Group",
+        "VNet peering",
+        "Azure Bastion"
+      ],
+      "c": 2,
+      "e": "VNet peering connects two virtual networks so resources can communicate privately over Microsoft's backbone, without traversing the public internet."
+    },
+    {
+      "id": "exam_35",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "An organization needs a dedicated, private connection from their on-premises datacenter to Azure that does not travel over the public internet at all. Which service fits BEST?",
+      "a": [
+        "Azure Load Balancer",
+        "Azure VPN Gateway",
+        "Azure Front Door",
+        "Azure ExpressRoute"
+      ],
+      "c": 3,
+      "e": "ExpressRoute provides a private, dedicated connection to Azure that completely bypasses the public internet, unlike VPN Gateway, which uses an encrypted tunnel over the internet."
+    },
+    {
+      "id": "exam_36",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "A remote branch office needs a cost-effective, encrypted connection to Azure over the existing internet connection, without dedicated new hardware from a telecom provider. Which service is the BEST fit?",
+      "a": [
+        "Azure VPN Gateway",
+        "Azure ExpressRoute",
+        "Azure Bastion",
+        "Azure Front Door"
+      ],
+      "c": 0,
+      "e": "VPN Gateway creates an encrypted tunnel over the public internet — a much cheaper and faster-to-set-up option than ExpressRoute, appropriate for smaller or less latency-sensitive connections."
+    },
+    {
+      "id": "exam_37",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "Which Azure resource acts as a basic, rule-based network-layer firewall for a subnet or network interface based on source, destination, and port?",
+      "a": [
+        "Azure DNS",
+        "Network Security Group (NSG)",
+        "Azure Load Balancer",
+        "Azure Application Gateway"
+      ],
+      "c": 1,
+      "e": "An NSG is a simple, rule-based filter for allowing or denying traffic based on properties like source, destination, port, and protocol."
+    },
+    {
+      "id": "exam_38",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "A company needs to distribute incoming web traffic across multiple backend servers based on URL path, and also wants a built-in web application firewall. Which service fits BEST?",
+      "a": [
+        "Azure Load Balancer",
+        "Azure VPN Gateway",
+        "Azure Application Gateway",
+        "Azure ExpressRoute"
+      ],
+      "c": 2,
+      "e": "Application Gateway operates at Layer 7 and can route based on URL path while also offering a Web Application Firewall — capabilities the network-layer Load Balancer does not provide."
+    },
+    {
+      "id": "exam_39",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "Which Azure service is specifically designed to cache static content at edge locations close to end users, reducing latency for a globally distributed audience?",
+      "a": [
+        "Azure Bastion",
+        "Azure Virtual Network",
+        "Azure ExpressRoute",
+        "Azure Content Delivery Network"
+      ],
+      "c": 3,
+      "e": "Azure CDN caches static content at edge locations physically closer to users, reducing the distance data has to travel and improving load times."
+    },
+    {
+      "id": "exam_40",
+      "track": "coreServices",
+      "category": "Networking",
+      "q": "What is the PRIMARY purpose of a Virtual Network (VNet) in Azure?",
+      "a": [
+        "A private, isolated network boundary for Azure resources",
+        "Automatic encryption applied to all stored data",
+        "Managing billing across multiple subscriptions",
+        "Public internet access granted to all resources by default"
+      ],
+      "c": 0,
+      "e": "A VNet is your own isolated network space within Azure, letting resources communicate privately while giving you control over what traffic is allowed in or out."
+    },
+    {
+      "id": "exam_41",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which Azure feature allows administrators to manage, deploy, and monitor all Azure resources through a single, consistent API regardless of the tool used?",
+      "a": [
+        "Azure Policy assignments",
+        "Azure Resource Manager (ARM)",
+        "Azure Monitor dashboards",
+        "Azure Advisor recommendations"
+      ],
+      "c": 1,
+      "e": "ARM is the unified management layer behind the Portal, CLI, PowerShell, and SDKs — every request to create or modify a resource goes through it."
+    },
+    {
+      "id": "exam_42",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A team wants to deploy the exact same infrastructure configuration repeatedly across dev, test, and production environments with no manual configuration drift. Which approach BEST supports this?",
+      "a": [
+        "Creating a new subscription per environment",
+        "Using only the mobile app",
+        "ARM templates (Infrastructure as Code)",
+        "Manually configuring each environment"
+      ],
+      "c": 2,
+      "e": "ARM templates let you declare infrastructure as code, ensuring identical, repeatable deployments across environments without manual, error-prone configuration."
+    },
+    {
+      "id": "exam_43",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "What is the defining characteristic of an Azure Region Pair?",
+      "a": [
+        "Any two regions located on the same continent",
+        "Two subscriptions linked together for billing purposes",
+        "Two Availability Zones within one single datacenter",
+        "Two regions 300+ miles apart, paired for disaster recovery"
+      ],
+      "c": 3,
+      "e": "Region pairs are specific Microsoft-designated pairings of regions at a safe distance apart, used for coordinated disaster recovery and planned maintenance rollouts."
+    },
+    {
+      "id": "exam_44",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company needs their application to survive the failure of an entire Azure datacenter within a region, without failing over to a different region. Which architecture feature should they use?",
+      "a": [
+        "Availability Zones",
+        "Azure Front Door",
+        "Reserved Instances",
+        "Region pairs"
+      ],
+      "c": 0,
+      "e": "Availability Zones are physically separate datacenters within the same region, each with independent power and networking — protecting against a single datacenter failure without needing to leave the region."
+    },
+    {
+      "id": "exam_45",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which of the following BEST describes an Azure Resource Group?",
+      "a": [
+        "A particular type of virtual machine size",
+        "A container for resources sharing one lifecycle",
+        "A specific physical datacenter location",
+        "A billing method used for enterprise customers"
+      ],
+      "c": 1,
+      "e": "A resource group is a logical grouping for resources that belong together and share a lifecycle — deleting the group deletes everything inside it."
+    },
+    {
+      "id": "exam_46",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which best describes the relationship between an Azure Subscription and a Management Group?",
+      "a": [
+        "Management Groups and subscriptions are unrelated",
+        "Management Groups always nest inside one subscription",
+        "Management Groups apply governance above subscriptions",
+        "Management Groups fully replace subscriptions"
+      ],
+      "c": 2,
+      "e": "Management Groups organize multiple subscriptions above the subscription level, letting governance tools like Azure Policy apply consistently across all of them at once."
+    },
+    {
+      "id": "exam_47",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company wants its infrastructure deployment to be idempotent — meaning running the same deployment twice produces the same result without errors or duplicates. Which Azure approach supports this?",
+      "a": [
+        "Manually clicking through the Portal",
+        "Azure Advisor recommendations",
+        "A new PowerShell script every time",
+        "ARM templates (declarative deployment)"
+      ],
+      "c": 3,
+      "e": "Declarative ARM templates describe the desired end state, and Azure reconciles the actual environment to match it — running the same template again produces the same result rather than duplicating resources."
+    },
+    {
+      "id": "exam_48",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which Azure service allows an organization to package a set of ARM templates, policies, and role assignments together as a single repeatable, compliant environment definition?",
+      "a": [
+        "Azure Blueprints",
+        "Azure Bastion",
+        "Azure Monitor",
+        "Azure Advisor"
+      ],
+      "c": 0,
+      "e": "Azure Blueprints packages templates, policies, and role assignments together so a fully governed environment can be reliably reproduced from the first deployment."
+    },
+    {
+      "id": "exam_49",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company is deciding between Azure Container Apps and a traditional Virtual Machine for a new microservice. Which factor MOST strongly favors containers over a VM?",
+      "a": [
+        "Wanting to avoid Azure Resource Manager entirely",
+        "Needing the app to run identically across environments",
+        "Needing full control of the guest operating system",
+        "Wanting the absolute lowest cost option"
+      ],
+      "c": 1,
+      "e": "Containers package an application with everything it needs to run consistently anywhere, which is their main advantage over a VM when portability and consistency matter more than deep OS-level control."
+    },
+    {
+      "id": "exam_50",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which statement correctly describes the relationship between Azure Regions and Availability Zones?",
+      "a": [
+        "Zones and Regions describe the exact same thing",
+        "Availability Zones can span across multiple regions",
+        "Most regions contain multiple physically separate zones",
+        "Every single Azure region has exactly one zone"
+      ],
+      "c": 2,
+      "e": "A region is a broad geography; most regions are further subdivided into multiple physically separate Availability Zones for extra resilience within that region."
+    },
+    {
+      "id": "exam_51",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company running many small independent event-driven functions wants to be billed ONLY for the exact compute time each function actually uses. Which pricing/compute model matches this requirement?",
+      "a": [
+        "Reserved VM Instances",
+        "A fixed App Service Plan",
+        "On-premises hardware",
+        "Azure Functions Consumption plan"
+      ],
+      "c": 3,
+      "e": "The Functions Consumption plan bills purely by execution time and resource consumption during that execution — no charge while idle, matching a true pay-only-for-use model."
+    },
+    {
+      "id": "exam_52",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which of the following is TRUE about Azure Resource Manager templates written in JSON versus Bicep?",
+      "a": [
+        "Bicep compiles down to the same underlying ARM JSON",
+        "JSON templates can't be idempotent",
+        "Bicep only works for storage resources",
+        "Bicep uses an entirely separate deployment engine"
+      ],
+      "c": 0,
+      "e": "Bicep is a more human-readable authoring language that transpiles into standard ARM JSON, so both ultimately go through the same ARM deployment engine."
+    },
+    {
+      "id": "exam_53",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company wants a single place to view the health of Azure services specifically affecting their own subscriptions, not just a general public status page. Which service provides this?",
+      "a": [
+        "Azure Policy",
+        "Azure Service Health",
+        "Azure Advisor",
+        "Azure Status page"
+      ],
+      "c": 1,
+      "e": "Azure Service Health is personalized — it reports specifically on incidents affecting the customer's own resources, unlike the general public Azure Status page."
+    },
+    {
+      "id": "exam_54",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which choice BEST reflects when a company should choose Azure Virtual Machines over Azure App Service for hosting a web application?",
+      "a": [
+        "Wanting the absolute minimum infrastructure management",
+        "Wanting Azure to automatically manage all OS patching",
+        "Needing OS customization App Service doesn't support",
+        "Hosting a simple, stateless REST API endpoint"
+      ],
+      "c": 2,
+      "e": "VMs are the right choice specifically when deep OS-level control or custom software installations are required — otherwise, App Service's managed platform is typically the better fit."
+    },
+    {
+      "id": "exam_55",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "What is the main advantage of using Azure Container Instances (ACI) for a short-lived batch job compared to provisioning a full Virtual Machine?",
+      "a": [
+        "Guaranteed availability across every Azure region",
+        "Built-in Kubernetes orchestration and scaling",
+        "Full control over the guest operating system kernel",
+        "Fast startup, billed only while running, no VM to manage"
+      ],
+      "c": 3,
+      "e": "ACI lets you run containers directly without provisioning or managing VMs, starting quickly and billing per second — ideal for short-lived, bursty workloads like batch jobs."
+    },
+    {
+      "id": "exam_56",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "A company needs a database service where Azure fully manages patching, backups, and high availability, without the customer having to manage a database server. Which is the BEST example?",
+      "a": [
+        "Azure SQL Database (PaaS)",
+        "Azure Blob Storage",
+        "An on-premises SQL Server",
+        "SQL Server installed on an Azure VM"
+      ],
+      "c": 0,
+      "e": "Azure SQL Database is a fully managed PaaS offering — Microsoft handles patching, backups, and high availability, unlike SQL Server self-installed on a VM."
+    },
+    {
+      "id": "exam_57",
+      "track": "coreServices",
+      "category": "Architecture",
+      "q": "Which best explains why deploying resources through ARM templates is generally preferred over manually creating them in the Azure Portal for production environments?",
+      "a": [
+        "Manually created resources can't be modified",
+        "Templates are repeatable and version-controllable",
+        "The Portal can't create most resource types",
+        "Templates always deploy faster than the Portal"
+      ],
+      "c": 1,
+      "e": "Infrastructure as Code (ARM templates) can be stored in version control, reviewed, and reliably repeated — reducing the human error and drift that comes with manual, click-through configuration."
+    },
+    {
+      "id": "exam_58",
+      "track": "securityGovernance",
+      "category": "Identity",
+      "q": "Which Microsoft service serves as the central identity provider for authenticating users and applications across Azure and Microsoft 365?",
+      "a": [
+        "Azure Key Vault",
+        "Azure Policy",
+        "Microsoft Entra ID",
+        "Azure Firewall"
+      ],
+      "c": 2,
+      "e": "Microsoft Entra ID (formerly Azure Active Directory) is the identity backbone for Azure and Microsoft 365, handling authentication for users, groups, and applications."
+    },
+    {
+      "id": "exam_59",
+      "track": "securityGovernance",
+      "category": "Identity",
+      "q": "A company wants to require a second verification step, such as a phone prompt, in addition to a password for signing in. Which feature should they enable?",
+      "a": [
+        "Role-Based Access Control",
+        "Network Security Groups",
+        "Azure Policy",
+        "Multi-Factor Authentication (MFA)"
+      ],
+      "c": 3,
+      "e": "MFA specifically adds an additional authentication factor — something the user has or is — beyond just a password."
+    },
+    {
+      "id": "exam_60",
+      "track": "securityGovernance",
+      "category": "Identity",
+      "q": "Which statement about Conditional Access is MOST accurate?",
+      "a": [
+        "It adds controls, like MFA, only for risky sign-ins",
+        "It replaces the need for passwords entirely",
+        "It only ever applies to Virtual Machines",
+        "It permanently blocks every sign-in from off-site"
+      ],
+      "c": 0,
+      "e": "Conditional Access evaluates signals like location, device compliance, and risk level in real time, applying stricter controls only when those signals warrant it — not a blanket restriction."
+    },
+    {
+      "id": "exam_61",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A company needs to grant a contractor read-only access to a single resource group without giving them access to anything else in the subscription. Which feature should they use?",
+      "a": [
+        "Azure Blueprints",
+        "RBAC scoped to the resource group",
+        "Azure Advisor",
+        "A Conditional Access policy"
+      ],
+      "c": 1,
+      "e": "RBAC lets you assign a role, like Reader, scoped precisely to the resource group needed, without granting broader subscription-wide access."
+    },
+    {
+      "id": "exam_62",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which Azure feature can automatically prevent the creation of a storage account that isn't configured with encryption, according to organizational rules?",
+      "a": [
+        "Azure Advisor",
+        "Azure Cost Management",
+        "Azure Policy",
+        "Microsoft Entra ID"
+      ],
+      "c": 2,
+      "e": "Azure Policy can enforce rules that actively deny non-compliant resource creation — like blocking an unencrypted storage account — rather than merely flagging it afterward."
+    },
+    {
+      "id": "exam_63",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A company wants a single numeric score reflecting the overall security posture of their Azure environment, updated continuously as they make changes.",
+      "a": [
+        "Advisor cost score",
+        "Reserved Instance utilization",
+        "Cost Management budget",
+        "Secure Score"
+      ],
+      "c": 3,
+      "e": "Secure Score, provided by Microsoft Defender for Cloud, is a single continuously updated number reflecting how well an environment follows security best practices."
+    },
+    {
+      "id": "exam_64",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which Azure service should be used to securely store and manage API keys, connection strings, and certificates, rather than hardcoding them into application source code?",
+      "a": [
+        "Azure Key Vault",
+        "Azure Policy",
+        "Azure Monitor",
+        "Azure Blueprints"
+      ],
+      "c": 0,
+      "e": "Key Vault is purpose-built as a secure, access-controlled store for secrets, keys, and certificates — exactly what should replace hardcoded credentials in source code."
+    },
+    {
+      "id": "exam_65",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Under the shared responsibility model, which of the following is ALWAYS the customer's responsibility, regardless of whether they use IaaS, PaaS, or SaaS?",
+      "a": [
+        "Maintaining physical network hardware",
+        "Their own data and who can access it",
+        "Patching the hypervisor",
+        "Physical datacenter security"
+      ],
+      "c": 1,
+      "e": "No matter which service model is used, the customer always retains responsibility for their own data, identities, and access management — that responsibility never shifts to Microsoft."
+    },
+    {
+      "id": "exam_66",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A security team wants to enforce 'verify explicitly, use least privileged access, and assume breach' across their organization. Which security model does this describe?",
+      "a": [
+        "Shared responsibility model",
+        "Defense in depth only",
+        "Zero Trust",
+        "RBAC alone"
+      ],
+      "c": 2,
+      "e": "These three principles — verify explicitly, least privilege, assume breach — are the defining tenets of the Zero Trust security model."
+    },
+    {
+      "id": "exam_67",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which built-in Azure role grants full access to manage all resources, INCLUDING the ability to grant access to others?",
+      "a": [
+        "Security Reader",
+        "Reader",
+        "Contributor",
+        "Owner"
+      ],
+      "c": 3,
+      "e": "Owner has full control, including the ability to manage access for others — Contributor can manage resources but cannot grant access, and Reader is view-only."
+    },
+    {
+      "id": "exam_68",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which built-in Azure RBAC role allows a user to create and manage all types of Azure resources but NOT grant access to other users?",
+      "a": [
+        "Contributor",
+        "Reader",
+        "Owner",
+        "Global Administrator"
+      ],
+      "c": 0,
+      "e": "Contributor can create, modify, and delete resources but explicitly cannot assign roles or manage access — that capability is reserved for Owner."
+    },
+    {
+      "id": "exam_69",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A company wants to ensure that only compliant, managed devices can access sensitive company applications, decided dynamically at sign-in time. Which feature supports this?",
+      "a": [
+        "The Azure Cost Management + Billing blade",
+        "Conditional Access with device compliance",
+        "A general-purpose Azure Policy assignment",
+        "A basic Network Security Group rule"
+      ],
+      "c": 1,
+      "e": "Conditional Access can require that a device be marked compliant (via Intune, for example) before granting access — evaluated dynamically at each sign-in."
+    },
+    {
+      "id": "exam_70",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which Microsoft Defender for Cloud capability specifically provides just-in-time access to reduce exposure of a VM's management ports?",
+      "a": [
+        "Policy compliance dashboard",
+        "Secure Score",
+        "Just-in-time (JIT) VM access",
+        "Advisor recommendations"
+      ],
+      "c": 2,
+      "e": "JIT VM access locks down management ports like RDP/SSH by default and opens them only for a limited time window when explicitly requested and approved."
+    },
+    {
+      "id": "exam_71",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A multinational organization needs documented evidence that Microsoft datacenters comply with regional data protection regulations like GDPR. Where should they look?",
+      "a": [
+        "Azure Resource Manager docs",
+        "Azure Cost Management + Billing",
+        "The Azure status page",
+        "Microsoft Trust Center"
+      ],
+      "c": 3,
+      "e": "The Trust Center and Service Trust Portal are Microsoft's central resources for compliance documentation and independent audit results across many regulatory frameworks."
+    },
+    {
+      "id": "exam_72",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which of the following BEST describes why Microsoft recommends using built-in RBAC roles over custom roles whenever possible?",
+      "a": [
+        "Microsoft maintains and updates them automatically",
+        "Built-in roles always have fewer permissions",
+        "Custom roles need Entra ID Premium",
+        "Custom roles can't be assigned to multiple users"
+      ],
+      "c": 0,
+      "e": "Because Microsoft maintains built-in roles, they require no ongoing upkeep as new features are added — a benefit custom roles don't share, since they must be manually updated."
+    },
+    {
+      "id": "exam_73",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "Which statement about Azure Policy is MOST accurate?",
+      "a": [
+        "It can only report on non-compliant resources",
+        "It can audit, deny, or auto-remediate resources",
+        "It applies only to virtual machine resources",
+        "It completely replaces the need for RBAC"
+      ],
+      "c": 1,
+      "e": "Azure Policy can do more than just report — depending on its effect setting, it can actively deny non-compliant deployments or even automatically remediate them."
+    },
+    {
+      "id": "exam_74",
+      "track": "securityGovernance",
+      "category": "Governance",
+      "q": "A company's compliance officer wants to know, at a glance, which Azure resources currently violate an organization-wide encryption requirement. Which Azure feature provides this visibility?",
+      "a": [
+        "Reserved Instance recommendations",
+        "Cost Management + Billing",
+        "Azure Policy compliance dashboard",
+        "Advisor cost recommendations"
+      ],
+      "c": 2,
+      "e": "The Azure Policy compliance dashboard shows exactly which resources are compliant or non-compliant against assigned policies, like an encryption requirement."
+    },
+    {
+      "id": "exam_75",
+      "track": "securityGovernance",
+      "category": "Identity",
+      "q": "Which of the following is an example of something you HAVE, as used in Multi-Factor Authentication?",
+      "a": [
+        "The username permanently tied to your account",
+        "The password you always type in to sign in",
+        "Your official job title within the company",
+        "A code from an authenticator app on your phone"
+      ],
+      "c": 3,
+      "e": "MFA combines different factor types: something you know (password), something you have (a phone or hardware token), and something you are (biometrics). An authenticator app code is a 'something you have' factor."
+    },
+    {
+      "id": "exam_76",
+      "track": "managementMonitoring",
+      "category": "Cost",
+      "q": "A finance manager wants to be automatically notified by email once Azure spending reaches 80% of a predefined monthly limit. Which feature should they configure?",
+      "a": [
+        "An Azure Budget with an alert threshold",
+        "An Azure Policy assignment rule",
+        "A three-year Reserved Instance",
+        "The Azure Advisor recommendations blade"
+      ],
+      "c": 0,
+      "e": "Azure Budgets let you define a spending threshold and configure alerts that fire automatically once spending crosses a set percentage of that budget."
+    },
+    {
+      "id": "exam_77",
+      "track": "managementMonitoring",
+      "category": "Cost",
+      "q": "Which Azure tool proactively analyzes actual resource usage and recommends specific actions, such as resizing an underutilized VM, to reduce cost?",
+      "a": [
+        "Microsoft Entra ID",
+        "Azure Advisor",
+        "Azure Policy",
+        "Azure Budgets"
+      ],
+      "c": 1,
+      "e": "Azure Advisor actively scans usage patterns and provides personalized, specific recommendations for cost savings, performance, security, and reliability."
+    },
+    {
+      "id": "exam_78",
+      "track": "managementMonitoring",
+      "category": "Cost",
+      "q": "A company wants to commit to using a specific VM size for three years in exchange for a significantly discounted hourly rate. Which pricing option should they choose?",
+      "a": [
+        "Spot pricing only",
+        "A free trial subscription",
+        "A Reserved Instance",
+        "Pay-as-you-go pricing"
+      ],
+      "c": 2,
+      "e": "Reserved Instances offer a substantial discount in exchange for a 1- or 3-year usage commitment, ideal for predictable, steady-state workloads."
+    },
+    {
+      "id": "exam_79",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which Azure feature allows an organization to apply a single governance policy that automatically cascades to every subscription within a management group, including subscriptions added later?",
+      "a": [
+        "Azure Cost Management on its own",
+        "Azure Advisor's recommendations",
+        "A single tag on a Resource Group",
+        "Management Group policy inheritance"
+      ],
+      "c": 3,
+      "e": "Policies assigned at a management group level inherit down to every subscription beneath it, automatically, even ones created after the policy was assigned."
+    },
+    {
+      "id": "exam_80",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "A company wants to organize resources with simple name/value labels, such as 'Environment:Production', to support cost reporting and automation. What should they use?",
+      "a": [
+        "Tags",
+        "Resource locks",
+        "Management groups",
+        "Azure Blueprints"
+      ],
+      "c": 0,
+      "e": "Tags are simple metadata labels attached to resources, commonly used to organize cost reports and drive policy-based automation."
+    },
+    {
+      "id": "exam_81",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which Azure feature can prevent a critical production resource from being accidentally deleted, even by a user with Contributor access?",
+      "a": [
+        "An Availability Zone",
+        "A resource lock (Delete lock)",
+        "A Network Security Group",
+        "Cost Management"
+      ],
+      "c": 1,
+      "e": "Resource locks (CanNotDelete or ReadOnly) override normal RBAC permissions to specifically prevent accidental deletion or modification, even for users who otherwise have sufficient access."
+    },
+    {
+      "id": "exam_82",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "A team wants near real-time numerical data, such as CPU percentage, to power a live operational dashboard. Which Azure Monitor component is BEST suited?",
+      "a": [
+        "Application Insights alone",
+        "Log Analytics",
+        "Metrics",
+        "Azure Advisor"
+      ],
+      "c": 2,
+      "e": "Metrics provide lightweight, near real-time numerical data ideal for dashboards and fast alerting, as opposed to the more detailed, queryable data in Logs."
+    },
+    {
+      "id": "exam_83",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which Azure Monitor component would an engineer use to run a detailed query investigating exactly what happened before an application crash?",
+      "a": [
+        "Azure Advisor",
+        "Cost Management",
+        "Metrics alone",
+        "Log Analytics (Logs)"
+      ],
+      "c": 3,
+      "e": "Log Analytics stores detailed, queryable event and diagnostic data, making it the right tool for in-depth investigation rather than at-a-glance dashboards."
+    },
+    {
+      "id": "exam_84",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "A company has resources deployed across production, staging, and multiple subscriptions but needs to see status of Azure incidents affecting specifically their own resources. Which service should they check?",
+      "a": [
+        "Azure Service Health",
+        "Azure Advisor",
+        "The general Azure Status page",
+        "Cost Management"
+      ],
+      "c": 0,
+      "e": "Azure Service Health is personalized to the customer's own subscriptions and resources, unlike the general public Azure Status page, which reports global incidents only."
+    },
+    {
+      "id": "exam_85",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which of the following BEST describes a Service Level Agreement (SLA) in the context of Azure?",
+      "a": [
+        "A discount applied after one year",
+        "A measurable uptime commitment with service credits owed",
+        "An internal document not shared with customers",
+        "A guarantee of zero downtime ever"
+      ],
+      "c": 1,
+      "e": "An SLA is Microsoft's measurable, published uptime commitment (like 99.9%), with defined service credits owed to the customer if that commitment isn't met."
+    },
+    {
+      "id": "exam_86",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "If two chained Azure services each individually offer a 99.9% SLA, what happens to the application's overall composite SLA?",
+      "a": [
+        "It automatically rises to 99.99%",
+        "Composite SLA math doesn't apply to this case",
+        "It drops below 99.9%, since the SLAs multiply",
+        "It stays at exactly 99.9% regardless"
+      ],
+      "c": 2,
+      "e": "When services are chained, the composite SLA is the product of the individual SLAs, which is mathematically lower than any single service's SLA on its own."
+    },
+    {
+      "id": "exam_87",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which Azure Monitor component is specifically designed to track application-level behavior such as response times, exception rates, and dependency calls, rather than infrastructure health?",
+      "a": [
+        "Azure Policy",
+        "Resource locks",
+        "Azure Advisor",
+        "Application Insights"
+      ],
+      "c": 3,
+      "e": "Application Insights focuses on application performance monitoring — response times, exceptions, and dependencies — distinct from infrastructure-level Metrics or Logs."
+    },
+    {
+      "id": "exam_88",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "A company's IT department wants to know, at a glance, whether a trending Azure incident is actually affecting any of their own deployed resources.",
+      "a": [
+        "Azure Service Health",
+        "Azure Advisor",
+        "Policy compliance dashboard",
+        "Reserved Instance recommendations"
+      ],
+      "c": 0,
+      "e": "Service Health filters incident information down to what specifically affects the customer's own subscription and resources, answering exactly this kind of question."
+    },
+    {
+      "id": "exam_89",
+      "track": "managementMonitoring",
+      "category": "Management",
+      "q": "Which combination BEST reflects how Azure Budgets and Azure Advisor work together for cost control?",
+      "a": [
+        "Advisor sets limits; Budgets makes recommendations",
+        "Budgets alert reactively; Advisor recommends proactively",
+        "Neither tool manages cost",
+        "They perform the exact same function"
+      ],
+      "c": 1,
+      "e": "Budgets are a reactive notification mechanism — they alert after a threshold is crossed. Advisor is proactive, recommending specific actions before costs get out of hand."
+    }
+  ],
+  "examConfig": {
+    "questionCount": 10,
+    "timeLimitSeconds": 600,
+    "passThreshold": 0.7,
+    "domainDraw": {
+      "cloudConcepts": 3,
+      "coreServices": 4,
+      "govMgmt": 3
     }
   }
 };

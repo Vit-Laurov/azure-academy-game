@@ -98,6 +98,8 @@ function renderLoot(){
       <div class="loot-grid">
         ${loot.map(it=>{
           let has=owned.includes(it.id),canAfford=S.shards>=it.cost,justBought=it.id===lastBoughtId;
+          let pct=Math.min(100,Math.round((S.shards/it.cost)*100));
+          let missing=it.cost-S.shards;
           return `<div class="loot-card ${it.rarity} ${has?'owned':''} ${justBought?'just-bought':''}" data-id="${it.id}">
             <div class="loot-icon ${it.rarity}">${iconFor(it.type)}</div>
             <div class="loot-name ${it.rarity}">${it.name}</div>
@@ -108,8 +110,9 @@ function renderLoot(){
             </div>
             <div class="loot-desc">${it.desc}</div>
             <div class="loot-effect">${it.effect}</div>
+            ${!has&&!canAfford?`<div class="loot-progress"><div class="loot-progress-fill" style="width:${pct}%"></div></div>`:''}
             <button class="btn ${has?'btn-ghost':canAfford?'btn-primary':'btn-ghost'}" ${has||!canAfford?'disabled':''} onclick="buyLoot('${it.id}')">
-              ${has?'Owned':canAfford?'Buy':'Not enough Shards'}
+              ${has?'Owned':canAfford?'Buy':`Missing ${missing} Shards`}
             </button>
           </div>`;
         }).join('')}

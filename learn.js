@@ -2,10 +2,10 @@ let expandedLesson=null;
 let selectedTier=null;
 
 const TIER_META=[
-  {id:'beginner',name:'Beginner',icon:'🌱',desc:'Start from zero. Core concepts explained with real-world analogies.'},
-  {id:'intermediate',name:'Intermediate',icon:'📘',desc:'Building on the basics — more depth per topic.'},
-  {id:'advanced',name:'Advanced',icon:'🎯',desc:'Exam-level nuance and edge cases.'},
-  {id:'senior',name:'Senior',icon:'🏆',desc:'Real-world scenarios and architecture trade-offs.'}
+  {id:'beginner',name:'Beginner',icon:'<svg class="ic-tier" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-8M12 14C8 14 6 11 6 7c4 0 6 2 6 7Zm0 0c0-5 2-7 6-7 0 4-2 7-6 7Z"/></svg>',desc:'Start from zero. Core concepts explained with real-world analogies.'},
+  {id:'intermediate',name:'Intermediate',icon:'<svg class="ic-tier" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14a1 1 0 0 0 1 1h9M4 5a2 2 0 0 1 2-2h13v16h-13"/></svg>',desc:'Building on the basics — more depth per topic.'},
+  {id:'advanced',name:'Advanced',icon:'<svg class="ic-tier" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',desc:'Exam-level nuance and edge cases.'},
+  {id:'senior',name:'Senior',icon:'<svg class="ic-tier" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg>',desc:'Real-world scenarios and architecture trade-offs.'}
 ];
 
 function learnTracks(){return AZURE_DB.learnContent||{}}
@@ -145,7 +145,7 @@ function renderLessonItem(l){
   let read=isLessonRead(l.id);
   return `<div class="lesson-item ${open?'open':''}">
     <div class="lesson-header" tabindex="0" role="button" onclick="toggleLesson('${l.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLesson('${l.id}')}">
-      <span class="lesson-check">${read?'✓':'○'}</span>
+      <span class="lesson-check ${read?'read':''}">${read?'✓':'○'}</span>
       <span class="lesson-title">${l.title}</span>
       <span class="lesson-caret">${open?'▲':'▼'}</span>
     </div>
