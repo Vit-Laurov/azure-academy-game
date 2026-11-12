@@ -1,7 +1,7 @@
-// engine.js — v16.1
+// engine.js — v16.2
 // Game rules without any DOM access. The screen (app.js, bossfight.js) and, later, voice mode
 // call into this file. Nothing here reads or writes the page; it only changes S and returns results.
-const APP_VERSION='16.1';
+const APP_VERSION='16.2';
 
 const config={
   easy:{title:'Easy Patrol',short:'Easy',icon:'🛡️',limit:10,xp:20,shards:1,goal:'Core definitions and concepts.',reward:'+20 XP / correct'},

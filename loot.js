@@ -15,6 +15,15 @@ const PET_CHEERS=[
   "You've got this! 💪",'Doing great — keep going!','Believe in yourself!',
   'One step closer to AZ-900!','Nice work so far!','You can do this.','Stay sharp!','Proud of you!'
 ];
+const PET_CONSOLE=[
+  'Shake it off!','Next one is yours.',"I'll remember that one for you.",'Blorp… we got this.','Mistakes = XP for the brain.'
+];
+function petReactToAnswer(correct){
+  if(!ownedPetName())return;
+  // not on every answer, so it stays charming instead of noisy
+  if(correct&&Math.random()>0.45)return;
+  triggerPetReaction(correct?PET_CHEERS:PET_CONSOLE);
+}
 let petTimer=null;
 function ownedPetName(){
   let found=(S.collection||[]).map(itemById).find(it=>it&&it.effectCode&&it.effectCode.pet);

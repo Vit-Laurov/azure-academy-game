@@ -492,3 +492,38 @@ input.profile-name-input{font-family:var(--f-mono);background:var(--ui-deep);col
 @media (prefers-reduced-motion: reduce){
   .map-node.current,.map-node.boss.ready,.map-hero,.bn-badge.show,.q-cursor,.q-pips i.now,.hud-timer.urgent,.node-chest{animation:none !important}
 }
+
+/* ======================================================================
+   v16.2 — pet perched on the HUD (was hidden under the bottom nav), loot badges
+   ====================================================================== */
+.hud{position:relative}
+@media (max-width:880px){.hud{position:fixed}}
+.pet-companion{
+  position:absolute !important;right:14px !important;bottom:-30px !important;top:auto !important;left:auto !important;
+  width:48px !important;height:44px !important;z-index:2;padding:0;border:0;background:transparent;
+  color:var(--accent);cursor:pointer;-webkit-tap-highlight-color:transparent;
+  animation:pxIdle 1.4s steps(2) infinite !important;
+}
+.pet-companion.hidden{display:none !important}
+.pet-companion .px{width:40px !important;height:40px !important;filter:drop-shadow(3px 3px 0 #000)}
+.pet-companion.hop{animation:pxPetHop .5s steps(4) !important}
+.pet-bubble{
+  position:absolute !important;top:calc(100% + 8px) !important;bottom:auto !important;right:0 !important;
+  width:max-content;max-width:220px;text-align:left;
+  background:var(--ui-bubble) !important;color:var(--ui-bubble-text) !important;border:0 !important;border-radius:0 !important;
+  box-shadow:4px 4px 0 var(--accent);padding:8px 10px !important;
+  font-family:var(--f-mono) !important;font-weight:700;font-size:13px !important;line-height:1.35 !important;
+  opacity:0;transition:opacity .1s steps(2);pointer-events:none;
+}
+.pet-bubble.show{opacity:1}
+@keyframes pxIdle{50%{transform:translateY(-3px)}}
+@keyframes pxPetHop{0%{transform:translateY(0)}40%{transform:translateY(-14px)}70%{transform:translateY(0) scaleY(.9)}100%{transform:none}}
+@media (max-width:880px){
+  #main{padding-top:calc(env(safe-area-inset-top,0px) + var(--hud-h) + 44px)}
+}
+.q-raven{
+  position:absolute;top:-15px;right:12px;
+  font-family:var(--f-pixel);font-size:8px;line-height:8px;color:#000;
+  background:var(--px-yellow);padding:6px 8px;box-shadow:0 0 0 2px #000;
+}
+.q-opt .xp-pop{z-index:2}

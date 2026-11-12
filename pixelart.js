@@ -242,3 +242,18 @@ SPRITES.rock=[
   "........",
   "........"
 ];
+
+SPRITES.blob=[
+  "..c.........",
+  ".cc..cccc...",
+  "....cccccc..",
+  "...cWccccccc",
+  "..ccWccccccc",
+  "..ccKcccKccc",
+  "..ccKcccKccc",
+  "..cccccccccc",
+  "..cccKKKcccc",
+  "...cccccccc.",
+  "....cccccc..",
+  "............"
+];

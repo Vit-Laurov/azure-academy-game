@@ -1,4 +1,4 @@
-// app.js — v16.1 (screens + input). Game rules live in engine.js.
+// app.js — v16.2 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -126,7 +126,8 @@ function updateHud(){
   let set=(id,v)=>{let el=document.getElementById(id);if(el)el.textContent=v};
   set('hud-lvl','LV '+lvl);
   set('hud-name',(getProfile().name||'Hero').toUpperCase());
-  set('hud-title',levelTitle().toUpperCase());
+  let lootTitle=(typeof unlockedTitles==='function'&&unlockedTitles()[0])||null;
+  set('hud-title',(lootTitle||levelTitle()).toUpperCase());
   set('hud-shards',S.shards);
   set('hud-streak',S.streak);
   let xp=document.getElementById('hud-xp');
@@ -141,6 +142,7 @@ function initPixelChrome(){
   put('hud-sprite',sprite('hero',44));
   put('hud-shard-ic',sprite('shard',18));
   put('hud-flame-ic',sprite('flame',18));
+  put('pet-sprite',sprite('blob',40));
   document.querySelectorAll('.bn-ic').forEach(el=>{el.innerHTML=sprite(el.dataset.ic,20)});
 }
 
@@ -388,7 +390,7 @@ function questPips(mode){
 }
 // One renderer for daily quiz and review, so both look and behave the same.
 function questionBody(q,state,h){
-  let opts=q.a.map((x,i)=>{
+  let opts=q.a.map((x,i)=>{ // let: Policy Shield may add a pop below
     let cls=[],mark='';
     if(!state.checked&&state.selected===i)cls.push('selected');
     if(state.checked){
@@ -403,6 +405,10 @@ function questionBody(q,state,h){
   }).join('');
 
   let explain='';
+  let ravenBadge=h.raven?`<span class="q-raven">SEEN BEFORE</span>`:'';
+  if(state.checked&&!state.correct&&h.consolation){
+    opts=opts.replace('<span class="q-mark">MISS</span>',`<span class="q-mark">MISS</span><span class="xp-pop">+${h.consolation} XP</span>`);
+  }
   if(state.checked){
     let verdict=state.correct?'<span class="verdict ok">CORRECT!</span>':'<span class="verdict bad">NOT QUITE…</span>';
     let right=state.correct?'':`<span class="right-answer">${'ABCD'[q.c]}: ${escapeHtml(q.a[q.c])}</span>`;
@@ -417,7 +423,7 @@ function questionBody(q,state,h){
     :`<button type="button" class="btn btn-primary" ${state.selected===null?'disabled':''} onclick="${h.onCheck}()">CHECK</button>`;
 
   return `<div class="q-box">
-      <span class="q-cat">${escapeHtml((q.category||'').toUpperCase())}</span>
+      <span class="q-cat">${escapeHtml((q.category||'').toUpperCase())}</span>${ravenBadge}
       <div class="q-text">${escapeHtml(q.q)}</div>
       ${state.checked?'':`<span class="q-cursor">${sprite('play',8,'')}</span>`}
     </div>
@@ -435,7 +441,9 @@ function renderQuestScreen(){
   choose(m);
   let q=s.currentQuestion;
   return questHeader(c.title.toUpperCase(),`${s.count+1}/${c.limit}`,questPips(m))+
-    questionBody(q,s,{onSelect:'selectAnswer',onCheck:'checkAnswer',onNext:'finishQuest',nextLabel:'NEXT',xpText:`+${c.xp} XP`});
+    questionBody(q,s,{onSelect:'selectAnswer',onCheck:'checkAnswer',onNext:'finishQuest',nextLabel:'NEXT',xpText:`+${c.xp} XP`,
+      raven:hasEffect('weakSummary')&&!s.checked&&S.weakness.some(w=>w.item&&w.item.id===q.id),
+      consolation:hasEffect('wrongConsolationXp')?effectValue('wrongConsolationXp'):0});
 }
 
 function renderQuestClear(m){
@@ -464,6 +472,7 @@ function checkAnswer(){
   if(!r)return;
   if(r.correct)playChime(880);else playChime(220,0.25);
   render();
+  petReactToAnswer(r.correct);
 }
 function finishQuest(){
   if(engineFinish(S.mode)){
@@ -500,6 +509,7 @@ function checkReviewAnswer(){
   if(!r)return;
   if(r.correct)playChime(880);else playChime(220,0.25);
   render();
+  petReactToAnswer(r.correct);
 }
 function nextReviewQuestion(){
   engineReviewNext();
