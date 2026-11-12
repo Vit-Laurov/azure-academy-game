@@ -1,10 +1,4 @@
-const config={
-  easy:{title:'Easy Patrol',short:'Easy',icon:'🛡️',limit:10,xp:20,shards:1,goal:'Core definitions and concepts.',reward:'+20 XP / correct'},
-  normal:{title:'Explorer Quest',short:'Normal',icon:'🧭',limit:8,xp:35,shards:2,goal:'Scenarios and choosing the right service.',reward:'+35 XP / correct'},
-  heroic:{title:'Heroic Challenge',short:'Heroic',icon:'⚔️',limit:5,xp:60,shards:3,goal:'Harder scenarios closer to the real exam.',reward:'+60 XP / correct'},
-  practical:{title:'Azure Lab',short:'Lab',icon:'🖥️',limit:2,xp:90,shards:4,goal:'Explain the concept in your own words.',reward:'+90 XP / +35 XP after review'}
-};
-const modeOrder=['easy','normal','heroic','practical'];
+// app.js — v15 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -38,85 +32,8 @@ function loadAdminOverrides(){
 }
 loadAdminOverrides();
 
-function today(){return new Date().toDateString()}
-function st(mode){return S.daily[mode||S.mode]}
-function cfg(mode){return config[mode||S.mode]}
-function levelOf(xp){return 1+Math.floor(xp/200)}
-function levelTitle(){let l=levelOf(S.xp);return l>=30?'Azure Champion':l>=20?'Cloud Raider':l>=10?'Azure Adventurer':l>=5?'Resource Ranger':'Cloud Novice'}
-
-function newDay(){
-  if(S.day===today())return;
-  let y=new Date();y.setDate(y.getDate()-1);
-  let wasYesterday=S.day===y.toDateString();
-  let savedByFreeze=false;
-  if(!wasYesterday){
-    let y2=new Date();y2.setDate(y2.getDate()-2);
-    if(S.day===y2.toDateString()&&(S.streakFreezes||0)>0){
-      S.streakFreezes-=1;
-      savedByFreeze=true;
-      S.drops=S.drops||[];
-      S.drops.unshift('🧊 Streak Freeze used — your streak was saved!');
-    }
-  }
-  if(wasYesterday||savedByFreeze){
-    S.streak=(S.streak||0)+1;
-  }else{
-    S.streak=1;
-    S.streakMilestoneClaimed=0;
-  }
-  S.day=today();
-  S.dayStartXP=S.xp;S.dayStartShards=S.shards;
-  S.daily=defaultState().daily;
-  S.history={easy:[],normal:[],heroic:[],practical:[]};
-  S.claimed={easy:false,normal:false,heroic:false,campaign:false};
-  checkStreakMilestone();
-  saveState();
-}
-
-function nextStreakMilestone(){
-  let ms=(AZURE_DB.streakMilestones||[]);
-  return ms.find(m=>m.day>S.streak)||null;
-}
-
-function checkStreakMilestone(){
-  let ms=AZURE_DB.streakMilestones||[];
-  let claimed=S.streakMilestoneClaimed||0;
-  ms.forEach(m=>{
-    if(S.streak>=m.day&&claimed<m.day){
-      S.shards=(S.shards||0)+m.shards;
-      S.streakMilestoneClaimed=m.day;
-      claimed=m.day;
-      S.drops=S.drops||[];
-      S.drops.unshift(`🔥 ${m.day}-day streak! +${m.shards} Shards`);
-      if(typeof showAchievementToast==='function')showAchievementToast(`${m.day}-Day Streak!`,`+${m.shards} Shards`);
-    }
-  });
-}
-
-function allq(m){
-  m=m||S.mode;
-  let base=[...(AZURE_DB.bank[m]||[])];
-  if((m==='normal'||m==='heroic')&&S.weakness.length){
-    let baseIds=new Set(base.map(q=>q.id));
-    let extra=S.weakness.map(w=>w.item).filter(x=>x&&x.a&&x.id&&!baseIds.has(x.id));
-    let seen=new Set();
-    extra=extra.filter(x=>{if(seen.has(x.id))return false;seen.add(x.id);return true});
-    base=[...base,...extra.slice(0,5)];
-  }
-  return base;
-}
-
-function choose(mode){
-  let s=st(mode),pool=allq(mode);
-  if(s.currentQuestion&&s.currentQuestion.q)return;
-  let candidates=pool.filter(q=>!s.done.includes(q.id));
-  if(!candidates.length){s.done=[];candidates=pool}
-  let picked=candidates[Math.floor(Math.random()*candidates.length)];
-  s.currentId=picked.id;
-  s.currentQuestion=JSON.parse(JSON.stringify(picked));
-  s.selected=null;s.checked=false;s.correct=false;
-  saveState();
-}
+// Engine events -> UI
+engineOn('milestone',m=>{if(typeof showAchievementToast==='function')showAchievementToast(`${m.day}-Day Streak!`,`+${m.shards} Shards`)});
 
 let currentPage='quests';
 const SECTION_ACCENTS={
@@ -174,13 +91,6 @@ function renderPage(page){
 }
 function render(){renderPage(currentPage);if(typeof checkLevelUpFX==='function')checkLevelUpFX()}
 function mount(page,html){document.getElementById('page-'+page).innerHTML=html}
-
-function pendingChestCount(){
-  let n=0;
-  modeOrder.forEach(m=>{if(st(m).count>=cfg(m).limit&&!S.claimed[m])n++});
-  if(modeOrder.every(m=>st(m).count>=cfg(m).limit)&&!S.claimed.campaign)n++;
-  return n;
-}
 
 function msUntilMidnight(){
   let now=new Date();
@@ -388,88 +298,37 @@ function renderQuizCard(){
   </div>`;
 }
 
-function selectAnswer(i){let s=st();if(s.checked)return;s.selected=i;saveState();render()}
+function selectAnswer(i){if(engineSelect(S.mode,i))render()}
 
 function checkAnswer(){
-  let s=st(),q=s.currentQuestion;
-  if(s.selected===null||s.checked)return;
-  s.checked=true;
-  s.correct=s.selected===q.c;
-  if(!s.correct){
-    playChime(220,0.25);
-    let exists=S.weakness.some(w=>w.item&&w.item.id===q.id);
-    if(!exists){
-      S.weakness.unshift({mode:S.mode,item:q,missed:new Date().toISOString()});
-      S.weakness=S.weakness.slice(0,30);
-    }
-  }else{
-    playChime(880);
-    S.weakness=S.weakness.filter(w=>!(w.item&&w.item.id===q.id));
-  }
-  saveState();render();
+  let r=engineCheck(S.mode);
+  if(!r)return;
+  if(r.correct)playChime(880);else playChime(220,0.25);
+  render();
 }
 
 function finishQuest(){
-  let s=st(),q=s.currentQuestion;
-  if(!s.checked)return;
-  if(s.correct){
-    let bonus=effectValue('xpBonusAll')+(S.mode==='easy'?effectValue('xpBonusEasy'):0)+categoryXpBonus(q.category);
-    S.xp+=Math.round(cfg().xp*(1+bonus));
-    S.shards+=cfg().shards;
-  }else if(hasEffect('wrongConsolationXp')){
-    S.xp+=effectValue('wrongConsolationXp');
-  }
-  S.history[S.mode].push({
-    id:q.id,
-    q:q.q,
-    your:s.selected===null?'':('ABCD'[s.selected]+'. '+q.a[s.selected]),
-    correctAnswer:'ABCD'[q.c]+'. '+q.a[q.c],
-    correct:s.correct,
-    e:q.e
-  });
-  if(!s.done.includes(q.id))s.done.push(q.id);
-  s.count++;
-  s.currentId=null;s.currentQuestion=null;s.selected=null;s.checked=false;s.correct=false;
-  saveState();render();
+  if(engineFinish(S.mode))render();
 }
 
-function weaknessPool(){return (S.weakness||[]).map(w=>w.item).filter(q=>q&&q.q)}
-
 function chooseReview(){
-  let r=S.review,pool=weaknessPool();
-  if(!pool.length)return;
-  let picked=pool[Math.floor(Math.random()*pool.length)];
-  r.currentId=picked.id;
-  r.currentQuestion=JSON.parse(JSON.stringify(picked));
-  r.selected=null;r.checked=false;r.correct=false;
-  saveState();render();
+  if(engineReviewStart())render();
 }
 
 function selectReviewAnswer(i){
-  let r=S.review;
-  if(r.checked)return;
-  r.selected=i;saveState();render();
+  if(engineReviewSelect(i))render();
 }
 
 function checkReviewAnswer(){
-  let r=S.review,q=r.currentQuestion;
-  if(!q||r.selected===null||r.checked)return;
-  r.checked=true;
-  r.correct=r.selected===q.c;
-  if(r.correct){
-    S.weakness=S.weakness.filter(w=>!(w.item&&w.item.id===q.id));
-    S.xp+=8;
-    playChime(880);
-  }else{
-    playChime(220,0.25);
-  }
-  saveState();render();
+  let r=engineReviewCheck();
+  if(!r)return;
+  if(r.correct)playChime(880);else playChime(220,0.25);
+  render();
 }
 
 function nextReviewQuestion(){
-  let r=S.review;
-  r.currentId=null;r.currentQuestion=null;r.selected=null;r.checked=false;r.correct=false;
-  saveState();render();
+  engineReviewNext();
+  render();
 }
 
 function renderReviewSection(){
@@ -679,7 +538,7 @@ function importProgress(event){
       event.target.value='';
       return;
     }
-    S=Object.assign(defaultState(),parsed);
+    S=Object.assign(defaultState(),migrateState(parsed));
     saveState();
     event.target.value='';
     goTo('profile');
@@ -762,7 +621,7 @@ function renderProfilePage(){
     </div>
     <div class="card">
       <div class="card-title">Settings</div>
-      <div class="card-sub">Local settings and progress reset.</div>
+      <div class="card-sub">Local settings and progress reset. · App v${APP_VERSION}</div>
       <div style="display:flex;gap:8px;margin-bottom:16px">
         <input id="profile-settings-name-input" type="text" value="${getProfile().name}" placeholder="Your name" maxlength="40"
           onkeydown="if(event.key==='Enter'){saveProfileSettingsName()}" class="profile-name-input" style="margin-bottom:0;flex:1">

@@ -8,7 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="AZ-900 Quest">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="style.css?v=12">
+<meta name="theme-color" content="#0b1020">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 <div id="mobile-topbar" class="mobile-topbar">
@@ -245,17 +249,20 @@
   </svg>
 </div>
 
-<script src="database.js"></script>
-<script src="save.js"></script>
-<script src="loot.js"></script>
-<script src="mastery.js"></script>
-<script src="chestfx.js"></script>
-<script src="fx.js"></script>
-<script src="dailyfact.js"></script>
-<script src="learn.js"></script>
-<script src="bossfight.js"></script>
-<script src="exam.js"></script>
-<script src="practical.js"></script>
-<script src="app.js"></script>
+<!-- v15: ?v= must match APP_VERSION in sw.js -->
+<script src="database.js?v=15"></script>
+<script src="save.js?v=15"></script>
+<script src="engine.js?v=15"></script>
+<script src="loot.js?v=15"></script>
+<script src="mastery.js?v=15"></script>
+<script src="chestfx.js?v=15"></script>
+<script src="fx.js?v=15"></script>
+<script src="dailyfact.js?v=15"></script>
+<script src="learn.js?v=15"></script>
+<script src="bossfight.js?v=15"></script>
+<script src="exam.js?v=15"></script>
+<script src="practical.js?v=15"></script>
+<script src="app.js?v=15"></script>
+<script src="pwa.js?v=15"></script>
 </body>
 </html>

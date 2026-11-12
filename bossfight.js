@@ -1,40 +1,14 @@
+// bossfight.js — v15: rules come from engine.js, this file only draws and animates.
 let battleState=null;
-const BOSS_MAX_HP=3;
-
-function bossAvailable(){
-  return modeOrder.every(m=>st(m).count>=cfg(m).limit)&&!S.claimed.campaign;
-}
 
 function startBossFight(){
   if(!bossAvailable())return;
-  battleState={
-    playerHP:BOSS_MAX_HP,
-    bossHP:BOSS_MAX_HP,
-    usedIds:[],
-    currentQuestion:null,
-    selected:null,
-    checked:false,
-    correct:false,
-    over:null
-  };
+  battleState=engineBossStart();
   let overlay=document.getElementById('boss-overlay');
   if(!overlay)return;
   overlay.classList.remove('hidden');
   requestAnimationFrame(()=>overlay.classList.add('visible'));
-  nextBossQuestion();
   renderBossFight();
-}
-
-function nextBossQuestion(){
-  let b=battleState;
-  let pool=(AZURE_DB.bank.heroic||[]).filter(q=>!b.usedIds.includes(q.id));
-  if(!pool.length)pool=AZURE_DB.bank.heroic||[];
-  let q=pool[Math.floor(Math.random()*pool.length)];
-  b.usedIds.push(q.id);
-  b.currentQuestion=q;
-  b.selected=null;
-  b.checked=false;
-  b.correct=false;
 }
 
 function selectBossAnswer(i){
@@ -46,33 +20,23 @@ function selectBossAnswer(i){
 
 function checkBossAnswer(){
   let b=battleState;
-  if(!b||b.selected===null||b.checked||b.over)return;
-  b.checked=true;
-  let q=b.currentQuestion;
-  b.correct=b.selected===q.c;
-  if(b.correct){
-    b.bossHP=Math.max(0,b.bossHP-1);
+  let r=engineBossCheck(b);
+  if(!r)return;
+  if(r.correct){
     playChime(880);
     triggerHitFlash('boss');
     triggerImpactFlash('hit-boss');
-    triggerSlash();
   }else{
-    b.playerHP=Math.max(0,b.playerHP-1);
     playChime(220,0.3);
     triggerHitFlash('player');
     triggerImpactFlash('hit-player');
-    triggerSlash();
   }
+  triggerSlash();
   renderBossFight();
 
   setTimeout(()=>{
-    if(b.bossHP<=0){
-      b.over='won';
-    }else if(b.playerHP<=0){
-      b.over='lost';
-    }else{
-      nextBossQuestion();
-    }
+    if(battleState!==b)return; // fight was closed during the animation
+    engineBossResolve(b);
     renderBossFight();
     if(b.over)setTimeout(()=>{
       let sprite=document.getElementById('boss-sprite');
