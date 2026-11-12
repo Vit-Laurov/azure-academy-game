@@ -1,4 +1,4 @@
-// app.js — v16 (screens + input). Game rules live in engine.js.
+// app.js — v16.1 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -356,6 +356,7 @@ function mapNodeTap(m){
 
 function openQuest(m){
   S.mode=m;saveState();
+  if(currentPage!=='quests')goTo('quests'); // can be called from any page
   questScreen='quiz';
   render();
   if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
@@ -391,7 +392,7 @@ function questionBody(q,state,h){
     let cls=[],mark='';
     if(!state.checked&&state.selected===i)cls.push('selected');
     if(state.checked){
-      if(i===q.c){cls.push('correct');mark=`<span class="q-mark" style="color:var(--px-white)">${sprite('check',20)}</span>`}
+      if(i===q.c){cls.push('correct');mark=`<span class="q-mark">${sprite('check',20)}</span>`}
       else if(i===state.selected){cls.push('wrong');mark='<span class="q-mark">MISS</span>'}
       else cls.push('dim');
     }
@@ -474,6 +475,7 @@ function finishQuest(){
 // ---------- Weak Spot Review ----------
 function openReview(){
   if(!S.review.currentQuestion&&!engineReviewStart())return;
+  if(currentPage!=='quests')goTo('quests');
   questScreen='review';
   render();
   if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
@@ -761,6 +763,7 @@ function renderProfilePage(){
       </div>
       <div class="btn-row">
         <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
+        <button class="btn btn-ghost" onclick="toggleLightMode()">${document.documentElement.getAttribute('data-theme')==='light'?'Night mode':'Day mode'}</button>
         <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
         <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
       </div>
@@ -843,11 +846,21 @@ function toggleLightMode(){
   if(next==='light')document.documentElement.setAttribute('data-theme','light');
   else document.documentElement.removeAttribute('data-theme');
   try{localStorage.setItem(LIGHT_MODE_KEY,next)}catch(e){}
+  syncThemeColor();
   render();
 }
 function initLightMode(){
-  // v16: the pixel look is dark-only; a stored light preference is ignored, not deleted
-  document.documentElement.removeAttribute('data-theme');
+  // v16.1: Night (dark) is the default pixel look; Day only when the player picked it
+  let saved=null;
+  try{saved=localStorage.getItem(LIGHT_MODE_KEY)}catch(e){}
+  if(saved==='light')document.documentElement.setAttribute('data-theme','light');
+  else document.documentElement.removeAttribute('data-theme');
+  syncThemeColor();
+}
+function syncThemeColor(){
+  let light=document.documentElement.getAttribute('data-theme')==='light';
+  let meta=document.querySelector('meta[name="theme-color"]');
+  if(meta&&meta.setAttribute)meta.setAttribute('content',light?'#efe6cf':'#0b1020');
 }
 
 function initButtonRipple(){
