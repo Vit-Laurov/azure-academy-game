@@ -1,4 +1,4 @@
-// app.js — v16.2 (screens + input). Game rules live in engine.js.
+// app.js — v16.3 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -12,6 +12,24 @@ function playChime(freq=880,duration=0.3){
     o.connect(g);g.connect(audioCtx.destination);
     o.start();o.stop(audioCtx.currentTime+duration);
   }catch(e){console.warn('Audio playback failed',e)}
+}
+// 8-bit style melody: notes = [[frequency, seconds], ...] played back to back with a square wave
+function playTune(notes){
+  if(!S.soundEnabled||!notes||!notes.length)return;
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    let t=audioCtx.currentTime+0.02;
+    notes.forEach(([f,d])=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type='square';o.frequency.value=f;
+      g.gain.setValueAtTime(0.06,t);
+      g.gain.setValueAtTime(0.06,t+d*0.8);
+      g.gain.linearRampToValueAtTime(0.0001,t+d);
+      o.connect(g);g.connect(audioCtx.destination);
+      o.start(t);o.stop(t+d+0.01);
+      t+=d;
+    });
+  }catch(e){console.warn('Tune playback failed',e)}
 }
 function toggleSound(){S.soundEnabled=!S.soundEnabled;saveState();render()}
 
@@ -694,11 +712,12 @@ function importProgress(event){
 
 function showToast(msg){
   let el=document.createElement('div');
-  el.className='feedback-banner good';
-  el.style.position='fixed';el.style.top='20px';el.style.right='20px';el.style.zIndex=999;el.style.maxWidth='320px';
-  el.innerHTML=`<span class="label">Loot</span>${msg}`;
+  el.className='px-toast';
+  el.setAttribute('role','status');
+  el.textContent=String(msg||'').replace(/^[^\w(+-]+\s*/,''); // drop a leading emoji, the pixel bar has its own look
   document.body.appendChild(el);
-  setTimeout(()=>el.remove(),4500);
+  setTimeout(()=>el.classList.add('show'),10);
+  setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),250)},3800);
 }
 
 function renderShopPage(){mount('shop',renderLoot())}

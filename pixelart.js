@@ -257,3 +257,68 @@ SPRITES.blob=[
   "....cccccc..",
   "............"
 ];
+
+// ---- v16b: reward + boss sprites ----
+SPRITES.crateL=[
+  "KKKKKKKKKK","KNNNNNNNNN","KNBBBBBBBB","KNBLLBBBBB","KNBBBBBBBK","KNNNNNNNNK",
+  "KbbbbbbbbK","KbBBbbbbbK","KbBBbbbbbK","KbbbbbbbbK","KbbGbGbbbK","KbbbbbbbbK","KNNNNNNNNK","KKKKKKKKKK"
+];
+SPRITES.crateR=[
+  "KKKKKKKKKK","NNNNNNNNNK","BBBBBBBBNK","BBBBBBBBNK","KBBBBBBBNK","KNNNNNNNNK",
+  "KbbbbbbbbK","KbbbbbBBbK","KbbbbbBBbK","KbbbbbbbbK","KbbbbbbbbK","KbbbbbbbbK","KNNNNNNNNK","KKKKKKKKKK"
+];
+SPRITES.golemBig=[
+  "...O..O..O..O...",
+  "...OOOOOOOOOO...",
+  "...KKKKKKKKKK...",
+  "..KrrrrrrrrrrK..",
+  ".KrrRRrrrrRRrrK.",
+  ".KrrRRrrrrRRrrK.",
+  ".KrrrrrrrrrrrrK.",
+  ".KrrKKKKKKKKrrK.",
+  "KKrrrKYKKYKrrrKK",
+  "KrrKrrrrrrrrKrrK",
+  "KrrKrrOOOOrrKrrK",
+  "KKKKrrOYYOrrKKKK",
+  "...KrrOOOOrrK...",
+  "...KrrrrrrrrK...",
+  "...KrrK..KrrK...",
+  "..KKKKK..KKKKK.."
+];
+SPRITES.heroSword=[
+  "...BBBBBB...",
+  "..BBBBBBBB..",
+  "...SSSSSS...",
+  "...SKSSKS...",
+  "...SSSSSS...",
+  "....SSSS..C.",
+  "..RRRRRRRRC.",
+  ".SRRRYYRRRC.",
+  ".SRRRRRRRRS.",
+  "...RRRRRR...",
+  "...pp..pp...",
+  "...pp..pp..."
+];
+SPRITES.slash=[
+  "..........WW",
+  "........WWW.",
+  "......WWW...",
+  "....WWW.....",
+  "..WWW.......",
+  "WWW........."
+];
+SPRITES.heartEmpty=[
+  ".pp.pp.",
+  "ppppppp",
+  "ppppppp",
+  ".ppppp.",
+  "..ppp..",
+  "...p..."
+];
+SPRITES.spark=[
+  "..W..",
+  "..Y..",
+  "WYYYW",
+  "..Y..",
+  "..W.."
+];

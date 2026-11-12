@@ -1,71 +1,68 @@
+// fx.js — v16b pixel reward screens: LEVEL UP, DAY CLEARED, milestone toast
 let lastSeenLevel=null;
 
 function checkLevelUpFX(){
   let lvl=levelOf(S.xp);
   if(lastSeenLevel===null){lastSeenLevel=lvl;return}
-  if(lvl>lastSeenLevel){
-    showLevelUpFX(lvl);
-  }
+  if(lvl>lastSeenLevel)showLevelUpFX(lvl);
   lastSeenLevel=lvl;
 }
 
-function showLevelUpFX(level){
+let fxHideTimer=null;
+function openFxOverlay(html,onClose){
   let overlay=document.getElementById('fx-overlay');
-  let flash=document.getElementById('fx-flash');
-  let pulse=document.getElementById('fx-pulse');
-  let content=document.getElementById('fx-content');
-  if(!overlay||!content)return;
-
-  pulse.className='fx-pulse';
-  flash.className='fx-flash';
-  content.innerHTML=`
-    <div class="fx-level-text">LEVEL ${level}</div>
-    <div class="fx-level-sub">${levelTitle()}</div>
-    <div class="fx-hint">Click anywhere to continue</div>
-  `;
+  if(!overlay){if(onClose)onClose();return}
+  if(fxHideTimer){clearTimeout(fxHideTimer);fxHideTimer=null} // a previous close must not hide this one
+  overlay.innerHTML=html;
   overlay.classList.remove('hidden');
-  overlay.onclick=closeFxOverlay;
-  requestAnimationFrame(()=>{
-    overlay.classList.add('visible');
-    flash.classList.add('show');
-    pulse.classList.add('show');
-    content.querySelector('.fx-level-text').classList.add('show');
-    content.querySelector('.fx-level-sub').classList.add('show');
-  });
-  if(typeof playChime==='function')playChime(1046,0.5);
+  overlay.onclick=function(){closeFxOverlay();if(onClose)onClose()};
+  requestAnimationFrame(()=>overlay.classList.add('visible'));
+}
+
+function fxSparks(n){
+  let out='';
+  for(let i=0;i<n;i++){
+    let a=(360/n)*i,d=90+(i%3)*28;
+    out+=`<span class="fx-spark" style="--a:${a}deg;--d:${d}px;animation-delay:${(i%4)*0.08}s">${sprite('spark',15)}</span>`;
+  }
+  return out;
+}
+
+function showLevelUpFX(level){
+  openFxOverlay(`
+    <div class="fxp">
+      <div class="fxp-rays"></div>
+      <div class="fxp-burst">${fxSparks(12)}</div>
+      <div class="fxp-title">LEVEL UP!</div>
+      <div class="fxp-hero">${sprite('hero',96)}</div>
+      <div class="fxp-sub">LV ${level-1} &gt; LV ${level}</div>
+      <div class="fxp-name">${escapeHtml(levelTitle())}</div>
+      <div class="fxp-hint">TAP TO CONTINUE</div>
+    </div>`);
+  if(typeof playTune==='function')playTune([[523,.08],[659,.08],[784,.08],[1046,.25]]);
 }
 
 function showDailyCompleteFX(onDone){
-  let overlay=document.getElementById('fx-overlay');
-  let flash=document.getElementById('fx-flash');
-  let pulse=document.getElementById('fx-pulse');
-  let content=document.getElementById('fx-content');
-  if(!overlay||!content){if(onDone)onDone();return}
-
-  pulse.className='fx-pulse';
-  flash.className='fx-flash';
-  content.innerHTML=`
-    <div class="fx-check">✓</div>
-    <div class="fx-daily-title">Daily Campaign Complete</div>
-    <div class="fx-hint">Click anywhere to continue</div>
-  `;
-  overlay.classList.remove('hidden');
-  overlay.onclick=function(){closeFxOverlay();if(onDone)onDone()};
-  requestAnimationFrame(()=>{
-    overlay.classList.add('visible');
-    pulse.style.color='var(--teal)';
-    pulse.classList.add('show');
-    content.querySelector('.fx-check').classList.add('show');
-    content.querySelector('.fx-daily-title').classList.add('show');
-  });
-  if(typeof playChime==='function')playChime(880,0.5);
+  let gained=S.xp-(S.dayStartXP||0);
+  openFxOverlay(`
+    <div class="fxp day">
+      <div class="fxp-burst">${fxSparks(16)}</div>
+      <div class="fxp-burst b2">${fxSparks(10)}</div>
+      <div class="fxp-title">DAY CLEARED!</div>
+      <div class="fxp-hero">${sprite('hero',96)}</div>
+      <div class="fxp-sub">+${gained} XP TODAY</div>
+      <div class="fxp-name">Streak ${S.streak} · see you tomorrow</div>
+      <div class="fxp-hint">TAP TO OPEN THE CAMPAIGN CRATE</div>
+    </div>`,onDone);
+  if(typeof playTune==='function')playTune([[784,.1],[784,.1],[1046,.1],[1318,.3]]);
 }
 
 function closeFxOverlay(){
   let overlay=document.getElementById('fx-overlay');
   if(!overlay)return;
+  overlay.onclick=null;
   overlay.classList.remove('visible');
-  setTimeout(()=>overlay.classList.add('hidden'),300);
+  fxHideTimer=setTimeout(()=>{overlay.classList.add('hidden');overlay.innerHTML='';fxHideTimer=null},200);
 }
 
 let toastTimer=null;
@@ -75,10 +72,10 @@ function showAchievementToast(title,subtitle){
   toast.classList.remove('show');
   void toast.offsetWidth;
   toast.innerHTML=`
-    <div class="ach-kicker">🏆 Milestone</div>
-    <div class="ach-title">${title}</div>
-    ${subtitle?`<div class="ach-sub">${subtitle}</div>`:''}
-  `;
+    <span class="ach-ic">${sprite('flame',24)}</span>
+    <span class="ach-txt"><span class="ach-kicker">MILESTONE</span>
+    <span class="ach-title">${escapeHtml(title)}</span>
+    ${subtitle?`<span class="ach-sub">${escapeHtml(subtitle)}</span>`:''}</span>`;
   toast.classList.add('show');
   if(toastTimer)clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>toast.classList.remove('show'),4200);
