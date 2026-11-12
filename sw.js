@@ -1,8 +1,8 @@
-// sw.js — v15 service worker
+// sw.js — v16 service worker
 // Strategy: network first, cache as fallback. Online you always get the newest files;
 // offline (tunnel, roaming, plane) the last good copy is served.
 // It only touches files in its own folder, so another app in a sub-folder of the same site is left alone.
-const APP_VERSION='15';
+const APP_VERSION='16';
 const CACHE='az-academy-v'+APP_VERSION;
 const FONT_CACHE='az-academy-fonts';
 const V='?v='+APP_VERSION;
@@ -11,6 +11,7 @@ const PRECACHE=[
   './index.html',
   './manifest.webmanifest',
   './style.css'+V,
+  './pixel.css'+V,
   './database.js'+V,
   './save.js'+V,
   './engine.js'+V,
@@ -23,6 +24,7 @@ const PRECACHE=[
   './bossfight.js'+V,
   './exam.js'+V,
   './practical.js'+V,
+  './pixelart.js'+V,
   './app.js'+V,
   './pwa.js'+V,
   './icons/icon-192.png',

@@ -1,4 +1,4 @@
-// app.js — v15 (screens + input). Game rules live in engine.js.
+// app.js — v16 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -56,8 +56,9 @@ function applySectionAccent(page){
 }
 
 function goTo(page){
+  if(page==='quests')questScreen=null; // QUEST tab always lands on the map
   currentPage=page;
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.page===page));
+  document.querySelectorAll('.nav-item,.bn-item').forEach(n=>n.classList.toggle('active',n.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   applySectionAccent(page);
@@ -105,6 +106,8 @@ function updateDayTimer(){
   let h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000);
   el.textContent=`⏳ Today's quests reset in ${h}h ${m}m`;
   el.classList.toggle('urgent',h<2);
+  let ht=document.getElementById('hud-timer');
+  if(ht){ht.textContent=`${h}H ${m}M`;ht.classList.toggle('urgent',h<2&&!S.claimed.campaign)}
 }
 
 function updateChestBadge(){
@@ -113,6 +116,32 @@ function updateChestBadge(){
   let n=pendingChestCount();
   el.style.display=n>0?'flex':'none';
   el.textContent=n;
+  let bn=document.getElementById('bn-chest-badge');
+  if(bn){bn.textContent=n;bn.classList.toggle('show',n>0)}
+}
+
+// ---------- HUD (v16) ----------
+function updateHud(){
+  let lvl=levelOf(S.xp),into=S.xp-(lvl-1)*200,on=Math.floor(into/20);
+  let set=(id,v)=>{let el=document.getElementById(id);if(el)el.textContent=v};
+  set('hud-lvl','LV '+lvl);
+  set('hud-name',(getProfile().name||'Hero').toUpperCase());
+  set('hud-title',levelTitle().toUpperCase());
+  set('hud-shards',S.shards);
+  set('hud-streak',S.streak);
+  let xp=document.getElementById('hud-xp');
+  if(xp){
+    let cells='';for(let i=0;i<10;i++)cells+=`<i class="${i<on?'on':''}"></i>`;
+    xp.innerHTML=cells;
+    xp.setAttribute('aria-valuenow',String(into));
+  }
+}
+function initPixelChrome(){
+  let put=(id,html)=>{let el=document.getElementById(id);if(el)el.innerHTML=html};
+  put('hud-sprite',sprite('hero',44));
+  put('hud-shard-ic',sprite('shard',18));
+  put('hud-flame-ic',sprite('flame',18));
+  document.querySelectorAll('.bn-ic').forEach(el=>{el.innerHTML=sprite(el.dataset.ic,20)});
 }
 
 const PROFILE_KEY='azureAcademyProfileV1';
@@ -178,6 +207,7 @@ function refreshSidebar(){
   }
   updateDayTimer();
   updateChestBadge();
+  updateHud();
   updateBrandRing();
   updateBrandMark();
 }
@@ -211,167 +241,270 @@ function initSidebarCollapse(){
   }catch(e){}
 }
 
+// ======================================================================
+// v16a — Home (world map) + quest screen (JRPG dialogue box)
+// ======================================================================
+let questScreen=null; // null = map, 'quiz' = current mode, 'review' = Weak Spot Review
+
+const MAP_NODES={ // centre of each node in a 340x400 map
+  easy:{x:62,y:344},normal:{x:186,y:280},heroic:{x:286,y:184},practical:{x:120,y:150},boss:{x:76,y:58}
+};
+const MAP_ROADS=[ // road from mode i to the next stop, as orthogonal points
+  {after:'easy',pts:[[62,344],[62,280],[186,280]]},
+  {after:'normal',pts:[[186,280],[286,280],[286,184]]},
+  {after:'heroic',pts:[[286,184],[286,150],[120,150]]},
+  {after:'practical',pts:[[120,150],[120,58],[76,58]]}
+];
+const MAP_DECO=[{s:'tree',x:250,y:330},{s:'tree',x:300,y:360},{s:'tree',x:220,y:90},{s:'tree',x:30,y:200},{s:'rock',x:160,y:370},{s:'rock',x:300,y:60}];
+
+function modeDone(m){return st(m).count>=cfg(m).limit}
+function currentMapMode(){
+  if(!modeDone(S.mode))return S.mode;
+  return modeOrder.find(m=>!modeDone(m))||null;
+}
+function pct(v,total){return (v/total*100).toFixed(2)+'%'}
+
 function renderQuestsPage(){
-  let html=`
-    <div class="page-header">
-      <div>
-        <div class="page-title">Daily Quests</div>
-        <div class="page-subtitle">${today()}</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-chip"><span class="dot" style="background:var(--accent)"></span>${S.xp} XP · Lvl ${levelOf(S.xp)}</div>
-        <div class="stat-chip"><span class="dot" style="background:var(--amber)"></span>${S.shards} Shards</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Today's Path</div>
-      <div class="card-sub">Complete all four modes to unlock the Daily Campaign Chest.</div>
-      ${renderHexPath()}
-    </div>
-
-    ${renderActiveModeCard()}
-
-    ${renderReviewSection()}
-  `;
-  mount('quests',html);
+  if(questScreen==='review'){mount('quests',renderReviewScreen());return}
+  if(questScreen==='quiz'){mount('quests',renderQuestScreen());return}
+  mount('quests',renderHome());
 }
 
-function renderHexPath(){
-  let nodes=modeOrder.map((m,i)=>{
-    let s=st(m),c=cfg(m),done=s.count>=c.limit,active=S.mode===m;
-    return `<div class="hex-node ${done?'done':''} ${active?'active':''}" tabindex="0" role="button" onclick="setMode('${m}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setMode('${m}')}">
-        <div class="hex"><span class="hex-icon">${c.icon}</span></div>
-        <span class="hex-label">${c.short}</span>
-        <span class="hex-progress">${s.count}/${c.limit}</span>
-      </div>${i<modeOrder.length-1?'<div class="hex-link '+(done?'done':'')+'"></div>':''}`;
+function renderHome(){
+  let p=engineDailyProgress();
+  let cur=currentMapMode();
+  let roads=MAP_ROADS.map(r=>{
+    let done=modeDone(r.after);
+    let pts=r.pts.map(xy=>xy.join(',')).join(' ');
+    return `<polyline points="${pts}" fill="none" stroke="${done?'#c2a46b':'#a08a5c'}" stroke-width="12" stroke-linecap="square" ${done?'':'stroke-dasharray="10 9"'}/>`;
   }).join('');
-  let allDone=modeOrder.every(m=>st(m).count>=cfg(m).limit);
-  let bossLink=`<div class="hex-link ${allDone?'done':''}"></div>`;
-  let bossNode=`<div class="hex-node boss ${allDone?'done':''} ${S.claimed.campaign?'done':''}">
-      <div class="hex"><span class="hex-icon">👑</span></div>
-      <span class="hex-label">Boss</span>
-      <span class="hex-progress">${S.claimed.campaign?'Done':allDone?'Ready':'Locked'}</span>
+  let deco=MAP_DECO.map(d=>`<span class="map-deco" style="left:${pct(d.x,340)};top:${pct(d.y,400)};transform:translate(-50%,-50%)">${sprite(d.s,26)}</span>`).join('');
+
+  let nodes=modeOrder.map(m=>{
+    let pos=MAP_NODES[m],c=cfg(m),s=st(m),done=modeDone(m);
+    let state=done?'done':m===cur?'current':'open';
+    let chest=done&&!S.claimed[m]?`<span class="node-chest">${sprite('chest',26)}</span>`:'';
+    let inner=done?`<span style="color:#000">${sprite('check',24)}</span>`:`<span class="node-count">${s.count}/${c.limit}</span>`;
+    return `<button type="button" class="map-node ${state}" style="left:${pct(pos.x,340)};top:${pct(pos.y,400)}"
+        onclick="mapNodeTap('${m}')" aria-label="${c.title}: ${s.count} of ${c.limit}${done?', complete':''}">${inner}${chest}</button>
+      <span class="map-label" style="left:${pct(pos.x,340)};top:calc(${pct(pos.y,400)} + 9%)">${c.short.toUpperCase()}</span>`;
+  }).join('');
+
+  let bp=MAP_NODES.boss;
+  let bossState=p.bossDone?'done':p.bossReady?'ready':'';
+  let bossInner=p.bossDone?`<span style="color:#000">${sprite('check',26)}</span>`:sprite('golem',44);
+  nodes+=`<button type="button" class="map-node boss ${bossState}" style="left:${pct(bp.x,340)};top:${pct(bp.y,400)}"
+      onclick="mapNodeTap('boss')" aria-label="Boss: ${p.bossDone?'defeated':p.bossReady?'ready to fight':'locked'}">${bossInner}</button>
+    <span class="map-label" style="left:${pct(bp.x,340)};top:calc(${pct(bp.y,400)} + 11%);color:${p.bossReady?'var(--px-red)':'var(--px-white)'}">${p.bossDone?'CLEARED':p.bossReady?'BOSS!':'BOSS'}</span>`;
+
+  let hero='';
+  if(cur){
+    let hp=MAP_NODES[cur];
+    hero=`<span class="map-hero" style="left:${pct(hp.x,340)};top:calc(${pct(hp.y,400)} - 7%)">${sprite('hero',30)}</span>`;
+  }else if(p.bossReady){
+    hero=`<span class="map-hero" style="left:calc(${pct(bp.x,340)} + 15%);top:calc(${pct(bp.y,400)} + 2%)">${sprite('hero',30)}</span>`;
+  }
+
+  // the one big button always says what to do next
+  let cta;
+  let unclaimed=modeOrder.find(m=>modeDone(m)&&!S.claimed[m]);
+  if(unclaimed){
+    cta=`<button type="button" class="btn btn-cta chest" onclick="claimChest('${unclaimed}')">${sprite('chest',26)} OPEN CHEST · ${cfg(unclaimed).short.toUpperCase()}</button>`;
+  }else if(p.bossReady){
+    cta=`<button type="button" class="btn btn-cta" onclick="startBossFight()">${sprite('golem',30)} FIGHT THE BOSS</button>`;
+  }else if(p.bossDone){
+    cta=`<button type="button" class="btn btn-cta done" disabled>${sprite('check',22)} DAY CLEARED</button>`;
+  }else{
+    let s=st(cur),c=cfg(cur);
+    let verb=s.count?'CONTINUE':'START';
+    cta=`<button type="button" class="btn btn-cta" onclick="openQuest('${cur}')"><span style="color:#fff1e8">${sprite('play',14)}</span> ${verb} · ${c.short.toUpperCase()} ${s.count}/${c.limit}</button>`;
+  }
+
+  let weak=weaknessPool().length;
+  let tiles=`<div class="home-tiles">
+      <button type="button" class="home-tile" onclick="openReview()" ${weak?'':'disabled'}>
+        <b>WEAK SPOTS</b><span>${weak?`${weak} to retry · +8 XP each`:'Nothing to fix yet'}</span>
+      </button>
+      <button type="button" class="home-tile" onclick="goTo('exam')">
+        <b>PRACTICE EXAM</b><span>10 questions · 10 min</span>
+      </button>
     </div>`;
-  return `<div class="hexpath">${nodes}${bossLink}${bossNode}</div>`;
+
+  return `
+    <div class="home-top">
+      <span class="home-world">DAY ${S.streak} · STREAK</span>
+      <span class="home-progress">${p.stepsDone}/${p.stepsTotal} DONE</span>
+    </div>
+    <div class="map" role="group" aria-label="Today's quest map">
+      <svg viewBox="0 0 340 400" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" shape-rendering="crispEdges" aria-hidden="true">${roads}</svg>
+      ${deco}${nodes}${hero}
+    </div>
+    <div class="home-cta">${cta}</div>
+    ${tiles}`;
 }
 
-function renderActiveModeCard(){
-  let s=st(),c=cfg();
-  if(s.count>=c.limit){
-    return renderDoneCard()+renderCampaignCard();
+function mapNodeTap(m){
+  if(m==='boss'){
+    let p=engineDailyProgress();
+    if(p.bossReady)startBossFight();
+    else if(p.bossDone)showToast('Boss defeated today. Come back tomorrow!');
+    else showToast('Finish all four quests to wake the boss.');
+    return;
   }
-  return S.mode==='practical'?renderLabCard():renderQuizCard();
+  openQuest(m);
 }
 
-function renderQuizCard(){
-  choose();
-  let s=st(),q=s.currentQuestion,c=cfg();
-  let ansHtml=q.a.map((x,i)=>{
-    let cls=[];
-    if(s.selected===i)cls.push('selected');
-    if(s.checked&&i===q.c)cls.push('correct');
-    if(s.checked&&s.selected===i&&i!==q.c)cls.push('wrong');
-    return `<button class="opt ${cls.join(' ')}" ${s.checked?'disabled':''} onclick="selectAnswer(${i})">
-      <span class="opt-key">${'ABCD'[i]}</span><span>${x}</span>
-    </button>`;
-  }).join('');
+function openQuest(m){
+  S.mode=m;saveState();
+  questScreen='quiz';
+  render();
+  if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
+}
+function backToMap(){
+  questScreen=null;
+  render();
+  if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
+}
+function setMode(m){openQuest(m)} // kept for older calls
 
-  let feedback='';
-  if(s.checked){
-    if(s.correct){
-      feedback=`<div class="feedback-banner good"><div><span class="label">✓ Correct</span>${q.e}</div></div>`;
-    }else{
-      feedback=`<div class="feedback-banner bad"><div><span class="label">✗ Incorrect — the right answer is ${'ABCD'[q.c]}: ${q.a[q.c]}</span>${q.e}</div></div>`;
-    }
-  }
-
-  return `<div class="card quest-card">
-    <span class="quest-tag">${c.icon} ${c.title} · ${s.count+1}/${c.limit}</span>
-    <div class="quest-q">${q.q}</div>
-    ${ansHtml}
-    ${feedback||'<p class="muted-hint" style="margin-top:14px">Pick an answer A–D, then click Check.</p>'}
-    <div class="btn-row">
-      <button class="btn btn-primary" ${s.selected===null||s.checked?'disabled':''} onclick="checkAnswer()">Check answer</button>
-      <button class="btn btn-gold" ${!s.checked?'disabled':''} onclick="finishQuest()">Finish quest${s.checked&&s.correct?' (+'+c.xp+' XP)':''}</button>
+// ---------- shared pieces of the question screen ----------
+function questHeader(title,right,pips){
+  return `<div class="q-head">
+    <button type="button" class="q-back" onclick="backToMap()" aria-label="Back to map">${sprite('back',14)}</button>
+    <div class="q-title">
+      <div class="q-title-row"><span class="mode">${title}</span><span>${right}</span></div>
+      ${pips||''}
     </div>
   </div>`;
 }
+function questPips(mode){
+  let c=cfg(mode),h=S.history[mode]||[],s=st(mode),cells='';
+  for(let i=0;i<c.limit;i++){
+    let cls=i<h.length?(h[i].correct?'ok':'bad'):i===s.count?'now':'';
+    cells+=`<i class="${cls}"></i>`;
+  }
+  return `<div class="q-pips" style="grid-template-columns:repeat(${c.limit},minmax(0,1fr))">${cells}</div>`;
+}
+// One renderer for daily quiz and review, so both look and behave the same.
+function questionBody(q,state,h){
+  let opts=q.a.map((x,i)=>{
+    let cls=[],mark='';
+    if(!state.checked&&state.selected===i)cls.push('selected');
+    if(state.checked){
+      if(i===q.c){cls.push('correct');mark=`<span class="q-mark" style="color:var(--px-white)">${sprite('check',20)}</span>`}
+      else if(i===state.selected){cls.push('wrong');mark='<span class="q-mark">MISS</span>'}
+      else cls.push('dim');
+    }
+    let pop=state.checked&&state.correct&&i===q.c?`<span class="xp-pop">${h.xpText}</span>`:'';
+    return `<button type="button" class="q-opt ${cls.join(' ')}" ${state.checked?'disabled':''} onclick="${h.onSelect}(${i})">
+      <span class="q-key">${'ABCD'[i]}</span><span class="q-opt-text">${escapeHtml(x)}</span>${mark}${pop}
+    </button>`;
+  }).join('');
 
+  let explain='';
+  if(state.checked){
+    let verdict=state.correct?'<span class="verdict ok">CORRECT!</span>':'<span class="verdict bad">NOT QUITE…</span>';
+    let right=state.correct?'':`<span class="right-answer">${'ABCD'[q.c]}: ${escapeHtml(q.a[q.c])}</span>`;
+    explain=`<div class="q-explain" role="status">
+      <div class="q-guide">${sprite('guide',38)}</div>
+      <div class="q-bubble">${verdict}${right}${escapeHtml(q.e)}</div>
+    </div>`;
+  }
+
+  let actions=state.checked
+    ?`<button type="button" class="btn btn-gold" onclick="${h.onNext}()">${h.nextLabel} ${sprite('play',10)}</button>`
+    :`<button type="button" class="btn btn-primary" ${state.selected===null?'disabled':''} onclick="${h.onCheck}()">CHECK</button>`;
+
+  return `<div class="q-box">
+      <span class="q-cat">${escapeHtml((q.category||'').toUpperCase())}</span>
+      <div class="q-text">${escapeHtml(q.q)}</div>
+      ${state.checked?'':`<span class="q-cursor">${sprite('play',8,'')}</span>`}
+    </div>
+    <div class="q-opts">${opts}</div>
+    ${explain}
+    <div class="q-actions">${h.extraAction||''}${actions}</div>`;
+}
+
+function renderQuestScreen(){
+  let m=S.mode,c=cfg(m),s=st(m);
+  if(modeDone(m))return renderQuestClear(m);
+  if(m==='practical'){
+    return questHeader(c.title.toUpperCase(),`${s.count+1}/${c.limit}`,questPips(m))+renderLabCard();
+  }
+  choose(m);
+  let q=s.currentQuestion;
+  return questHeader(c.title.toUpperCase(),`${s.count+1}/${c.limit}`,questPips(m))+
+    questionBody(q,s,{onSelect:'selectAnswer',onCheck:'checkAnswer',onNext:'finishQuest',nextLabel:'NEXT',xpText:`+${c.xp} XP`});
+}
+
+function renderQuestClear(m){
+  let c=cfg(m),h=S.history[m]||[],ok=h.filter(x=>x.correct).length;
+  let next=modeOrder.find(x=>!modeDone(x));
+  let chestBtn=!S.claimed[m]
+    ?`<button type="button" class="btn btn-cta chest" onclick="claimChest('${m}')">${sprite('chest',26)} OPEN CHEST</button>`
+    :`<div class="muted-hint" style="margin:6px 0 4px">Chest opened.</div>`;
+  let nextBtn=next
+    ?`<button type="button" class="btn btn-primary" onclick="openQuest('${next}')">NEXT: ${cfg(next).short.toUpperCase()}</button>`
+    :engineDailyProgress().bossReady?`<button type="button" class="btn btn-danger" onclick="startBossFight()">FIGHT BOSS</button>`:'';
+  return questHeader(c.title.toUpperCase(),`${c.limit}/${c.limit}`,questPips(m))+
+    `<div class="card q-done">
+      ${sprite('hero',48)}
+      <div class="big">QUEST CLEAR!</div>
+      <div class="stats">${ok}/${h.length} correct · ${h.length-ok} added to review</div>
+    </div>
+    <div class="home-cta">${chestBtn}</div>
+    <div class="q-actions"><button type="button" class="btn btn-ghost" onclick="backToMap()">MAP</button>${nextBtn}</div>`;
+}
+
+// ---------- daily quiz input (rules in engine.js) ----------
 function selectAnswer(i){if(engineSelect(S.mode,i))render()}
-
 function checkAnswer(){
   let r=engineCheck(S.mode);
   if(!r)return;
   if(r.correct)playChime(880);else playChime(220,0.25);
   render();
 }
-
 function finishQuest(){
-  if(engineFinish(S.mode))render();
+  if(engineFinish(S.mode)){
+    render();
+    if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
+  }
 }
 
-function chooseReview(){
-  if(engineReviewStart())render();
+// ---------- Weak Spot Review ----------
+function openReview(){
+  if(!S.review.currentQuestion&&!engineReviewStart())return;
+  questScreen='review';
+  render();
+  if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
 }
-
-function selectReviewAnswer(i){
-  if(engineReviewSelect(i))render();
+function chooseReview(){openReview()}
+function renderReviewScreen(){
+  let r=S.review;
+  if(!r.currentQuestion&&weaknessPool().length)engineReviewStart();
+  let left=weaknessPool().length;
+  if(!r.currentQuestion){
+    return questHeader('WEAK SPOTS','0 LEFT','')+
+      `<div class="card q-done">${sprite('guide',48)}<div class="big">ALL CLEAR!</div><div class="stats">No weak spots left to review.</div></div>
+      <div class="q-actions"><button type="button" class="btn btn-primary" onclick="backToMap()">MAP</button></div>`;
+  }
+  return questHeader('WEAK SPOTS',`${left} LEFT`,'')+
+    questionBody(r.currentQuestion,r,{onSelect:'selectReviewAnswer',onCheck:'checkReviewAnswer',onNext:'nextReviewQuestion',nextLabel:'NEXT',xpText:'+8 XP',
+      extraAction:'<button type="button" class="btn btn-ghost" onclick="backToMap()">STOP</button>'});
 }
-
+function selectReviewAnswer(i){if(engineReviewSelect(i))render()}
 function checkReviewAnswer(){
   let r=engineReviewCheck();
   if(!r)return;
   if(r.correct)playChime(880);else playChime(220,0.25);
   render();
 }
-
 function nextReviewQuestion(){
   engineReviewNext();
   render();
+  if(typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0);
 }
 
-function renderReviewSection(){
-  let pool=weaknessPool();
-  if(S.review.currentQuestion)return renderReviewQuizCard();
-  if(!pool.length){
-    return `<div class="card"><div class="card-title">🔁 Weak Spot Review</div><div class="card-sub">No weak questions yet — miss a few and they'll show up here for extra practice.</div></div>`;
-  }
-  return `<div class="card">
-    <div class="card-title">🔁 Weak Spot Review</div>
-    <div class="card-sub">${pool.length} question${pool.length===1?'':'s'} you've missed before. Doesn't count toward today's quest limits — pure extra practice, +8 XP per correct answer.</div>
-    <button class="btn btn-primary" onclick="chooseReview()">Start Review</button>
-  </div>`;
-}
-
-function renderReviewQuizCard(){
-  let r=S.review,q=r.currentQuestion;
-  let ansHtml=q.a.map((x,i)=>{
-    let cls=[];
-    if(r.selected===i)cls.push('selected');
-    if(r.checked&&i===q.c)cls.push('correct');
-    if(r.checked&&r.selected===i&&i!==q.c)cls.push('wrong');
-    return `<button class="opt ${cls.join(' ')}" ${r.checked?'disabled':''} onclick="selectReviewAnswer(${i})">
-      <span class="opt-key">${'ABCD'[i]}</span><span>${x}</span>
-    </button>`;
-  }).join('');
-  let feedback='';
-  if(r.checked){
-    feedback=r.correct
-      ?`<div class="feedback-banner good"><div><span class="label">✓ Correct — cleared from your weak spots</span>${q.e}</div></div>`
-      :`<div class="feedback-banner bad"><div><span class="label">✗ Incorrect — the right answer is ${'ABCD'[q.c]}: ${q.a[q.c]}</span>${q.e}</div></div>`;
-  }
-  return `<div class="card quest-card">
-    <span class="quest-tag">🔁 Weak Spot Review</span>
-    <div class="quest-q">${q.q}</div>
-    ${ansHtml}
-    ${feedback||'<p class="muted-hint" style="margin-top:14px">Pick an answer A–D, then click Check.</p>'}
-    <div class="btn-row">
-      <button class="btn btn-primary" ${r.selected===null||r.checked?'disabled':''} onclick="checkReviewAnswer()">Check answer</button>
-      <button class="btn btn-ghost" ${!r.checked?'disabled':''} onclick="nextReviewQuestion()">Next question</button>
-    </div>
-  </div>`;
-}
 function renderLabCard(){
   let s=st(),labs=AZURE_DB.labs,c=cfg();
   if(!s.currentId||!labs.some(l=>l.id===s.currentId)){
@@ -497,7 +630,6 @@ function claimChest(mode){
   openChestAnimation(reward);
 }
 
-function setMode(m){S.mode=m;saveState();renderQuestsPage();refreshSidebar()}
 
 function resetCurrent(){
   let s=st();
@@ -629,7 +761,6 @@ function renderProfilePage(){
       </div>
       <div class="btn-row">
         <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
-        <button class="btn btn-ghost" onclick="toggleLightMode()">${document.documentElement.getAttribute('data-theme')==='light'?'🌙 Dark mode':'☀️ Light mode'}</button>
         <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
         <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
       </div>
@@ -715,13 +846,8 @@ function toggleLightMode(){
   render();
 }
 function initLightMode(){
-  let saved=null;
-  try{saved=localStorage.getItem(LIGHT_MODE_KEY)}catch(e){}
-  let wantLight;
-  if(saved==='light')wantLight=true;
-  else if(saved==='dark')wantLight=false;
-  else wantLight=typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;
-  if(wantLight)document.documentElement.setAttribute('data-theme','light');
+  // v16: the pixel look is dark-only; a stored light preference is ignored, not deleted
+  document.documentElement.removeAttribute('data-theme');
 }
 
 function initButtonRipple(){
@@ -739,6 +865,7 @@ function initButtonRipple(){
 }
 
 initLightMode();
+initPixelChrome();
 goTo('quests');
 initPetCompanion();
 initSidebarCollapse();
