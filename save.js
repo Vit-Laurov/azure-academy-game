@@ -1,7 +1,7 @@
 // save.js — v15
 // Persistence layer. One rule above all: an existing save is migrated, never thrown away.
 const SAVE_KEY='azureAcademyV14';            // storage key stays the same so existing saves are found
-const SAVE_SCHEMA=15;                         // bump this + add a step to MIGRATIONS when the save shape changes
+const SAVE_SCHEMA=16;                         // bump this + add a step to MIGRATIONS when the save shape changes
 const SAVE_BACKUP_PREFIX='azureAcademyBackup_'; // raw copies taken before any migration / on unreadable data
 
 function defaultState(){
@@ -32,6 +32,7 @@ function defaultState(){
     activeTheme:'default',
     weakness:[],
     history:{easy:[],normal:[],heroic:[],practical:[],exam:[]},
+    seen:{easy:[],normal:[],heroic:[]}, // v16: question ids already served in the current pass through each bank
     daily:{
       easy:{count:0,done:[],current:null,currentId:null,currentQuestion:null,selected:null,checked:false,correct:false},
       normal:{count:0,done:[],current:null,currentId:null,currentQuestion:null,selected:null,checked:false,correct:false},
@@ -53,6 +54,15 @@ const MIGRATIONS={
     s.claimed=Object.assign({},def.claimed,s.claimed||{});
     s.review=Object.assign({},def.review,s.review||{});
     s.mastery=s.mastery||{};
+    return s;
+  },
+  16:function(s){
+    // v15 -> v16: start the "deck" with what was already played today, so today's questions don't come back
+    s.seen=s.seen||{};
+    ['easy','normal','heroic'].forEach(m=>{
+      let today=((s.daily&&s.daily[m]&&s.daily[m].done)||[]).slice();
+      s.seen[m]=Array.isArray(s.seen[m])?s.seen[m]:today;
+    });
     return s;
   }
 };

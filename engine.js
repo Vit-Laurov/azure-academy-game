@@ -1,7 +1,7 @@
-// engine.js — v16.2
+// engine.js — v16.4
 // Game rules without any DOM access. The screen (app.js, bossfight.js) and, later, voice mode
 // call into this file. Nothing here reads or writes the page; it only changes S and returns results.
-const APP_VERSION='16.3';
+const APP_VERSION='16.9';
 
 const config={
   easy:{title:'Easy Patrol',short:'Easy',icon:'🛡️',limit:10,xp:20,shards:1,goal:'Core definitions and concepts.',reward:'+20 XP / correct'},
@@ -77,33 +77,109 @@ function checkStreakMilestone(){
   });
 }
 
-// ---------- question pools ----------
+// ---------- question pools (v16.4 "deck") ----------
+// Every bank works like a shuffled deck that carries over between days: a question is not served again
+// until every other question of that bank has been seen. Easy/Normal "twins" (near-identical rewrites)
+// count as seen together. Missed questions live only in Weak Spot Review, not in the daily pools.
+const DECK_MODES=['easy','normal','heroic'];
+let _twinMap=null; // id -> twin id in the other bank (easy <-> normal)
+
+function _qWords(t){
+  return new Set(String(t||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>3));
+}
+function twinMap(){
+  if(_twinMap)return _twinMap;
+  _twinMap={};
+  let easy=(AZURE_DB.bank.easy||[]).map(q=>({id:q.id,w:_qWords(q.q)}));
+  (AZURE_DB.bank.normal||[]).forEach(n=>{
+    let nw=_qWords(n.q),best=null,bestS=0;
+    easy.forEach(e=>{
+      let i=0;nw.forEach(x=>{if(e.w.has(x))i++});
+      let sim=i/(nw.size+e.w.size-i||1);
+      if(sim>bestS){bestS=sim;best=e.id}
+    });
+    if(bestS>=0.5&&!_twinMap[best]){_twinMap[n.id]=best;_twinMap[best]=n.id}
+  });
+  return _twinMap;
+}
+function bankOf(id){return String(id||'').split('_')[0]}
+function seenList(m){
+  S.seen=S.seen||{};
+  if(!Array.isArray(S.seen[m]))S.seen[m]=[];
+  return S.seen[m];
+}
+function markSeen(id){
+  let m=bankOf(id);
+  if(!DECK_MODES.includes(m))return;
+  let list=seenList(m);
+  if(!list.includes(id))list.push(id);
+  let twin=twinMap()[id]; // its rewrite in the other bank is "seen" too
+  if(twin){let t=seenList(bankOf(twin));if(!t.includes(twin))t.push(twin)}
+}
+
 function allq(m){
   m=m||S.mode;
-  let base=[...(AZURE_DB.bank[m]||[])];
-  if((m==='normal'||m==='heroic')&&S.weakness.length){
-    let baseIds=new Set(base.map(q=>q.id));
-    let extra=S.weakness.map(w=>w.item).filter(x=>x&&x.a&&x.id&&!baseIds.has(x.id));
-    let seen=new Set();
-    extra=extra.filter(x=>{if(seen.has(x.id))return false;seen.add(x.id);return true});
-    base=[...base,...extra.slice(0,5)];
+  return [...(AZURE_DB.bank[m]||[])];
+}
+
+// Pick from the unseen part of the deck; when the deck is used up, start a new pass (today's picks stay excluded).
+function deckPick(m,excludeIds){
+  let pool=allq(m),ex=new Set(excludeIds||[]);
+  let seen=new Set(seenList(m));
+  let candidates=pool.filter(q=>!seen.has(q.id)&&!ex.has(q.id));
+  if(!candidates.length){
+    S.seen[m]=[]; // new pass through this bank
+    candidates=pool.filter(q=>!ex.has(q.id));
+    if(!candidates.length)candidates=pool;
   }
-  return base;
+  return candidates[Math.floor(Math.random()*candidates.length)];
 }
 
 function choose(mode){
-  let s=st(mode),pool=allq(mode);
+  mode=mode||S.mode;
+  let s=st(mode);
   if(s.currentQuestion&&s.currentQuestion.q)return;
-  let candidates=pool.filter(q=>!s.done.includes(q.id));
-  if(!candidates.length){s.done=[];candidates=pool}
-  let picked=candidates[Math.floor(Math.random()*candidates.length)];
+  let picked=deckPick(mode,s.done);
   s.currentId=picked.id;
   s.currentQuestion=JSON.parse(JSON.stringify(picked));
   s.selected=null;s.checked=false;s.correct=false;
+  markSeen(picked.id); // counted as soon as it is shown, so reloading can't reroll it
   saveState();
 }
 
 function weaknessPool(){return (S.weakness||[]).map(w=>w.item).filter(q=>q&&q.q)}
+
+// v16.9: saves keep a copy of each missed question. When the question bank is rewritten, those copies
+// go stale (old wording, sometimes old broken answers). Swap them for the current version by id;
+// drop entries whose question no longer exists. Unanswered "current" questions are refreshed the same way.
+function questionById(id){
+  let m=bankOf(id),list=(AZURE_DB.bank&&AZURE_DB.bank[m])||[];
+  return list.find(q=>q.id===id)||null;
+}
+function refreshStoredQuestions(){
+  let changed=false;
+  if(Array.isArray(S.weakness)){
+    let before=S.weakness.length;
+    S.weakness=S.weakness.filter(w=>{
+      if(!w||!w.item||!w.item.id)return false;
+      let fresh=questionById(w.item.id);
+      if(!fresh)return false;
+      if(JSON.stringify(fresh)!==JSON.stringify(w.item)){w.item=JSON.parse(JSON.stringify(fresh));changed=true}
+      return true;
+    });
+    if(S.weakness.length!==before)changed=true;
+  }
+  let fix=slot=>{
+    if(!slot||!slot.currentQuestion||!slot.currentQuestion.id||slot.checked)return;
+    let fresh=questionById(slot.currentQuestion.id);
+    if(!fresh){slot.currentId=null;slot.currentQuestion=null;slot.selected=null;changed=true;return}
+    if(JSON.stringify(fresh)!==JSON.stringify(slot.currentQuestion)){slot.currentQuestion=JSON.parse(JSON.stringify(fresh));slot.selected=null;changed=true}
+  };
+  DECK_MODES.forEach(m=>fix(S.daily&&S.daily[m]));
+  fix(S.review);
+  if(changed)saveState();
+  return changed;
+}
 
 function pendingChestCount(){
   let n=0;
@@ -208,7 +284,12 @@ function engineDailyProgress(){
 function engineReviewStart(){
   let r=S.review,pool=weaknessPool();
   if(!pool.length)return null;
-  let picked=pool[Math.floor(Math.random()*pool.length)];
+  let todayStr=new Date().toDateString();
+  let older=(S.weakness||[]).filter(w=>w.item&&w.item.q&&(!w.missed||new Date(w.missed).toDateString()!==todayStr)).map(w=>w.item);
+  let choices=older.length?older:pool; // missed earlier first; today's misses only when nothing else is left
+  if(choices.length>1&&r.lastId)choices=choices.filter(q=>q.id!==r.lastId);
+  let picked=choices[Math.floor(Math.random()*choices.length)];
+  r.lastId=picked.id;
   r.currentId=picked.id;
   r.currentQuestion=JSON.parse(JSON.stringify(picked));
   r.selected=null;r.checked=false;r.correct=false;
@@ -250,8 +331,13 @@ function engineBossStart(){
   return b;
 }
 function engineBossNext(b){
-  let pool=(AZURE_DB.bank.heroic||[]).filter(q=>!b.usedIds.includes(q.id));
-  if(!pool.length)pool=AZURE_DB.bank.heroic||[];
+  let all=AZURE_DB.bank.heroic||[];
+  let today=new Set([...(S.history.heroic||[]).map(h=>h.id),...(st('heroic').done||[]),...b.usedIds]);
+  let seen=new Set(seenList('heroic'));
+  let pool=all.filter(q=>!today.has(q.id)&&!seen.has(q.id));
+  if(!pool.length)pool=all.filter(q=>!today.has(q.id));
+  if(!pool.length)pool=all.filter(q=>!b.usedIds.includes(q.id));
+  if(!pool.length)pool=all;
   let q=pool[Math.floor(Math.random()*pool.length)];
   b.usedIds.push(q.id);
   b.currentQuestion=q;
@@ -288,3 +374,6 @@ const Engine={
   review:{start:engineReviewStart,select:engineReviewSelect,check:engineReviewCheck,next:engineReviewNext},
   boss:{available:bossAvailable,start:engineBossStart,check:engineBossCheck,resolve:engineBossResolve}
 };
+
+// run once at start-up, after the save is loaded and the question bank is in place
+refreshStoredQuestions();

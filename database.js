@@ -8,2734 +8,2734 @@ window.AZURE_DB = {
       {
         "id": "easy_0",
         "category": "Cloud concepts",
-        "q": "A company wants to stop buying its own servers and instead pay only for what it actually uses over the internet. What is this model generally called?",
+        "q": "What is delivering computing services over the internet with pay-as-you-go pricing called?",
         "a": [
           "Cloud computing",
-          "On-premises hosting",
-          "Edge computing",
-          "Virtualization"
+          "Resource locking",
+          "Identity federation",
+          "Disk encryption"
         ],
         "c": 0,
-        "e": "Cloud computing is the delivery of computing resources (servers, storage, networking, software) over the internet with pay-as-you-go billing. Edge computing processes data close to its source, not necessarily in the cloud. On-premises is the opposite of cloud — your own hardware in your own building. Virtualization is one of the technologies the cloud runs on, but it isn't the same thing as the cloud itself."
+        "e": "Cloud computing delivers servers, storage and software over the internet, billed by usage. Resource locking, identity federation and disk encryption are individual features, not the overall model."
       },
       {
         "id": "easy_1",
         "category": "Cloud models",
-        "q": "A team needs to rent virtual servers and disks but wants to manage the operating system and applications themselves. Which service model does this describe?",
+        "q": "Which cloud service model gives you VMs and storage but leaves OS management to you?",
         "a": [
-          "FaaS",
-          "IaaS",
-          "PaaS",
-          "SaaS"
+          "Role-based access control",
+          "Infrastructure as a Service",
+          "Geo-redundant storage",
+          "Azure Resource Manager templates"
         ],
         "c": 1,
-        "e": "IaaS (Infrastructure as a Service) provides basic building blocks like VMs and disks, while the customer manages the OS, runtime, and applications. PaaS would also manage the runtime environment, so you wouldn't have direct control over the OS. SaaS is a finished application with no infrastructure management at all. FaaS (Functions as a Service) runs without any servers whatsoever."
+        "e": "IaaS rents you raw infrastructure (VMs, disks, networks) while you manage the OS and apps. RBAC, GRS and ARM templates are an access system, a redundancy option and a deployment format, not service models."
       },
       {
         "id": "easy_2",
         "category": "Cloud models",
-        "q": "A development team wants to deploy code without worrying about the operating system, patching, or server scaling. Which model lets them do that?",
+        "q": "Which cloud service model lets developers deploy code while the provider manages the OS and runtime?",
         "a": [
-          "On-premises",
-          "Colocation",
-          "PaaS",
-          "IaaS"
+          "Locally redundant storage",
+          "Network security group",
+          "Platform as a Service",
+          "Conditional Access policy"
         ],
         "c": 2,
-        "e": "PaaS (Platform as a Service) like Azure App Service manages the runtime environment, OS, and scaling for you, so the team can focus purely on code. IaaS would still require managing the OS and patches. On-premises means owning physical infrastructure. Colocation is placing your own hardware in someone else's datacenter, which solves none of these concerns."
+        "e": "PaaS gives you a managed platform: you bring code and data, Microsoft runs the OS, patching and runtime. LRS, NSGs and Conditional Access policies are storage, networking and identity features."
       },
       {
         "id": "easy_3",
         "category": "Cloud models",
-        "q": "A company wants to use a ready-made email application through a browser without installing anything locally. What model is this?",
+        "q": "Which cloud service model delivers a finished application, like email, used through a browser?",
         "a": [
-          "PaaS",
-          "Hybrid cloud",
-          "IaaS",
-          "SaaS"
+          "Azure Kubernetes Service",
+          "Zone-redundant storage",
+          "Microsoft Defender for Cloud",
+          "Software as a Service"
         ],
         "c": 3,
-        "e": "SaaS (Software as a Service) like Microsoft 365 is a complete application available over the internet, where the provider manages absolutely everything. IaaS and PaaS require the customer to deploy or manage part of the solution themselves. Hybrid cloud describes a combination of environments, not a type of software service."
+        "e": "SaaS is complete software you just use, such as Microsoft 365 email. AKS, ZRS and Defender for Cloud are container, storage and security services."
       },
       {
         "id": "easy_4",
         "category": "Cloud concepts",
-        "q": "Microsoft operates datacenters that anyone with a subscription can access, sharing resources among many customers. What type of cloud is this?",
+        "q": "What type of cloud is owned by a provider and shared by many customers over the internet?",
         "a": [
           "Public cloud",
-          "Community cloud",
-          "Private cloud",
-          "On-premises"
+          "Azure Monitor",
+          "Resource lock",
+          "Blob Storage"
         ],
         "c": 0,
-        "e": "Public cloud is operated by a provider like Microsoft and shares infrastructure among multiple customers who are logically isolated from each other. Private cloud is dedicated to a single organization. Community cloud is shared by a group of organizations with common requirements. On-premises means owning infrastructure entirely outside the cloud."
+        "e": "A public cloud such as Azure is run by the provider and shared by many customers. Azure Monitor, resource locks and Blob Storage are services inside a cloud, not cloud types."
       },
       {
         "id": "easy_5",
         "category": "Cloud concepts",
-        "q": "Due to regulations, a bank must operate infrastructure dedicated exclusively to itself, not shared with other companies. What type of cloud is this?",
+        "q": "What type of cloud is used exclusively by a single organization?",
         "a": [
-          "Public cloud",
+          "Azure Policy",
           "Private cloud",
-          "Multi-cloud",
-          "Community cloud"
+          "VPN Gateway",
+          "Azure DNS"
         ],
         "c": 1,
-        "e": "Private cloud is infrastructure dedicated to a single organization, whether run locally or hosted by a provider. Public cloud shares resources among multiple customers. Multi-cloud means using several different providers at once. Community cloud is shared by several organizations with the same needs, not just one company."
+        "e": "A private cloud serves only one organization. Azure Policy, VPN Gateway and Azure DNS are a governance tool, a network service and a DNS service."
       },
       {
         "id": "easy_6",
         "category": "Cloud concepts",
-        "q": "A company keeps sensitive data locally for regulatory reasons but runs its customer-facing web app on public Azure. What approach is this?",
+        "q": "What is it called when on-premises infrastructure and a public cloud work together?",
         "a": [
-          "Private cloud only",
-          "Multi-tenant cloud",
+          "Disk Storage",
+          "Azure Advisor",
           "Hybrid cloud",
-          "Public cloud only"
+          "Azure CLI"
         ],
         "c": 2,
-        "e": "Hybrid cloud combines public cloud with on-premises or private infrastructure, typically during a gradual migration or due to data residency requirements. Purely public or private cloud would mean using only one of these environments. Multi-tenant describes resource sharing among customers inside a public cloud, not a combination of environments."
+        "e": "A hybrid cloud combines on-premises (private) resources with the public cloud. Disk Storage, Azure Advisor and Azure CLI are a storage type, a recommendation service and a command-line tool."
       },
       {
         "id": "easy_7",
         "category": "Cost",
-        "q": "A company buys servers for its own datacenter and pays the full amount upfront. What is this type of expense called?",
+        "q": "What is buying servers upfront for your own datacenter called?",
         "a": [
-          "Total cost of ownership",
-          "Contractual availability guarantee",
-          "Operating expense (OpEx)",
-          "Capital expense (CapEx)"
+          "Single sign-on (SSO)",
+          "Virtual network peering",
+          "Geo-redundancy (GRS)",
+          "Capital expenditure (CapEx)"
         ],
         "c": 3,
-        "e": "CapEx (Capital Expenditure) is a one-time investment in long-term assets, like owned servers. OpEx, by contrast, is ongoing operational cost spread over time. TCO is a total cost calculation over a period, not a type of expense itself. SLA is a service level agreement and has nothing to do with the type of cost."
+        "e": "CapEx is a large upfront spend on physical assets like servers. SSO, peering and GRS are identity, networking and storage features, not types of expense."
       },
       {
         "id": "easy_8",
         "category": "Cost",
-        "q": "A company pays every month only for the Azure resources it actually used, with no upfront investment. What is this cost model called?",
+        "q": "What type of expense is a monthly cloud bill for services you used?",
         "a": [
-          "OpEx",
-          "Fixed budget",
-          "Amortization",
-          "CapEx"
+          "Operational expenditure (OpEx)",
+          "Role-based access control (RBAC)",
+          "Availability zone",
+          "Network security group (NSG)"
         ],
         "c": 0,
-        "e": "OpEx (Operational Expenditure) is ongoing operational cost that rises or falls based on actual usage — exactly how the cloud works. CapEx, in contrast, is a one-time upfront investment. A fixed budget would mean paying the same amount regardless of usage, which contradicts the cloud principle. Amortization is an accounting method for spreading the cost of an asset, not a cloud payment model."
+        "e": "OpEx is ongoing spending on services as you use them, like a monthly Azure bill. RBAC, availability zones and NSGs are access, resilience and network-filtering concepts."
       },
       {
         "id": "easy_9",
         "category": "Cost",
-        "q": "The price of an Azure service changes based on how much compute power, storage, or data transfer a company actually consumes. What principle is this?",
+        "q": "What is the cloud pricing model where you pay only for what you use?",
         "a": [
-          "A prepaid annual license paid once",
-          "A consumption-based model tied to actual usage",
-          "A flat rate regardless of usage",
-          "A fixed monthly fee independent of usage"
+          "Principle of least privilege",
+          "Consumption-based model",
+          "Vertical scaling",
+          "Infrastructure as code"
         ],
         "c": 1,
-        "e": "A consumption-based model means the price directly tracks actual resource usage — the more you use, the more you pay, and vice versa. A flat rate or fixed monthly fee would mean the same price regardless of usage. A prepaid license is payment upfront for a set period, which works against the pay-for-what-you-use principle."
+        "e": "In the consumption-based model you are billed for the resources you actually use. Least privilege, vertical scaling and infrastructure as code are security, scaling and deployment ideas."
       },
       {
         "id": "easy_10",
         "category": "Cloud concepts",
-        "q": "An online store expects a tenfold spike in traffic during the holidays and wants server capacity to adjust automatically. Which cloud trait makes this possible?",
+        "q": "Which cloud benefit lets you add or remove resources to match demand?",
         "a": [
-          "Data redundancy",
-          "Cross-region replication",
-          "Automatic scalability",
-          "Hardware virtualization"
+          "Data encryption",
+          "Authentication",
+          "Scalability",
+          "Authorization"
         ],
         "c": 2,
-        "e": "Scalability is the ability to increase or decrease resource capacity based on current need, whether manually or automatically. Redundancy means duplicate resources for resilience against failure, not a response to load. Replication copies data between locations for availability. Virtualization is a technology enabling multiple virtual machines on one piece of hardware, but on its own it doesn't address capacity adjustment."
+        "e": "Scalability means adjusting resources up or down to match demand. Data encryption, authentication and authorization protect data, verify identity and control access."
       },
       {
         "id": "easy_11",
         "category": "Cloud concepts",
-        "q": "An application automatically adds servers under increased load and removes them once the load drops, without administrator intervention. What is this trait called?",
+        "q": "What is it called when resources scale out and back in automatically as load changes?",
         "a": [
-          "Geo-replication",
-          "High availability",
-          "Scalability",
+          "Virtualization",
+          "Replication",
+          "Authorization",
           "Elasticity"
         ],
         "c": 3,
-        "e": "Elasticity is a specific type of scalability where capacity automatically and rapidly adjusts in real time in both directions — up and down. Scalability is the broader term that also includes manual capacity increases. High availability concerns resilience against outages, not reacting to load. Geo-replication copies data between regions and has nothing to do with adjusting performance."
+        "e": "Elasticity is automatic scaling that follows the load in both directions. Virtualization, replication and authorization concern hardware abstraction, data copies and access control."
       },
       {
         "id": "easy_12",
         "category": "Reliability",
-        "q": "An e-commerce site wants its web app to stay available to customers even during planned maintenance or a minor outage of one server. What does it need to ensure?",
+        "q": "What is the ability of a service to stay up and reachable with minimal downtime?",
         "a": [
-          "High availability of the service",
-          "A disaster recovery plan",
-          "The ability to scale quickly",
-          "Lower operating costs"
+          "High availability",
+          "Infrastructure as code",
+          "Conditional Access",
+          "Identity federation"
         ],
         "c": 0,
-        "e": "High availability ensures a service stays functional even during minor outages or maintenance, typically through redundancy within a region. Disaster recovery addresses recovery after a major catastrophe, not routine operational resilience. Scalability concerns capacity in response to load, not availability during an outage. Lower costs have no direct connection to service availability."
+        "e": "High availability keeps a service running with as little downtime as possible. Infrastructure as code, Conditional Access and identity federation are about deployment, sign-in rules and trusted identities."
       },
       {
         "id": "easy_13",
         "category": "Reliability",
-        "q": "After a complete datacenter outage due to a fire, a company needs to restore its services in a different location with minimal data loss. What process does this describe?",
+        "q": "What is restoring services in another location after a major outage, like a datacenter fire?",
         "a": [
-          "Scalability",
+          "Conditional Access",
           "Disaster recovery",
-          "Load balancing",
-          "High availability"
+          "Pricing calculator",
+          "Azure Kubernetes Service"
         ],
         "c": 1,
-        "e": "Disaster recovery is the process and plan for restoring services after a major catastrophe, typically including replication to another region and defined RTO/RPO targets. High availability handles routine minor outages, not the catastrophic loss of an entire datacenter. Scalability concerns capacity, not recovery after a disaster. Load balancing spreads traffic across servers but on its own doesn't provide disaster recovery."
+        "e": "Disaster recovery brings systems back after a major incident, often in another location. Conditional Access, the Pricing calculator and AKS handle sign-in rules, cost estimates and containers."
       },
       {
         "id": "easy_14",
         "category": "Architecture",
-        "q": "A company wants to deploy an application as close as possible to its European customers for low latency. What in Azure determines the geographic location of its resources?",
+        "q": "In Azure, what is a geographic area containing one or more datacenters called?",
         "a": [
-          "Resource group",
-          "Subscription",
-          "Region",
-          "Management group"
+          "Azure CLI",
+          "Azure Files",
+          "Azure region",
+          "Cloud Shell"
         ],
         "c": 2,
-        "e": "A region is a geographic area containing one or more Azure datacenters, and choosing a region determines where resources physically run. A resource group is a logical container for organizing resources, not a physical location. A subscription is a billing and access boundary. A management group organizes multiple subscriptions and has nothing directly to do with physical location."
+        "e": "An Azure region is a geographic area with one or more datacenters, such as West Europe. Azure CLI, Azure Files and Cloud Shell are management tools and storage, not locations."
       },
       {
         "id": "easy_15",
         "category": "Architecture",
-        "q": "To prevent an outage in one datacenter from affecting the whole application, a company spreads its servers across three physically separate datacenters in the same region. What did it just use?",
+        "q": "What are physically separate datacenters within one Azure region called?",
         "a": [
-          "Multiple geographic regions",
-          "Multiple company subscriptions",
-          "Multiple resource groups",
-          "Availability zones within a region"
+          "Management groups",
+          "Network security groups",
+          "Resource tags",
+          "Availability zones"
         ],
         "c": 3,
-        "e": "Availability zones are physically separate datacenters with their own power and cooling within a single region, designed exactly for this type of resilience. Multiple regions would mean geographically distant locations, not zones within one region. Resource groups are just a logical organization of resources. Subscriptions handle billing and access, not physical placement."
+        "e": "Availability zones are separate datacenters with their own power and networking inside one region. Management groups, NSGs and tags organize, filter and label resources."
       },
       {
         "id": "easy_16",
         "category": "Management",
-        "q": "A team wants to group a web app and its database into a single unit that can be managed and deleted together. What will it use for this?",
+        "q": "What logical container groups related Azure resources so they can be managed together?",
         "a": [
           "Resource group",
-          "Management group",
-          "Tenant",
-          "Subscription"
+          "Azure Functions",
+          "Conditional Access",
+          "Microsoft Purview"
         ],
         "c": 0,
-        "e": "A resource group is a logical container for resources that share a lifecycle — they can be managed, cost-tracked, and deleted together as a unit. A subscription is a wider billing boundary that contains multiple resource groups. A management group organizes multiple subscriptions at once. A tenant represents a Microsoft Entra ID instance for the whole organization, not a container for specific resources."
+        "e": "A resource group holds related resources that share a lifecycle and can be managed or deleted together. Azure Functions, Conditional Access and Purview are compute, identity and data governance services."
       },
       {
         "id": "easy_17",
         "category": "Management",
-        "q": "A company needs a billing and access boundary that contains all of its resource groups and resources. What plays this role in Azure?",
+        "q": "Which Azure unit acts as a billing and access boundary for resource groups?",
         "a": [
           "Availability zone",
           "Subscription",
-          "Resource group",
-          "Tag"
+          "Azure Functions",
+          "Azure Monitor"
         ],
         "c": 1,
-        "e": "A subscription is the boundary for billing, quotas, and access to Azure resources, and it contains one or more resource groups. A resource group is a smaller logical unit inside a subscription. A tag is a metadata label for organizing resources, not a billing boundary. An availability zone is a physical location, not an administrative or billing boundary."
+        "e": "A subscription is the billing and access boundary that contains resource groups. Availability zones, Azure Functions and Azure Monitor are a resilience concept, serverless compute and monitoring."
       },
       {
         "id": "easy_18",
         "category": "Management",
-        "q": "A corporation with three divisions wants to apply the same security rules across all its subscriptions at once, instead of configuring them separately for each. What will it use for this?",
+        "q": "What do you use to apply policies and access to many subscriptions at once?",
         "a": [
-          "A protective resource lock",
-          "A set of descriptive tags",
-          "A hierarchy of management groups",
-          "One shared resource group"
+          "Storage tiers",
+          "Virtual networks",
+          "Management groups",
+          "Resource tags"
         ],
         "c": 2,
-        "e": "A management group organizes multiple subscriptions into a hierarchy and lets you centrally apply governance policies, like RBAC or Azure Policy, to the whole group at once. A resource group only works within a single subscription. A tag just labels resources with metadata and doesn't enforce rules. A resource lock protects an individual resource from deletion or change, but doesn't apply rules across subscriptions."
+        "e": "Management groups sit above subscriptions, so policies and access set on them apply to all subscriptions below. Storage tiers, virtual networks and resource tags are storage, networking and labelling concepts."
       },
       {
         "id": "easy_19",
         "category": "Identity",
-        "q": "A company wants to centrally manage employee identities, their sign-ins, and access to cloud applications. Which Azure service provides this?",
+        "q": "Which Microsoft cloud service manages identities, sign-ins and access to applications?",
         "a": [
-          "The Resource Manager layer",
-          "The Azure Policy tool",
-          "The Azure Monitor tool",
-          "The Microsoft Entra ID service"
+          "Azure Storage Explorer",
+          "Azure Virtual Network",
+          "Azure Cost Management",
+          "Microsoft Entra ID"
         ],
         "c": 3,
-        "e": "Microsoft Entra ID (formerly Azure Active Directory) is a cloud identity and access management service for managing users, groups, sign-ins, and applications. Azure Monitor collects performance metrics and logs and has nothing to do with identities. Azure Policy enforces configuration rules on resources. Resource Manager is the layer for deploying and managing resources, not identities."
+        "e": "Microsoft Entra ID (formerly Azure AD) is the cloud identity and access service. Storage Explorer, Virtual Network and Cost Management handle storage browsing, networking and spending."
       },
       {
         "id": "easy_20",
         "category": "Identity",
-        "q": "A user enters their name and password so the system can verify they really are who they claim to be. What is this process called?",
+        "q": "What is the process of proving you are who you claim to be?",
         "a": [
           "Authentication",
-          "Authorization",
-          "Delegation",
-          "Federation"
+          "Replication",
+          "Encryption",
+          "Load testing"
         ],
         "c": 0,
-        "e": "Authentication is the process of verifying identity — who you are. Authorization, by contrast, determines what you're allowed to do once your identity has been verified. Federation links identities across different systems or organizations. Delegation means transferring permissions to another person or service, not verifying identity itself."
+        "e": "Authentication verifies identity, for example with a password. Replication, encryption and load testing are about copying data, protecting it and measuring performance."
       },
       {
         "id": "easy_21",
         "category": "Identity",
-        "q": "After a user successfully signs in, the system still decides whether they're allowed to delete files in a shared folder. What is this step called?",
+        "q": "After sign-in, what is deciding what a user is allowed to do called?",
         "a": [
-          "Tokenization",
+          "Replication",
           "Authorization",
-          "Single sign-on",
-          "Authentication"
+          "Load testing",
+          "Encryption"
         ],
         "c": 1,
-        "e": "Authorization determines what actions a verified identity is allowed to perform, typically through assigned roles or permissions. Authentication already happened earlier when the password was verified. Single sign-on enables one login across multiple apps, but on its own doesn't address specific permissions. Tokenization is a technique for replacing sensitive data with tokens and has nothing directly to do with permissions."
+        "e": "Authorization decides which actions a signed-in user may perform. Replication, load testing and encryption concern data copies, performance and data protection."
       },
       {
         "id": "easy_22",
         "category": "Identity",
-        "q": "A bank wants employees to verify with a code from their phone in addition to their password. What mechanism provides this?",
+        "q": "What is it called when signing in needs a password plus a code from your phone?",
         "a": [
-          "Conditional Access",
-          "Single sign-on (SSO)",
-          "Multi-factor authentication (MFA)",
-          "Role-based access control"
+          "Azure Container Instances (ACI)",
+          "Infrastructure as code",
+          "Multi-factor authentication",
+          "Geo-redundant storage"
         ],
         "c": 2,
-        "e": "Multi-factor authentication (MFA) requires more than one verification factor at sign-in, typically a password plus a phone code or biometrics. Single sign-on addresses signing into multiple apps at once, not the number of verification factors. Conditional Access can require MFA based on conditions, but on its own isn't a second factor. RBAC handles permissions, not the method of verifying identity."
+        "e": "MFA requires two or more proofs of identity, such as a password and a phone code. ACI, infrastructure as code and GRS are a container service, a deployment practice and a storage redundancy option."
       },
       {
         "id": "easy_23",
         "category": "Identity",
-        "q": "A company wants to automatically require MFA only when an employee signs in from an unfamiliar country or an unrecognized device. Which service enables this?",
+        "q": "Which Entra ID feature applies sign-in rules based on signals like location or device?",
         "a": [
-          "Resource lock",
-          "Multi-factor authentication",
-          "Microsoft Entra ID alone",
+          "Archive storage tier",
+          "Azure Service Health",
+          "Virtual network peering",
           "Conditional Access"
         ],
         "c": 3,
-        "e": "Conditional Access evaluates conditions like location, device, or risk level and dynamically decides whether to allow access, require MFA, or block it. MFA alone is just the verification mechanism, not the conditional logic for when to require it. Entra ID by itself without Conditional Access doesn't offer this kind of conditional behavior. A resource lock protects resources from deletion and has nothing to do with sign-in."
+        "e": "Conditional Access evaluates signals such as location, device or risk and then allows, blocks or requires MFA. The Archive tier, Service Health and peering are storage, outage reporting and networking features."
       },
       {
         "id": "easy_24",
         "category": "Governance",
-        "q": "A manager needs to grant an employee permission to read data in a specific resource group, but not delete it or change other people's permissions. What will they use for this?",
+        "q": "Which system grants users specific permissions to Azure resources at a chosen scope?",
         "a": [
-          "A role assignment via RBAC at that scope",
-          "A set of rules defined in Azure Policy",
-          "A protective resource lock",
-          "A descriptive tag assigned to the resource"
+          "Role-based access control (RBAC)",
+          "Geo-redundant storage (GRS)",
+          "Azure Virtual Desktop (AVD)",
+          "Infrastructure as a Service (IaaS)"
         ],
         "c": 0,
-        "e": "RBAC assigns specific roles (such as Reader) at a given scope, like a resource group, precisely controlling what that identity is allowed to do. Azure Policy enforces configuration rules on resources, not who has what access. A resource lock prevents deletion or modification for everyone, not selectively by role. A tag just labels a resource with metadata and has no effect on permissions."
+        "e": "Azure RBAC assigns roles (permissions) to users at a scope such as a resource group. GRS, AVD and IaaS are a redundancy option, a desktop service and a cloud service model."
       },
       {
         "id": "easy_25",
         "category": "Governance",
-        "q": "A company wants to enforce that all newly created storage accounts are automatically encrypted, otherwise they can't be created. Which tool ensures this?",
+        "q": "Which service enforces rules on resources, for example blocking non-compliant configurations?",
         "a": [
-          "RBAC",
+          "Azure Cosmos DB",
           "Azure Policy",
-          "Resource group",
-          "Azure Advisor"
+          "Azure ExpressRoute",
+          "Azure Functions"
         ],
         "c": 1,
-        "e": "Azure Policy lets you define rules that are enforced on resources, including blocking the creation of a resource that doesn't meet the rule. RBAC handles who has what permissions, not what properties a resource must have. A resource group is just an organizational container. Azure Advisor gives recommendations, but doesn't actively enforce or block anything."
+        "e": "Azure Policy evaluates resources against rules and can deny or flag non-compliant ones. Cosmos DB, ExpressRoute and Azure Functions are a database, a connectivity service and a compute service."
       },
       {
         "id": "easy_26",
         "category": "Governance",
-        "q": "An administrator wants to protect a critical production database from being accidentally deleted by anyone who otherwise has sufficient permissions. What will they use?",
+        "q": "What prevents a critical resource from being accidentally deleted or modified?",
         "a": [
-          "A role assignment via RBAC",
-          "A rule in Azure Policy",
-          "A resource lock",
-          "A descriptive tag on the resource"
+          "Blob Storage",
+          "Azure Functions",
+          "Resource lock",
+          "VPN Gateway"
         ],
         "c": 2,
-        "e": "A resource lock (CanNotDelete or ReadOnly) adds a protective layer to a specific resource regardless of what RBAC permissions a user has. Azure Policy enforces configuration standards, but isn't primarily meant to protect a single specific resource from deletion. RBAC determines permissions, but even a user with full access could still delete the resource without a lock. A tag is just a metadata label with no protective function."
+        "e": "A resource lock (CanNotDelete or ReadOnly) blocks deletion or changes even for users with permissions. Blob Storage, Azure Functions and VPN Gateway are storage, compute and networking services."
       },
       {
         "id": "easy_27",
         "category": "Governance",
-        "q": "The finance department wants to easily distinguish in billing which costs belong to Project Alpha versus Project Beta. What will they best use for this?",
+        "q": "What name-value label do you attach to resources to organize them and track costs?",
         "a": [
-          "Management group",
-          "Resource lock",
-          "Azure Policy",
-          "Tag"
+          "Cloud Shell",
+          "Azure Files",
+          "Azure DNS",
+          "Resource tag"
         ],
         "c": 3,
-        "e": "Tags are paired metadata (key-value) assigned to resources, which can be used to filter billing by project, department, or environment. A resource lock protects a resource from deletion and has nothing to do with billing. A management group organizes subscriptions and is too coarse-grained for distinguishing individual projects. Azure Policy enforces rules but doesn't itself generate a cost breakdown."
+        "e": "Tags are name-value pairs such as project=alpha, used for organizing and cost reporting. Cloud Shell, Azure Files and Azure DNS are a browser shell, a file service and name resolution."
       },
       {
         "id": "easy_28",
         "category": "Monitoring",
-        "q": "An operations team wants to get alerted when CPU usage on a production server exceeds 90%. Which service provides this kind of monitoring and alerting?",
+        "q": "Which service collects metrics and logs and sends alerts, for example on high CPU?",
         "a": [
           "Azure Monitor",
           "Azure Policy",
-          "Resource group",
-          "Azure Advisor"
+          "Azure Files",
+          "Blob Storage"
         ],
         "c": 0,
-        "e": "Azure Monitor collects metrics and logs from resources in real time and lets you set alerts based on them, exactly for this purpose. Azure Advisor gives one-time optimization recommendations, not ongoing real-time monitoring. Azure Policy enforces configuration rules and doesn't track performance metrics. A resource group is an organizational container with no monitoring function."
+        "e": "Azure Monitor collects metrics and logs and triggers alerts. Azure Policy, Azure Files and Blob Storage handle governance rules and storage, not monitoring."
       },
       {
         "id": "easy_29",
         "category": "Monitoring",
-        "q": "A security team needs to search through a large volume of logs from multiple sources using a query language to find suspicious sign-in attempts. What will they use for this?",
+        "q": "Which tool lets you query collected logs with the Kusto Query Language (KQL)?",
         "a": [
-          "Azure Policy",
+          "Azure Functions",
           "Log Analytics",
-          "Azure Advisor",
-          "Resource lock"
+          "Azure Data Box",
+          "Conditional Access"
         ],
         "c": 1,
-        "e": "Log Analytics is part of Azure Monitor designed for storing and querying large volumes of logs using the KQL query language, ideal for finding patterns like suspicious sign-ins. Azure Advisor provides general recommendations, not a log analysis tool. A resource lock protects resources from deletion. Azure Policy enforces configuration standards and isn't used for searching logs."
+        "e": "Log Analytics in Azure Monitor runs KQL queries over collected logs. Azure Functions, Data Box and Conditional Access are serverless compute, offline data transfer and sign-in rules."
       },
       {
         "id": "easy_30",
         "category": "Management",
-        "q": "A finance manager wants personalized recommendations on how to reduce costs, improve security, and increase the reliability of their Azure environment. What will they use?",
+        "q": "Which free service gives personalized recommendations on cost, security and reliability?",
         "a": [
-          "Azure Policy",
-          "Cost Management",
+          "Azure Functions",
+          "Azure File Sync",
           "Azure Advisor",
-          "Azure Monitor"
+          "Microsoft Entra ID"
         ],
         "c": 2,
-        "e": "Azure Advisor analyzes the environment's configuration and gives specific recommendations across four areas: cost, security, reliability, and performance. Azure Monitor collects metrics and logs, but doesn't itself actively recommend specific actions across these areas. Azure Policy enforces already-decided rules. Cost Management focuses only on cost, not all four areas at once."
+        "e": "Azure Advisor analyzes your environment and recommends improvements in cost, security, reliability, performance and operations. Azure Functions, Azure File Sync and Entra ID are compute, file synchronization and identity."
       },
       {
         "id": "easy_31",
         "category": "Cost",
-        "q": "An IT lead wants visibility into current monthly spend across all projects and to set up alerts when the budget is exceeded. Which service will they use?",
+        "q": "Which service shows current Azure spending and lets you set budgets and alerts?",
         "a": [
-          "Azure Advisor",
-          "Azure Policy",
-          "Pricing calculator",
+          "Azure Virtual Desktop",
+          "Microsoft Purview",
+          "Conditional Access",
           "Cost Management"
         ],
         "c": 3,
-        "e": "Cost Management tracks actual spend in real time, lets you set budgets with alerts, and analyze costs by various criteria. Azure Advisor gives recommendations but doesn't offer ongoing tracking of actual spend. The pricing calculator is for estimating cost before deployment, not tracking costs already incurred. Azure Policy enforces configuration rules, not budget tracking."
+        "e": "Microsoft Cost Management shows actual spending and supports budgets and alerts. Azure Virtual Desktop, Purview and Conditional Access are hosted desktops, data governance and sign-in rules."
       },
       {
         "id": "easy_32",
         "category": "Cost",
-        "q": "Before deploying a new solution, an architect wants to estimate the monthly cost of a specific combination of VMs, storage, and networking. What will they use for this?",
+        "q": "Which free Azure tool estimates the monthly cost of services before you deploy them?",
         "a": [
           "Pricing calculator",
-          "Cost Management",
-          "TCO calculator",
-          "Azure Advisor"
+          "Microsoft Entra ID",
+          "Azure Virtual Network",
+          "Availability zone"
         ],
         "c": 0,
-        "e": "The pricing calculator is built exactly for estimating the cost of a specific service configuration before it's deployed. Cost Management tracks costs that have already been incurred, not a hypothetical estimate beforehand. Azure Advisor gives recommendations for an already-existing environment. The TCO calculator compares on-premises costs with the cloud over a longer horizon, not the price of a specific configuration."
+        "e": "The Pricing calculator estimates the cost of the services you pick before deployment. Entra ID, Virtual Network and availability zones are identity, networking and resilience concepts that don't estimate prices."
       },
       {
         "id": "easy_33",
         "category": "Compute",
-        "q": "A company needs full control over a server's operating system, including installing custom software and OS-level configuration. Which Azure service will they use?",
+        "q": "Which Azure compute service gives you full control over the operating system?",
         "a": [
-          "Azure Container Instances",
+          "Azure Blob Storage",
           "Azure Virtual Machines",
-          "Azure App Service",
-          "Azure Functions"
+          "Microsoft Defender for Cloud",
+          "Azure Cost Management"
         ],
         "c": 1,
-        "e": "Azure Virtual Machines provide full control over the OS, similar to a physical server, including installing any software you want. Azure Functions runs without servers and you don't manage the OS at all. Azure App Service manages the OS and runtime for you, so you don't have direct OS access. Azure Container Instances runs containers without needing to manage the host machine's OS."
+        "e": "Azure Virtual Machines are IaaS: you choose and manage the OS and software. Blob Storage, Defender for Cloud and Cost Management are storage, security and cost tools."
       },
       {
         "id": "easy_34",
         "category": "Compute",
-        "q": "A developer wants to deploy a Python web app without having to manage a server, OS, or scaling — just upload the code. Which service will they choose?",
+        "q": "Which PaaS service hosts web apps and APIs without you managing servers?",
         "a": [
-          "Azure Bastion",
-          "Azure Virtual Machines",
+          "Azure ExpressRoute",
+          "Azure Policy",
           "Azure App Service",
-          "Azure Virtual Network"
+          "Log Analytics"
         ],
         "c": 2,
-        "e": "Azure App Service is a fully managed PaaS platform for web apps, where Azure handles the OS, runtime, and scaling for the developer. Azure Virtual Machines would still require manually managing the entire OS. Azure Virtual Network is for connecting and isolating resources on a network, not hosting applications. Azure Bastion provides secure access to VMs and has nothing to do with hosting a web app."
+        "e": "Azure App Service is a managed platform for web apps and APIs. ExpressRoute, Azure Policy and Log Analytics are connectivity, governance and log-query services."
       },
       {
         "id": "easy_35",
         "category": "Compute",
-        "q": "An application has a short function that should run only when a new file is uploaded to storage, and shouldn't run at all the rest of the time. What will they choose?",
+        "q": "Which serverless service runs small pieces of code in response to events?",
         "a": [
-          "Azure Virtual Machines",
-          "Azure Kubernetes Service",
-          "Azure App Service",
+          "Azure Files",
+          "Resource locks",
+          "Resource tags",
           "Azure Functions"
         ],
         "c": 3,
-        "e": "Azure Functions is a serverless service designed exactly for short tasks triggered by an event, like a file upload, and you only pay for the actual runtime. Azure Virtual Machines run continuously and need to be managed even outside actual usage. Azure Kubernetes Service is meant for orchestrating larger numbers of containers, unnecessarily complex for one short function. Azure App Service suits continuously running web apps, not one-off short tasks."
+        "e": "Azure Functions runs code when triggered by events and bills only for execution. Azure Files, resource locks and tags are file shares, deletion protection and labels."
       },
       {
         "id": "easy_36",
         "category": "Compute",
-        "q": "A team wants to quickly spin up a single isolated container for testing without building an entire cluster. Which service will they use?",
+        "q": "Which service runs a single container quickly without managing VMs or a cluster?",
         "a": [
           "Azure Container Instances",
-          "Azure Virtual Machines",
-          "Azure Kubernetes Service",
-          "Azure Functions"
+          "Azure Virtual Network",
+          "Microsoft Defender for Cloud",
+          "Azure Resource Manager"
         ],
         "c": 0,
-        "e": "Azure Container Instances lets you quickly run a single container without managing a cluster or orchestration, ideal for simple or test scenarios. Azure Kubernetes Service, by contrast, is meant for orchestrating large numbers of containers and requires more complex setup. Azure Virtual Machines would require manually installing and managing a container engine. Azure Functions is for short event-driven functions, not running arbitrary containers."
+        "e": "Azure Container Instances (ACI) runs containers on demand with no VM or cluster to manage. Virtual Network, Defender for Cloud and Resource Manager are networking, security and the deployment layer."
       },
       {
         "id": "easy_37",
         "category": "Compute",
-        "q": "A company runs dozens of microservices in containers and needs automatic scaling, self-healing, and orchestration between them. What will they use?",
+        "q": "Which service orchestrates many containers with automatic scaling and self-healing?",
         "a": [
-          "Azure Functions",
+          "Microsoft Defender for Cloud",
           "Azure Kubernetes Service",
-          "Azure Container Instances",
-          "Azure Virtual Machines"
+          "Microsoft Entra Connect",
+          "Azure Storage Explorer"
         ],
         "c": 1,
-        "e": "Azure Kubernetes Service (AKS) is a managed platform for orchestrating containers at scale, including automatic scaling and recovery from failure. Azure Container Instances suits only individual or loosely connected containers, not complex orchestration of dozens of services. Azure Functions handles individual short functions, not orchestrating microservices. Azure Virtual Machines would require manually setting up an entire orchestration layer from scratch."
+        "e": "Azure Kubernetes Service (AKS) is managed Kubernetes for orchestrating many containers. Defender for Cloud, Entra Connect and Storage Explorer are security, identity sync and storage tools."
       },
       {
         "id": "easy_38",
         "category": "Networking",
-        "q": "A company needs an isolated private network space in Azure where its virtual machines can communicate securely with each other. What will they create for this?",
+        "q": "What provides a private, isolated network for your Azure resources?",
         "a": [
-          "A network security group",
-          "A separate resource group",
-          "A dedicated virtual network (VNet)",
-          "A load balancer for traffic"
+          "Azure Cost Management",
+          "Microsoft Entra ID",
+          "Azure Virtual Network",
+          "Azure Kubernetes Service"
         ],
         "c": 2,
-        "e": "A Virtual Network is the fundamental building block of a private network in Azure, where resources can communicate securely and be isolated from the public internet. A resource group is just an organizational container for resources, not a networking construct. A Network Security Group filters traffic inside an already-existing network, it doesn't create the network itself. A Load Balancer spreads traffic across servers, it doesn't create an isolated network space."
+        "e": "An Azure Virtual Network (VNet) is your private network in Azure where resources communicate securely. Cost Management, Entra ID and AKS are cost, identity and container services."
       },
       {
         "id": "easy_39",
         "category": "Networking",
-        "q": "An administrator wants to split one large virtual network into smaller logical parts, for example separating web servers and databases. What will they use?",
+        "q": "What do you call a smaller address range carved out of a virtual network?",
         "a": [
-          "Network Security Group",
-          "Availability zone",
-          "Resource group",
-          "Subnet"
+          "Resource lock",
+          "Cloud Shell",
+          "Storage account",
+          "Virtual subnet"
         ],
         "c": 3,
-        "e": "A subnet divides a VNet into smaller segments, letting you logically separate different application layers and apply different rules to them. A resource group organizes resources administratively, not on the network. An availability zone is a physical datacenter location, not a network segment. A Network Security Group filters traffic, but doesn't itself segment a network into subnets."
+        "e": "A subnet divides a VNet's address space into smaller segments, for example for web and database tiers. Resource locks, Cloud Shell and storage accounts are governance, management and storage concepts."
       },
       {
         "id": "easy_40",
         "category": "Networking",
-        "q": "A team wants to allow inbound traffic on port 443 only from a specific range of IP addresses and block everything else at the subnet level. What will they use for this?",
+        "q": "What filters inbound and outbound traffic to Azure resources by port and IP address?",
         "a": [
-          "Network security group rules",
-          "A VPN Gateway connection",
-          "A private ExpressRoute circuit",
-          "Records in the Azure DNS service"
+          "Network security group",
+          "Azure Cost Management",
+          "Azure Kubernetes Service",
+          "Microsoft Purview"
         ],
         "c": 0,
-        "e": "A Network Security Group (NSG) contains rules for filtering inbound and outbound traffic based on ports, protocols, and source IP addresses. A VPN Gateway creates an encrypted connection between networks and doesn't handle rule-based traffic filtering. Azure DNS translates domain names to IP addresses and has nothing to do with traffic filtering. ExpressRoute provides private connectivity outside the public internet, but on its own doesn't filter traffic by rules."
+        "e": "A network security group (NSG) holds allow/deny rules by port, protocol and IP address. Cost Management, AKS and Purview handle spending, containers and data governance."
       },
       {
         "id": "easy_41",
         "category": "Networking",
-        "q": "A company wants to securely connect its local office network to Azure over an encrypted tunnel through the public internet. What will they use for this?",
+        "q": "Which service connects an on-premises network to Azure through an encrypted tunnel over the internet?",
         "a": [
-          "Azure Bastion",
+          "Azure Advisor",
           "VPN Gateway",
-          "ExpressRoute",
-          "Network Security Group"
+          "Blob Storage",
+          "Azure Functions"
         ],
         "c": 1,
-        "e": "A VPN Gateway creates an encrypted (site-to-site VPN) connection between an on-premises network and Azure over the public internet. ExpressRoute, by contrast, bypasses the public internet entirely and creates a private physical connection. Azure Bastion provides secure browser-based access to individual VMs, it doesn't connect entire networks. A Network Security Group filters traffic inside an already-existing connection, it doesn't create the connection itself."
+        "e": "VPN Gateway creates encrypted IPsec tunnels over the public internet. Azure Advisor, Blob Storage and Azure Functions are recommendations, storage and serverless compute."
       },
       {
         "id": "easy_42",
         "category": "Networking",
-        "q": "A large corporation needs dedicated private connectivity to Azure with high bandwidth and low latency, outside the public internet. What will they choose?",
+        "q": "Which service gives a private, dedicated connection to Azure that bypasses the public internet?",
         "a": [
-          "VPN Gateway",
-          "Azure DNS",
+          "Azure CLI",
+          "Cosmos DB",
           "ExpressRoute",
-          "Virtual Network peering"
+          "Azure Files"
         ],
         "c": 2,
-        "e": "ExpressRoute provides a dedicated private physical connection to Azure outside the public internet, with higher reliability and lower latency than VPN. A VPN Gateway, by contrast, routes its encrypted tunnel through the public internet, which may not be enough for extremely low latency. Azure DNS only handles domain name resolution. Virtual Network peering connects two VNets to each other, not an on-premises network to Azure."
+        "e": "ExpressRoute is a private connection through a connectivity provider, not over the public internet. Azure CLI, Cosmos DB and Azure Files are a command-line tool, a database and file shares."
       },
       {
         "id": "easy_43",
         "category": "Networking",
-        "q": "An administrator needs to securely connect to a virtual machine's remote desktop through a browser, without the VM having a public IP address. What will they use?",
+        "q": "What gives an Azure service a private IP address inside your virtual network?",
         "a": [
-          "ExpressRoute",
-          "Network Security Group",
-          "VPN Gateway",
-          "Azure Bastion"
+          "Conditional Access",
+          "Archive tier",
+          "Cost Management",
+          "Private endpoint"
         ],
         "c": 3,
-        "e": "Azure Bastion provides secure RDP or SSH access to a VM directly in the browser, without the VM ever needing a public IP address or open ports to the internet. A VPN Gateway connects entire networks, which is a broader and more complex solution for this specific purpose. ExpressRoute addresses private connectivity to Azure overall, not access to a single VM. A Network Security Group only filters traffic, it doesn't enable access on its own."
+        "e": "A private endpoint is a network interface with a private IP from your VNet, so the service is reached privately. Conditional Access, the Archive tier and Cost Management are identity, storage and cost features."
       },
       {
         "id": "easy_44",
         "category": "Networking",
-        "q": "A company wants their application's domain name (such as app.company.com) to resolve to the right IP address in Azure. Which service will they use?",
+        "q": "Which Azure service hosts domain names and resolves them to IP addresses?",
         "a": [
           "Azure DNS",
-          "VPN Gateway",
-          "Network Security Group",
-          "Azure Bastion"
+          "Bicep",
+          "Azure Files",
+          "Azure Monitor"
         ],
         "c": 0,
-        "e": "Azure DNS manages DNS records and handles resolving domain names to the IP addresses of resources. Azure Bastion addresses secure access to VMs, it has nothing to do with domain name resolution. A Network Security Group filters network traffic by rules, it doesn't resolve names to addresses. A VPN Gateway creates an encrypted connection between networks, on its own it doesn't handle DNS."
+        "e": "Azure DNS hosts DNS zones and resolves names like app.contoso.com to IP addresses. Bicep, Azure Files and Azure Monitor are an IaC language, file shares and monitoring."
       },
       {
         "id": "easy_45",
         "category": "Storage",
-        "q": "An application needs to store large amounts of unstructured data, such as photos and videos uploaded by users. Which Azure service will it use?",
+        "q": "Which Azure storage service is built for unstructured data such as photos and videos?",
         "a": [
-          "Azure Files",
+          "VPN Gateway",
           "Blob Storage",
-          "Queue Storage",
-          "Table Storage"
+          "Azure Monitor",
+          "Azure Policy"
         ],
         "c": 1,
-        "e": "Blob Storage is optimized for storing large amounts of unstructured binary data, such as images, videos, or backups. Azure Files provides shared network folders over the SMB protocol, better suited for sharing documents between servers. Table Storage stores structured NoSQL data in key-value form. Queue Storage is used for storing messages between application components, not for storing files."
+        "e": "Blob Storage is object storage for unstructured data like images and video. VPN Gateway, Azure Monitor and Azure Policy handle networking, monitoring and governance, not file storage."
       },
       {
         "id": "easy_46",
         "category": "Storage",
-        "q": "A company is migrating an old application that requires access to a shared network folder over the SMB protocol, just like on the old server. What will it use?",
+        "q": "Which Azure storage service offers fully managed file shares accessed over SMB?",
         "a": [
-          "Disk Storage",
-          "Table Storage",
+          "Azure Arc",
+          "Azure Policy",
           "Azure Files",
-          "Blob Storage"
+          "ExpressRoute"
         ],
         "c": 2,
-        "e": "Azure Files provides fully managed shared network folders accessible over the standard SMB or NFS protocol, so the application works just like it did with a shared folder on a physical server. Blob Storage is meant for object storage, not emulating a network folder. Disk Storage provides virtual disks for individual VMs, not shared network storage. Table Storage stores structured NoSQL data, not files accessible as a network folder."
+        "e": "Azure Files provides managed file shares over SMB (and NFS) that can be mounted like a network drive. Azure Arc, Azure Policy and ExpressRoute are hybrid management, governance and connectivity."
       },
       {
         "id": "easy_47",
         "category": "Storage",
-        "q": "Two parts of an application need to communicate asynchronously, where one sends messages and the other processes them in order over time. What will they use for this?",
+        "q": "Which storage service holds messages so app components can communicate asynchronously?",
         "a": [
-          "Blob Storage",
-          "Disk Storage",
-          "Azure Files",
+          "Azure Cost Management",
+          "Microsoft Entra ID",
+          "Azure Functions",
           "Queue Storage"
         ],
         "c": 3,
-        "e": "Queue Storage stores messages in a queue that one component fills and another processes over time, enabling asynchronous communication between parts of an application. Blob Storage is for storing files, not message queues. Disk Storage provides virtual disks for VMs and has nothing to do with inter-component communication. Azure Files is a shared network folder for files, not a message queue mechanism."
+        "e": "Queue Storage stores messages that one component sends and another processes later. Cost Management, Entra ID and Azure Functions are spending, identity and compute."
       },
       {
         "id": "easy_48",
         "category": "Storage",
-        "q": "An application stores millions of simple key-value records, such as user settings, and needs fast access to them without a SQL schema. What will it choose?",
+        "q": "Which storage service keeps simple key-value data without a fixed schema?",
         "a": [
           "Table Storage",
-          "Disk Storage",
-          "Azure SQL Database",
-          "Blob Storage"
+          "Microsoft Purview",
+          "Azure Functions",
+          "Conditional Access"
         ],
         "c": 0,
-        "e": "Table Storage is a NoSQL store for structured key-value data, optimized for fast access to large numbers of simple records without a fixed schema. Blob Storage is meant for binary objects like files, not structured records. Azure SQL Database requires a defined relational schema, which goes against the requirement for a simple schema-less store. Disk Storage provides virtual disks for VMs, not storage for individual data records."
+        "e": "Table Storage is a NoSQL key-attribute store for structured data without a fixed schema. Purview, Azure Functions and Conditional Access are data governance, compute and sign-in rules."
       },
       {
         "id": "easy_49",
         "category": "Storage",
-        "q": "A virtual machine needs attached storage that functions as its system or data disk. What does Azure provide for this?",
+        "q": "Which storage type provides block-level OS and data disks for Azure VMs?",
         "a": [
-          "Blob Storage",
-          "Disk Storage",
-          "Table Storage",
-          "Queue Storage"
+          "Azure Service Health",
+          "Azure managed disks",
+          "Microsoft Entra ID",
+          "Azure Policy"
         ],
         "c": 1,
-        "e": "Disk Storage provides virtual (managed) disks that function as the system or data disks attached to a virtual machine. Blob Storage is object storage accessible via API, not a disk directly attachable to a VM. Queue Storage stores messages between components, it isn't a disk. Table Storage stores structured data, also not a disk format for a VM."
+        "e": "Azure managed disks are block storage volumes attached to VMs as OS or data disks. Service Health, Entra ID and Azure Policy report outages, manage identity and enforce rules."
       },
       {
         "id": "easy_50",
         "category": "Storage",
-        "q": "Data is stored in three copies within a single datacenter, which protects against a single disk failure but not against an outage of the whole datacenter. What type of redundancy is this?",
+        "q": "Which redundancy option keeps three copies of data in a single datacenter?",
         "a": [
-          "RA-GRS",
-          "ZRS",
-          "LRS",
-          "GRS"
+          "Single sign-on (SSO)",
+          "Role-based access control (RBAC)",
+          "Locally redundant storage (LRS)",
+          "Platform as a Service (PaaS)"
         ],
         "c": 2,
-        "e": "LRS (Locally Redundant Storage) replicates data three times within a single datacenter, so it protects against a disk or server failure, but not an outage of the entire datacenter. GRS also replicates data to a remote region, which protects against an entire region outage too. ZRS spreads copies across multiple availability zones within a region, not just within one datacenter. RA-GRS is an extension of GRS with readable access to the secondary region, making it even more robust than the scenario described."
+        "e": "LRS stores three copies within one datacenter, protecting against disk or rack failure only. SSO, RBAC and PaaS are sign-in, access and service-model concepts."
       },
       {
         "id": "easy_51",
         "category": "Storage",
-        "q": "A company wants its data to survive an outage of an entire datacenter within a region, so it spreads copies across multiple physically separate datacenters in the same region. What will it use?",
+        "q": "Which redundancy option copies data across availability zones in one region?",
         "a": [
-          "GRS",
-          "Hot tier",
-          "LRS",
-          "ZRS"
+          "Multi-factor authentication (MFA)",
+          "Azure Virtual Desktop (AVD)",
+          "Azure Kubernetes Service (AKS)",
+          "Zone-redundant storage (ZRS)"
         ],
         "c": 3,
-        "e": "ZRS (Zone-Redundant Storage) replicates data synchronously across multiple availability zones within a single region, so it survives an outage of an entire datacenter. LRS only replicates within one datacenter, so an outage of that datacenter would threaten the data. GRS replicates to another region, which is more than the requirement asks for but describes a different architecture. Hot tier is a data access frequency level, not a type of geographic redundancy."
+        "e": "ZRS keeps copies in three availability zones of one region, so it survives a datacenter outage. MFA, AVD and AKS are identity, desktop and container services."
       },
       {
         "id": "easy_52",
         "category": "Storage",
-        "q": "A company needs its data to survive a catastrophe that destroys an entire region, so it replicates it hundreds of kilometers away to another Azure region. What will it use?",
+        "q": "Which redundancy option replicates data to a second, distant Azure region?",
         "a": [
-          "GRS",
-          "LRS",
-          "ZRS",
-          "Premium SSD"
+          "Geo-redundant storage (GRS)",
+          "Platform as a Service (PaaS)",
+          "Multi-factor authentication (MFA)",
+          "Azure Resource Manager (ARM)"
         ],
         "c": 0,
-        "e": "GRS (Geo-Redundant Storage) asynchronously replicates data to a distant paired region, which protects against a catastrophe affecting an entire region. LRS only protects against failure within a single datacenter. ZRS protects against a datacenter outage within a region, but not a catastrophe affecting the whole region. Premium SSD is a disk performance tier, not a geographic redundancy mechanism."
+        "e": "GRS copies data to a secondary region hundreds of kilometres away, protecting against a regional outage. PaaS, MFA and ARM are a service model, a sign-in method and the deployment layer."
       },
       {
         "id": "easy_53",
         "category": "Storage",
-        "q": "An application frequently and immediately accesses current user data, so it needs the fastest and most expensive data access tier in Blob Storage. What will it choose?",
+        "q": "Which Blob Storage access tier is meant for data used frequently?",
         "a": [
-          "Archive tier",
-          "Hot tier",
-          "Cool tier",
-          "Cold tier"
+          "Resource lock",
+          "Hot access tier",
+          "Azure Policy",
+          "Azure Migrate"
         ],
         "c": 1,
-        "e": "Hot tier is optimized for data accessed frequently, with the highest storage cost but the lowest cost for accessing the data. Archive tier is the cheapest for storage, but retrieving data takes hours and is expensive, unsuited for frequent use. Cool tier suits less frequently accessed data, not immediate and frequent access. Cold tier as a separate level doesn't exist in Azure Storage's core offering the same way Hot, Cool, and Archive do."
+        "e": "The Hot tier has the highest storage cost but the lowest access cost, ideal for frequently used data. Resource locks, Azure Policy and Azure Migrate are governance and migration tools, not storage tiers."
       },
       {
         "id": "easy_54",
         "category": "Storage",
-        "q": "A company archives old data it accesses once every few years and wants the lowest possible storage cost, even at the price of slow access. What will it choose?",
+        "q": "Which Blob access tier is cheapest to store but can take hours to read?",
         "a": [
-          "Hot tier",
-          "Cool tier",
-          "Archive tier",
-          "Premium SSD"
+          "Azure Virtual Network",
+          "Azure Service Health",
+          "Archive access tier",
+          "Microsoft Entra Connect"
         ],
         "c": 2,
-        "e": "Archive tier offers the lowest storage cost of all the tiers, but recovering the data takes hours, which is acceptable for very rarely accessed archival data. Hot tier is optimized for frequent access and has the highest storage cost. Cool tier is a compromise for moderately frequently accessed data, but is still more expensive than Archive. Premium SSD is a high-performance disk type for VMs, not an archival tier of Blob Storage."
+        "e": "The Archive tier is the cheapest for storage, but data must be rehydrated (up to hours) before reading. Virtual Network, Service Health and Entra Connect are networking, outage reporting and identity sync."
       },
       {
         "id": "easy_55",
         "category": "Storage",
-        "q": "A marketing team stores reports it accesses once a month and wants a reasonable balance between storage cost and access speed. What will it choose?",
+        "q": "Which Blob access tier suits infrequently used data kept at least 30 days?",
         "a": [
-          "LRS",
-          "Hot tier",
-          "Archive tier",
-          "Cool tier"
+          "Azure Virtual Desktop",
+          "Resource group",
+          "Single sign-on",
+          "Cool access tier"
         ],
         "c": 3,
-        "e": "Cool tier is designed for less frequently accessed data (roughly once a month), with lower storage cost than Hot tier but faster access than Archive tier. Hot tier has a higher storage cost, better suited to daily access. Archive tier is the cheapest, but access takes hours, which may not suit monthly reports. LRS is a type of data redundancy, not an access frequency tier."
+        "e": "The Cool tier is for infrequently accessed data stored at least 30 days: cheaper storage, higher access cost than Hot. Azure Virtual Desktop, resource groups and SSO are desktops, management and sign-in."
       },
       {
         "id": "easy_56",
         "category": "Databases",
-        "q": "A company is migrating an existing relational database with tables, relationships, and SQL queries and wants a managed service without having to manage the database server itself. What will it choose?",
+        "q": "Azure SQL Database is an example of which cloud service model?",
         "a": [
-          "A managed relational Azure SQL Database",
-          "An object-based Blob Storage store",
-          "A simple Table Storage store",
-          "A globally distributed Cosmos DB database"
+          "Platform as a Service (PaaS)",
+          "Zone-redundant storage (ZRS)",
+          "Role-based access control (RBAC)",
+          "Single sign-on (SSO)"
         ],
         "c": 0,
-        "e": "Azure SQL Database is a fully managed relational database service supporting standard SQL, tables, and relationships, ideal for migrating an existing relational database. Cosmos DB is primarily a NoSQL database with a different data model, not a direct replacement for a relational database. Table Storage is a simple NoSQL key-value store that doesn't support relational queries or relationships between tables. Blob Storage is for storing files, not structured database data."
+        "e": "Azure SQL Database is a managed database: Microsoft handles the server, patching and backups, so it is PaaS. ZRS, RBAC and SSO are a redundancy option, an access system and a sign-in feature."
       },
       {
         "id": "easy_57",
         "category": "Databases",
-        "q": "A global application needs a database with very low latency and automatic data replication across multiple regions worldwide. What will it choose?",
+        "q": "What kind of database is Azure Cosmos DB?",
         "a": [
-          "Azure Files",
-          "Cosmos DB",
-          "Disk Storage",
-          "Azure SQL Database"
+          "A private network connection to Azure",
+          "A globally distributed NoSQL database",
+          "A tool for estimating monthly costs",
+          "A service for managing user identities"
         ],
         "c": 1,
-        "e": "Cosmos DB is a globally distributed NoSQL database designed for low latency and automatic replication across regions worldwide. Azure SQL Database can also be geo-replicated, but it isn't primarily designed for this kind of global low latency as a default trait. Azure Files provides shared network folders, it isn't a database. Disk Storage provides virtual disks for VMs and has nothing to do with global database distribution."
+        "e": "Azure Cosmos DB is a globally distributed NoSQL database with low latency worldwide. The other answers describe ExpressRoute, the Pricing calculator and Microsoft Entra ID."
       },
       {
         "id": "easy_58",
         "category": "Security",
-        "q": "An application needs to securely store and manage API keys and passwords that it accesses at runtime, instead of having them written directly in the code. What will it use?",
+        "q": "Which security strategy layers several protections so that one failure is not fatal?",
         "a": [
-          "Resource group",
-          "Azure Advisor",
-          "Azure Key Vault",
-          "Azure Monitor"
+          "Pay-as-you-go",
+          "Horizontal scaling",
+          "Defense in depth",
+          "Geo-replication"
         ],
         "c": 2,
-        "e": "Azure Key Vault securely stores sensitive data like keys, passwords, and certificates, which the application accesses at runtime instead of storing them directly in the code. Azure Monitor collects metrics and logs and has nothing to do with storing secrets. A resource group is just an organizational container for resources. Azure Advisor gives optimization recommendations, it isn't a secure store for secrets."
+        "e": "Defense in depth stacks layers (physical, identity, perimeter, network, compute, application, data) so a breach of one layer is stopped by the next. The others are a pricing model, a scaling method and a data copy method."
       },
       {
         "id": "easy_59",
         "category": "Security",
-        "q": "A security team wants to receive recommendations and a Secure Score across the entire Azure environment, and to detect threats. What will it use?",
+        "q": "Which service shows a secure score and protects workloads against threats?",
         "a": [
-          "Azure Key Vault",
-          "Microsoft Sentinel",
-          "Resource lock",
-          "Defender for Cloud"
+          "Azure Resource Manager",
+          "Azure Storage Explorer",
+          "Azure Kubernetes Service (AKS)",
+          "Microsoft Defender for Cloud"
         ],
         "c": 3,
-        "e": "Defender for Cloud provides a Secure Score, recommendations for improving security, and threat detection across an Azure environment. Microsoft Sentinel is a SIEM and SOAR tool for deeper security data analysis and incident response, not primarily for scoring configuration. Azure Key Vault stores secrets, it doesn't provide a security score. A resource lock protects a single resource from deletion and has nothing to do with overall security posture."
+        "e": "Microsoft Defender for Cloud gives a secure score, security recommendations and threat protection for Azure, hybrid and multicloud workloads. Resource Manager, Storage Explorer and AKS deploy resources, browse storage and run containers."
       },
       {
         "id": "easy_60",
         "category": "Security",
-        "q": "A security analyst needs to centrally collect security data from many sources and investigate incidents using queries and automated playbooks. What will they use?",
+        "q": "Which Microsoft service helps discover, classify and govern data across your organization?",
         "a": [
-          "Microsoft Sentinel",
-          "Defender for Cloud",
-          "Azure Policy",
-          "Azure Advisor"
+          "Microsoft Purview",
+          "Cost Management",
+          "Azure Functions",
+          "VPN Gateway"
         ],
         "c": 0,
-        "e": "Microsoft Sentinel is a cloud SIEM and SOAR tool for collecting, correlating, and investigating security data across sources, including automated responses. Defender for Cloud focuses on posture and protecting specific resources, not extensive incident analysis across an organization. Azure Policy enforces configuration rules, it isn't used for investigating incidents. Azure Advisor gives general recommendations, it isn't a security analytics tool."
+        "e": "Microsoft Purview maps, classifies and governs data across on-premises, multicloud and SaaS sources. Cost Management, Azure Functions and VPN Gateway are spending, compute and networking."
       },
       {
         "id": "easy_61",
         "category": "Security",
-        "q": "A company wants to design its security so that it automatically trusts nobody and nothing, verifying every request regardless of where it comes from. What approach is this?",
+        "q": "Which security model says 'never trust, always verify' for every request?",
         "a": [
-          "Least privilege",
+          "Elasticity",
           "Zero Trust",
-          "Defense in depth",
-          "Single sign-on"
+          "Azure Arc",
+          "Scalability"
         ],
         "c": 1,
-        "e": "Zero Trust is a security model based on the principle of \"never trust, always verify,\" where every request is verified regardless of origin, even inside the corporate network. Defense in depth means layering multiple security measures on top of each other, a broader concept than just the principle of distrust. Least privilege concerns granting minimal necessary permissions; it's one of the principles Zero Trust uses, but isn't the same thing. Single sign-on addresses one login across applications and isn't directly related to the overall security model."
+        "e": "Zero Trust assumes breach and verifies every request explicitly, whatever network it comes from. Elasticity, Azure Arc and scalability are cloud benefits and a hybrid management service."
       },
       {
         "id": "easy_62",
         "category": "Security",
-        "q": "An administrator grants a user only the permissions strictly necessary for their job, and nothing more. What principle is being followed here?",
+        "q": "What is the principle of giving users only the permissions they need?",
         "a": [
-          "The Zero Trust principle",
-          "Conditional Access",
-          "The principle of least privilege",
-          "Layered defense (defense in depth)"
+          "Geo-replication",
+          "Vertical scaling",
+          "Least privilege",
+          "Pay-as-you-go"
         ],
         "c": 2,
-        "e": "Least privilege is the principle of granting only the minimum permissions necessary for a given job, reducing the risk of abuse if an account is compromised. Zero Trust is the broader security philosophy of verifying every request; least privilege is one of its components. Defense in depth means layering multiple defense mechanisms, not specifically minimizing permissions. Conditional Access conditions access on circumstances like location or device, and doesn't directly address the scope of granted permissions."
+        "e": "Least privilege grants only the access needed for a task, nothing more. Geo-replication, vertical scaling and pay-as-you-go concern data copies, VM sizing and pricing."
       },
       {
         "id": "easy_63",
         "category": "DevOps",
-        "q": "A team wants to define infrastructure (VMs, networks, storage) as code in a declarative JSON file that can be deployed repeatedly and consistently. What will it use?",
+        "q": "Which JSON file declares Azure resources so they can be deployed repeatedly?",
         "a": [
-          "Azure CLI",
-          "Cloud Shell",
-          "Azure PowerShell",
+          "Resource lock",
+          "Azure DNS",
+          "Blob Storage",
           "ARM template"
         ],
         "c": 3,
-        "e": "An ARM template is a declarative JSON file describing infrastructure, which Azure Resource Manager uses to deploy resources repeatably and consistently. Azure CLI is a command-line tool for interactive or scripted management, not a declarative format for describing infrastructure. Cloud Shell is a browser-based environment for running CLI or PowerShell commands, on its own it isn't an infrastructure-as-code format. Azure PowerShell is another scripting tool, functionally similar to CLI, not a declarative template."
+        "e": "An ARM template is a declarative JSON file describing resources for repeatable deployment. Resource locks, Azure DNS and Blob Storage protect resources, resolve names and store objects."
       },
       {
         "id": "easy_64",
         "category": "DevOps",
-        "q": "A developer wants to write infrastructure as code in a more concise and readable syntax than JSON, which then automatically compiles into an ARM template. What will they use?",
+        "q": "Which Azure language offers simpler syntax than JSON for infrastructure as code?",
         "a": [
           "Bicep",
-          "Azure CLI",
-          "Cloud Shell",
-          "Azure Functions"
+          "Entra ID",
+          "Tags",
+          "Azure Arc"
         ],
         "c": 0,
-        "e": "Bicep is a declarative language with more concise syntax than JSON, which compiles into an ARM template and makes writing infrastructure as code easier. Azure CLI is an imperative command-line tool for executing actions, not a declarative language for describing infrastructure. Cloud Shell is an environment for running commands, it isn't a language for defining infrastructure. Azure Functions is a compute service for running code, unrelated to defining infrastructure as code."
+        "e": "Bicep is a declarative language that compiles to ARM templates with cleaner syntax than JSON. Entra ID, tags and Azure Arc are identity, labels and hybrid management."
       },
       {
         "id": "easy_65",
         "category": "Management",
-        "q": "An administrator wants to manage Azure resources via the command line using scriptable commands that work on Windows, macOS, and Linux. What will they use?",
+        "q": "Which cross-platform command-line tool uses commands like 'az vm create'?",
         "a": [
-          "Resource lock",
+          "Azure Files",
           "Azure CLI",
-          "Azure Portal",
-          "Azure Advisor"
+          "Azure Policy",
+          "Entra ID"
         ],
         "c": 1,
-        "e": "Azure CLI is a cross-platform command-line tool for scriptable management of Azure resources on Windows, macOS, and Linux. Azure Portal is a graphical web interface, not a command-line tool. A resource lock is a resource protection feature, not a general management tool. Azure Advisor provides recommendations in the portal, it isn't a command-line tool."
+        "e": "Azure CLI is the cross-platform command-line tool whose commands start with 'az'. Azure Files, Azure Policy and Entra ID are file shares, governance rules and identity."
       },
       {
         "id": "easy_66",
         "category": "Management",
-        "q": "An administrator wants to manage Azure using a scripting language that uses an object-oriented approach and cmdlets in a Verb-Noun format. What will they use?",
+        "q": "Which Azure command-line tool uses Verb-Noun cmdlets such as New-AzVM?",
         "a": [
-          "The declarative ARM template format",
-          "The cross-platform Azure CLI tool",
-          "The Azure PowerShell scripting tool with cmdlets",
-          "The more concise Bicep infrastructure language"
+          "Microsoft Purview",
+          "Azure ExpressRoute",
+          "Azure PowerShell",
+          "Conditional Access"
         ],
         "c": 2,
-        "e": "Azure PowerShell uses cmdlets in a Verb-Noun format (such as Get-AzVM) and the object-oriented approach typical of PowerShell. Azure CLI has a different syntax based on commands and text output, not PowerShell-style cmdlets. An ARM template is a declarative format for describing infrastructure, not a scripting language with cmdlets. Bicep is also a declarative infrastructure language, it doesn't include cmdlets or scripting logic like PowerShell."
+        "e": "Azure PowerShell is a module of cmdlets in Verb-Noun form, like New-AzVM. Purview, ExpressRoute and Conditional Access are data governance, connectivity and sign-in rules."
       },
       {
         "id": "easy_67",
         "category": "Management",
-        "q": "An administrator wants to manage Azure directly from a browser without having to install CLI or PowerShell locally on their computer. What will they use?",
+        "q": "Which browser-based shell lets you run Azure CLI or PowerShell without installing anything?",
         "a": [
-          "Azure CLI",
-          "ARM template",
-          "Resource group",
-          "Cloud Shell"
+          "Azure ExpressRoute",
+          "Table Storage",
+          "Microsoft Purview",
+          "Azure Cloud Shell"
         ],
         "c": 3,
-        "e": "Cloud Shell is a browser-based environment available directly in the Azure Portal, where you can run both Azure CLI and PowerShell commands without local installation. Azure CLI by itself is a tool that would otherwise need to be installed locally. An ARM template is a format for describing infrastructure, not an interactive environment. A resource group is an organizational container for resources, not a tool for running commands."
+        "e": "Azure Cloud Shell runs in the browser with Azure CLI and PowerShell preinstalled. ExpressRoute, Table Storage and Purview are connectivity, storage and data governance."
       },
       {
         "id": "easy_68",
         "category": "Migration",
-        "q": "A company is planning to move dozens of on-premises servers to Azure and first needs to find out how utilized those servers are and what the migration will cost. What will it use?",
+        "q": "Which service helps discover, assess and move on-premises servers to Azure?",
         "a": [
           "Azure Migrate",
-          "Azure Arc",
-          "Azure Bastion",
-          "Azure Advisor"
+          "Microsoft Purview",
+          "Azure Functions",
+          "Conditional Access"
         ],
         "c": 0,
-        "e": "Azure Migrate provides tools for assessing on-premises servers, their utilization, and estimating the cost and steps needed to migrate to Azure. Azure Arc extends Azure management to resources outside Azure, but doesn't primarily address migration assessment and planning. Azure Bastion provides secure access to VMs and has nothing to do with migration. Azure Advisor gives general recommendations for an already-existing Azure environment, not planning a migration from outside."
+        "e": "Azure Migrate discovers and assesses on-premises servers and migrates them to Azure. Purview, Azure Functions and Conditional Access are data governance, compute and sign-in rules."
       },
       {
         "id": "easy_69",
         "category": "Hybrid",
-        "q": "A company wants to manage its on-premises servers and servers in other clouds from the same Azure interface, as if they were Azure resources. What will it use?",
+        "q": "Which service lets you manage on-premises and other-cloud servers from Azure?",
         "a": [
-          "ExpressRoute",
+          "Entra ID",
           "Azure Arc",
-          "Azure Bastion",
-          "Azure Migrate"
+          "Azure Files",
+          "Cosmos DB"
         ],
         "c": 1,
-        "e": "Azure Arc extends Azure's management, governance, and tooling to resources outside Azure, including on-premises servers and other clouds, as if they were a native part of Azure. Azure Migrate is for assessing and actually migrating servers to Azure, not for ongoing management if they remain outside Azure. Azure Bastion provides secure access to VMs in Azure, it doesn't address managing external resources. ExpressRoute creates private network connectivity, on its own it doesn't enable unified management across environments."
+        "e": "Azure Arc projects servers and other resources outside Azure into Azure so you manage them in one place. Entra ID, Azure Files and Cosmos DB are identity, file shares and a database."
       },
       {
         "id": "easy_70",
         "category": "Cloud concepts",
-        "q": "A company wants to quickly try out a new idea without having to buy hardware, and can end the project at any time without losing the investment in equipment. Which cloud trait enables this?",
+        "q": "What splits security duties between the cloud provider and the customer?",
         "a": [
-          "Dependence on a single service provider",
-          "Guaranteed high service availability",
-          "Low upfront investment and rapid elasticity",
-          "Automatic geographic data replication"
+          "Consumption-based pricing",
+          "Zone-redundant storage",
+          "Shared responsibility model",
+          "Infrastructure as code (IaC)"
         ],
         "c": 2,
-        "e": "The cloud lets you start with minimal or no upfront investment and end a project at any time without losing the value of physical hardware, because you only pay for resources actually used. High availability concerns resilience against outages, not a low entry barrier. Geo-replication copies data between regions and has nothing to do with the investment barrier. Vendor lock-in, by contrast, is the risk of depending on a single provider, not the advantage described in the scenario."
+        "e": "The shared responsibility model defines which duties belong to Microsoft and which to the customer in IaaS, PaaS and SaaS. Consumption pricing, ZRS and IaC are billing, storage and deployment concepts."
       },
       {
         "id": "easy_71",
         "category": "Cloud concepts",
-        "q": "Several companies in the same industry with shared regulatory requirements share one dedicated cloud infrastructure that nobody outside the group uses. What type of cloud is this?",
+        "q": "What is using services from more than one cloud provider at the same time called?",
         "a": [
-          "Hybrid cloud",
-          "Public cloud",
-          "Private cloud",
-          "Community cloud"
+          "Elasticity",
+          "Federation",
+          "Encryption",
+          "Multi-cloud"
         ],
         "c": 3,
-        "e": "Community cloud shares infrastructure among multiple organizations with common needs or regulatory requirements, unlike private cloud, which is dedicated to a single company. Public cloud is shared among any customers without being restricted to a specific group. Private cloud is dedicated to a single organization, not a group of companies. Hybrid cloud combines different environments, but doesn't describe sharing among multiple companies with the same requirements."
+        "e": "Multi-cloud means using two or more public cloud providers together. Elasticity, federation and encryption are automatic scaling, trusted identity and data protection."
       },
       {
         "id": "easy_72",
         "category": "Cloud models",
-        "q": "A development team wants to run its own code as a simple function without worrying about servers, the OS, or the runtime environment at all. Which service model best describes this?",
+        "q": "What is the cloud model where you run code without managing any servers at all?",
         "a": [
-          "The serverless model, with no infrastructure management",
-          "The IaaS model, with full control over the OS",
-          "The PaaS model, with a fully managed runtime",
-          "The traditional on-premises deployment model"
+          "Serverless computing",
+          "Resource locking",
+          "Geo-redundant storage",
+          "Identity federation"
         ],
         "c": 0,
-        "e": "The serverless model (Functions as a Service) goes even further than classic PaaS — the developer doesn't even handle scaling or running instances, paying only for the actual code execution time. IaaS requires managing the OS, which contradicts the scenario. PaaS does manage the runtime, but typically still runs continuously like an app, not as a one-off function on demand. On-premises means owning physical infrastructure, the opposite of what's described."
+        "e": "Serverless computing (like Azure Functions) runs code with no servers to manage, billed per execution. Resource locking, GRS and identity federation are governance, storage and identity concepts."
       },
       {
         "id": "easy_73",
         "category": "Reliability",
-        "q": "After a disaster, a company must restore operations with a maximum data loss of 15 minutes and a maximum outage duration of 1 hour. What are these two targets generally called?",
+        "q": "What groups VMs across fault and update domains to reduce downtime in one datacenter?",
         "a": [
-          "CapEx and OpEx",
-          "RPO and RTO",
-          "SLA and TCO",
-          "LRS and GRS"
+          "Cost Management",
+          "Availability set",
+          "Resource tag",
+          "Azure Files"
         ],
         "c": 1,
-        "e": "RPO (Recovery Point Objective) defines the maximum acceptable data loss over time, RTO (Recovery Time Objective) defines the maximum time to restore operations — exactly these two disaster recovery planning targets. SLA is a service level agreement from the provider, TCO is a total cost calculation, neither defines disaster recovery targets. CapEx and OpEx are types of cost, not recovery metrics. LRS and GRS are types of storage redundancy, not targets for overall recovery."
+        "e": "An availability set spreads VMs across fault domains (separate power and network) and update domains (separate maintenance). Cost Management, tags and Azure Files are spending, labelling and file shares."
       },
       {
         "id": "easy_74",
         "category": "Identity",
-        "q": "A team wants a user to enter their password just once and then have access to multiple connected applications without signing in repeatedly. What is this feature called?",
+        "q": "What lets a user sign in once and access many applications?",
         "a": [
-          "Conditional Access",
-          "Multi-factor authentication",
+          "Locally redundant storage",
+          "Resource group",
           "Single sign-on (SSO)",
-          "Identity federation"
+          "Azure Virtual Desktop"
         ],
         "c": 2,
-        "e": "Single sign-on lets a user sign in once and gain access to multiple connected applications without needing to re-enter their password. Multi-factor authentication addresses the number of verification factors at a single sign-in, not access to multiple apps at once. Conditional Access conditions access on circumstances like location or device. Identity federation links identities across different organizations or systems, a broader concept than just convenient single sign-on within one organization's apps."
+        "e": "Single sign-on gives access to many apps after one sign-in. LRS, resource groups and Azure Virtual Desktop are storage redundancy, management containers and hosted desktops."
       },
       {
         "id": "easy_75",
         "category": "Identity",
-        "q": "An organization wants an external vendor to be able to use their own company account to sign into the organization's application, instead of creating a new account. What concept enables this?",
+        "q": "Which Entra ID feature lets partner users sign in with their own company accounts?",
         "a": [
-          "The resource lock protection mechanism",
-          "A set of rules in Azure Policy",
-          "A descriptive tag assigned to a resource",
-          "Identity federation between organizations"
+          "Archive access tier",
+          "Azure Migrate",
+          "Virtual subnet",
+          "B2B collaboration"
         ],
         "c": 3,
-        "e": "Identity federation enables trusted linking between identity providers of different organizations, so a user can sign in with their existing account across organizational boundaries. A resource lock protects resources from deletion and has nothing to do with sign-in. Azure Policy enforces configuration rules on resources. A tag is a metadata label for organizing resources and has nothing to do with a user's identity."
+        "e": "Microsoft Entra B2B collaboration invites external users as guests who sign in with their own identity. The Archive tier, Azure Migrate and subnets are storage, migration and networking."
       },
       {
         "id": "easy_76",
         "category": "Monitoring",
-        "q": "An auditor needs to find out exactly what actions were performed by whom on Azure resources over the past month, including configuration changes. What will they review?",
+        "q": "Which log records who performed which operations on Azure resources?",
         "a": [
           "Activity log",
-          "Resource lock",
-          "Azure Advisor",
-          "Pricing calculator"
+          "Cool tier",
+          "VPN Gateway",
+          "Azure Files"
         ],
         "c": 0,
-        "e": "The Activity log records control-plane operations performed on resources (who changed what and when), exactly matching the audit need. Azure Advisor gives optimization recommendations, it doesn't record a history of user actions. A resource lock protects a resource against change or deletion, on its own it doesn't provide a record of action history. The pricing calculator is for estimating costs in advance and has nothing to do with auditing actions taken."
+        "e": "The Azure Activity log records control-plane operations: who did what, when, on which resource. The Cool tier, VPN Gateway and Azure Files are storage, networking and file shares."
       },
       {
         "id": "easy_77",
         "category": "Governance",
-        "q": "A company wants to ensure nobody can change production network settings, while reading the configuration remains allowed for everyone. What type of resource lock will it use?",
+        "q": "Which lock type allows reading a resource but blocks any changes or deletion?",
         "a": [
-          "RBAC Reader role",
-          "ReadOnly",
-          "Deny policy",
-          "CanNotDelete"
+          "Hot access tier",
+          "ReadOnly lock",
+          "Private endpoint",
+          "Azure Cost Management"
         ],
         "c": 1,
-        "e": "A ReadOnly lock prevents any changes to a resource (not just deletion), while reading remains possible for everyone with appropriate access. A CanNotDelete lock would only prevent deletion, configuration changes would still be possible. A Deny policy in Azure Policy blocks creating resources that don't meet a rule, but doesn't directly address protecting an existing resource from changes this way. An RBAC Reader role would restrict specific users to read-only, but wouldn't protect the resource as a whole against changes from users with higher permissions."
+        "e": "A ReadOnly lock lets authorized users read a resource but not change or delete it. The Hot tier, private endpoints and Cost Management are storage, networking and spending tools."
       },
       {
         "id": "easy_78",
         "category": "Governance",
-        "q": "A company wants Azure Policy not only to detect non-compliant resources, but to actively remediate missing settings, such as installing a monitoring agent. Which policy effect enables this?",
+        "q": "What is a group of Azure Policy definitions assigned together called?",
         "a": [
-          "The Deny effect, which blocks creation",
-          "The Append effect, used for adding fields",
-          "DeployIfNotExists, with automatic remediation",
-          "The Audit effect, used only for reporting"
+          "Storage account",
+          "Resource lock",
+          "Policy initiative",
+          "VPN connection"
         ],
         "c": 2,
-        "e": "The DeployIfNotExists effect automatically deploys missing configuration or a resource if the policy finds that a given resource lacks that property. The Audit effect only flags the non-compliance in a report but doesn't actively fix anything. The Deny effect blocks the creation of a non-compliant resource, but doesn't remediate anything on existing resources. The Append effect adds specific fields to a resource creation request, but doesn't address remediating missing configuration on existing resources the way DeployIfNotExists does."
+        "e": "A policy initiative bundles several policy definitions so they are assigned and tracked as one. Storage accounts, resource locks and VPN connections are storage, deletion protection and networking."
       },
       {
         "id": "easy_79",
         "category": "Security",
-        "q": "A security team wants to be alerted to suspicious behavior, such as an unusual sign-in from a foreign country, and automatically trigger a response. What will it best use for this?",
+        "q": "In defense in depth, which layer comes first, protecting the datacenter buildings?",
         "a": [
-          "A set of rules defined in Azure Policy",
-          "A protective resource lock",
-          "A descriptive tag assigned to a resource",
-          "Sentinel with automated playbooks"
+          "Pay-as-you-go",
+          "Vertical scaling",
+          "Cloud Shell",
+          "Physical security"
         ],
         "c": 3,
-        "e": "Microsoft Sentinel enables detection of suspicious behavior using analytics rules and an automated response via playbooks (connected to Azure Logic Apps). Azure Policy enforces configuration standards on resources, it doesn't detect user behavior in real time. A resource lock protects a resource from deletion or change and doesn't react to suspicious sign-ins. A tag is just a metadata label with no detection or response function whatsoever."
+        "e": "Physical security (buildings, access to hardware) is the outermost layer of defense in depth. Pay-as-you-go, vertical scaling and Cloud Shell are pricing, VM sizing and a management tool."
       },
       {
         "id": "easy_80",
         "category": "DevOps",
-        "q": "A DevOps team wants infrastructure to deploy automatically every time a change in the repository is approved, with no manual intervention. What concept describes this?",
+        "q": "What is managing infrastructure through code files instead of manual setup called?",
         "a": [
-          "CI/CD pipeline",
-          "Pricing calculator",
-          "Manual deployment",
-          "Resource lock"
+          "Infrastructure as code",
+          "Multi-factor authentication",
+          "Geo-redundant storage",
+          "Conditional Access"
         ],
         "c": 0,
-        "e": "A CI/CD (Continuous Integration/Continuous Deployment) pipeline automates the deployment process after a code or infrastructure change is approved, with no need for manual intervention. Manual deployment is the exact opposite of the automated process described. A resource lock protects a resource from deletion or modification and has nothing to do with deployment automation. The pricing calculator is for estimating costs and has nothing to do with the deployment process."
+        "e": "Infrastructure as code (IaC) defines resources in files such as ARM templates or Bicep for repeatable deployments. MFA, GRS and Conditional Access are identity and storage features."
       },
       {
         "id": "easy_81",
         "category": "Management",
-        "q": "A manager wants to see a consolidated overview of recommendations across cost, security, reliability, performance, and operational excellence in one place. What will they use?",
+        "q": "Which web-based graphical console lets you manage Azure resources?",
         "a": [
           "Azure DNS",
-          "Azure Advisor",
-          "Resource group",
-          "Azure Monitor"
+          "Azure portal",
+          "Azure Files",
+          "Azure Arc"
         ],
         "c": 1,
-        "e": "Azure Advisor provides a consolidated overview of recommendations across five pillars: cost, security, reliability, performance, and operational excellence. Azure Monitor collects metrics and logs, but doesn't provide the same kind of consolidated recommendations across all these areas. A resource group is an organizational container for resources. Azure DNS only handles domain name resolution and has nothing to do with overall recommendations."
+        "e": "The Azure portal is the web-based graphical interface for managing Azure. Azure DNS, Azure Files and Azure Arc are name resolution, file shares and hybrid management."
       },
       {
         "id": "easy_82",
         "category": "Reliability",
-        "q": "A company wants to back up its virtual machines regularly according to a defined schedule and be able to restore them if data is corrupted. What will it use?",
+        "q": "Which service informs you about Azure outages and planned maintenance affecting your resources?",
         "a": [
-          "Resource lock",
-          "Azure Bastion",
-          "Azure Backup",
-          "Azure DNS"
+          "Azure Virtual Network",
+          "Microsoft Entra ID",
+          "Azure Service Health",
+          "Pricing calculator"
         ],
         "c": 2,
-        "e": "Azure Backup creates scheduled backups of VMs and other resources and allows you to restore them in case of data loss or corruption. Azure Bastion provides secure access to VMs and has nothing directly to do with backups. Azure DNS handles domain name resolution. A resource lock protects a resource from deletion, but doesn't create data backups or allow you to restore them."
+        "e": "Azure Service Health reports service issues, planned maintenance and advisories that affect your resources. Virtual Network, Entra ID and the Pricing calculator are networking, identity and cost estimation."
       },
       {
         "id": "easy_83",
         "category": "Networking",
-        "q": "A global application needs to route users to the nearest or most available instance of the app across multiple regions using DNS. What will it use?",
+        "q": "What is an address that makes an Azure service reachable from the internet?",
         "a": [
-          "Network Security Group",
-          "VPN Gateway",
-          "Azure Load Balancer",
-          "Azure Traffic Manager"
+          "Resource lock",
+          "Archive tier",
+          "Management group",
+          "Public endpoint"
         ],
         "c": 3,
-        "e": "Azure Traffic Manager is a DNS-based service that routes traffic between application instances across multiple regions according to a chosen strategy, such as geographic proximity or availability. Azure Load Balancer spreads traffic across resources within a single region at the network layer, not between regions using DNS. A Network Security Group filters traffic by rules and doesn't address routing between regions. A VPN Gateway creates encrypted connections between networks, it doesn't route user traffic to the nearest instance."
+        "e": "A public endpoint exposes a service on a public IP address, reachable from the internet. Resource locks, the Archive tier and management groups are governance, storage and organization concepts."
       },
       {
         "id": "easy_84",
         "category": "Networking",
-        "q": "A company wants traffic within a single region to be spread across multiple instances of a web app at the network layer for higher performance and resilience. What will it use?",
+        "q": "Which Azure DNS feature resolves names only inside your virtual networks?",
         "a": [
-          "Azure Load Balancer",
-          "Azure DNS",
-          "Azure Traffic Manager",
-          "Azure Bastion"
+          "Private DNS zone",
+          "Cost Management",
+          "Azure Functions",
+          "Azure Migrate"
         ],
         "c": 0,
-        "e": "Azure Load Balancer spreads inbound network traffic across multiple instances within a single region, increasing performance and resilience against the failure of one instance. Azure Traffic Manager works at the DNS level and routes between regions, not within a single region at the network layer. Azure DNS only resolves domain names, on its own it doesn't spread traffic. Azure Bastion provides secure access to VMs and has nothing to do with spreading traffic across instances."
+        "e": "An Azure Private DNS zone resolves names only within linked virtual networks, not on the internet. Cost Management, Azure Functions and Azure Migrate are spending, compute and migration."
       },
       {
         "id": "easy_85",
         "category": "Networking",
-        "q": "A team wants to connect two virtual networks in Azure so they can communicate with each other as if they were one network, without needing a VPN. What will it use?",
+        "q": "What connects two Azure virtual networks so they communicate as one?",
         "a": [
-          "Network security group rules",
-          "Mutual VNet connection (peering)",
-          "A private ExpressRoute circuit",
-          "A VPN Gateway connection"
+          "Locally redundant storage",
+          "Virtual network peering",
+          "Azure Cost Management",
+          "Microsoft Entra ID"
         ],
         "c": 1,
-        "e": "Virtual Network peering connects two VNets directly over the Azure backbone network, so they can communicate without needing a VPN or the public internet. A VPN Gateway creates an encrypted tunnel, typically between on-premises and Azure, not primarily between two VNets in Azure. ExpressRoute addresses private connectivity between on-premises and Azure, not connecting two VNets to each other. A Network Security Group filters traffic by rules, it doesn't connect networks to each other."
+        "e": "VNet peering links two virtual networks over the Microsoft backbone so resources talk using private IPs. LRS, Cost Management and Entra ID are storage, cost and identity."
       },
       {
         "id": "easy_86",
         "category": "Storage",
-        "q": "A developer needs storage optimized for storing and streaming large video files accessible via an HTTP/HTTPS link. What will they choose?",
+        "q": "What Azure resource provides a unique namespace for blobs, files, queues and tables?",
         "a": [
-          "Queue Storage",
-          "Disk Storage",
-          "Blob Storage",
-          "Table Storage"
+          "Virtual subnet",
+          "Activity log",
+          "Storage account",
+          "Resource lock"
         ],
         "c": 2,
-        "e": "Blob Storage lets you store large binary files like videos and access them directly via an HTTP/HTTPS URL, ideal for streaming. Table Storage stores structured key-value data, not large binary files. Queue Storage is for message queues between components, not for storing media. Disk Storage provides virtual disks attached to VMs, which aren't directly accessible via a web link like Blob."
+        "e": "A storage account is the container with a unique name that holds blobs, files, queues and tables. Subnets, the Activity log and resource locks are networking, auditing and deletion protection."
       },
       {
         "id": "easy_87",
         "category": "Storage",
-        "q": "A company wants assurance that even if the entire primary region failed, it could still read its data from a secondary region without waiting for the primary to recover. What will it choose?",
+        "q": "Which redundancy option adds read access to the secondary region copy?",
         "a": [
-          "Hot tier",
-          "ZRS",
-          "LRS",
-          "RA-GRS"
+          "Microsoft Entra multi-factor authentication",
+          "Infrastructure as a Service (IaaS)",
+          "Microsoft Defender for Cloud secure score",
+          "Read-access geo-redundant storage (RA-GRS)"
         ],
         "c": 3,
-        "e": "RA-GRS (Read-Access Geo-Redundant Storage) lets you read data from the secondary region even during an outage of the primary region, unlike standard GRS, where the secondary copy is only readable after an official failover. LRS only replicates within a single datacenter and doesn't protect against a regional outage. ZRS protects against a datacenter outage within a region, not an outage of the entire region. Hot tier is a data access frequency level, not a type of geographic redundancy."
+        "e": "RA-GRS is GRS plus the ability to read data from the secondary region at any time. MFA, IaaS and the secure score are identity, a service model and a security metric."
       },
       {
         "id": "easy_88",
         "category": "Compute",
-        "q": "A company wants to store and manage container images, from which it then deploys applications to Azure Kubernetes Service. What will it use?",
+        "q": "Which service delivers Windows desktops and apps running in Azure to users anywhere?",
         "a": [
-          "A container image registry",
-          "Shared Azure Files storage",
-          "Object-based Blob Storage",
-          "Table Storage"
+          "Azure Virtual Desktop",
+          "Azure Service Health",
+          "Microsoft Purview",
+          "Azure Cloud Shell"
         ],
         "c": 0,
-        "e": "Azure Container Registry is a managed service for storing and managing Docker and OCI container images, from which containers are then deployed to, say, AKS. Blob Storage is general-purpose object storage, not optimized for versioning container images the same way. Azure Files provides shared network folders, not a container image registry. Table Storage stores simple structured data and has nothing to do with managing container images."
+        "e": "Azure Virtual Desktop (AVD) streams Windows desktops and apps hosted in Azure to any device. Service Health, Purview and Cloud Shell are outage reporting, data governance and a browser shell."
       },
       {
         "id": "easy_89",
         "category": "Databases",
-        "q": "A team runs a database and wants Azure to automatically handle backups, patching, and high availability without having to install SQL Server on a VM. What will it choose?",
+        "q": "Running SQL Server yourself on an Azure VM is which service model?",
         "a": [
-          "SQL Server on an Azure VM",
-          "Azure SQL Database",
-          "Azure Files",
-          "Disk Storage"
+          "Zone-redundant storage (ZRS)",
+          "Infrastructure as a Service (IaaS)",
+          "Microsoft Entra multi-factor authentication",
+          "Role-based access control (RBAC)"
         ],
         "c": 1,
-        "e": "Azure SQL Database is a fully managed PaaS database where Azure automatically handles backups, patching, and high availability without administrator intervention. SQL Server on an Azure VM would still require manually managing the OS, patches, and high availability configuration, which contradicts the scenario. Disk Storage only provides virtual disks, it isn't a database service. Azure Files is shared file storage, not a database."
+        "e": "SQL Server on an Azure VM is IaaS: you manage the OS, SQL Server and patches. ZRS, MFA and RBAC are storage redundancy, a sign-in method and access control."
       },
       {
         "id": "easy_90",
         "category": "Security",
-        "q": "A security engineer wants certificates used for encrypting communication to be automatically renewed and centrally managed. What will they use?",
+        "q": "In the shared responsibility model, who always secures the physical datacenter?",
         "a": [
-          "Network Security Group",
-          "Tag",
-          "Azure Key Vault",
-          "Resource lock"
+          "The customer's own IT team",
+          "The customer's developers",
+          "Microsoft (the cloud provider)",
+          "Each individual app user"
         ],
         "c": 2,
-        "e": "Azure Key Vault manages not just keys and secrets but also certificates, including their automatic renewal and centralized management. A resource lock protects a resource from deletion and doesn't address certificate management. A Network Security Group filters network traffic and has nothing to do with certificate management. A tag is just a metadata label with no certificate management function."
+        "e": "Physical security of datacenters is always Microsoft's responsibility, in IaaS, PaaS and SaaS. Customers never have access to Azure datacenters, so neither their IT team, their developers nor app users secure them."
       },
       {
         "id": "easy_91",
         "category": "DevOps",
-        "q": "A team wants to use the same Bicep or ARM code to deploy both test and production environments, differing only in parameters like VM size. What concept enables this?",
+        "q": "Which Azure layer receives and processes every create, update and delete request?",
         "a": [
-          "The resource lock protection mechanism",
-          "A descriptive tag assigned to a resource",
-          "A recommendation from Azure Advisor",
-          "Parameterizing reusable templates"
+          "Azure Virtual Desktop",
+          "Microsoft Purview",
+          "Azure Cost Management",
+          "Azure Resource Manager"
         ],
         "c": 3,
-        "e": "Template parameterization lets you reuse the same infrastructure definition with different input values for different environments, avoiding code duplication. A resource lock protects a resource from deletion and has nothing to do with reusing templates. A tag just labels resources with metadata and doesn't address template structure. Azure Advisor gives recommendations for an already-existing environment, it doesn't help with deployment template structure."
+        "e": "Azure Resource Manager (ARM) is the deployment and management layer behind the portal, CLI, PowerShell and templates. Virtual Desktop, Purview and Cost Management are hosted desktops, data governance and spending."
       },
       {
         "id": "easy_92",
         "category": "Hybrid",
-        "q": "After migrating servers to Azure, the IT department wants to keep managing the servers that, for technical reasons, remained on-premises, from the same interface as Azure resources. What will it use?",
+        "q": "Which service syncs on-premises Windows file servers with Azure Files?",
         "a": [
-          "Azure Arc",
-          "Azure Migrate",
-          "Azure Bastion",
-          "ExpressRoute"
+          "Azure File Sync",
+          "Microsoft Purview",
+          "Conditional Access",
+          "Azure Service Health"
         ],
         "c": 0,
-        "e": "Azure Arc extends Azure management and governance to servers outside Azure too, so they can be managed from the same interface as native Azure resources. Azure Migrate is for assessing and carrying out the migration process itself, not for ongoing management of servers that will never be in Azure. ExpressRoute creates private network connectivity, on its own it doesn't enable unified management across environments. Azure Bastion provides secure access to VMs in Azure, it doesn't address managing external on-premises servers."
+        "e": "Azure File Sync keeps on-premises Windows file servers in sync with Azure Files and can tier cold files to the cloud. Purview, Conditional Access and Service Health are data governance, sign-in rules and outage reporting."
       },
       {
         "id": "easy_93",
         "category": "Migration",
-        "q": "A team is planning a migration and needs to find out what savings migrating to Azure would bring compared to maintaining its own infrastructure over five years. What will it use?",
+        "q": "Which calculator compares running on-premises with the cost of running in Azure?",
         "a": [
-          "Pricing calculator",
+          "Azure Functions",
           "TCO calculator",
-          "Cost Management",
-          "Azure Advisor"
+          "Private endpoint",
+          "Microsoft Purview"
         ],
         "c": 1,
-        "e": "The TCO (Total Cost of Ownership) calculator compares the total cost of running on-premises infrastructure with the cost of an equivalent solution in Azure over a longer time horizon. The pricing calculator estimates the cost of a specific Azure configuration, but doesn't directly compare it to on-premises infrastructure costs. Azure Advisor gives recommendations for an already-existing Azure environment, not a comparison with an on-premises alternative. Cost Management tracks costs already incurred in Azure, not a hypothetical comparison before a migration."
+        "e": "The TCO calculator estimates savings of moving on-premises workloads to Azure over several years. Azure Functions, private endpoints and Purview are compute, networking and data governance."
       },
       {
         "id": "easy_94",
         "category": "Reliability",
-        "q": "A company wants assurance that if Azure fails to meet a service's guaranteed availability, it will receive financial compensation. What defines this guarantee and compensation?",
+        "q": "What document states Microsoft's uptime commitment and the credits you get if it's missed?",
         "a": [
-          "Role-based access control",
-          "A resource lock",
-          "A Service Level Agreement (SLA)",
-          "Total cost of ownership"
+          "Role-based access control (RBAC)",
+          "Locally redundant storage (LRS)",
+          "Service Level Agreement (SLA)",
+          "Single sign-on (SSO)"
         ],
         "c": 2,
-        "e": "An SLA defines the guaranteed level of service availability and the terms for financial compensation (service credits) if Microsoft fails to meet that level. TCO is a calculation of total ownership costs, not an availability guarantee. RBAC addresses granting permissions and has nothing to do with a service's availability guarantee. A resource lock protects a resource from deletion, it doesn't address contractual availability guarantees."
+        "e": "An SLA defines a service's guaranteed availability and the service credits paid if it isn't met. RBAC, LRS and SSO are access control, storage redundancy and sign-in."
       },
       {
         "id": "easy_95",
         "category": "Management",
-        "q": "A team wants to create a test environment that can be quickly deleted as a whole once testing is finished, without affecting production resources elsewhere. What will it best use for this?",
+        "q": "How many resource groups can one Azure resource belong to at a time?",
         "a": [
-          "A protective resource lock",
-          "A rule in Azure Policy",
-          "A descriptive tag on the resources",
-          "A separate resource group"
+          "Up to ten",
+          "Unlimited",
+          "At least three",
+          "Exactly one"
         ],
         "c": 3,
-        "e": "A separate resource group for test resources lets you delete the entire test environment with a single command, without affecting resources in other resource groups. A tag just labels resources with metadata and doesn't enable bulk deletion as directly. A resource lock, by contrast, protects resources against deletion, the opposite of the desired behavior for an easily deletable test environment. Azure Policy enforces rules, but on its own doesn't make it easier to bulk-delete test resources."
+        "e": "Every resource lives in exactly one resource group; it can be moved, but never sits in two at once. That rules out ten, unlimited or three groups."
       },
       {
         "id": "easy_96",
         "category": "Architecture",
-        "q": "A company is choosing an Azure region for a new application and, besides latency to customers, must also consider where it's legally allowed to store European citizens' personal data. What does this requirement affect?",
+        "q": "Which kind of Azure region is isolated for government or legal compliance needs?",
         "a": [
-          "The choice of region due to data residency",
-          "Only the choice of availability zone",
-          "Only the final price of services",
-          "Only the level of disk redundancy"
+          "Sovereign region",
+          "Archive tier",
+          "Resource group",
+          "Single sign-on"
         ],
         "c": 0,
-        "e": "The choice of region affects where data physically resides (data residency), which is key to meeting regulations like GDPR that require keeping data within a certain geographic area. Prices do vary between regions, but that isn't the primary reason mentioned in the scenario. The storage redundancy type is configured independently of the region choice for regulatory purposes. Availability zone addresses resilience within an already-chosen region, not the question of which country data is legally allowed to reside in."
+        "e": "Sovereign regions, such as Azure Government or Azure operated by 21Vianet, are isolated instances for compliance and legal needs. The Archive tier, resource groups and SSO are storage, management and sign-in concepts."
       },
       {
         "id": "easy_97",
         "category": "Architecture",
-        "q": "An architect is designing a solution and wants the application to keep working even if an entire Azure region becomes unavailable. What strategy will they choose?",
+        "q": "What do you call two Azure regions in the same geography linked for disaster recovery?",
         "a": [
-          "Relying only on basic LRS redundancy",
-          "Deploying across several regions with replication",
-          "Deploying to just one availability zone",
-          "Deploying on a single virtual machine"
+          "Cloud Shell",
+          "Region pair",
+          "Bicep file",
+          "Azure CLI"
         ],
         "c": 1,
-        "e": "Deploying across multiple regions with data replication ensures that even if an entire region goes down, the application remains available from another region. Deploying to just one availability zone protects against a datacenter outage, but not against an outage of the entire region where that zone is located. LRS only replicates data within a single datacenter, which is the lowest level of protection and won't provide resilience against a regional outage. Deploying on a single VM provides no redundancy at all, not even within a single datacenter."
+        "e": "A region pair is two regions in one geography, usually 300+ miles apart, updated one at a time and prioritized for recovery. Cloud Shell, Bicep files and Azure CLI are management tools and an IaC format."
       },
       {
         "id": "easy_98",
         "category": "Migration",
-        "q": "Before the real migration, a team wants to verify that the application works correctly in Azure, so it first migrates only a test copy with non-production data. What phase of the migration process is this?",
+        "q": "Which physical device ships large amounts of data to Azure offline?",
         "a": [
-          "The post-migration optimization phase",
-          "The assessment phase",
-          "A pilot test migration",
-          "The post-migration security phase"
+          "Azure Kubernetes Service",
+          "Conditional Access",
+          "Azure Data Box",
+          "Azure Functions"
         ],
         "c": 2,
-        "e": "A pilot or test migration verifies that a solution works in Azure before a full production migration, typically using test data on a limited sample of the system. Assessment happens earlier and focuses on analyzing the current state and planning, not the test deployment itself. Post-migration optimization happens only after the production data transition is complete. Post-migration security is also a later step, not a phase preceding the functional verification."
+        "e": "Azure Data Box is a secure device Microsoft ships to you so you can move terabytes of data offline. AKS, Conditional Access and Azure Functions are containers, sign-in rules and serverless compute."
       },
       {
         "id": "easy_99",
         "category": "Migration",
-        "q": "After successfully migrating production data to Azure, the team still wants to fine-tune VM sizes and storage tiers based on actual usage. What phase of the migration process is this?",
+        "q": "Which command-line utility copies files to and from Azure Storage accounts?",
         "a": [
-          "The data migration step itself",
-          "The initial planning phase",
-          "The assessment phase before migration",
-          "The post-migration optimization phase"
+          "Azure Arc",
+          "Purview",
+          "Entra ID",
+          "AzCopy"
         ],
         "c": 3,
-        "e": "Post-migration optimization happens after the transition is complete, when resource sizes and settings are fine-tuned based on real metrics for a better performance-to-cost ratio. Assessment happens before the migration, during analysis of the current state. Data migration is the transfer itself, which has already happened by this point. Planning precedes the entire process and isn't about fine-tuning an environment that's already been migrated."
+        "e": "AzCopy is a command-line tool for copying blobs and files to or from storage accounts. Azure Arc, Purview and Entra ID are hybrid management, data governance and identity."
       },
       {
         "id": "easy_100",
         "category": "Cloud concepts",
-        "q": "A company avoids spending money upfront on physical servers and instead pays a monthly bill based on usage. This spending model is called:",
+        "q": "Which cloud benefit lets you forecast both costs and performance with confidence?",
         "a": [
-          "Operational expenditure (OpEx)",
-          "Capital expenditure (CapEx)",
-          "Fixed asset depreciation",
-          "One-time licensing fee"
+          "Predictability",
+          "Data encryption",
+          "Containerization",
+          "Identity federation"
         ],
         "c": 0,
-        "e": "OpEx means paying for resources as an ongoing operating cost, which matches the pay-as-you-go cloud billing model. CapEx means buying assets upfront, the opposite of what's described. Depreciation is an accounting method for owned assets, not a billing model. A one-time licensing fee is also an upfront cost, not recurring usage-based billing."
+        "e": "Predictability means you can forecast cost (budgets, calculators) and performance (autoscaling, templates). Data encryption, containerization and identity federation are data protection, app packaging and identity concepts."
       },
       {
         "id": "easy_101",
         "category": "Cloud concepts",
-        "q": "Because Microsoft buys hardware and datacenter capacity in massive volume across millions of customers, it can offer lower prices than a single company buying its own servers. What is this principle called?",
+        "q": "What lets a huge cloud provider offer lower prices by buying in massive volume?",
         "a": [
-          "Elasticity",
+          "Defense in depth",
           "Economies of scale",
-          "Fault tolerance",
-          "Colocation"
+          "Network peering",
+          "Conditional Access"
         ],
         "c": 1,
-        "e": "Economies of scale describes how buying in bulk reduces the per-unit cost, which is how large cloud providers offer lower prices than individual companies could achieve on their own. Elasticity is about automatically adjusting capacity to demand, not pricing from bulk purchasing. Fault tolerance is about surviving component failures. Colocation means renting rack space for your own hardware in someone else's datacenter."
+        "e": "Economies of scale lower the cost per unit when operating at huge volume, and Microsoft passes some savings on. Defense in depth, peering and Conditional Access are security, networking and identity."
       },
       {
         "id": "easy_102",
         "category": "Cloud concepts",
-        "q": "An application is designed so that if one server fails, the workload keeps running on other servers without the user noticing any interruption. What property does this describe?",
+        "q": "What is a system's ability to keep running when one of its components fails?",
         "a": [
-          "Elasticity",
-          "Economies of scale",
+          "Authentication",
+          "Pay-as-you-go",
           "Fault tolerance",
-          "Vertical scaling"
+          "Data tagging"
         ],
         "c": 2,
-        "e": "Fault tolerance means a system keeps operating correctly even when one or more of its components fail. Elasticity is about automatically scaling resources up or down with demand, not about surviving failures. Economies of scale is a pricing concept. Vertical scaling means increasing the resources of a single server, which does not by itself protect against that server failing."
+        "e": "Fault tolerance lets a system continue working despite a component failure, often through redundancy. Authentication, pay-as-you-go and data tagging are identity, pricing and labelling."
       },
       {
         "id": "easy_103",
         "category": "Cloud concepts",
-        "q": "A company measures the percentage of time its application is up and reachable, aiming for 99.9% or higher. What is this measurement generally called?",
+        "q": "Which cloud benefit covers managing resources via the portal, CLI, APIs and templates?",
         "a": [
-          "Elasticity",
-          "Economies of scale",
-          "Total cost of ownership",
-          "High availability"
+          "Geo-redundancy",
+          "Encryption",
+          "Federation",
+          "Manageability"
         ],
         "c": 3,
-        "e": "High availability refers to keeping a system running and accessible for as close to 100% of the time as possible, usually expressed as a percentage uptime target. Elasticity is about scaling resources with demand. Economies of scale is a cost concept. Total cost of ownership estimates overall spending, not uptime."
+        "e": "Manageability covers management of the cloud (autoscaling, monitoring) and in the cloud (portal, CLI, APIs, templates). Geo-redundancy, encryption and federation are storage, data protection and identity."
       },
       {
         "id": "easy_104",
         "category": "Cloud concepts",
-        "q": "A company sets up a secondary copy of its application in another Azure region so that if the primary region goes down, it can switch over and keep running. What is this strategy called?",
+        "q": "Which cloud benefit helps keep resources compliant using templates and policies?",
         "a": [
-          "Disaster recovery",
-          "Vertical scaling",
-          "Economies of scale",
-          "Colocation"
+          "Governance",
+          "Peering",
+          "Replication",
+          "Containers"
         ],
         "c": 0,
-        "e": "Disaster recovery is the practice of preparing for and recovering from a major outage, often by failing over to a secondary region. Vertical scaling means resizing a single resource, not failing over to another location. Economies of scale is a pricing concept. Colocation means hosting your own hardware in a shared facility."
+        "e": "Governance in the cloud means enforcing standards and compliance with policies and templates. Peering, replication and containers are networking, data copies and app packaging."
       },
       {
         "id": "easy_105",
         "category": "Cloud concepts",
-        "q": "A team increases the CPU and memory of a single virtual machine to handle more load, rather than adding more virtual machines. What is this called?",
+        "q": "What is adding more CPU and memory to one existing VM called?",
         "a": [
-          "Horizontal scaling",
+          "Geo-replication",
           "Vertical scaling",
-          "Elasticity",
-          "Fault tolerance"
+          "Single sign-on",
+          "Resource locking"
         ],
         "c": 1,
-        "e": "Vertical scaling (scaling up) means increasing the resources of an existing single machine, such as more CPU or RAM. Horizontal scaling (scaling out) means adding more machines instead. Elasticity is the automatic version of scaling in or out with demand. Fault tolerance is about surviving failures, not increasing capacity."
+        "e": "Vertical scaling (scaling up) increases the size of an existing machine. Geo-replication, SSO and resource locking are data copies, sign-in and deletion protection."
       },
       {
         "id": "easy_106",
         "category": "Cloud concepts",
-        "q": "A team adds more virtual machines behind a load balancer to handle more load, instead of upgrading the size of any single machine. What is this called?",
+        "q": "Adding more VM instances to share the workload is known as what?",
         "a": [
-          "Vertical scaling",
-          "High availability",
+          "Single sign-on",
+          "Data encryption",
           "Horizontal scaling",
-          "Economies of scale"
+          "Cost analysis"
         ],
         "c": 2,
-        "e": "Horizontal scaling (scaling out) means adding more instances of a resource to share the load. Vertical scaling (scaling up) means making one machine bigger instead. High availability is about uptime, and economies of scale is about pricing from bulk purchasing — neither describes adding more instances."
+        "e": "Horizontal scaling (scaling out) adds more instances instead of making one bigger. SSO, encryption and cost analysis are identity, data protection and billing."
       },
       {
         "id": "easy_107",
         "category": "Cloud models",
-        "q": "A team writes a small piece of code that runs automatically when triggered, and is billed only for the seconds it actually executes, with no server to manage at all. What is this model called?",
+        "q": "In IaaS, who is responsible for patching the virtual machine's operating system?",
         "a": [
-          "Infrastructure as a Service (IaaS)",
-          "Platform as a Service (PaaS)",
-          "Colocation",
-          "Serverless / Functions as a Service (FaaS)"
+          "Microsoft",
+          "The hardware vendor",
+          "The end users",
+          "The customer"
         ],
         "c": 3,
-        "e": "Serverless computing (FaaS) runs individual pieces of code on demand and bills only for actual execution time, with the provider fully managing any underlying servers. IaaS still requires managing virtual machines. PaaS manages the runtime but usually bills for allocated capacity, not just execution seconds. Colocation involves the customer's own physical hardware."
+        "e": "In IaaS the customer manages the guest OS, including updates and patches; Microsoft handles only the physical host and datacenter. Hardware vendors and end users have no role in patching your VM."
       }
     ],
     "normal": [
       {
         "id": "normal_0",
         "category": "Compute",
-        "q": "A developer wants to deploy a simple web app and doesn't want to deal with servers or scaling manually. Which service will they choose?",
+        "q": "A small agency builds a customer portal in .NET. It wants Azure to handle OS patching, load balancing and scaling, while the team only deploys code. Which hosting option fits best?",
         "a": [
-          "Azure App Service, for automatic platform management",
-          "An on-premises server, for lower costs",
-          "Azure Virtual Machine, for full OS control",
-          "Azure Bastion, for secure access"
+          "Azure App Service",
+          "Azure Virtual Machines",
+          "Virtual Machine Scale Sets",
+          "Azure Virtual Desktop"
         ],
         "c": 0,
-        "e": "Azure App Service is a PaaS platform that automatically manages the OS, runtime, and scaling of a web app. A Virtual Machine would require manually managing the OS, which goes against the scenario. An on-premises server requires owning hardware and managing it yourself. Azure Bastion addresses secure access to VMs, not hosting web apps."
+        "e": "App Service is a PaaS web hosting platform: Azure manages the OS, patching and scaling, and the team only deploys code. Virtual Machines are IaaS, so the agency would patch and configure the OS itself. Scale Sets add autoscaling, but the VMs are still the customer's to manage. Azure Virtual Desktop delivers desktops to users; it doesn't host web apps."
       },
       {
         "id": "normal_1",
         "category": "Compute",
-        "q": "A team needs full control over a server's operating system because of specific older software. Which service will they choose?",
+        "q": "An engineering firm must move a legacy application that needs a custom kernel driver and a specific Windows Server build. The app can't be changed. Which compute option should it use?",
         "a": [
-          "Azure Functions, for serverless execution",
-          "Azure Virtual Machine, for full OS control",
-          "Azure CDN, for faster content delivery",
-          "Azure App Service, for a managed runtime"
+          "Container Instances",
+          "Azure Virtual Machines",
+          "Azure Container Apps",
+          "Azure App Service"
         ],
         "c": 1,
-        "e": "An Azure Virtual Machine gives full control over the OS, which is necessary for older specific software requiring particular configuration. App Service manages the OS for you, so you lack direct access. Azure Functions is serverless and you don't manage the OS at all. Azure CDN is for distributing content, not hosting applications."
+        "e": "Only a virtual machine (IaaS) gives full control of the operating system, so the firm can install the driver and choose the exact Windows Server build. Container Instances and Container Apps run containers on a host OS that Azure manages. App Service also manages the OS for you, so custom drivers aren't possible."
       },
       {
         "id": "normal_2",
         "category": "Compute",
-        "q": "An application has a small function that should run only when a file is uploaded, and not run at all the rest of the day. Which service will they choose?",
+        "q": "A report must be generated every night at 02:00 and takes about a minute. The team wants to write only the code and pay nothing while it isn't running. Which service fits best?",
         "a": [
-          "An on-premises server started manually",
-          "Azure Kubernetes Service with a persistent pod",
-          "Azure Functions with an event-driven trigger",
-          "An Azure Virtual Machine running continuously"
+          "Azure Virtual Machines",
+          "Azure Kubernetes Service",
+          "Azure Functions",
+          "Virtual Machine Scale Sets"
         ],
         "c": 2,
-        "e": "Azure Functions is a serverless service designed for short tasks triggered by an event, and you only pay for actual runtime. A continuously running VM would be needlessly costly for such short tasks. AKS with a persistent pod would also consume resources continuously. An on-premises server requires manual startup, contradicting an automated trigger."
+        "e": "Azure Functions is serverless: a timer trigger runs the code on schedule, and the consumption plan bills only for execution time. A VM or a scale set would run, and cost money, all day for a one-minute job. AKS needs a cluster that runs permanently."
       },
       {
         "id": "normal_3",
         "category": "Compute",
-        "q": "A team wants to quickly spin up a single isolated container for testing without building an entire cluster. Which service will they choose?",
+        "q": "A nightly job is packaged as a single container that runs for about 20 minutes and then exits. The team wants to pay only while it runs, without maintaining any cluster or VM. Which service fits best?",
         "a": [
-          "An Azure Virtual Machine with Docker manually installed",
-          "Azure Functions, for short event-driven runs",
-          "Azure Kubernetes Service, for full container orchestration",
-          "Azure Container Instances, for fast startup"
+          "Azure Kubernetes Service",
+          "Azure App Service",
+          "VM Scale Sets",
+          "Azure Container Instances"
         ],
         "c": 3,
-        "e": "Azure Container Instances lets you quickly run a single container without managing a cluster, ideal for testing. AKS is meant for orchestrating many containers, needlessly complex for a single test. A VM with manually installed Docker requires more setup and management. Azure Functions is for short functions, not for running arbitrary containers."
+        "e": "Azure Container Instances runs a single container on demand and bills per second while it runs, with no cluster or VM to manage. AKS is built to orchestrate many containers and means running a cluster. App Service hosts always-on web apps, not short run-and-exit jobs. Scale Sets are groups of VMs the team would have to maintain."
       },
       {
         "id": "normal_4",
         "category": "Compute",
-        "q": "A company runs dozens of microservices in containers and needs automatic scaling and recovery from failure. Which service will they choose?",
+        "q": "An online shop runs about 40 microservices in containers. It needs rolling updates, automatic restarts of failed containers and fine-grained control over the cluster. Which service fits best?",
         "a": [
-          "Azure Kubernetes Service, for orchestration at scale",
-          "Azure Container Instances, for simple deployment",
-          "An Azure Virtual Machine with no built-in orchestration",
-          "Azure Functions, for short isolated tasks"
+          "Azure Kubernetes Service",
+          "Azure Container Instances",
+          "Azure App Service",
+          "Azure Functions"
         ],
         "c": 0,
-        "e": "Azure Kubernetes Service is a managed platform for orchestrating large numbers of containers, including automatic scaling and self-healing. Container Instances suits only individual or loosely connected containers. Azure Functions handles short functions, not complex orchestration of microservices. A VM without orchestration would require manually managing scaling and recovery."
+        "e": "AKS is managed Kubernetes: it orchestrates many containers, restarts failed ones, performs rolling updates and gives control over cluster configuration. Container Instances runs individual containers without orchestration. App Service and Functions host web apps and code, not a large set of orchestrated containers with cluster-level control."
       },
       {
         "id": "normal_5",
         "category": "Networking",
-        "q": "A company needs an isolated private network environment where virtual machines can communicate with each other securely. What will it create?",
+        "q": "Two project teams deploy VMs in the same subscription. Their VMs must not be able to reach each other unless someone deliberately connects them. What provides this isolation by default?",
         "a": [
-          "A Network Security Group, as a traffic filter",
-          "A Virtual Network, as a private network space",
-          "A Load Balancer, for spreading load",
-          "A resource group, as an organizational container"
+          "Separate resource groups",
+          "Separate virtual networks",
+          "Separate subnets in one VNet",
+          "Separate availability zones"
         ],
         "c": 1,
-        "e": "A Virtual Network is the fundamental building block of a private network in Azure, where resources communicate securely. A resource group is an administrative container, not a networking construct. A Network Security Group filters traffic inside an already-existing network, it doesn't create the network itself. A Load Balancer spreads traffic, it doesn't create an isolated network environment."
+        "e": "Virtual networks are isolated from each other by default; traffic only flows between them after you add peering or a gateway. Subnets in the same VNet can talk to each other by default. Resource groups are management containers and availability zones are physical locations; neither isolates network traffic."
       },
       {
         "id": "normal_6",
         "category": "Networking",
-        "q": "An administrator wants to split one large virtual network into smaller logical parts for different application layers. What will they use?",
+        "q": "In one virtual network, the web servers and the database servers need different network security rules. How should the network be organized?",
         "a": [
-          "A resource group, to organize resources",
-          "An availability zone, for physical location",
-          "A subnet, for network segmentation",
-          "A tag, to describe resources"
+          "Separate resource groups per tier",
+          "One VNet per VM",
+          "Separate subnets per tier",
+          "Separate availability zones per tier"
         ],
         "c": 2,
-        "e": "A subnet splits a VNet into smaller segments, letting you logically separate different application layers. A resource group organizes resources administratively, not on the network. An availability zone is a physical datacenter location, not a network segment. A tag just describes resources with metadata, it doesn't segment the network."
+        "e": "Subnets divide a VNet's address space into segments, so each tier gets its own subnet with its own rules (for example an NSG per subnet). Resource groups and availability zones don't segment network traffic. One VNet per VM would break normal communication and be hard to manage."
       },
       {
         "id": "normal_7",
         "category": "Networking",
-        "q": "A team wants to allow traffic only on port 443 from a specific range of IP addresses and block everything else. What will they use?",
+        "q": "A security scan shows that RDP (port 3389) on a VM is reachable from the whole internet. The team wants to block it while keeping HTTPS open. What should it configure?",
         "a": [
-          "ExpressRoute, for private connectivity",
-          "Azure DNS, for name resolution",
-          "A VPN Gateway, for an encrypted connection",
-          "A Network Security Group, with filtering rules"
+          "Point-to-site VPN",
+          "ExpressRoute circuit",
+          "Azure DNS private zone",
+          "Network security group (NSG)"
         ],
         "c": 3,
-        "e": "A Network Security Group contains rules for filtering traffic by ports, protocols, and source IP addresses, exactly matching the scenario. A VPN Gateway creates an encrypted connection but doesn't handle rule-based filtering. Azure DNS resolves domain names into IP addresses. ExpressRoute provides private connectivity, on its own it doesn't filter traffic."
+        "e": "A network security group (NSG) allows or denies traffic by port, protocol and source, so an inbound rule can block 3389 while allowing 443. A point-to-site VPN gives secure access but doesn't close the open port by itself. ExpressRoute is private connectivity, and a private DNS zone handles name resolution."
       },
       {
         "id": "normal_8",
         "category": "Networking",
-        "q": "A company wants to securely connect its local network to Azure over an encrypted tunnel through the public internet. What will it use?",
+        "q": "Developers working from home need secure access from their individual laptops to VMs in an Azure virtual network. The office network isn't involved. Which connection type fits best?",
         "a": [
-          "VPN Gateway, as an encrypted tunnel over the internet",
-          "Network Security Group, for filtering traffic",
-          "ExpressRoute, as a dedicated connection",
-          "Azure Bastion, for accessing VMs"
+          "Point-to-site VPN",
+          "Site-to-site VPN connection",
+          "ExpressRoute",
+          "Virtual network peering"
         ],
         "c": 0,
-        "e": "A VPN Gateway creates an encrypted site-to-site connection between an on-premises network and Azure over the public internet. ExpressRoute, by contrast, bypasses the public internet and creates a private physical connection. Azure Bastion provides access to individual VMs, it doesn't connect entire networks. A Network Security Group filters traffic, it doesn't create the connection itself."
+        "e": "A point-to-site VPN connects individual devices to an Azure VNet over an encrypted tunnel, which is ideal for remote workers. Site-to-site VPN connects a whole on-premises network through a VPN device. ExpressRoute is a dedicated private connection for a site. VNet peering connects two Azure VNets, not laptops."
       },
       {
         "id": "normal_9",
         "category": "Networking",
-        "q": "A large company needs dedicated private connectivity to Azure with high bandwidth, outside the public internet. What will it choose?",
+        "q": "A bank's regulator forbids its traffic to Azure from crossing the public internet, even when encrypted. Which connectivity option meets this requirement?",
         "a": [
-          "Azure DNS, for managing domain names",
-          "ExpressRoute, as dedicated private connectivity",
-          "Virtual Network peering between two VNets",
-          "A VPN Gateway routed over the public internet"
+          "Site-to-site VPN",
+          "ExpressRoute",
+          "Point-to-site VPN",
+          "Public endpoint with TLS"
         ],
         "c": 1,
-        "e": "ExpressRoute provides dedicated private connectivity to Azure outside the public internet, with higher reliability and bandwidth. A VPN Gateway, by contrast, routes its encrypted tunnel over the public internet. Azure DNS only handles name resolution. Virtual Network peering connects two VNets, not an on-premises network to Azure."
+        "e": "ExpressRoute provides a private connection to Microsoft through a connectivity provider, so traffic doesn't go over the public internet. Both VPN types use encrypted tunnels across the public internet, which the regulator forbids. A public endpoint with TLS is also reached over the internet."
       },
       {
         "id": "normal_10",
         "category": "Networking",
-        "q": "An administrator needs to securely connect to a VM's remote desktop through a browser without a public IP on the VM. What will they use?",
+        "q": "A VM in a virtual network hosts a public website and must accept incoming connections from internet users. What does the VM need?",
         "a": [
-          "A VPN Gateway, to connect networks",
-          "ExpressRoute, for private connectivity",
-          "Azure Bastion, for browser-based access",
-          "Network Security Group, for filtering"
+          "A private endpoint",
+          "VNet peering",
+          "A public IP address",
+          "A private DNS zone"
         ],
         "c": 2,
-        "e": "Azure Bastion provides secure RDP/SSH access to a VM directly in the browser, without the VM needing a public IP address. A VPN Gateway connects entire networks, a broader solution for this specific purpose. ExpressRoute addresses private connectivity to Azure overall, not access to a single VM. A Network Security Group just filters traffic, it doesn't enable access on its own."
+        "e": "To be reachable from the internet, the VM (or a component in front of it) needs a public IP address. A private endpoint gives a private IP inside the VNet, the opposite of public exposure. Peering connects VNets, and a private DNS zone only resolves names inside private networks."
       },
       {
         "id": "normal_11",
         "category": "Networking",
-        "q": "A company wants its application's domain name to resolve to the correct IP address in Azure. What will it use?",
+        "q": "A company already owns the domain contoso.com from a registrar. It wants to manage the domain's DNS records in Azure with the same tools, permissions and billing as its other resources. What should it use?",
         "a": [
-          "Azure Bastion, for VM access",
-          "VPN Gateway, to connect networks",
-          "Network Security Group, for filtering",
-          "Azure DNS, for managing and resolving names"
+          "Azure Private DNS zone",
+          "Microsoft Entra ID",
+          "Azure Resource Manager",
+          "Azure DNS"
         ],
         "c": 3,
-        "e": "Azure DNS manages DNS records and handles resolving domain names to resource IP addresses. Azure Bastion addresses secure VM access. A Network Security Group filters network traffic by rules, it doesn't resolve names. A VPN Gateway creates an encrypted connection between networks, it doesn't address DNS."
+        "e": "Azure DNS hosts public DNS zones, so the company can manage contoso.com records with Azure RBAC, logs and billing. Azure DNS doesn't sell domains; the domain stays registered with the registrar. A private DNS zone only resolves names inside virtual networks. Entra ID manages identities, and Azure Resource Manager is the deployment layer, not a DNS host."
       },
       {
         "id": "normal_12",
         "category": "Networking",
-        "q": "A global application needs to route users to the nearest or most available instance across multiple regions using DNS. What will it choose?",
+        "q": "An app runs in a VNet in West Europe, and its reporting database runs in a VNet in East US. The company wants private, low-latency traffic between them over the Microsoft backbone. What should it use?",
         "a": [
-          "Azure Traffic Manager, for DNS routing between regions",
-          "Azure Load Balancer, for spreading load within a region",
-          "VPN Gateway, for an encrypted network connection",
-          "Network Security Group, for filtering traffic"
+          "Virtual network peering",
+          "VNet-to-VNet VPN",
+          "ExpressRoute",
+          "Public endpoints"
         ],
         "c": 0,
-        "e": "Azure Traffic Manager is a DNS-based service that routes traffic between instances across multiple regions according to a chosen strategy. Azure Load Balancer spreads traffic within a single region at the network layer, not between regions using DNS. A Network Security Group filters traffic by rules. A VPN Gateway creates an encrypted connection, it doesn't route users between regions."
+        "e": "VNet peering also works between regions (global peering): traffic stays private on the Microsoft backbone with low latency. A VNet-to-VNet VPN needs gateways and an encrypted tunnel, which adds cost and latency. ExpressRoute connects on-premises networks to Azure. Public endpoints would send traffic over the internet."
       },
       {
         "id": "normal_13",
         "category": "Networking",
-        "q": "A company wants to spread traffic within a single region across multiple instances of a web app at the network layer. What will it choose?",
+        "q": "A storage account holds HR files. The security team wants VMs in the company VNet to reach it through a private IP address from that VNet. What should be created?",
         "a": [
-          "Azure DNS, only for domain name resolution",
-          "Azure Load Balancer, for spreading traffic within a region",
-          "Azure Traffic Manager, for DNS routing between regions",
-          "Azure Bastion, for secure VM access"
+          "A network security group",
+          "A private endpoint",
+          "A public IP address",
+          "A site-to-site VPN"
         ],
         "c": 1,
-        "e": "Azure Load Balancer spreads inbound traffic across multiple instances within a single region at the network layer. Azure Traffic Manager works at the DNS level and routes between regions, not within a single region at the network layer. Azure DNS just resolves domain names. Azure Bastion provides access to VMs and has nothing to do with spreading traffic."
+        "e": "A private endpoint gives the storage account a private IP address in the VNet, so traffic stays on the private network. An NSG filters traffic but doesn't give the service a private address. A public IP is the opposite of the goal. A site-to-site VPN connects on-premises networks to Azure."
       },
       {
         "id": "normal_14",
         "category": "Networking",
-        "q": "A team wants to connect two virtual networks in Azure so they communicate without needing a VPN. What will it use?",
+        "q": "A central VNet hosts shared DNS and monitoring servers. Several project VNets in the same region need private access to those servers. What is the simplest way to connect them?",
         "a": [
-          "ExpressRoute, for private connectivity",
-          "A VPN Gateway between networks",
-          "Virtual Network peering between VNets",
-          "Network Security Group, for filtering"
+          "Site-to-site VPN",
+          "ExpressRoute circuit",
+          "VNet peering",
+          "Public IPs on the shared servers"
         ],
         "c": 2,
-        "e": "Virtual Network peering connects two VNets directly over the Azure backbone network without needing a VPN or the public internet. A VPN Gateway creates an encrypted tunnel, typically between on-premises and Azure. ExpressRoute addresses private connectivity between on-premises and Azure, not connecting two VNets. A Network Security Group filters traffic by rules, it doesn't connect networks."
+        "e": "Peering each project VNet with the central VNet gives private, low-latency connectivity without gateways (a hub-and-spoke layout). Site-to-site VPN and ExpressRoute connect on-premises networks to Azure. Public IPs would expose the shared servers to the internet."
       },
       {
         "id": "normal_15",
         "category": "Networking",
-        "q": "Besides filtering by port, a team wants to add protection for a web app against SQL injection and XSS attacks. What will it add?",
+        "q": "In one VNet, only the web subnet may connect to the database subnet on port 1433; all other subnets must be blocked. What should the team configure?",
         "a": [
-          "Azure DNS, only for managing domain names",
-          "A VPN Gateway, for an encrypted network connection",
-          "A Network Security Group, for filtering traffic by port",
-          "A Web Application Firewall, for application-layer protection"
+          "VNet peering",
+          "A private DNS zone",
+          "Separate resource groups per tier",
+          "A network security group (NSG)"
         ],
         "c": 3,
-        "e": "A Web Application Firewall works at the application layer and protects against specific attacks like SQL injection or XSS. A Network Security Group filters traffic at the network layer by port, it doesn't understand HTTP request content. A VPN Gateway encrypts the connection between networks, it doesn't analyze request content. Azure DNS only handles name resolution, it has no security function."
+        "e": "A network security group on the database subnet can allow port 1433 only from the web subnet's address range and deny everything else. Peering connects separate VNets, not subnets. A private DNS zone resolves names, and resource groups don't filter traffic."
       },
       {
         "id": "normal_16",
         "category": "Networking",
-        "q": "A company wants DNS queries for internal private resources to work from an on-premises network connected to Azure, but not be publicly visible. What will it use?",
+        "q": "VMs in a company VNet must resolve names like db.internal.contoso.com to private IP addresses, and these records must not be visible on the internet. What should the company use?",
         "a": [
-          "An Azure Private DNS zone connected to the VNet",
-          "A public Azure DNS zone",
-          "Manually editing the hosts file on clients",
-          "A public third-party DNS server"
+          "Azure Private DNS zone",
+          "Azure public DNS zone",
+          "A public endpoint",
+          "Microsoft Entra Domain Services"
         ],
         "c": 0,
-        "e": "An Azure Private DNS zone resolves names for private resources inside a VNet, and when connected to an on-premises network, it works from there too without being visible from the internet. A public DNS zone would expose internal records to anyone. Manually editing the hosts file doesn't scale and is error-prone. A public third-party DNS server would also mean exposing internal records."
+        "e": "An Azure Private DNS zone is linked to VNets and resolves names only inside them, so the records stay off the internet. A public DNS zone publishes records to everyone. A public endpoint is an internet-facing address. Entra Domain Services provides domain join and LDAP; it isn't the tool for hosting private DNS records."
       },
       {
         "id": "normal_17",
         "category": "Networking",
-        "q": "A company has an app in one VNet and a database in another VNet in the same region and wants low latency between them without a VPN. What will it choose?",
+        "q": "A media company copies several terabytes from its datacenter to Azure every night and needs consistent, predictable latency and bandwidth. Which connection fits best?",
         "a": [
-          "Public IP addresses with NSG rules",
-          "Virtual Network peering between the VNets",
-          "ExpressRoute between the networks",
-          "A VPN Gateway between the networks"
+          "Site-to-site VPN",
+          "ExpressRoute",
+          "Point-to-site VPN",
+          "VNet peering"
         ],
         "c": 1,
-        "e": "Virtual Network peering connects two VNets directly over the Azure backbone network with low latency and no VPN. A VPN Gateway would introduce unnecessary overhead for connecting two networks in the same region. Public IP addresses with NSG rules would route traffic over the public internet. ExpressRoute is meant for connecting on-premises to Azure, not two VNets within Azure."
+        "e": "ExpressRoute is a dedicated private connection with predictable latency and high bandwidth, suited to large regular transfers. A site-to-site VPN runs over the public internet, where performance varies. Point-to-site connects individual devices, and peering connects Azure VNets."
       },
       {
         "id": "normal_18",
         "category": "Networking",
-        "q": "A company wants to centralize and simplify managing network rules across dozens of VNets in the organization. What will it use?",
+        "q": "A company has five branch offices, each with its own VPN device. It wants every branch network permanently connected to the same Azure VNet over encrypted tunnels. What should it deploy?",
         "a": [
-          "Deleting the rules and relying on default settings",
-          "Independent rules for each subnet with no coordination",
-          "Azure Firewall or Azure Policy, for centralized rules",
-          "Manually syncing NSG rules on each subnet"
+          "Point-to-site VPN",
+          "ExpressRoute",
+          "Site-to-site VPN connections",
+          "VNet peering"
         ],
         "c": 2,
-        "e": "Azure Firewall provides a centralized gateway for managing rules, and Azure Policy enforces consistent configuration across VNets. Manually syncing dozens of subnets is inefficient and error-prone. Deleting rules and relying on defaults would reduce security. Independent rules with no coordination would only deepen the inconsistency problem."
+        "e": "A VPN gateway with site-to-site connections links whole on-premises networks, through their VPN devices, to an Azure VNet over encrypted tunnels; one gateway can serve several branches. Point-to-site would need a VPN client on every device. ExpressRoute is a private circuit, not an encrypted internet tunnel. Peering connects Azure VNets only."
       },
       {
         "id": "normal_19",
         "category": "Networking",
-        "q": "A team wants firewall rules and a VPN Gateway shared across multiple subscriptions instead of duplicating them in each one. What topology will it choose?",
+        "q": "A VM in the subnet 'app' needs to call a VM in the subnet 'data' of the same virtual network. No NSGs have been added. What else is needed for them to communicate?",
         "a": [
-          "A separate firewall in each individual subscription",
-          "Leaving out both the firewall and VPN Gateway entirely",
-          "Isolated networks per department with no connectivity",
-          "A hub-and-spoke topology with shared network resources"
+          "VNet peering",
+          "A VPN gateway",
+          "A public IP on each VM",
+          "Nothing extra"
         ],
         "c": 3,
-        "e": "A hub-and-spoke topology with central network resources in a hub VNet connected to spoke VNets via peering lets you share costly resources. A separate firewall in each subscription would mean unnecessary duplication. Leaving out the firewall and VPN Gateway would reduce security and connectivity. Isolated networks with no connectivity would prevent sharing resources."
+        "e": "Subnets in the same virtual network can communicate by default; Azure routes traffic between them automatically. Peering is for connecting separate VNets, and a VPN gateway connects external networks. Public IPs would needlessly expose the VMs to the internet."
       },
       {
         "id": "normal_20",
         "category": "Networking",
-        "q": "An application needs to route all outbound traffic through a central control point with logging, due to a security policy. What will it use?",
+        "q": "A company compares hybrid connection options. Which option sends its traffic across the public internet, protected inside an encrypted tunnel?",
         "a": [
-          "Azure Firewall, with rules and central logging",
-          "Relying on logging by an external party",
-          "A complete ban on all outbound traffic",
-          "Direct outbound connections from each VM"
+          "VPN Gateway",
+          "ExpressRoute",
+          "VNet peering",
+          "Private endpoint"
         ],
         "c": 0,
-        "e": "Azure Firewall as a central point for outbound traffic lets you define rules and log all communication centrally. Direct outbound connections from each VM don't provide unified logging. A complete ban on outbound traffic would prevent the app from functioning. Relying on an external party's logging doesn't give the company its own control and visibility."
+        "e": "A VPN gateway creates IPsec-encrypted tunnels over the public internet. ExpressRoute uses a private connection through a provider and doesn't cross the public internet. VNet peering connects Azure VNets over the Microsoft backbone. A private endpoint gives a service a private IP inside a VNet."
       },
       {
         "id": "normal_21",
         "category": "Networking",
-        "q": "A company wants to protect a publicly accessible application against DDoS attacks while keeping access for legitimate users. What will it deploy?",
+        "q": "A team wants to add a new VM in East US to an existing virtual network that was created in West Europe. What should it do?",
         "a": [
-          "Shutting down the entire app during a suspected attack",
-          "Azure DDoS Protection with Application Gateway or Front Door",
-          "Only NSG rules for filtering network ports",
-          "A preventive block on all inbound traffic"
+          "Add a new subnet in East US to that VNet",
+          "Create an East US VNet and peer it",
+          "Change the VNet's region to Global",
+          "Place the VM in an availability zone"
         ],
         "c": 1,
-        "e": "Azure DDoS Protection detects and mitigates volumetric attacks in real time, while Application Gateway or Front Door add another layer of protection while keeping access for legitimate users. Blocking all traffic would prevent access for legitimate users too. NSG rules aren't designed to detect volumetric DDoS attacks. Shutting down the app would cause a complete outage for everyone."
+        "e": "A virtual network exists in one region, and all its subnets are in that region. The solution is a new VNet in East US connected with (global) VNet peering. Subnets can't be placed in another region, and there's no 'Global' region for VNets. Availability zones exist inside one region and don't extend a VNet."
       },
       {
         "id": "normal_22",
         "category": "Networking",
-        "q": "A team wants traffic between a PaaS web app and a PaaS database to stay inside Azure's private network. What will it use?",
+        "q": "Customers anywhere in the world must reach a company's Azure-hosted web app from their browsers. What kind of endpoint does the web app need?",
         "a": [
-          "Relying on PaaS's built-in automatic security",
-          "The default public endpoints of both services",
-          "VNet integration and Private Endpoints for both",
-          "The public internet, with SSL encryption"
+          "A private endpoint",
+          "A private DNS zone",
+          "A public endpoint",
+          "A VNet peering connection"
         ],
         "c": 2,
-        "e": "VNet integration for App Service together with a Private Endpoint for the database connects both PaaS services over a private network. The default public endpoints would mean traffic passes through a public interface. SSL encryption protects the content, but doesn't address whether traffic passes through public or private endpoints. PaaS services aren't automatically fully isolated without deliberate configuration."
+        "e": "A public endpoint is an address reachable from the internet, which customers connecting from anywhere need. A private endpoint is reachable only from private networks. A private DNS zone resolves names internally, and peering connects VNets."
       },
       {
         "id": "normal_23",
         "category": "Networking",
-        "q": "A branch office needs to connect to Azure quickly over its existing internet connection without waiting weeks for a dedicated line. What will it choose?",
+        "q": "A company orders ExpressRoute. Besides Microsoft, who provides the private connection between its datacenter and Azure?",
         "a": [
-          "Physically transporting data on disks",
-          "Public IP addresses with no encryption",
-          "ExpressRoute, for its guaranteed bandwidth",
-          "VPN Gateway, with an encrypted internet tunnel"
+          "Its ISP, via an IPsec tunnel",
+          "Microsoft Entra ID",
+          "The VNet peering service",
+          "A connectivity provider"
         ],
         "c": 3,
-        "e": "A VPN Gateway can be set up quickly because it uses the existing internet connection and creates an encrypted tunnel. ExpressRoute offers better performance, but setting it up takes weeks to months. Unencrypted public IP addresses would be a security risk. Physically transporting data doesn't address ongoing network connectivity, just a one-time transfer."
+        "e": "ExpressRoute circuits are delivered through a connectivity provider (for example a telecom or exchange partner) that links the datacenter to Microsoft's network privately. An IPsec tunnel over the internet is a VPN, not ExpressRoute. Entra ID handles identity, and peering connects Azure VNets."
       },
       {
         "id": "normal_24",
         "category": "Compute",
-        "q": "A company has traffic with bursty load and wants automatic VM scaling without manual administration. What compute model will it choose?",
+        "q": "A web shop runs on identical VMs. Traffic triples every evening, and the company wants VMs added and removed automatically based on CPU load. What should it use?",
         "a": [
-          "App Service or Container Apps, with automatic scaling",
-          "Manually adding VMs by an administrator as needed",
-          "A fixed number of VMs set once and never changed",
-          "One powerful VM sized for the worst-case scenario"
+          "Virtual Machine Scale Sets",
+          "Availability sets",
+          "Azure Container Instances",
+          "A larger VM size"
         ],
         "c": 0,
-        "e": "Azure App Service or Container Apps with automatic scaling respond to current load without manual intervention. A fixed number of VMs would either fall short at peak or waste capacity off-peak. Manually adding VMs is exactly the burden the team wants to avoid. One powerful VM sized for the worst case would be needlessly expensive off-peak."
+        "e": "Virtual Machine Scale Sets manage a group of identical VMs and automatically add or remove instances based on metrics such as CPU. Availability sets spread VMs across fault domains for resilience but don't scale. Resizing a VM is manual vertical scaling and doesn't follow evening peaks. Container Instances runs single containers, not the existing VM workload."
       },
       {
         "id": "normal_25",
         "category": "Compute",
-        "q": "A development team wants to test a new app version with a small percentage of traffic before a full rollout, with the ability to roll back quickly. What will it use?",
+        "q": "Two VMs run the same app in one datacenter. The company wants to make sure a single rack power failure or a host update never takes both down at the same time. What should it use?",
         "a": [
-          "Testing only locally, without real production data",
-          "Deployment slots in App Service, for gradual rollout",
-          "Deleting the old version immediately after the new deployment",
-          "Deploying the new version straight to everyone"
+          "Region pairs",
+          "Availability sets",
+          "Virtual Machine Scale Sets",
+          "Geo-redundant storage"
         ],
         "c": 1,
-        "e": "Deployment slots let you deploy a new version into a separate slot, gradually shift a small percentage of traffic to it, and quickly switch back if there's a problem. Deploying straight to everyone would risk a bug affecting the entire user base. Testing only locally won't reveal issues specific to the production environment. Deleting the old version immediately would prevent a quick rollback."
+        "e": "An availability set spreads VMs across fault domains (separate power and network) and update domains (not rebooted together) within a datacenter. Region pairs relate to disaster recovery between regions. Scale Sets focus on scaling identical VMs. Geo-redundant storage protects data, not running VMs."
       },
       {
         "id": "normal_26",
         "category": "Storage",
-        "q": "An application stores large amounts of unstructured data, like photos uploaded by users. Which service will it choose?",
+        "q": "A video platform stores millions of clips and serves them directly to browsers via HTTPS URLs. Which storage service fits best?",
         "a": [
-          "Table Storage, for structured records",
-          "Queue Storage, for message queues",
-          "Blob Storage, for unstructured binary data",
-          "Azure Files, for shared network folders"
+          "Azure Files",
+          "Queue Storage",
+          "Blob Storage",
+          "Azure Disk Storage"
         ],
         "c": 2,
-        "e": "Blob Storage is optimized for storing large amounts of unstructured binary data like images. Azure Files provides shared network folders, better suited for documents shared between servers. Table Storage stores structured NoSQL key-value data. Queue Storage is used for storing messages between application components."
+        "e": "Blob Storage stores massive amounts of unstructured data such as video and images, and serves each object through an HTTPS URL. Azure Files provides SMB/NFS shares for mounting. Queue Storage holds messages. Disk Storage provides disks attached to VMs."
       },
       {
         "id": "normal_27",
         "category": "Storage",
-        "q": "A company is migrating an app that needs access to a shared network folder over the SMB protocol, just like on the old server. What will it use?",
+        "q": "Several Windows and Linux VMs must mount the same shared folder at the same time, over SMB or NFS. Which storage service fits best?",
         "a": [
-          "Table Storage, for structured data",
-          "Disk Storage, for VM virtual disks",
-          "Blob Storage, for binary objects",
-          "Azure Files, for shared SMB network folders"
+          "Blob Storage",
+          "Azure Disk Storage",
+          "Table Storage",
+          "Azure Files"
         ],
         "c": 3,
-        "e": "Azure Files provides fully managed shared network folders over the standard SMB protocol, so the app works just like it did with a shared folder on a physical server. Blob Storage is meant for object storage, not emulating a network folder. Disk Storage provides virtual disks for VMs. Table Storage stores structured data, not access like a network folder."
+        "e": "Azure Files provides fully managed file shares over SMB and NFS that many machines can mount at the same time. Blob Storage is object storage accessed over REST/HTTPS. Disk Storage disks attach to VMs and aren't a shared folder. Table Storage stores NoSQL entities."
       },
       {
         "id": "normal_28",
         "category": "Storage",
-        "q": "Two parts of an application communicate asynchronously, where one sends messages and the other processes them over time. What will they use?",
+        "q": "A company must move 80 TB of archived video to Azure. Over its internet connection the transfer would take months. What should it use?",
         "a": [
-          "Queue Storage, for a message queue",
-          "Blob Storage, for storing files",
-          "Azure Files, for a network folder",
-          "Disk Storage, for virtual disks"
+          "Azure Data Box",
+          "AzCopy",
+          "Azure File Sync",
+          "Azure Storage Explorer"
         ],
         "c": 0,
-        "e": "Queue Storage stores messages in a queue that one component fills and another processes over time, enabling asynchronous communication. Blob Storage is for storing files, not message queues. Disk Storage provides virtual disks for VMs. Azure Files is a shared network folder for files, not a message queue mechanism."
+        "e": "Azure Data Box is a physical device shipped by Microsoft: you copy the data locally and send the device back, and the data is loaded into Azure without using your network. AzCopy and Storage Explorer still transfer over the network. Azure File Sync keeps file servers in sync and also uses the network."
       },
       {
         "id": "normal_29",
         "category": "Storage",
-        "q": "An application stores millions of simple key-value records and needs fast access without a SQL schema. What will it choose?",
+        "q": "Before migrating, a company wants to discover its on-premises servers, check whether they're ready for Azure and estimate what running them there would cost. Which service should it use?",
         "a": [
-          "Disk Storage, for virtual disks",
-          "Table Storage, for NoSQL key-value records",
-          "Azure SQL Database, for a relational schema",
-          "Blob Storage, for binary objects"
+          "Azure Data Box",
+          "Azure Migrate",
+          "Azure Arc",
+          "Azure Advisor"
         ],
         "c": 1,
-        "e": "Table Storage is a NoSQL store for structured key-value data, optimized for fast access without a fixed schema. Blob Storage is meant for binary objects like files. Azure SQL Database requires a defined relational schema, which goes against the requirement for a schema-less store. Disk Storage provides disks for VMs, not storage for data records."
+        "e": "Azure Migrate discovers on-premises servers, assesses their readiness, estimates Azure costs and then helps migrate them. Data Box moves large data volumes offline. Azure Arc manages servers where they are, without migrating them. Advisor gives recommendations for resources already running in Azure."
       },
       {
         "id": "normal_30",
         "category": "Storage",
-        "q": "A virtual machine needs attached storage functioning as its system or data disk. What does Azure provide for this?",
+        "q": "An administrator wants a nightly script that copies new files from a server to a Blob container using a command-line tool. Which tool fits best?",
         "a": [
-          "Queue Storage, for message queues",
-          "Table Storage, for structured data",
-          "Disk Storage, for VM virtual disks",
-          "Blob Storage, for object data"
+          "Azure Storage Explorer",
+          "Azure Data Box",
+          "AzCopy",
+          "Azure Migrate"
         ],
         "c": 2,
-        "e": "Disk Storage provides virtual disks that function as the system or data disks attached to a virtual machine. Blob Storage is object storage accessible via API, not a directly attachable disk. Queue Storage stores messages between components, it isn't a disk. Table Storage stores structured data, also not a disk format for a VM."
+        "e": "AzCopy is a command-line utility for copying data to and from Azure Storage and is easy to schedule in scripts. Storage Explorer is a graphical desktop app. Data Box is an offline device for very large transfers. Azure Migrate assesses and migrates servers."
       },
       {
         "id": "normal_31",
         "category": "Storage",
-        "q": "Data is replicated three times within a single datacenter, which protects against a disk failure but not against an outage of the whole datacenter. What is this?",
+        "q": "A team stores temporary build artifacts that can be regenerated at any time. It wants the cheapest redundancy option and accepts that a datacenter-wide outage could make the data unavailable. Which option should it choose?",
         "a": [
-          "RA-GRS, with read access to a secondary region",
-          "GRS, replicating to a remote region",
-          "ZRS, replicating across zones in a region",
-          "LRS, replicating only within one datacenter"
+          "Zone-redundant (ZRS)",
+          "Geo-zone-redundant (GZRS)",
+          "Read-access geo-redundant (RA-GRS)",
+          "Locally redundant (LRS)"
         ],
         "c": 3,
-        "e": "LRS (Locally Redundant Storage) replicates data three times within a single datacenter, protecting against a disk failure but not an outage of the whole datacenter. GRS also replicates to a remote region, which protects against more than the scenario describes. ZRS spreads copies across zones within a region, not just within one datacenter. RA-GRS is an extension of GRS, even more robust than the LRS described in the scenario."
+        "e": "LRS keeps three copies in a single datacenter. It's the cheapest option and accepts exactly this risk. ZRS spreads copies across availability zones and costs more. GZRS and RA-GRS also replicate to a second region, which is the most expensive protection and unnecessary for data that can be recreated."
       },
       {
         "id": "normal_32",
         "category": "Storage",
-        "q": "A company wants its data to survive an outage of an entire datacenter within a region, without needing geographic distance. What will it use?",
+        "q": "An app's storage must stay available if one datacenter in the region fails, but the data must not leave that region. Which redundancy option should the company choose?",
         "a": [
-          "ZRS, replicating across zones within a region",
-          "LRS, replicating only within one datacenter",
-          "Hot tier, as an access level",
-          "GRS, replicating to a remote region"
+          "Zone-redundant (ZRS)",
+          "Locally redundant (LRS)",
+          "Geo-redundant (GRS)",
+          "Geo-zone-redundant (GZRS)"
         ],
         "c": 0,
-        "e": "ZRS replicates data synchronously across multiple availability zones within a single region, surviving an outage of an entire datacenter. LRS only replicates within one datacenter, so a full datacenter outage would threaten the data. GRS replicates to another region, going beyond the requirement. Hot tier is an access frequency level, not a type of geographic redundancy."
+        "e": "ZRS replicates data synchronously across three availability zones in one region, so it survives a datacenter outage without copying data to another region. LRS keeps all copies in one datacenter. GRS and GZRS also replicate to a secondary region, which the company doesn't want."
       },
       {
         "id": "normal_33",
         "category": "Storage",
-        "q": "A company wants its data to survive even a catastrophe that destroys an entire region, by replicating to a distant Azure region. What will it use?",
+        "q": "A company replicates storage to a secondary region. During a primary region outage, its reporting app must still be able to read the data without waiting for a failover. Which option fits?",
         "a": [
-          "LRS, replicating within one datacenter",
-          "GRS, replicating to a remote region",
-          "Premium SSD, as a disk type",
-          "ZRS, replicating across zones within a region"
+          "Geo-redundant storage (GRS)",
+          "Read-access GRS (RA-GRS)",
+          "Zone-redundant storage (ZRS)",
+          "Locally redundant storage (LRS)"
         ],
         "c": 1,
-        "e": "GRS asynchronously replicates data to a distant paired region, protecting against a catastrophe affecting an entire region. LRS only protects against failure within a single datacenter. ZRS protects against a datacenter outage within a region, not a catastrophe affecting the whole region. Premium SSD is a disk performance tier, not a geographic redundancy mechanism."
+        "e": "RA-GRS replicates to a secondary region and also allows reading the secondary copy at any time, so reads continue during a primary outage. With plain GRS the secondary copy can't be read until a failover. ZRS and LRS keep data in one region only."
       },
       {
         "id": "normal_34",
         "category": "Storage",
-        "q": "An application frequently accesses current data and needs the fastest access tier in Blob Storage. What will it choose?",
+        "q": "Scanned contracts are opened only a few times a year but must open immediately when needed. The company wants a lower storage cost than the Cool tier. Which tier fits best?",
         "a": [
-          "Archive tier, for the cheapest storage",
-          "Cold tier, as a separate level",
-          "Hot tier, for frequent and fast access",
-          "Cool tier, for less frequent access"
+          "Hot",
+          "Archive",
+          "Cold",
+          "Premium"
         ],
         "c": 2,
-        "e": "Hot tier is optimized for frequently accessed data, with the highest storage cost but the lowest access cost. Archive tier is the cheapest for storage, but access takes hours, unsuited for frequent use. Cool tier suits less frequent access. Cold tier as a separate level doesn't exist in Azure Storage's core offering the same way Hot, Cool, and Archive do."
+        "e": "The Cold tier is cheaper to store than Cool, keeps data online for immediate access, and suits data that is rarely accessed and kept at least 90 days. Hot costs the most to store. Archive is cheapest but offline: data must be rehydrated first, which takes hours. Premium is built for low latency, not for lower storage cost."
       },
       {
         "id": "normal_35",
         "category": "Storage",
-        "q": "A company archives data it accesses once every few years and wants the lowest possible storage cost. What will it choose?",
+        "q": "The legal department must keep closed case files for 10 years. They're almost never read, and waiting several hours to retrieve one is acceptable. Which tier minimizes storage cost?",
         "a": [
-          "Cool tier, for moderately frequent access",
-          "Premium SSD, for high performance",
-          "Hot tier, for frequent access",
-          "Archive tier, for the lowest storage cost"
+          "Cool",
+          "Cold",
+          "Premium",
+          "Archive"
         ],
         "c": 3,
-        "e": "Archive tier offers the lowest storage cost of all the tiers, suited for very rarely accessed data. Hot tier is optimized for frequent access and has the highest storage cost. Cool tier is a compromise for moderately frequent access, more expensive than Archive. Premium SSD is a high-performance disk for VMs, not an archival tier of Blob Storage."
+        "e": "Archive has the lowest storage cost and suits data that is rarely read and can wait hours for rehydration. Cool and Cold are online tiers with higher storage prices. Premium is the most expensive option, built for low latency."
       },
       {
         "id": "normal_36",
         "category": "Storage",
-        "q": "Marketing stores reports it accesses once a month and wants a balance between cost and speed. What will it choose?",
+        "q": "Product images on a busy online shop are read thousands of times a day. Which access tier keeps the total cost lowest for this pattern?",
         "a": [
-          "Cool tier, as a balance between cost and speed",
-          "LRS, as a type of data redundancy",
-          "Hot tier, for the highest access speed",
-          "Archive tier, for the lowest cost"
+          "Hot",
+          "Cool",
+          "Cold",
+          "Archive"
         ],
         "c": 0,
-        "e": "Cool tier is designed for less frequently accessed data, with lower storage cost than Hot tier but faster access than Archive tier. Hot tier has a higher storage cost, optimal for daily access. Archive tier is the cheapest, but access takes hours. LRS is a type of data redundancy, not an access frequency tier."
+        "e": "Hot has the highest storage price but the lowest access price, so it's the cheapest overall for data read very often. Cool and Cold charge more per read and suit infrequent access. Archive data is offline and can't serve a website."
       },
       {
         "id": "normal_37",
         "category": "Database",
-        "q": "A company is migrating a relational database with tables and SQL queries and wants a managed service without owning a database server. What will it choose?",
+        "q": "A company's existing app uses SQL Server with stored procedures. It wants the database in Azure without managing the OS, patching or backups. Which service fits best?",
         "a": [
-          "Table Storage, a key-value store",
-          "Azure SQL Database, a managed relational DB",
-          "Blob Storage, for binary file storage",
-          "Cosmos DB, a NoSQL engine option"
+          "SQL Server on an Azure VM",
+          "Azure SQL Database",
+          "Azure Cosmos DB",
+          "Azure Table Storage"
         ],
         "c": 1,
-        "e": "Azure SQL Database is a fully managed relational database service supporting SQL, tables, and relationships, ideal for migrating a relational database. Cosmos DB is primarily a NoSQL database with a different data model. Table Storage is a simple NoSQL store, it doesn't support relational queries. Blob Storage is for storing files, not structured data."
+        "e": "Azure SQL Database is a fully managed (PaaS) database based on SQL Server: Microsoft handles patching and backups. SQL Server on an Azure VM would also work, but the customer manages the OS and database software. Cosmos DB is NoSQL, and Table Storage is a simple key-value store."
       },
       {
         "id": "normal_38",
         "category": "Database",
-        "q": "A global application needs a database with low latency and automatic replication across multiple regions worldwide. What will it choose?",
+        "q": "A game stores player profiles and must give players on three continents very fast reads, with data replicated automatically between regions. Which database fits best?",
         "a": [
-          "Azure SQL Database, with manual replication",
-          "Azure Files, for shared storage",
-          "Cosmos DB, with global distribution",
-          "Disk Storage, for VM disks"
+          "Azure SQL Database",
+          "Azure Table Storage",
+          "Azure Cosmos DB",
+          "Azure Files"
         ],
         "c": 2,
-        "e": "Cosmos DB is a globally distributed NoSQL database designed for low latency and automatic replication across regions. Azure SQL Database can also be geo-replicated, but it isn't primarily designed for this kind of global low latency as a default trait. Azure Files provides shared network folders, it isn't a database. Disk Storage provides disks for VMs, not a global database."
+        "e": "Azure Cosmos DB is a globally distributed NoSQL database: you add regions, data replicates automatically and reads are served from the nearest region with low latency. Azure SQL Database is relational and isn't built for multi-region low latency by default. Table Storage is a single-region key-value store, and Azure Files isn't a database."
       },
       {
         "id": "normal_39",
         "category": "Database",
-        "q": "A team wants a database with a flexible schema for storing JSON documents with a variable structure. What will it choose?",
+        "q": "An IoT team stores readings as JSON, and every device type sends different fields. The team wants to query the data without defining a fixed schema. Which database fits best?",
         "a": [
-          "Disk Storage, for virtual disks",
-          "Queue Storage, for message queues",
-          "Azure SQL Database, with a fixed schema",
-          "Cosmos DB, with document model support"
+          "Azure SQL Database",
+          "Azure Database for MySQL",
+          "Azure Disk Storage",
+          "Azure Cosmos DB"
         ],
         "c": 3,
-        "e": "Cosmos DB supports a document data model for JSON with a flexible schema, ideal for data with a variable structure. Azure SQL Database requires a strictly defined relational schema, which goes against the requirement for flexibility. Disk Storage provides disks for VMs, it isn't a database. Queue Storage stores messages between components, not documents."
+        "e": "Cosmos DB stores JSON documents with a flexible schema and lets you query them. Azure SQL Database and Azure Database for MySQL are relational and need a defined schema. Disk Storage provides VM disks, not a database."
       },
       {
         "id": "normal_40",
         "category": "Database",
-        "q": "A company wants to automatically back up a database and be able to restore it to any point in the last 7 days. What feature will it use?",
+        "q": "A company moves its database from SQL Server on its own hardware to Azure SQL Database. Who is now responsible for patching the database engine?",
         "a": [
-          "Automated backups with point-in-time restore",
-          "A manual database export by an administrator",
-          "A resource lock, to protect the database",
-          "A tag, to label the database"
+          "Microsoft",
+          "The customer",
+          "Both equally",
+          "The customer's cloud reseller"
         ],
         "c": 0,
-        "e": "Azure SQL Database offers automated backups with point-in-time restore, recovering to any moment within the retention period. A manual export would require regular manual intervention by an administrator. A resource lock protects a resource from deletion, it doesn't address backup and restore to a specific point in time. A tag just describes a resource with metadata, it has no backup function."
+        "e": "Azure SQL Database is PaaS, so Microsoft patches and updates the database engine and the OS beneath it. The customer remains responsible for its data, access and configuration. Patching isn't split equally, and a reseller doesn't operate the service."
       },
       {
         "id": "normal_41",
         "category": "Database",
-        "q": "A team needs a database engine compatible with MySQL for an existing application without major code changes. What will it choose?",
+        "q": "A WordPress site uses MySQL. The owner wants a managed MySQL database in Azure without changing the application. Which service fits best?",
         "a": [
-          "Table Storage, for simple key-value data",
-          "Azure Database for MySQL, as a managed service",
-          "Cosmos DB, as a global NoSQL database",
-          "Blob Storage, for storing binary files"
+          "Azure Cosmos DB",
+          "Azure Database for MySQL",
+          "Azure SQL Database",
+          "SQL Server on a VM"
         ],
         "c": 1,
-        "e": "Azure Database for MySQL is a managed service fully compatible with MySQL, enabling migration of an existing app without major changes. Cosmos DB is a NoSQL database with a different data model and would require rewriting the app. Table Storage can't handle MySQL queries. Blob Storage is for storing files, not for running a relational database."
+        "e": "Azure Database for MySQL is a managed service running the MySQL engine, so the app works without code changes. Azure SQL Database and SQL Server use a different engine. Cosmos DB is a NoSQL database."
       },
       {
         "id": "normal_42",
         "category": "Security",
-        "q": "An application needs to securely store API keys and passwords it accesses at runtime instead of writing them in the code. What will it use?",
+        "q": "An employee's password leaked in a phishing attack, yet the attacker still couldn't sign in because a code from the employee's phone was required. Which feature stopped the attack?",
         "a": [
-          "Resource group, as an organizational container",
-          "Azure Advisor, for recommendations",
-          "Azure Key Vault, for managing secrets",
-          "Azure Monitor, for tracking metrics"
+          "Single sign-on",
+          "Microsoft Defender for Cloud",
+          "Multifactor authentication",
+          "Role-based access control"
         ],
         "c": 2,
-        "e": "Azure Key Vault securely stores sensitive data like keys and passwords, which the application accesses at runtime instead of storing them in the code. Azure Monitor collects metrics and logs and has nothing to do with storing secrets. A resource group is an organizational container for resources. Azure Advisor gives optimization recommendations, it isn't a store for secrets."
+        "e": "Multifactor authentication requires a second factor, such as a code or an approval on a phone, so a stolen password isn't enough. Single sign-on reduces the number of sign-ins but doesn't add a factor. RBAC controls what a signed-in user can do. Defender for Cloud assesses and protects resources, not sign-ins."
       },
       {
         "id": "normal_43",
         "category": "Security",
-        "q": "A security team wants a security score and recommendations across the Azure environment, plus threat detection. What will it use?",
+        "q": "A company runs servers in Azure, in AWS and on-premises. It wants one place to assess their security posture and get hardening recommendations for all of them. What should it use?",
         "a": [
-          "Azure Key Vault, for secrets",
-          "Resource lock, for protecting resources",
-          "Microsoft Sentinel, for incident analysis",
-          "Defender for Cloud, for scoring and recommendations"
+          "Azure Policy",
+          "Conditional Access",
+          "Azure Advisor",
+          "Microsoft Defender for Cloud"
         ],
         "c": 3,
-        "e": "Defender for Cloud provides a Secure Score, recommendations for improving security, and threat detection across the environment. Microsoft Sentinel is a SIEM tool for deeper incident analysis, not primarily for scoring configuration. Azure Key Vault stores secrets, it doesn't provide a security score. A resource lock protects a single resource from deletion."
+        "e": "Microsoft Defender for Cloud assesses security posture (Secure Score), gives recommendations and detects threats across Azure, other clouds and on-premises. Azure Policy enforces rules on Azure resources. Advisor includes some security recommendations but isn't a multicloud security tool. Conditional Access controls sign-ins."
       },
       {
         "id": "normal_44",
         "category": "Security",
-        "q": "An analyst needs to centrally collect security data from many sources and investigate incidents using queries. What will they use?",
+        "q": "Employees may sign in from the office with just a password, but sign-ins from outside the corporate network must also require MFA. What should be configured?",
         "a": [
-          "Microsoft Sentinel, for correlation work",
-          "Azure Policy, for configuration rules",
-          "Defender for Cloud, a security score tool",
-          "Azure Advisor, for general recommendations"
+          "Conditional Access",
+          "Azure RBAC",
+          "Single sign-on",
+          "Azure Policy"
         ],
         "c": 0,
-        "e": "Microsoft Sentinel is a SIEM and SOAR tool for collecting, correlating, and investigating security data across sources, including automated responses. Defender for Cloud focuses on posture and protecting resources, not extensive incident analysis. Azure Policy enforces configuration rules, it isn't used for investigating incidents. Azure Advisor gives general recommendations, it isn't a security analytics tool."
+        "e": "Microsoft Entra Conditional Access evaluates signals such as location and device and can require MFA only under specific conditions. RBAC defines permissions on resources, not sign-in requirements. SSO lets users sign in once. Azure Policy governs resource configuration."
       },
       {
         "id": "normal_45",
         "category": "Security",
-        "q": "A company designs its security so that it automatically trusts nobody and verifies every request. What approach is this?",
+        "q": "A company designs its systems as if an attacker were already inside: it segments the network and encrypts internal traffic to limit the damage. Which Zero Trust principle is this?",
         "a": [
-          "Least privilege, as the principle of minimal permissions",
-          "Zero Trust, as the principle of never automatically trusting",
-          "Defense in depth, as layering multiple defenses",
-          "Single sign-on, as one shared login"
+          "Verify explicitly",
+          "Assume breach",
+          "Use least privilege",
+          "Trust the internal network"
         ],
         "c": 1,
-        "e": "Zero Trust is a security model based on the principle of never trust, always verify, where every request is verified regardless of origin. Defense in depth means layering multiple security measures, a broader concept. Least privilege concerns minimal permissions; it's one of Zero Trust's principles, but isn't the same thing. Single sign-on addresses one login and has nothing to do with the overall security model."
+        "e": "Assume breach means designing as if attackers are already inside, for example by segmenting networks and encrypting traffic to limit the blast radius. Verify explicitly means authenticating every request using all available signals. Least privilege limits each identity's permissions. Trusting the internal network is the old perimeter model that Zero Trust replaces."
       },
       {
         "id": "normal_46",
         "category": "Security",
-        "q": "An administrator grants a user only the permissions strictly necessary for their job, nothing more. What principle is being followed?",
+        "q": "In the defense-in-depth model, a company encrypts its customer database at rest. Which layer does this control protect?",
         "a": [
-          "Conditional Access, conditioning access on context",
-          "Zero Trust, a broader security philosophy",
-          "Least privilege, granting minimal permissions",
-          "Defense in depth, layering multiple defenses"
+          "Network",
+          "Perimeter",
+          "Data",
+          "Physical security"
         ],
         "c": 2,
-        "e": "Least privilege is the principle of granting only the minimal necessary permissions, reducing the risk of abuse if an account is compromised. Zero Trust is the broader security philosophy; least privilege is one of its components. Defense in depth means layering defenses, not specifically minimizing permissions. Conditional Access conditions access on circumstances, it doesn't address the scope of granted permissions."
+        "e": "Defense in depth has layers from physical security, identity and access, perimeter, network, compute and application out to data at the center. Encrypting a database protects the data layer. The network and perimeter layers deal with traffic and attacks like DDoS, and physical security covers access to datacenters."
       },
       {
         "id": "normal_47",
         "category": "Security",
-        "q": "A team wants encryption certificates to be automatically renewed and centrally managed. What will it use?",
+        "q": "Employees complain about separate passwords for the HR portal, the expense app and Microsoft 365. The company wants them to sign in once and access all of these. What should it use?",
         "a": [
-          "Network Security Group, for filtering",
-          "A resource lock, to protect a resource",
-          "A tag, to describe a resource",
-          "Azure Key Vault, for certificate management"
+          "Multifactor authentication",
+          "Conditional Access",
+          "Microsoft Entra B2B",
+          "Single sign-on"
         ],
         "c": 3,
-        "e": "Azure Key Vault manages not just keys and secrets but also certificates, including their automatic renewal and centralized management. A resource lock protects a resource from deletion, it doesn't address certificate management. A Network Security Group filters network traffic, unrelated to certificate management. A tag is just a metadata label with no certificate management function."
+        "e": "Single sign-on lets users sign in once with one Microsoft Entra identity and access many applications. MFA adds a verification step but doesn't reduce the number of sign-ins. Conditional Access sets conditions for access. Entra B2B is for external guest users."
       },
       {
         "id": "normal_48",
         "category": "Security",
-        "q": "A security team wants alerts on suspicious behavior and an automatic response, like blocking an account. What will it use?",
+        "q": "A consulting partner's staff need access to one internal Azure app. The company doesn't want to create and manage passwords for them; they should use their own work accounts. What should it use?",
         "a": [
-          "Sentinel with playbooks, for automatic response",
-          "A resource lock, protecting one specific resource",
-          "Azure Policy, enforcing configuration rules",
-          "A tag, a descriptive label on a resource"
+          "Microsoft Entra B2B",
+          "Customer sign-up (B2C)",
+          "Microsoft Entra Domain Services",
+          "Azure RBAC"
         ],
         "c": 0,
-        "e": "Microsoft Sentinel enables detecting suspicious behavior via analytics rules and an automatic response through playbooks. Azure Policy enforces configuration standards on resources, it doesn't detect user behavior in real time. A resource lock protects a resource from deletion, it doesn't react to suspicious sign-ins. A tag is just a metadata label with no detection function."
+        "e": "Entra B2B collaboration invites external partners as guests who sign in with their own existing accounts. B2C-style customer identity is for consumer-facing apps where customers sign up. Entra Domain Services provides domain join and LDAP. RBAC assigns permissions but doesn't solve the identity problem."
       },
       {
         "id": "normal_49",
         "category": "Security",
-        "q": "An application accesses a database and the team wants authentication without storing a password anywhere in the code. What will it use?",
+        "q": "A company wants employees to sign in with Windows Hello or the Microsoft Authenticator app, so there's no password to steal or forget. Which authentication approach is this?",
         "a": [
-          "Sharing one common password between applications",
-          "A managed identity, for authentication",
-          "A connection string with the password in an environment variable",
-          "Encoding the password into a binary file"
+          "Single sign-on",
+          "Passwordless authentication",
+          "Conditional Access",
+          "Self-service password reset"
         ],
         "c": 1,
-        "e": "A managed identity lets an application authenticate to a database without any password stored anywhere, Azure handles the verification automatically. A connection string in an environment variable is better than a hardcoded password, but it's still a secret that can be exposed. Sharing one common password is a security risk. Encoding a password into a binary file is just another form of storing a secret."
+        "e": "Passwordless authentication replaces the password with something you have plus something you are or know, for example Windows Hello or Authenticator. SSO still relies on a sign-in, often with a password. Conditional Access sets rules for when access is allowed. Self-service password reset helps users reset passwords; it doesn't remove them."
       },
       {
         "id": "normal_50",
         "category": "Security",
-        "q": "A company wants encryption keys to never leave a certified hardware security module (HSM). What will it use?",
+        "q": "A legacy app in Azure needs domain join, Group Policy and Kerberos authentication, but the company doesn't want to deploy and patch its own domain controllers. What should it use?",
         "a": [
-          "The standard Key Vault tier with software protection",
-          "Sharing keys over encrypted email",
-          "Key Vault Premium tier or Managed HSM",
-          "Storing keys directly in the application's code"
+          "Microsoft Entra ID",
+          "Microsoft Entra Connect",
+          "Microsoft Entra Domain Services",
+          "AD domain controllers on Azure VMs"
         ],
         "c": 2,
-        "e": "Key Vault Premium tier or Managed HSM ensures keys are generated and stored directly in a certified HSM and never leave it. The standard tier uses software-protected keys, not a dedicated HSM. Storing keys in code is a major security risk. Sharing over email creates unnecessary copies of the key outside a secure environment."
+        "e": "Microsoft Entra Domain Services provides managed domain services (domain join, Group Policy, LDAP, Kerberos) without running domain controllers yourself. Entra ID alone doesn't offer traditional domain join with Kerberos and Group Policy. Entra Connect syncs identities from on-premises. Domain controllers on VMs would mean patching them yourself."
       },
       {
         "id": "normal_51",
         "category": "Governance",
-        "q": "A manager grants an employee permission to read data in a resource group, but not delete it. What will they use for this?",
+        "q": "A user is assigned the Contributor role on a subscription. What access does the user have to the resource groups inside it?",
         "a": [
-          "A tag, to describe the resource",
-          "Azure Policy, for configuration rules",
-          "A resource lock, to protect the resource",
-          "RBAC, with a Reader role at that scope"
+          "No access by default",
+          "Reader on each group",
+          "Only groups they create",
+          "Contributor on all of them"
         ],
         "c": 3,
-        "e": "RBAC assigns a specific role like Reader at a given scope, precisely controlling what that identity is allowed to do. Azure Policy enforces configuration rules on resources, not who has what access. A resource lock prevents deletion for everyone regardless of role. A tag just labels a resource with metadata, with no effect on permissions."
+        "e": "Azure RBAC role assignments are inherited down the scope hierarchy: a role at the subscription applies to all resource groups and resources in it. It doesn't need to be assigned again per group, it isn't downgraded to Reader and it isn't limited to groups the user created."
       },
       {
         "id": "normal_52",
         "category": "Governance",
-        "q": "A company wants to enforce that all new storage accounts are automatically encrypted. What will ensure this?",
+        "q": "To control costs, a company wants to stop anyone from creating VMs larger than a set of approved sizes, in every subscription. What should it use?",
         "a": [
-          "Azure Policy, for enforcing configuration rules",
-          "RBAC, for granting permissions",
-          "Resource group, as an organizational container",
-          "Azure Advisor, for recommendations"
+          "Azure Policy",
+          "Azure RBAC",
+          "Resource locks",
+          "Azure Advisor"
         ],
         "c": 0,
-        "e": "Azure Policy lets you define rules that are enforced on resources, including blocking the creation of a resource that doesn't meet the rule. RBAC handles who has what permissions, not what properties a resource must have. A resource group is an organizational container. Azure Advisor gives recommendations, it doesn't actively enforce anything."
+        "e": "Azure Policy can define allowed VM sizes and deny non-compliant deployments. RBAC controls who can create VMs, not which sizes. Resource locks prevent deleting or changing existing resources. Advisor only recommends."
       },
       {
         "id": "normal_53",
         "category": "Governance",
-        "q": "An administrator wants to protect a critical database from accidental deletion by anyone with sufficient permissions. What will they use?",
+        "q": "A cleanup script run under an account with the Owner role sometimes deletes resources it shouldn't. A shared storage account must stay editable but impossible to delete until someone deliberately removes the protection. What should be applied?",
         "a": [
-          "A tag, to describe the resource",
-          "A resource lock, against deletion",
-          "RBAC, for assigning roles",
-          "Azure Policy, for configuration rules"
+          "Azure Policy (Deny effect)",
+          "CanNotDelete lock",
+          "ReadOnly lock",
+          "Reader role assignment"
         ],
         "c": 1,
-        "e": "A resource lock adds a protective layer to a resource regardless of a user's RBAC permissions. Azure Policy enforces configuration standards, but isn't primarily meant to protect a single resource from deletion. RBAC determines permissions, but even a user with full access could still delete the resource without a lock. A tag is just a metadata label with no protective function."
+        "e": "A CanNotDelete lock blocks deletion for everyone, Owners included, while changes stay allowed. A ReadOnly lock would also block the edits the team still needs. A Deny policy evaluates create and update requests against rules and isn't the tool for protecting one resource from deletion. A Reader role wouldn't stop the Owner account that runs the script."
       },
       {
         "id": "normal_54",
         "category": "Governance",
-        "q": "The finance department wants to recognize costs by project in billing. What will it best use for this?",
+        "q": "An automation script should shut down every dev and test VM at night but leave production running. How can the company mark the VMs so the script can tell them apart?",
         "a": [
-          "Azure Policy, for enforcing rules",
-          "A resource lock, to protect a resource",
-          "A tag, for describing and filtering resources",
-          "A management group, for organizing subscriptions"
+          "Resource locks",
+          "Management groups",
+          "Tags",
+          "Availability sets"
         ],
         "c": 2,
-        "e": "Tags are paired metadata assigned to resources, which can be used to filter billing costs by project. A resource lock protects a resource from deletion and has nothing to do with billing. A management group organizes subscriptions, too coarse-grained for distinguishing projects. Azure Policy enforces rules, it doesn't generate a cost breakdown."
+        "e": "Tags are name-value pairs (for example environment=dev) that scripts, policies and cost reports can filter on. Resource locks prevent deletion or changes. Management groups organize subscriptions. Availability sets control VM placement."
       },
       {
         "id": "normal_55",
         "category": "Governance",
-        "q": "A large company with dozens of subscriptions wants to apply the same rules across all of them at once. What will it use?",
+        "q": "A new cloud architect is planning the company's Azure hierarchy. Which order lists the levels from broadest to narrowest?",
         "a": [
-          "A resource group in each subscription separately",
-          "A tag on individual resources",
-          "A resource lock on critical resources",
-          "A management group over all the subscriptions"
+          "Subscription › Management group › Resource group › Resource",
+          "Resource group › Subscription › Management group › Resource",
+          "Management group › Resource group › Subscription › Resource",
+          "Management group › Subscription › Resource group › Resource"
         ],
         "c": 3,
-        "e": "A management group organizes multiple subscriptions into a hierarchy, letting you centrally apply policies to the whole group at once. A resource group only works within a single subscription. A tag just labels resources with metadata, it doesn't enforce rules. A resource lock protects an individual resource, it doesn't apply rules across subscriptions."
+        "e": "Management groups contain subscriptions, subscriptions contain resource groups, and resource groups contain resources. Policies and RBAC assigned at a higher level are inherited by the levels below."
       },
       {
         "id": "normal_56",
         "category": "Governance",
-        "q": "An external vendor needs to temporarily view the logs of one application, but not change anything else. What permission will you grant them?",
+        "q": "A company wants to discover where sensitive data such as credit card numbers is stored across Azure, on-premises systems and SaaS apps, and classify it. What should it use?",
         "a": [
-          "The Reader role scoped to that resource group",
-          "The Owner role at subscription level",
-          "Anonymous public access for everyone",
-          "The Global Administrator role"
+          "Microsoft Purview",
+          "Azure Policy",
+          "Microsoft Defender for Cloud",
+          "Azure Monitor"
         ],
         "c": 0,
-        "e": "The Reader role at the scope of that resource group gives the vendor the ability to view relevant resources without the right to change anything elsewhere — least privilege in practice. Owner at the subscription level would give much broader access than needed. Global Administrator is an extremely powerful role, disproportionate to the need. Anonymous access would mean anyone could access the logs."
+        "e": "Microsoft Purview is a data governance service that discovers, maps and classifies data across Azure, on-premises and SaaS sources. Azure Policy governs resource configuration. Defender for Cloud focuses on security posture and threats. Azure Monitor collects metrics and logs."
       },
       {
         "id": "normal_57",
         "category": "Governance",
-        "q": "A team wants to create a test environment that can be quickly deleted as a whole without affecting production. What will it use?",
+        "q": "Two departments must receive separate Azure invoices and have separate spending limits. How should the company organize them?",
         "a": [
-          "A resource lock, as protection for resources",
-          "A separate resource group just for tests",
-          "Azure Policy, as a set of rules",
-          "A tag, as a descriptive label for resources"
+          "Separate resource groups",
+          "Separate subscriptions",
+          "Separate tags",
+          "Separate regions"
         ],
         "c": 1,
-        "e": "A separate resource group for test resources lets you delete the entire test environment with a single command without affecting resources elsewhere. A tag just labels resources with metadata, it doesn't enable bulk deletion as a whole. A resource lock, by contrast, protects resources from deletion, the opposite of the desired behavior. Azure Policy enforces rules, it doesn't make bulk deletion easier."
+        "e": "A subscription is a billing boundary: each one gets its own invoice and can have its own budgets and limits. Resource groups and tags help split costs in reports but still share one invoice. Regions are locations, not billing units."
       },
       {
         "id": "normal_58",
         "category": "Governance",
-        "q": "An auditor wants to find out who made a configuration change on a resource and when, over the past month. What will they review?",
+        "q": "A US federal agency needs Azure services in a physically isolated cloud instance operated only by screened US personnel. What should it use?",
         "a": [
-          "Pricing calculator, for cost estimates",
-          "Azure Advisor, for recommendations",
-          "Activity log, the history of resource actions",
-          "A resource lock, protecting a resource"
+          "A region pair in the US",
+          "An availability zone",
+          "A sovereign region",
+          "A separate subscription"
         ],
         "c": 2,
-        "e": "The Activity log records control-plane operations performed on resources, who changed what and when, exactly matching the audit need. Azure Advisor gives optimization recommendations, it doesn't record a history of actions. A resource lock protects a resource, on its own it doesn't provide a history record. The pricing calculator is for estimating costs in advance."
+        "e": "Sovereign regions such as Azure Government are physically and logically isolated instances of Azure for specific compliance needs. A region pair, an availability zone or a separate subscription are all part of the normal public Azure cloud."
       },
       {
         "id": "normal_59",
         "category": "Governance",
-        "q": "A company wants Azure Policy not only to detect non-compliant resources, but to actively remediate missing settings. What will enable this?",
+        "q": "To prove compliance with a security standard, a company must assign about 40 related policy definitions together and track them as one goal. What should it use?",
         "a": [
-          "The Deny effect, blocking creation",
-          "The Append effect, adding fields",
-          "The Audit effect, reporting only",
-          "DeployIfNotExists, for automatic remediation"
+          "A management group",
+          "A resource lock",
+          "A role assignment",
+          "A policy initiative"
         ],
         "c": 3,
-        "e": "The DeployIfNotExists effect automatically deploys missing configuration if the policy finds that a resource lacks that property. The Audit effect only flags the non-compliance in a report, it doesn't actively fix anything. The Deny effect blocks the creation of a non-compliant resource, but doesn't remediate anything on existing resources. The Append effect adds fields to a creation request, it doesn't address remediating existing resources the way DeployIfNotExists does."
+        "e": "A policy initiative (policy set) groups related policy definitions so they're assigned and tracked together as one compliance goal. A management group is a scope where an initiative can be assigned, not a grouping of policies. Resource locks and role assignments don't evaluate compliance."
       },
       {
         "id": "normal_60",
         "category": "Governance",
-        "q": "A company wants to prevent deploying a resource in the wrong region due to regulatory requirements. What best eliminates this risk?",
+        "q": "Developers have the Contributor role. Without removing that role, the company must stop them from creating resources outside the EU because of data-residency rules. What should it use?",
         "a": [
-          "Azure Policy with a Deny effect for disallowed regions",
-          "Training administrators and relying on their attention",
-          "An email with a list of allowed regions",
-          "A weekly manual check after creation"
+          "Azure Policy",
+          "A resource lock",
+          "Microsoft Purview",
+          "Reader role instead"
         ],
         "c": 0,
-        "e": "Azure Policy with a Deny effect technically blocks creating a resource outside the allowed regions, eliminating the risk of human error. Training reduces risk, but doesn't guarantee one hundred percent prevention. An email is just informational, with no technical enforcement. A weekly check addresses the problem only after the mistake has happened, not preventively."
+        "e": "An Azure Policy with allowed locations denies deployments outside the EU regardless of the user's role. Switching to Reader would stop them from deploying anything at all. A resource lock protects existing resources, not where new ones are created. Purview governs data, not deployment locations."
       },
       {
         "id": "normal_61",
         "category": "Governance",
-        "q": "A company wants to ensure a production network can't be changed, while reading the configuration remains allowed. What type of resource lock will it use?",
+        "q": "An administrator applies a CanNotDelete lock to a resource group. What happens when a user with the Owner role tries to delete a VM inside that group?",
         "a": [
-          "An RBAC Reader role for a specific user",
-          "A ReadOnly lock, against any change",
-          "A Deny policy, for blocking creation",
-          "A CanNotDelete lock, against deletion"
+          "The VM is deleted",
+          "Deletion is blocked",
+          "Only the lock is removed",
+          "A policy alert is raised"
         ],
         "c": 1,
-        "e": "A ReadOnly lock prevents any changes to a resource, while reading remains possible for everyone. A CanNotDelete lock would only prevent deletion, changes would still be possible. A Deny policy blocks creating new resources by rule, it doesn't address protecting an existing resource this way. An RBAC Reader role would restrict specific users, but wouldn't protect the resource as a whole against changes from other users."
+        "e": "Locks are inherited by all resources in their scope and apply even to Owners, so deleting the VM is blocked until someone removes the lock. The lock isn't removed automatically, and locks don't raise policy alerts."
       },
       {
         "id": "normal_62",
         "category": "Compute",
-        "q": "A company wants a VM with guaranteed performance and uninterrupted operation for a critical production database. What will it choose?",
+        "q": "An administrator creates a new Azure VM. Besides the VM itself, which resource is required so that the VM can communicate with other resources?",
         "a": [
-          "A VM with no backup, for simplicity",
-          "An on-premises server outside the cloud",
-          "A standard or Reserved VM, guaranteed performance",
-          "A Spot VM, for its lowest price"
+          "Public IP address",
+          "Private DNS zone",
+          "Virtual network",
+          "Availability set"
         ],
         "c": 2,
-        "e": "A standard or Reserved VM provides guaranteed performance and uninterrupted operation suited to a critical database. A Spot VM can be evicted at any time, unsuited for critical operation. A VM with no backup would risk data loss on failure. An on-premises server lacks the benefits of cloud elasticity and being managed."
+        "e": "Every Azure VM connects through a network interface to a virtual network, which is a required resource. A public IP address is optional and only needed for direct internet access. A private DNS zone and an availability set are optional add-ons."
       },
       {
         "id": "normal_63",
         "category": "Compute",
-        "q": "A developer wants to host a static website (HTML, CSS, JS) with no backend logic as cheaply as possible. What will they choose?",
+        "q": "A startup wants to run code without provisioning or managing any servers, with automatic scaling and billing based only on executions. Which cloud computing concept describes this?",
         "a": [
-          "An Azure Virtual Machine with a web server",
-          "Azure SQL Database, for data",
-          "Azure Kubernetes Service, for orchestration",
-          "Static Web Apps or Blob Storage static website"
+          "IaaS",
+          "Virtualization",
+          "Vertical scaling",
+          "Serverless computing"
         ],
         "c": 3,
-        "e": "Static Web Apps or static website hosting in Blob Storage are designed exactly for static content with no backend logic, at low cost. A Virtual Machine would require managing an entire server just for static files. AKS is needlessly complex orchestration for a static site. Azure SQL Database is a database, not website hosting."
+        "e": "Serverless computing means the provider manages all servers, the app scales automatically and you pay only when code runs (for example Azure Functions). With IaaS you manage the VMs yourself. Virtualization is the technology for running many VMs on one host. Vertical scaling means making a single resource bigger."
       },
       {
         "id": "normal_64",
         "category": "Compute",
-        "q": "A team wants to run batch processing of a large volume of data in parallel across many compute nodes. What will it choose?",
+        "q": "A company deploys two VMs for a critical app and wants it to keep running even if one entire datacenter in the region fails. How should it place the VMs?",
         "a": [
-          "Azure Batch, for parallel batch processing",
-          "Resource lock, to protect resources",
-          "Azure DNS, for managing names",
-          "Azure Bastion, for remote access"
+          "In two availability zones",
+          "In one availability set",
+          "In two separate resource groups",
+          "In two subnets of one VNet"
         ],
         "c": 0,
-        "e": "Azure Batch is designed for running parallel batch jobs across large numbers of compute nodes. Azure Bastion addresses secure VM access and has nothing to do with batch processing. Azure DNS manages domain names. A resource lock protects resources from deletion, it doesn't address compute processing."
+        "e": "Availability zones are physically separate datacenters within a region, so VMs in different zones survive the loss of one datacenter. An availability set only protects against rack and host failures inside one datacenter. Resource groups and subnets are logical groupings that say nothing about physical location."
       },
       {
         "id": "normal_65",
         "category": "Compute",
-        "q": "A company wants to deploy virtual desktops for remote employees with access to corporate applications. What will it choose?",
+        "q": "A company hires 50 seasonal call-center workers who use their own laptops. They need a full Windows desktop with corporate apps, without company data stored on the laptops. What should it use?",
         "a": [
-          "Azure Functions, for short functions",
-          "Azure Virtual Desktop, for remote desktops",
-          "Blob Storage, for storing files",
-          "Azure DNS, for managing names"
+          "Azure App Service",
+          "Azure Virtual Desktop",
+          "Microsoft Entra Domain Services",
+          "Point-to-site VPN"
         ],
         "c": 1,
-        "e": "Azure Virtual Desktop provides virtualized desktops and applications accessible remotely, ideal for remote employees. Azure Functions is for short event-driven functions, not user desktops. Blob Storage stores files, it isn't a virtual desktop. Azure DNS only manages domain names."
+        "e": "Azure Virtual Desktop streams a full Windows desktop and apps from Azure, so data stays in the cloud, not on the personal laptop. A point-to-site VPN only connects the laptop to the network; data would still be processed locally. Entra Domain Services provides domain services, not desktops. App Service hosts web apps."
       },
       {
         "id": "normal_66",
         "category": "Compute",
-        "q": "A team wants to deploy a containerized app without having to manage a Kubernetes cluster, but with automatic scaling. What will it choose?",
+        "q": "A team packages its API as a container. It wants automatic scaling, including down to zero when idle, without creating or operating a Kubernetes cluster. Which service fits best?",
         "a": [
-          "An Azure Virtual Machine, with manual Docker",
-          "Azure Kubernetes Service, with full cluster management",
-          "Azure Container Apps, with serverless container scaling",
-          "Azure Bastion, for VM access"
+          "Azure Kubernetes Service",
+          "Virtual Machine Scale Sets",
+          "Azure Container Apps",
+          "Azure Virtual Machines"
         ],
         "c": 2,
-        "e": "Azure Container Apps lets you deploy containers with serverless automatic scaling without having to manage the Kubernetes cluster itself. AKS requires managing the entire cluster, more than the scenario wants. A VM with manual Docker requires managing the OS and container engine yourself. Azure Bastion addresses VM access, not hosting containers."
+        "e": "Azure Container Apps is a serverless container platform: it scales containers automatically, even to zero, and Azure runs the underlying Kubernetes for you. AKS would require the team to operate a cluster. Scale Sets and plain VMs mean managing operating systems and container runtimes."
       },
       {
         "id": "normal_67",
         "category": "Compute",
-        "q": "A company wants to process data streamed in real time from thousands of IoT devices. What will it choose?",
+        "q": "Developers want an app packaged with all its dependencies so it starts in seconds and runs the same on a laptop and in Azure, without a full guest OS per instance. Which compute type fits best?",
         "a": [
-          "Azure Files, for classic shared storage",
-          "Resource lock, to protect resources from deletion",
-          "Azure DNS, for managing domain names",
-          "Azure Event Hubs, for receiving streamed data"
+          "Virtual machines",
+          "Serverless functions",
+          "Availability sets",
+          "Containers"
         ],
         "c": 3,
-        "e": "Azure Event Hubs is designed for receiving and processing large volumes of streamed data in real time from many sources like IoT devices. Azure Files provides shared network folders, unsuited for streaming data. A resource lock protects resources from deletion. Azure DNS only manages domain names."
+        "e": "Containers bundle an app with its dependencies, share the host OS kernel, start in seconds and run consistently in any environment. Virtual machines each include a full guest OS, so they're heavier and slower to start. Serverless functions run small pieces of code, not a packaged app with its own runtime. Availability sets are a VM placement feature."
       },
       {
         "id": "normal_68",
         "category": "Compute",
-        "q": "A developer wants to deploy an API with automatic documentation generation and version management without owning the infrastructure. What will they choose?",
+        "q": "A VM's operating system and installed software must survive a restart or a move to another physical host. Where does Azure store the VM's operating system?",
         "a": [
-          "Azure API Management, for managing and publishing APIs",
-          "Blob Storage, for storing API definitions",
-          "An Azure Virtual Machine, with a custom API server",
-          "Resource lock, to protect resources"
+          "On a managed disk",
+          "In an Azure file share",
+          "In the virtual network",
+          "In the resource group"
         ],
         "c": 0,
-        "e": "Azure API Management provides publishing, documentation, versioning, and management of APIs without having to build your own infrastructure. A Virtual Machine would require manually managing an entire API server. Blob Storage just stores files, it doesn't provide API management features. A resource lock protects resources from deletion and has nothing to do with API management."
+        "e": "A VM's operating system lives on an OS disk, a managed disk (Azure Disk Storage) that persists independently of the host. Azure Files provides SMB/NFS shares, not boot disks. A virtual network provides connectivity, and a resource group is only a logical container."
       },
       {
         "id": "normal_69",
         "category": "Compute",
-        "q": "A company wants to run a short, compute-intensive machine learning job just once and then release the resource. What will it choose?",
+        "q": "A company compares hosting options for an internal app and wants to avoid OS patching work. In which option would the company itself have to patch the operating system?",
         "a": [
-          "Azure Bastion, for secure remote access",
-          "An on-demand VM or cluster, deleted after completion",
-          "An on-premises server with fixed capacity",
-          "A continuously running VM with very high performance"
+          "Azure Container Instances",
+          "Azure Virtual Machines",
+          "Azure Functions",
+          "Azure App Service"
         ],
         "c": 1,
-        "e": "A VM or compute cluster created on demand and deleted after the job finishes minimizes the cost of a one-off compute-intensive task. A continuously running VM would be needlessly costly for one-time use. An on-premises server with fixed capacity lacks cloud flexibility. Azure Bastion addresses VM access, it doesn't address compute processing."
+        "e": "Virtual Machines are IaaS: Microsoft manages the physical host, but the customer patches and maintains the guest OS. In App Service, Functions and Container Instances the platform is managed by Azure, so Microsoft patches the OS underneath."
       },
       {
         "id": "normal_70",
         "category": "Compute",
-        "q": "A team wants to host the backend of a mobile app with push notifications and offline data sync. What will it choose?",
+        "q": "An architecture firm wants several designers to share one powerful GPU-enabled Windows session host, so it pays for fewer VMs than it has users. Which service supports this multi-session model?",
         "a": [
-          "Resource lock, to protect resources",
-          "Azure DNS, for managing names",
-          "Azure Mobile Apps, part of App Service",
-          "Azure Bastion, for remote access"
+          "Virtual Machine Scale Sets",
+          "Azure App Service",
+          "Azure Virtual Desktop",
+          "Azure Container Instances"
         ],
         "c": 2,
-        "e": "Azure Mobile Apps, part of App Service, provides features like push notifications and offline data sync specifically for mobile backends. Azure Bastion addresses secure VM access, unrelated to a mobile backend. A resource lock protects resources from deletion. Azure DNS only manages domain names."
+        "e": "Azure Virtual Desktop supports Windows multi-session, so several users share one session host VM, which reduces cost. Scale Sets run identical VMs but don't deliver user desktops. App Service hosts web apps and Container Instances runs containers; neither delivers a desktop."
       },
       {
         "id": "normal_71",
         "category": "Compute",
-        "q": "A company wants to deploy an application consistently across multiple cloud environments or on-premises using containers. What will it choose?",
+        "q": "A retailer has servers in its stores and in another cloud. It wants to see and govern them in the Azure portal with Azure Policy and tags, just like Azure resources. What should it use?",
         "a": [
-          "Resource lock, to protect resources from deletion",
-          "Azure Bastion, for secure VM access",
-          "A tag, as a descriptive label for resources",
-          "Azure Arc-enabled Kubernetes, for consistent management"
+          "Azure Virtual Desktop",
+          "Azure Resource Manager",
+          "Azure Migrate",
+          "Azure Arc"
         ],
         "c": 3,
-        "e": "Azure Arc-enabled Kubernetes lets you consistently manage and deploy containerized apps across Azure, other clouds, and on-premises. Azure Bastion addresses secure VM access, unrelated to multi-cloud deployment. A resource lock protects resources from deletion. A tag just describes resources with metadata."
+        "e": "Azure Arc projects servers, Kubernetes clusters and data services running outside Azure (on-premises or in other clouds) into Azure Resource Manager, so they can be governed with Policy, tags and RBAC. Azure Migrate moves workloads into Azure instead of managing them where they are. ARM alone only reaches Azure resources. Virtual Desktop delivers desktops."
       },
       {
         "id": "normal_72",
         "category": "Compute",
-        "q": "A team wants to host long-running backend processes and workers that process message queues. What will it choose?",
+        "q": "A developer wants to publish a Python web API from GitHub, add a custom domain with TLS and let the platform scale it out, without touching any servers. What should they use?",
         "a": [
-          "Azure WebJobs, part of App Service",
-          "Resource lock, to protect resources",
-          "Azure DNS, for managing names",
-          "A tag, to describe resources"
+          "Azure App Service",
+          "Azure Virtual Machines",
+          "Azure Kubernetes Service",
+          "Availability sets"
         ],
         "c": 0,
-        "e": "Azure WebJobs, part of App Service, lets you run long-running backend processes and workers that process message queues in the same environment as the web app. A resource lock protects resources from deletion, unrelated to running processes. A tag just describes resources. Azure DNS manages domain names."
+        "e": "App Service is a PaaS host for web apps and APIs, with built-in deployment from GitHub, custom domains, TLS and autoscaling. VMs and AKS could host the API but require managing servers or a cluster. Availability sets only control VM placement."
       },
       {
         "id": "normal_73",
         "category": "Monitoring",
-        "q": "A company wants to track performance metrics and logs across all its resources in one central place. What will it use?",
+        "q": "Users report that a web app's checkout page is slow and sometimes fails. Developers want request timings, failure rates and exceptions traced to the code. What should they use?",
         "a": [
-          "Resource group, for organizing resources",
-          "Azure Monitor, for collecting metrics and logs",
-          "Azure Advisor, for recommendations",
-          "A tag, to describe resources"
+          "Azure Service Health",
+          "Application Insights",
+          "Azure Advisor",
+          "Activity log"
         ],
         "c": 1,
-        "e": "Azure Monitor collects metrics and logs from resources in real time and provides a central view of performance across the environment. Azure Advisor gives one-time optimization recommendations, not ongoing real-time monitoring. A resource group is an organizational container, not a monitoring tool. A tag just describes resources with metadata."
+        "e": "Application Insights, part of Azure Monitor, tracks application performance: request durations, failures, dependencies and exceptions. Service Health reports Azure platform issues. Advisor gives recommendations. The Activity log records management operations, not app requests."
       },
       {
         "id": "normal_74",
         "category": "Monitoring",
-        "q": "A security team wants to search through a large volume of logs using a query language and find patterns in the data. What will it use?",
+        "q": "Logs from 200 VMs must be kept in one place, and an analyst wants to write KQL queries that correlate events across all of them. What should be set up?",
         "a": [
-          "Azure Advisor, for recommendations",
-          "Resource lock, to protect resources",
-          "Log Analytics, with the KQL query language",
-          "Azure Policy, for rules"
+          "Azure Advisor",
+          "Microsoft Purview",
+          "Log Analytics workspace",
+          "Azure Service Health"
         ],
         "c": 2,
-        "e": "Log Analytics is part of Azure Monitor, designed for storing and querying large volumes of logs using the KQL query language. Azure Advisor provides general recommendations, not a log analysis tool. A resource lock protects resources from deletion. Azure Policy enforces configuration standards, it isn't used for searching logs."
+        "e": "A Log Analytics workspace in Azure Monitor collects logs from many sources and lets you query them with KQL. Purview governs data; it doesn't analyze operational logs. Advisor gives recommendations, and Service Health reports platform incidents."
       },
       {
         "id": "normal_75",
         "category": "Monitoring",
-        "q": "A team wants an alert when CPU usage on a production server exceeds 90%. What will it set up?",
+        "q": "When a web app returns many HTTP 5xx errors, the on-call engineer must get an SMS within minutes. What should be configured?",
         "a": [
-          "A tag, to describe a resource",
-          "A resource lock, to protect a resource",
-          "Azure Policy, for configuration rules",
-          "An alert in Azure Monitor on that metric"
+          "An Azure Advisor recommendation",
+          "An Activity log export",
+          "A Service Health alert",
+          "An Azure Monitor alert"
         ],
         "c": 3,
-        "e": "Azure Monitor lets you set alerts on specific metrics like CPU usage, exactly for this real-time monitoring purpose. Azure Policy enforces configuration rules, it doesn't continuously track performance metrics. A resource lock protects a resource from deletion. A tag just describes a resource, it doesn't react to metrics."
+        "e": "An Azure Monitor alert rule watches a metric or log condition, such as the 5xx count, and uses an action group to send an SMS or email or trigger automation. Service Health alerts cover Azure platform incidents, not your app's errors. Advisor recommendations aren't real-time, and exporting the Activity log doesn't notify anyone."
       },
       {
         "id": "normal_76",
         "category": "Monitoring",
-        "q": "A company wants to visualize metrics and logs from multiple sources on one dashboard for its operations team. What will it use?",
+        "q": "Several of a company's VMs became unreachable this morning. The admin wants to check whether Microsoft is reporting an incident in that region affecting the company's resources. Where should they look?",
         "a": [
-          "An Azure Monitor workbook or dashboard",
-          "A resource lock, to protect resources",
-          "Azure Policy, for rules",
-          "A tag, to describe resources"
+          "Azure Service Health",
+          "Azure Advisor",
+          "Log Analytics",
+          "Defender for Cloud"
         ],
         "c": 0,
-        "e": "An Azure Monitor workbook or dashboard aggregates and visualizes metrics and logs from multiple sources on one screen. A resource lock protects resources from deletion, it doesn't provide data visualization. Azure Policy enforces rules, it isn't used for visualizing metrics. A tag just describes resources with metadata."
+        "e": "Azure Service Health shows Azure incidents, planned maintenance and health advisories that affect your subscriptions and regions. Advisor gives best-practice recommendations. Log Analytics queries your own logs. Defender for Cloud covers security."
       },
       {
         "id": "normal_77",
         "category": "Monitoring",
-        "q": "A team wants an automatic response to an alert, like restarting a service, without waiting for a human to act manually. What will it use?",
+        "q": "An admin wants a chart of a VM's CPU usage over the last 24 hours, using data that Azure collects automatically without any extra setup. What should they use?",
         "a": [
-          "A tag, describing resources",
-          "An alert wired to an Automation runbook",
-          "Only an email notification to the team",
-          "A resource lock, protecting resources"
+          "Application Insights",
+          "Azure Monitor metrics",
+          "Defender for Cloud",
+          "Azure Advisor"
         ],
         "c": 1,
-        "e": "An alert connected to an Azure Automation runbook lets you trigger an automated action like restarting a service as soon as the condition is met. An email notification alone informs the team, but still requires manual action. A resource lock protects resources from deletion, it doesn't react to alerts. A tag just describes resources with metadata."
+        "e": "Azure Monitor collects platform metrics such as VM CPU automatically and can chart them in Metrics explorer. Application Insights requires instrumenting an application. Defender for Cloud focuses on security. Advisor gives recommendations, not time-series charts."
       },
       {
         "id": "normal_78",
         "category": "Monitoring",
-        "q": "An administrator wants to find the history of all actions taken on a specific resource over the past week. What will they review?",
+        "q": "A production VM was stopped overnight and nobody admits to doing it. Which record shows who stopped it and when?",
         "a": [
-          "Resource lock settings",
-          "A pricing calculator estimate",
-          "That resource's Activity log",
-          "Azure Advisor recommendations"
+          "Azure Service Health",
+          "Application Insights",
+          "Activity log",
+          "Azure Advisor"
         ],
         "c": 2,
-        "e": "The Activity log records the history of operations performed on a resource, who changed what and when. Azure Advisor gives optimization recommendations, it doesn't contain a history of actions. The pricing calculator estimates future costs, unrelated to a history of actions. Resource lock settings show the protection status, they don't provide a history of actions."
+        "e": "The Activity log records management operations on resources, such as stopping a VM, including who did it and when. Service Health reports Azure-side incidents. Application Insights tracks app behavior. Advisor gives recommendations."
       },
       {
         "id": "normal_79",
         "category": "Management",
-        "q": "A manager wants consolidated recommendations across cost, security, reliability, and performance in one place. What will they use?",
+        "q": "A manager suspects the company pays for oversized, underused VMs and wants free, personalized suggestions to resize or shut them down. What should they check?",
         "a": [
-          "Azure DNS, for managing names",
-          "Azure Monitor, for collecting metrics",
-          "Resource group, for organizing resources",
-          "Azure Advisor, for consolidated recommendations"
+          "Pricing calculator",
+          "Azure Service Health",
+          "Microsoft Purview",
+          "Azure Advisor"
         ],
         "c": 3,
-        "e": "Azure Advisor provides a consolidated overview of recommendations across cost, security, reliability, and performance. Azure Monitor collects metrics and logs, but doesn't provide the same kind of consolidated recommendations. A resource group is an organizational container. Azure DNS only handles domain name resolution."
+        "e": "Azure Advisor analyzes your resource usage and gives personalized recommendations, including resizing or shutting down underused VMs to save money. The pricing calculator estimates new deployments. Service Health reports platform incidents. Purview governs data."
       },
       {
         "id": "normal_80",
         "category": "Management",
-        "q": "An administrator wants to manage Azure via the command line using scriptable commands that work cross-platform. What will they use?",
+        "q": "An admin is on a locked-down laptop where nothing can be installed, but must run Azure CLI commands right now. What should they use?",
         "a": [
-          "Azure CLI, as a cross-platform command-line tool",
-          "A tag, as a descriptive label for resources",
-          "A resource lock, to protect resources from deletion",
-          "Azure Portal, as a graphical web interface"
+          "Azure Cloud Shell",
+          "Azure PowerShell module",
+          "ARM template",
+          "Azure Arc"
         ],
         "c": 0,
-        "e": "Azure CLI is a cross-platform command-line tool for scriptable management of Azure resources on Windows, macOS, and Linux. Azure Portal is a graphical web interface, not a command-line tool. A resource lock is a resource protection feature, not a general management tool. A tag just describes resources with metadata."
+        "e": "Azure Cloud Shell is a browser-based shell with Azure CLI and Azure PowerShell preinstalled, so nothing needs to be installed locally. The PowerShell module would have to be installed. An ARM template defines resources; it isn't a shell. Azure Arc manages resources outside Azure."
       },
       {
         "id": "normal_81",
         "category": "Management",
-        "q": "A team wants to define infrastructure as code in a declarative JSON file for repeatable deployment. What will it use?",
+        "q": "Whether an admin uses the Azure portal, Azure CLI or PowerShell, which service receives the request, authenticates it and creates the resources?",
         "a": [
-          "Resource lock, to protect resources",
-          "ARM template, as a declarative JSON format",
-          "Cloud Shell, as a browser-based environment",
-          "Azure CLI, as a command-line tool"
+          "Azure Cloud Shell",
+          "Azure Resource Manager",
+          "Microsoft Entra Domain Services",
+          "Azure Arc"
         ],
         "c": 1,
-        "e": "An ARM template is a declarative JSON file describing infrastructure, which Azure Resource Manager uses for repeatable deployment. Azure CLI is an imperative tool for interactive management, not a declarative format. Cloud Shell is an environment for running commands, not an infrastructure format. A resource lock protects resources, it doesn't define infrastructure as code."
+        "e": "Azure Resource Manager is the deployment and management layer: every request from the portal, CLI, PowerShell or templates goes through it, which is why the results are consistent. Cloud Shell is just a place to run commands. Entra Domain Services provides domain services. Arc extends ARM to resources outside Azure."
       },
       {
         "id": "normal_82",
         "category": "Cost",
-        "q": "A finance manager wants to track current monthly spend and set up alerts when the budget is exceeded. What will they use?",
+        "q": "A department has a fixed monthly Azure budget and wants an email when actual spending reaches 80 % of it. What should it use?",
         "a": [
-          "Azure Policy, for configuration rules",
-          "Pricing calculator, for estimating before deployment",
-          "Cost Management, for tracking spend and budgets",
-          "Azure Advisor, for recommendations"
+          "Pricing calculator",
+          "Azure Advisor",
+          "Cost Management budget",
+          "Azure Monitor alert"
         ],
         "c": 2,
-        "e": "Cost Management tracks actual spend in real time and lets you set budgets with alerts when the limit is exceeded. Azure Advisor gives recommendations, but doesn't offer ongoing tracking of actual spend. The pricing calculator is for estimating cost before deployment, not tracking costs already incurred. Azure Policy enforces configuration rules, not budget tracking."
+        "e": "Cost Management lets you create budgets with alerts at thresholds such as 80 % of actual spend. The pricing calculator estimates costs before deployment. Advisor recommends savings but doesn't track a budget. Azure Monitor metric alerts watch resource metrics, not spending."
       },
       {
         "id": "normal_83",
         "category": "Cost",
-        "q": "An architect wants to estimate the monthly cost of a specific combination of VMs, storage, and networking before deployment. What will they use?",
+        "q": "The same VM size costs less in one Azure region than in another. Which cost factor explains the difference?",
         "a": [
-          "Cost Management, for tracking incurred costs",
-          "Azure Advisor, for recommendations",
-          "TCO calculator, for comparing with on-premises",
-          "Pricing calculator, for estimating before deployment"
+          "Resource type",
+          "Subscription type",
+          "Bandwidth",
+          "Region"
         ],
         "c": 3,
-        "e": "The pricing calculator is built exactly for estimating the cost of a specific service configuration before it's deployed. Cost Management tracks actual costs already incurred, not a hypothetical estimate beforehand. Azure Advisor gives recommendations for an existing environment. The TCO calculator compares on-premises costs with the cloud over a longer horizon, not the price of a specific configuration."
+        "e": "Prices differ by region because of local costs such as energy, taxes and demand, so location is a cost factor. Resource type matters too, but the VM size is the same here. Subscription type affects offers and allowances, not regional prices. Bandwidth is about data transfer."
       },
       {
         "id": "normal_84",
         "category": "Cost",
-        "q": "A team is planning a migration and wants to find out the savings versus maintaining its own infrastructure over a longer horizon. What will it use?",
+        "q": "The number of VMs didn't change, but the monthly bill grew after the app started sending much more data to users on the internet. Which cost factor caused this?",
         "a": [
-          "TCO calculator, for comparing with on-premises costs",
-          "Azure Advisor, for recommendations on an existing environment",
-          "Pricing calculator, for estimating a configuration",
-          "Cost Management, for tracking spend"
+          "Outbound data transfer",
+          "Inbound data transfer",
+          "Resource locks",
+          "Resource groups"
         ],
         "c": 0,
-        "e": "The TCO calculator compares the total cost of running on-premises infrastructure with the cost of an equivalent solution in Azure over a longer horizon. The pricing calculator estimates the cost of a specific Azure configuration, but doesn't compare it with on-premises costs. Azure Advisor gives recommendations for an already-existing Azure environment. Cost Management tracks costs already incurred in Azure."
+        "e": "Data leaving Azure to the internet (egress) is billed, while inbound data transfer is generally free. Resource locks and resource groups don't cost anything. The growth therefore comes from outbound bandwidth."
       },
       {
         "id": "normal_85",
         "category": "Storage",
-        "q": "A company wants to store and version container images, from which it deploys applications to AKS. What will it use?",
+        "q": "Branch offices keep using their local Windows file servers, but the company wants all files centralized in Azure, with only frequently used files cached locally. What should it use?",
         "a": [
-          "Azure Files, for shared storage",
-          "Container Registry, for managing images",
-          "Table Storage, for structured data",
-          "Blob Storage, for object data"
+          "AzCopy",
+          "Azure File Sync",
+          "Azure Storage Explorer",
+          "Azure Migrate"
         ],
         "c": 1,
-        "e": "Azure Container Registry is a managed service for storing and managing Docker and OCI container images. Blob Storage is general-purpose object storage, not optimized for versioning images the same way. Azure Files provides shared network folders, not an image registry. Table Storage stores simple structured data and has nothing to do with managing images."
+        "e": "Azure File Sync syncs Windows file servers with an Azure file share and can tier rarely used files to the cloud while keeping frequently used files cached locally. AzCopy and Storage Explorer copy data but don't keep servers in sync. Azure Migrate moves whole servers to Azure."
       },
       {
         "id": "normal_86",
         "category": "Storage",
-        "q": "A company wants older versions of a file to be automatically preserved for 30 days in case of a user mistake. What will it use?",
+        "q": "A support engineer wants a graphical desktop tool to browse blob containers, upload a few files and manage file shares across several storage accounts. What should they use?",
         "a": [
-          "Higher redundancy like GRS",
-          "Lifecycle management, for deleting old data",
-          "Blob versioning and soft delete with retention",
-          "Switching to Archive tier"
+          "AzCopy",
+          "Azure Data Box",
+          "Azure Storage Explorer",
+          "Azure File Sync"
         ],
         "c": 2,
-        "e": "Blob versioning preserves prior versions of an object with every change, and soft delete lets you restore deleted objects for a defined period. Lifecycle management is for automatically moving or deleting data by age, not preserving version history. Higher redundancy like GRS protects against infrastructure outages, not accidental file overwrites. Archive tier just changes the price and speed of access."
+        "e": "Azure Storage Explorer is a free graphical desktop app for managing blobs, files, queues and tables across storage accounts. AzCopy does similar transfers from the command line. Data Box ships data offline, and File Sync keeps file servers synchronized."
       },
       {
         "id": "normal_87",
         "category": "Storage",
-        "q": "A team wants to securely share a specific file with an external partner for a limited 24-hour window without creating an account. What will it use?",
+        "q": "An ordering website must hand off work to a separate processing service, so that orders aren't lost while the processor is temporarily down. Which storage service is designed for this?",
         "a": [
-          "Sharing the account's primary access key",
-          "Public access to the entire storage account, permanently",
-          "Creating a full account for the partner",
-          "A Shared Access Signature (SAS) token with a time limit"
+          "Table Storage",
+          "Blob Storage",
+          "Azure Files",
+          "Queue Storage"
         ],
         "c": 3,
-        "e": "A SAS token lets you grant time- and scope-limited access to a specific resource without creating an account. Permanent public access to the entire account would expose all data to anyone. Sharing the primary key would give unlimited access to all data. Creating a full account is administratively heavier for one-off sharing."
+        "e": "Queue Storage holds messages until a consumer processes them, which decouples the website from the processor so nothing is lost while it's down. Table Storage stores structured entities, Blob Storage stores objects, and Azure Files provides file shares; none of them is a message queue."
       },
       {
         "id": "normal_88",
         "category": "Storage",
-        "q": "A company wants to automatically move data older than 90 days to a cheaper tier without manual intervention. What will it use?",
+        "q": "Log files in Blob Storage are read often during their first month and almost never afterwards. The company wants them moved to a cheaper tier automatically as they age. What should it configure?",
         "a": [
-          "A lifecycle management policy, for automatic transfer",
-          "Switching the whole account to a more expensive Premium tier",
-          "A manual monthly transfer by an administrator",
-          "Deleting old data without creating a backup"
+          "Lifecycle management",
+          "Azure Storage Explorer",
+          "Geo-redundant storage",
+          "Azure File Sync"
         ],
         "c": 0,
-        "e": "A lifecycle management policy automatically moves data to a cheaper tier based on defined rules tied to data age. A manual monthly check is time-consuming and prone to being forgotten. Deleting data without a backup could cause data loss. Switching to Premium tier would actually increase costs."
+        "e": "Lifecycle management rules move blobs to a cooler tier, or delete them, based on age, with no manual work. Storage Explorer is a desktop tool for managing data by hand. GRS changes how data is replicated, not its access tier or price per GB. Azure File Sync syncs on-premises file servers with Azure Files."
       },
       {
         "id": "normal_89",
         "category": "Compute",
-        "q": "A team wants to deploy an application that automatically restarts on failure, without manual administrator intervention. What will provide this?",
+        "q": "In a Kubernetes-based app, one container crashes at night. The team wants the platform to detect it and start a replacement automatically, without paging anyone. Which Azure service provides this orchestration?",
         "a": [
-          "A manual restart after a user reports it",
-          "A self-healing orchestration mechanism like AKS",
-          "Manual monitoring by an administrator",
-          "Shutting down the application on any problem"
+          "Container Instances",
+          "Azure Kubernetes Service",
+          "Azure Virtual Desktop",
+          "Azure Functions"
         ],
         "c": 1,
-        "e": "A self-healing mechanism, like in Azure Kubernetes Service, automatically detects failure and restarts the application without manual intervention. Manual monitoring requires an administrator to notice the problem and react themselves. Shutting down the app on any problem would worsen availability, not fix it. A manual restart after a user report is a slow, reactive approach."
+        "e": "AKS runs Kubernetes, which continuously compares the desired and actual state and replaces failed containers automatically (self-healing). Container Instances runs standalone containers without that orchestration layer. Functions runs event-driven code, and Virtual Desktop delivers desktops."
       },
       {
         "id": "normal_90",
         "category": "Compute",
-        "q": "A company wants to host a backend for smart devices sending telemetry and wants central management of connected devices. What will it choose?",
+        "q": "A company runs 30 identical VMs for a rendering farm. It wants to manage them as one group, apply the same configuration to all of them and change the instance count on a schedule. What should it use?",
         "a": [
-          "Azure Bastion, for secure VM access",
-          "Network Security Group, for filtering traffic",
-          "Azure DNS, only for domain name resolution",
-          "Microsoft Entra Connect, for identity synchronization"
+          "Availability sets",
+          "A management group",
+          "VM Scale Sets",
+          "Azure Virtual Desktop"
         ],
         "c": 2,
-        "e": "Azure IoT Hub is designed exactly for two-way communication and central management of large numbers of connected devices. Blob Storage just stores files and doesn't address device communication. A resource lock protects resources from deletion. Azure DNS only manages domain names and has nothing to do with managing IoT devices."
+        "e": "Virtual Machine Scale Sets manage identical VMs as one resource: one configuration, central updates and scaling by schedule or metric. Availability sets only spread VMs across fault and update domains. A management group organizes subscriptions for governance. Azure Virtual Desktop delivers user desktops."
       },
       {
         "id": "normal_91",
         "category": "Networking",
-        "q": "A company wants to connect its local Active Directory with a cloud identity for unified employee sign-in. What will it use?",
+        "q": "A company keeps its on-premises Active Directory but wants employees to sign in to Microsoft 365 and Azure with the same username and password. What should it use to synchronize the identities to the cloud?",
         "a": [
-          "A tag, as a descriptive label for resources",
-          "Azure Firewall, with rules for allowed sources",
-          "A resource lock, to protect resources from deletion",
-          "Azure DNS, only for managing domain names"
+          "Microsoft Entra Domain Services",
+          "Azure VPN Gateway",
+          "Microsoft Entra B2B",
+          "Microsoft Entra Connect"
         ],
         "c": 3,
-        "e": "Microsoft Entra Connect synchronizes identities between a local Active Directory and Microsoft Entra ID, enabling unified sign-in across environments. Azure DNS only handles domain name resolution. A Network Security Group filters network traffic, unrelated to identity synchronization. Azure Bastion provides VM access, it doesn't address linking identities."
+        "e": "Microsoft Entra Connect synchronizes users from on-premises Active Directory to Microsoft Entra ID, so employees keep one identity. Entra Domain Services provides managed domain services (domain join, LDAP) in Azure and doesn't sync from on-premises. A VPN gateway connects networks, not identities. Entra B2B invites external partner users."
       },
       {
         "id": "normal_92",
         "category": "Networking",
-        "q": "A team wants to restrict which public IP addresses can communicate with their Azure environment at all, at the network level. What will it use?",
+        "q": "An office wants a site-to-site VPN to Azure. Besides the VPN gateway in Azure, what must exist on the office side?",
         "a": [
-          "Application Gateway or Front Door, with HTTPS support",
-          "A VPN Gateway, with an encrypted tunnel between networks",
-          "A Network Security Group, with a redirection rule",
-          "Azure DNS, with a regular CNAME record"
+          "A compatible VPN device",
+          "An ExpressRoute circuit",
+          "A private DNS zone",
+          "A VPN client on each PC"
         ],
         "c": 0,
-        "e": "Azure Firewall lets you define rules that restrict communication to only allowed source IP addresses at the whole-network level. Azure DNS only handles domain name resolution. A resource lock protects resources from deletion, it doesn't address network traffic filtering. A tag just describes resources with metadata."
+        "e": "A site-to-site VPN needs a VPN gateway in Azure and a compatible VPN device (with a public IP) at the office to terminate the tunnel. An ExpressRoute circuit is a different connection type. A VPN client on each PC is used for point-to-site. A private DNS zone is unrelated to the tunnel."
       },
       {
         "id": "normal_93",
         "category": "Networking",
-        "q": "A company wants a web app to automatically redirect HTTP requests to encrypted HTTPS. What will it set up?",
+        "q": "Peering between two VNets fails because both use the address space 10.0.0.0/16. What is the reason?",
         "a": [
-          "Azure DNS, only with a CNAME record",
-          "Application Gateway or Front Door, with redirect support",
-          "A Network Security Group, with a custom routing rule",
-          "A VPN Gateway, only with an encrypted tunnel"
+          "They are in different regions",
+          "Their address spaces overlap",
+          "Peering requires a VPN gateway",
+          "They lack network security groups"
         ],
         "c": 1,
-        "e": "Application Gateway or Front Door offer a built-in feature for automatically redirecting HTTP requests to encrypted HTTPS. A Network Security Group filters traffic by rules, it doesn't redirect protocols. Azure DNS just resolves names, it doesn't redirect a protocol. A VPN Gateway creates an encrypted connection between networks, it doesn't address redirecting web traffic."
+        "e": "VNets can only be peered when their IP address spaces don't overlap, and here both use 10.0.0.0/16. Peering works across regions, doesn't need a VPN gateway and doesn't require NSGs."
       },
       {
         "id": "normal_94",
         "category": "Networking",
-        "q": "A team wants to find out exactly where network traffic into their VNet is coming from, and log all communication for auditing. What will it use?",
+        "q": "A team wants the same set of security rules to apply to all current and future VMs in a subnet, without configuring each VM separately. What should it do?",
         "a": [
-          "Just Azure DNS alone, with no other services",
-          "Region autoscaling with Traffic Manager for routing",
-          "Just the Network Security Group alone, nothing else",
-          "Just a VPN Gateway alone, with nothing else"
+          "Assign an NSG to each VM's NIC",
+          "Create a private endpoint",
+          "Associate an NSG with the subnet",
+          "Peer the subnet with another VNet"
         ],
         "c": 2,
-        "e": "NSG Flow Logs record information about network traffic passing through a Network Security Group, enabling auditing and analysis of where communication originates. A resource lock protects resources from deletion, it doesn't provide traffic logging. A tag just describes resources with metadata. The pricing calculator is for estimating costs, unrelated to network logging."
+        "e": "An NSG associated with a subnet applies its rules to all resources in that subnet, including VMs added later. NSGs on individual network interfaces must be maintained per VM. A private endpoint gives a service a private IP, and peering connects VNets instead of filtering traffic."
       },
       {
         "id": "normal_95",
         "category": "Networking",
-        "q": "A company wants to automatically scale the number of instances of a web app according to network load across multiple regions. What will it combine?",
+        "q": "A storage account has public network access disabled, but VMs in the company VNet still need to use it. What makes this possible?",
         "a": [
-          "A public IP with absolutely no restriction",
-          "Relying only on a strong admin password",
-          "Sharing a link with a few trusted people",
-          "Autoscaling per region plus Traffic Manager"
+          "A public IP address",
+          "A point-to-site VPN",
+          "A network security group",
+          "A private endpoint"
         ],
         "c": 3,
-        "e": "Combining per-region autoscaling with Traffic Manager for routing lets you scale capacity according to load while also routing users to the appropriate region. A Network Security Group alone just filters traffic, it doesn't address scaling or routing between regions. Azure DNS alone, with no other services, won't provide scaling. A VPN Gateway alone only addresses connecting networks, not scaling or routing between regions."
+        "e": "A private endpoint gives the storage account a private IP in the VNet, so VMs reach it privately even with public access disabled. A public IP is for internet access. A point-to-site VPN connects individual devices to a VNet, and an NSG filters traffic but can't create a path to the service."
       },
       {
         "id": "normal_96",
         "category": "Networking",
-        "q": "A team wants to ensure an application's internal admin interface is reachable only from the corporate network, not the public internet. What will it use?",
+        "q": "An app's admin interface runs on a VM and must accept connections only from the company's office IP range, not from the rest of the internet. What is the simplest control?",
         "a": [
-          "A Private Endpoint or NSG rules restricting source IPs",
-          "Sharing a link only with trusted people",
-          "A public IP address with no restriction",
-          "Relying only on a complex administrator password"
+          "An NSG rule for the office IP range",
+          "A private DNS zone for the admin site",
+          "A strong administrator password policy",
+          "Microsoft Entra B2B"
         ],
         "c": 0,
-        "e": "A Private Endpoint or NSG rules restricting access to just the corporate IP range technically ensure the interface isn't reachable from the public internet. An unrestricted public IP address would expose the interface to anyone on the internet. Sharing a link only with trusted people doesn't address technical security, the link could leak. Relying on a complex password doesn't prevent the connection attempt itself from outside."
+        "e": "An NSG inbound rule that allows only the office IP range blocks every other source at the network level. A private DNS zone hides the name but doesn't block connections by IP. A strong password still lets anyone attempt to connect. Entra B2B is for inviting external users."
       },
       {
         "id": "normal_97",
         "category": "Database",
-        "q": "A company wants to migrate an application using specific PostgreSQL features without major code changes. What will it choose?",
+        "q": "A vendor's software requires SQL Server plus an agent installed on the same Windows server, so the team needs access to the OS. Which option fits best?",
         "a": [
-          "Table Storage, for simple key-value data",
-          "Database for PostgreSQL, a compatible service",
-          "Blob Storage, for storing binary files",
-          "Cosmos DB, a global NoSQL database"
+          "Azure SQL Database",
+          "SQL Server on an Azure VM",
+          "Azure Cosmos DB",
+          "SQL Managed Instance"
         ],
         "c": 1,
-        "e": "Azure Database for PostgreSQL is a managed service fully compatible with PostgreSQL, enabling migration with minimal code changes. Cosmos DB is a NoSQL database with a different data model and would require rewriting the app. Table Storage can't handle PostgreSQL-specific queries. Blob Storage is for storing files, not running a relational database."
+        "e": "SQL Server on an Azure VM is IaaS: the team gets full OS access to install the agent next to the database. Azure SQL Database and SQL Managed Instance are PaaS, so the OS isn't accessible. Cosmos DB is a NoSQL database."
       },
       {
         "id": "normal_98",
         "category": "Governance",
-        "q": "A company wants every newly created resource to automatically require a department-name tag, otherwise the resource can't be created. What will it use?",
+        "q": "A marketing campaign uses a web app, a database and a storage account for three months. Afterwards, the team wants to remove everything in a single step. How should it set them up?",
         "a": [
-          "Activity log, as a record of actions taken",
-          "A resource lock, protecting a resource from deletion",
-          "Azure Policy, with a Deny effect enforcing a required tag",
-          "RBAC, for granting specific permissions"
+          "Give all resources one tag",
+          "One subscription per resource",
+          "Put them in one resource group",
+          "Apply a CanNotDelete lock"
         ],
         "c": 2,
-        "e": "Azure Policy with a Deny effect can enforce that a resource without the required tag is never created at all, guaranteeing consistent tagging from the start. RBAC handles who has what permissions, not what properties a resource must have. A resource lock protects an existing resource from deletion, it doesn't address rules for creating new resources. The Activity log just records actions already taken, it doesn't enforce anything in advance."
+        "e": "Deleting a resource group deletes all the resources in it, so giving the campaign its own resource group allows one-step cleanup. A tag only labels resources. One subscription per resource is unnecessary overhead. A CanNotDelete lock would block deletion."
       },
       {
         "id": "normal_99",
         "category": "Networking",
-        "q": "A company has traffic with bursty load across multiple Azure regions and wants a load balancer that works across regions, not just within one. What does it actually need?",
+        "q": "A small business with a tight budget needs an encrypted connection from its single office to Azure and can tolerate variable internet performance. Which option fits best?",
         "a": [
-          "Network Security Group, for filtering network traffic",
-          "Azure Bastion, for secure VM access",
-          "Azure Load Balancer, said to work across regions too",
-          "Traffic Manager or Front Door, for routing between regions"
+          "ExpressRoute",
+          "VNet peering",
+          "Point-to-site VPN",
+          "Site-to-site VPN connection"
         ],
         "c": 3,
-        "e": "Azure Traffic Manager or Front Door are designed for routing traffic across multiple regions, unlike Load Balancer, which only works within a single region at the network layer. A Network Security Group just filters traffic by rules, it doesn't address routing between regions. Azure Bastion provides VM access and has nothing to do with routing traffic between regions."
+        "e": "A site-to-site VPN uses the existing internet connection, is cheap and quick to set up, and encrypts traffic; variable performance is acceptable here. ExpressRoute costs more and requires a provider. Point-to-site on every PC is harder to manage for a whole office. VNet peering connects Azure VNets only."
       },
       {
         "id": "normal_100",
         "category": "Cloud concepts",
-        "q": "A retailer's finance team wants to shift Azure spending from a large upfront purchase to a recurring monthly operating cost that scales with actual usage, so it doesn't tie up capital in hardware. Which cloud pricing characteristic are they taking advantage of?",
+        "q": "A retailer's finance team wants to shift IT spending from large upfront hardware purchases to a recurring monthly cost that follows actual usage, so capital isn't tied up in servers. Which cloud characteristic are they using?",
         "a": [
-          "Consumption-based pricing (OpEx)",
+          "Consumption-based model",
           "Economies of scale",
           "Vertical scaling",
-          "Community cloud"
+          "Capital expenditure"
         ],
         "c": 0,
-        "e": "Cloud consumption-based pricing shifts spending from CapEx (buying hardware) to OpEx (paying for what you use as you go), which is exactly what avoids tying up capital. Economies of scale explains why the provider's prices are lower, not why the company's own spending pattern changed. Vertical scaling is about resource sizing. Community cloud is a deployment model shared among similar organizations."
+        "e": "The consumption-based model means paying only for what you use, which turns upfront CapEx into ongoing operational expense (OpEx). Economies of scale explain why the provider's prices are lower, not how the company's spending pattern changes. Vertical scaling is about resource size. CapEx is exactly the upfront spending the team wants to avoid."
       },
       {
         "id": "normal_101",
         "category": "Cloud concepts",
-        "q": "A budgeting team compares hosting an application on-premises versus in Azure and wants to include not just server cost but also power, cooling, staff time, and maintenance over several years in the comparison. What are they calculating?",
+        "q": "A budgeting team compares hosting an application on-premises versus in Azure and wants to include not just server cost but also power, cooling, staff time and maintenance over several years. What are they calculating?",
         "a": [
           "Return on investment (ROI)",
-          "Total cost of ownership (TCO)",
+          "Total cost of ownership",
           "Economies of scale",
           "Capital expenditure (CapEx)"
         ],
         "c": 1,
-        "e": "Total cost of ownership captures the full cost of running infrastructure over its lifetime, including indirect costs like power, cooling, and staff — not just the sticker price of hardware. ROI measures the financial return on an investment, not the full cost. Economies of scale explains provider pricing, not the customer's own cost comparison. CapEx is only the upfront hardware cost, a subset of TCO."
+        "e": "Total cost of ownership (TCO) captures the full cost of running infrastructure over its lifetime, including indirect costs like power, cooling and staff, not just the price of hardware. ROI measures the financial return on an investment. Economies of scale explain provider pricing. CapEx is only the upfront cost, a part of TCO."
       },
       {
         "id": "normal_102",
@@ -2766,7 +2766,7 @@ window.AZURE_DB = {
       {
         "id": "normal_104",
         "category": "Cloud concepts",
-        "q": "A gaming company notices its VM-based backend is maxed out on CPU during peak hours. Rather than replacing the VM with a bigger one, it puts several identical VMs behind a load balancer to spread the traffic. What scaling approach did it choose?",
+        "q": "A gaming company's VM-based backend is maxed out on CPU during peak hours. Instead of replacing the VM with a bigger one, it puts several identical VMs behind a load balancer to share the traffic. Which scaling approach did it choose?",
         "a": [
           "Horizontal scaling",
           "Vertical scaling",
@@ -2774,7 +2774,7 @@ window.AZURE_DB = {
           "High availability"
         ],
         "c": 0,
-        "e": "Adding more machines of the same size to share load is horizontal scaling (scaling out). Vertical scaling would mean resizing the existing VM to be bigger instead. Elasticity refers specifically to automatic scaling in response to demand, which isn't stated here since the company made a manual architectural choice. High availability is about uptime, not how capacity is added."
+        "e": "Adding more machines of the same size to share the load is horizontal scaling (scaling out). Vertical scaling would mean resizing the existing VM. Elasticity refers to scaling automatically with demand, which isn't described here; this was a manual architecture choice. High availability is about uptime, not how capacity is added."
       },
       {
         "id": "normal_105",
@@ -2857,15 +2857,15 @@ window.AZURE_DB = {
       {
         "id": "normal_111",
         "category": "Cloud concepts",
-        "q": "A company moves its email system from an on-premises server to Microsoft 365 (SaaS). Under the shared responsibility model, what does the company still remain responsible for?",
+        "q": "A company moves its email from an on-premises server to Microsoft 365 (SaaS). Under the shared responsibility model, what does the company still remain responsible for?",
         "a": [
           "Patching the operating system",
           "Maintaining the physical servers",
-          "Managing the application code",
-          "Managing its own data and user access"
+          "Updating the application code",
+          "Its data and user access"
         ],
         "c": 3,
-        "e": "Even in SaaS, the customer always retains responsibility for its own data and controlling who has access to it. Microsoft handles the OS, physical servers, and application code entirely in a SaaS model like Microsoft 365 — the customer has no server or code to manage at all."
+        "e": "Even in SaaS, the customer always keeps responsibility for its own data and for controlling who can access it. In a SaaS service like Microsoft 365, Microsoft handles the OS, the physical servers and the application code."
       },
       {
         "id": "normal_112",
@@ -2883,1070 +2883,1967 @@ window.AZURE_DB = {
       {
         "id": "normal_113",
         "category": "Cloud concepts",
-        "q": "An analytics team needs a burst of 200 virtual machines for a six-hour overnight data processing job, then needs zero the rest of the day. Which cloud characteristic makes this practical and cost-effective?",
+        "q": "An analytics team needs 200 VMs for a six-hour overnight job and none for the rest of the day. It pays only for the six hours used. Which cloud model makes this cost-effective?",
         "a": [
-          "Economies of scale alone",
-          "Elasticity and consumption-based pricing",
-          "Vertical scaling alone",
-          "High availability alone"
+          "Capital expenditure",
+          "Consumption-based model",
+          "Reserved capacity",
+          "Fixed-price hosting"
         ],
         "c": 1,
-        "e": "Elasticity lets the team spin up 200 VMs on demand and remove them right after, and consumption-based pricing means they only pay for those six hours rather than owning that capacity permanently. Economies of scale explains why prices are lower overall but not why a short burst is affordable. Vertical scaling only resizes a single machine, not launching 200 at once. High availability concerns uptime, not short-term capacity bursts."
+        "e": "With the consumption-based model the team pays only for the resources it uses, for as long as it uses them, so a short burst of 200 VMs costs just six hours. CapEx would mean buying that capacity upfront. Reserved capacity is a commitment to steady, long-term usage. Fixed-price hosting charges the same regardless of use."
       }
     ],
     "heroic": [
       {
         "id": "heroic_0",
         "category": "Cloud",
-        "q": "An e-commerce site sees ten times more traffic in November and December than the rest of the year, but for the rest of the year the same capacity would mostly sit idle and expensive. Which solution best fits this pattern?",
+        "q": "An online shop has a steady baseline load all year and a tenfold spike every November and December. Finance wants the lowest total cost without buying hardware for the peak and without risking outages during sales. Which approach fits best?",
         "a": [
-          "Using autoscaling in the public cloud with a consumption-based payment model",
-          "Buying physical servers powerful enough for peak load and leaving them running all year",
-          "Reserving a fixed VM capacity for 3 years with a Reserved Instances discount",
-          "Running the app in a private cloud with fixed capacity sized for average load"
+          "Reserved baseline plus pay-as-you-go autoscaling",
+          "Reservations sized for the peak, all year",
+          "Pay-as-you-go for everything, no reservations",
+          "Spot VMs for both the baseline and the peak"
         ],
         "c": 0,
-        "e": "Autoscaling with a consumption-based (pay-as-you-go) model exactly matches irregular, seasonal load — capacity automatically rises at peak and drops outside it, so the company only pays for actual usage. Physical servers sized for peak would be expensive and idle most of the year. Reserved Instances are good for stable, predictable load, not extreme seasonal swings. Fixed capacity sized for the average wouldn't be enough at peak, costing the company revenue."
+        "e": "Reserving the predictable baseline gets the discount where usage is steady, and pay-as-you-go autoscaling covers the seasonal peak only while it lasts. Reserving for the peak means paying for idle capacity ten months a year. Pure pay-as-you-go works but gives up the reservation discount on the constant baseline. Spot VMs can be evicted at any time, which risks outages during sales."
       },
       {
         "id": "heroic_1",
         "category": "Cloud",
-        "q": "A company has an old internal system that, due to licensing and hardware dependencies, can't be migrated to the cloud, but it wants to build all new customer-facing applications in Azure. What architectural approach does this require?",
+        "q": "A company must keep a licensing-locked system on servers in its own datacenter, but builds all new customer apps in Azure and connects the two. Which cloud model is this, and who patches the operating system of the on-premises servers?",
         "a": [
-          "Migrating the old system to a SaaS solution from a different provider",
-          "Choosing a hybrid architecture connecting the on-premises system with Azure",
-          "Running everything purely in the public cloud and rewriting the old system from scratch before launch",
-          "Running everything purely on-premises, including new apps, for consistency"
+          "Multi-cloud; the company's IT patches them",
+          "Hybrid cloud; the customer patches",
+          "Hybrid cloud; Microsoft patches them",
+          "Private cloud; Microsoft patches them"
         ],
         "c": 1,
-        "e": "A hybrid architecture lets you keep the non-migratable system on-premises while building new apps in Azure, connected via something like a VPN or ExpressRoute. Rewriting the old system from scratch would be costly and outside the scenario, which explicitly says migration isn't possible. Running everything on-premises would contradict the requirement to build new apps in Azure. Migrating to a third-party SaaS solution doesn't address the licensing and hardware dependencies described."
+        "e": "Combining on-premises servers with a public cloud is hybrid cloud, and servers in your own datacenter are entirely your responsibility, including OS patching. Multi-cloud means using several public cloud providers, which is not the case here. Microsoft has no responsibility for hardware or software in a customer's own datacenter. A private cloud alone would not include the Azure apps, and Microsoft still would not patch those servers."
       },
       {
         "id": "heroic_2",
         "category": "Reliability",
-        "q": "A critical application must stay available even in the unlikely event that an entire Azure region becomes unavailable due to a large-scale regional disaster. What architecture covers this risk?",
+        "q": "A company deploys its critical app to two Azure regions for disaster recovery. It wants Microsoft to avoid rolling out planned platform updates to both regions at once and to prioritize recovery of one of them during a broad outage. What should it choose?",
         "a": [
-          "Increasing backup frequency within the same single region",
-          "Deploying across multiple availability zones in one geographic region",
-          "Deploying across two or more distant Azure regions with replication",
-          "Deploying on a significantly larger VM with more performance in one region"
+          "Two availability zones in one region",
+          "Two regions in different geographies",
+          "Two regions that form a region pair",
+          "A sovereign region plus a public region"
         ],
         "c": 2,
-        "e": "Only deploying across multiple regions (multi-region) with data replication protects against a full regional outage, because the application keeps running elsewhere, beyond the reach of the disaster. Availability zones protect against a datacenter outage, but they're still part of one region, and a disaster affecting the whole region would impact them all at once. A larger VM increases performance, but doesn't address geographic resilience. More frequent backups within the same region would also be unavailable during a regional outage."
+        "e": "Region pairs receive planned updates one region at a time, and one region of each pair is prioritized for recovery in a broad outage. Two availability zones are in the same region, so a regional disaster affects both. Regions in different geographies are not a pair, so they get no coordinated updates or recovery priority. Sovereign regions are isolated clouds for government or legal needs, not a disaster-recovery pairing."
       },
       {
         "id": "heroic_3",
         "category": "Governance",
-        "q": "A large company with dozens of subscriptions wants to prevent any team from creating extremely expensive VM sizes across the whole organization, not just one subscription. What's the most effective solution?",
+        "q": "A company has 40 subscriptions under one management group, and new subscriptions are added every month. It must stop every team, including subscription Owners, from creating the most expensive VM sizes, with no per-subscription setup. What should it do?",
         "a": [
-          "Send an internal memo banning expensive VM sizes via email",
-          "Set Azure Policy at the level of individual resource groups in each subscription separately",
-          "Set up an Azure Monitor alert when a cost limit is exceeded",
-          "Set Azure Policy at the management group level over all subscriptions"
+          "Assign a custom RBAC role in each subscription",
+          "Put a ReadOnly lock on every subscription",
+          "Set a Cost Management budget on the management group",
+          "Assign an allowed-SKU policy at the management group"
         ],
         "c": 3,
-        "e": "Azure Policy applied at the management group level is enforced across all subscriptions beneath it at once, so there's no need to set the rule separately in each subscription. Setting it at the level of individual resource groups would require repeating the configuration dozens of times and risk gaps in coverage. An internal memo is just a recommendation with no technical enforcement, teams can ignore it. A Monitor alert only warns after a cost has already been incurred, it won't prevent the expensive VM from being created in the first place."
+        "e": "A policy assigned at the management group is inherited by every current and future subscription below it and denies the restricted sizes even for Owners. Custom RBAC roles would need setting up per subscription, and Owners could change them. A ReadOnly lock would block every change, not just expensive VM sizes. A budget only sends alerts when spending crosses a threshold; it does not block deployments."
       },
       {
         "id": "heroic_4",
         "category": "Governance",
-        "q": "An external vendor needs temporary access to view the logs of one specific application to resolve an incident, but must not have access to any other resources or be able to change them. What permission will you grant them?",
+        "q": "An external vendor, already invited as a guest in your tenant, must read the configuration and logs of one web app for two weeks. They must not see the other apps in the same resource group or change anything. What should you assign?",
         "a": [
-          "A Reader role scoped only to the resource group where the app runs",
-          "Allow anonymous public access to the logs via a link",
-          "Assign the Owner role at the level of the whole subscription",
-          "Assign the Global Administrator role in Microsoft Entra ID"
+          "Reader role on that web app resource",
+          "Reader role on the whole resource group",
+          "Contributor role on that web app",
+          "A CanNotDelete lock on the web app"
         ],
         "c": 0,
-        "e": "A Reader role assigned exactly at the scope of that resource group lets the vendor view only relevant resources without the right to change anything or see resources elsewhere — least privilege in practice. Owner at the subscription level would give the vendor far broader access and the right to change resources, more than needed. Global Administrator is an extremely powerful role for managing the entire tenant, wildly disproportionate to the need. Anonymous public access would additionally mean anyone could access the logs, not just the vendor."
+        "e": "Scoping the Reader role to the single resource gives read-only access to that app and nothing else. Reader on the resource group would also expose the other apps in it. Contributor allows changes, which the vendor must not make. A lock prevents deletion but grants no access at all."
       },
       {
         "id": "heroic_5",
         "category": "Cost",
-        "q": "The finance department needs to see an exact monthly cost breakdown by individual internal projects every month, where those projects share the same subscription and often the same resource groups. What approach enables this?",
+        "q": "Finance wants a monthly cost breakdown per project. Several projects share one subscription, some even share resource groups, and moving resources or restructuring subscriptions is not allowed. Which approach gives the breakdown?",
         "a": [
-          "Relying on the resource group name to clearly identify the project",
-          "Tagging resources by project and filtering costs in Cost Management",
-          "Creating a separate subscription for each individual internal project",
-          "Using Azure Advisor to estimate the cost of individual projects"
+          "Group costs by resource group in Cost Management",
+          "Tag resources by project; group costs by tag",
+          "Move each project to its own resource group",
+          "Review Azure Advisor cost recommendations"
         ],
         "c": 1,
-        "e": "Consistently tagging resources by project together with Cost Management lets you filter and report costs exactly by tag, even when projects share the same subscription or resource group. Creating a separate subscription per project would work, but it's a much heavier administrative change than the scenario calls for, and the question assumes a shared environment. Azure Advisor gives optimization recommendations, it doesn't provide a cost breakdown by custom project categories. Relying on the resource group name is unreliable if projects share the same resource groups, as the scenario describes."
+        "e": "Project tags on each resource let Cost Management group and filter costs by project even when projects share a resource group. Grouping by resource group mixes the projects that share a group. Moving each project to its own group would work but is the restructuring that is not allowed. Advisor suggests savings; it does not break costs down by project."
       },
       {
         "id": "heroic_6",
         "category": "Storage",
-        "q": "A photo-sharing app expects millions of images of varying sizes to be uploaded monthly, which will be accessed via web URLs. Which storage is designed for this purpose?",
+        "q": "A photo app stores millions of images that browsers load directly by URL. New photos are viewed often for about a month, then rarely, but even old photos must open instantly when someone views them. Which storage setup fits?",
         "a": [
-          "Azure SQL Database, for storing binary data in table columns",
-          "Azure Queue Storage, for processing asynchronous message queues",
-          "Azure Blob Storage, for scalable object storage with URL access",
-          "Azure Table Storage, for fast structured access"
+          "Blob Storage, hot then archive tier",
+          "Azure Files share on the cool tier",
+          "Blob Storage, hot then cool tier",
+          "Managed disks attached to the web VMs"
         ],
         "c": 2,
-        "e": "Blob Storage is designed exactly for massively scalable storage of unstructured binary objects like images, with direct access via HTTP/HTTPS URL. Table Storage stores structured key-value data, not binary files like photos. Queue Storage is for message queues between application components, not for storing files for end users. Storing millions of binary images directly in a SQL database is an inefficient and expensive solution compared to object storage built exactly for this purpose."
+        "e": "Blob Storage serves objects over HTTP URLs, and the cool tier lowers storage cost for rarely read data while keeping it online. The archive tier is offline and needs hours of rehydration before a photo could be read. Azure Files provides SMB/NFS shares for mounting, not object storage for millions of web images. Managed disks attach to individual VMs and are not reachable by browsers through URLs."
       },
       {
         "id": "heroic_7",
         "category": "Storage",
-        "q": "Microservice A generates orders and microservice B processes them over time, but B can be temporarily slower or unavailable without losing orders created in the meantime. What mechanism ensures this?",
+        "q": "An order service writes orders faster than the billing service can process them, and billing is sometimes offline for maintenance. No order may be lost, each order is a small message processed once, and the services must stay decoupled. Which storage service connects them?",
         "a": [
-          "A direct synchronous HTTP call between A and B with no intermediary",
-          "A shared database table that both services read from and write to simultaneously",
-          "A shared Blob Storage location where both services write the same file",
-          "A message queue (Queue Storage) between A and B for asynchronous processing"
+          "Azure Table Storage",
+          "Azure Files",
+          "Azure Blob Storage",
+          "Azure Queue Storage"
         ],
         "c": 3,
-        "e": "A message queue lets service A insert orders independently of whether B is currently available, and B processes them whenever it's ready, with no data loss. A direct synchronous call would fail or block A if B were temporarily unavailable. A shared file in Blob Storage isn't designed for safe concurrent writes and reads in a queue pattern. A shared database table with concurrent access from both services introduces conflict risks and isn't a standard solution for asynchronous communication."
+        "e": "Queue Storage holds messages until a consumer retrieves them, so billing can catch up after delays or downtime. Table Storage stores structured key-value entities but has no message-queuing behavior. Azure Files offers shared file systems, not message handoff between services. Blob Storage stores objects but would need custom logic to track which orders were processed."
       },
       {
         "id": "heroic_8",
         "category": "Networking",
-        "q": "Administrators occasionally need RDP access to production VMs, but security policy prohibits assigning public IP addresses to those VMs. Which solution satisfies this requirement?",
+        "q": "Developers access a storage account from VMs in a VNet. Security requires that the account is unreachable from the internet and that traffic from the VNet reaches it through a private IP address inside the VNet. What should the team configure?",
         "a": [
-          "Azure Bastion, for browser-based access with no public IP",
-          "Open port 3389 on the NSG for any source IP",
-          "Install a VPN client directly on that VM",
-          "A temporary public IP assigned only during access"
+          "Private endpoint, public access off",
+          "NSG rule on the VMs' subnet",
+          "Point-to-site VPN Gateway in the VNet",
+          "Peering to the storage account"
         ],
         "c": 0,
-        "e": "Azure Bastion provides secure RDP/SSH access to a VM directly through the browser, without the VM ever needing a public IP address, exactly satisfying the security policy. Temporarily assigning a public IP would still violate the policy banning public IPs on production VMs. Opening port 3389 for any source IP would expose the VM to attack risk from the entire internet, contradicting the security requirements. Installing a VPN client directly on the VM is a nonstandard and needlessly complex solution compared to the purpose-built Bastion service."
+        "e": "A private endpoint gives the storage account a private IP in the VNet, and disabling public network access removes the internet path. An NSG filters the VMs' traffic but leaves the account's public endpoint open. A point-to-site VPN connects individual client computers to the VNet and does not change the account's public exposure. Peering connects two VNets; a storage account is not a VNet and cannot be peered."
       },
       {
         "id": "heroic_9",
         "category": "Compute",
-        "q": "A development team wants to deploy a Node.js web app often and quickly, without having to handle OS patching or server scaling manually. Which deployment model best fits this?",
+        "q": "A team deploys a Node.js web app several times a day. It wants built-in autoscaling and no OS patching, but the app must run continuously to hold long-lived WebSocket connections. Which hosting option fits best?",
         "a": [
-          "An on-premises server fully managed by the internal IT department",
-          "PaaS like Azure App Service, with a managed runtime and scaling",
-          "A physical server located in a third-party colocation datacenter",
-          "IaaS with virtual machines managed manually by the whole team"
+          "Azure Functions, Consumption plan",
+          "An Azure App Service web app",
+          "Virtual Machine Scale Sets",
+          "Azure Container Instances"
         ],
         "c": 1,
-        "e": "Azure App Service (PaaS) manages the OS, patches, and runtime environment for the developer and offers automatic scaling, so the team can focus purely on deploying code often. IaaS with VMs would still require manually managing the OS and patches, exactly what the team wants to avoid. An on-premises server would additionally require managing physical hardware. Colocation means placing your own hardware in someone else's datacenter, which solves none of the OS management concerns."
+        "e": "App Service runs web apps on a managed platform with autoscaling and keeps them running continuously, so the team never patches an OS. Functions on the Consumption plan are event-driven and can scale to zero, which suits short executions, not constantly open connections. Scale sets autoscale, but the team would still patch and manage the VM operating systems. Container Instances avoid OS management but provide no built-in autoscaling for a web app."
       },
       {
         "id": "heroic_10",
         "category": "Security",
-        "q": "An application connects to a database using an access key that should never be written directly in code or configuration files in the repository. Which solution eliminates this risk?",
+        "q": "A security lead wants one service that scores the security posture of all Azure subscriptions, recommends fixes for misconfigured VMs and storage accounts, alerts on active threats, and also covers on-premises servers connected through Azure Arc. Which service fits?",
         "a": [
-          "Storing the key directly as a comment in the application's code",
-          "Sharing the key between developers over unencrypted email or chat",
-          "Storing the key in Key Vault, accessed via a managed identity",
-          "Storing the key in a publicly accessible README in the repository"
+          "Azure Policy compliance",
+          "Microsoft Entra ID Protection",
+          "Microsoft Defender for Cloud",
+          "Microsoft Purview"
         ],
         "c": 2,
-        "e": "Azure Key Vault securely stores sensitive data like access keys, which the application accesses at runtime via a managed identity, so the key never appears in the code or the repository. Storing the key as a code comment would expose it to anyone with repository access, including the version history. A public README is an even worse option, since the key would be accessible to anyone on the internet. Sharing it over email or chat is an unencrypted channel prone to leaks, and it doesn't address the application's automatic runtime access either."
+        "e": "Defender for Cloud scores security posture, recommends fixes and detects threats across Azure, on-premises (via Arc) and other clouds. Azure Policy audits and enforces rules you define but gives no posture score or threat alerts. Entra ID Protection detects risky sign-ins and users, not misconfigured VMs or storage. Microsoft Purview governs and classifies data, not the security configuration of VMs."
       },
       {
         "id": "heroic_11",
         "category": "Networking",
-        "q": "A bank needs extremely low latency and high bandwidth to connect its datacenter to Azure, outside the public internet, due to regulatory requirements on transfer privacy. What solution will it choose?",
+        "q": "A bank needs a connection from its datacenter to Azure that never travels over the public internet and has predictable latency. Its auditors also require the link to stay up if one of the physical connections fails. Which solution fits?",
         "a": [
-          "Public IP addresses with strict NSG rules",
-          "A VPN Gateway over the public internet with encryption",
-          "Azure Bastion, for remote access",
-          "ExpressRoute, with a dedicated private connection"
+          "Active-active site-to-site VPN Gateway",
+          "Point-to-site VPN for each server",
+          "Global VNet peering to the bank's datacenter",
+          "ExpressRoute via a connectivity provider"
         ],
         "c": 3,
-        "e": "ExpressRoute provides a dedicated private physical connection outside the public internet with high bandwidth and low, predictable latency — exactly what the transfer privacy regulation requires. A VPN Gateway encrypts traffic, but still routes it over the public internet, which fails to meet the regulatory requirement to exclude the public internet. Azure Bastion addresses access to individual VMs, not connecting entire datacenters. Public IP addresses with NSG rules still use the public internet and don't meet the requirement for a private connection."
+        "e": "ExpressRoute provides a private connection through a connectivity provider that bypasses the public internet, and each circuit includes two redundant connections. An active-active VPN is resilient but still travels over the public internet. Point-to-site VPN connects individual devices over the internet, not a whole datacenter. VNet peering connects Azure VNets only and cannot reach an on-premises datacenter."
       },
       {
         "id": "heroic_12",
         "category": "Networking",
-        "q": "A company's branch office needs to connect to Azure quickly and securely over its existing internet connection, without waiting weeks to set up a dedicated line. Which solution is more suitable?",
+        "q": "Forty employees work from home on laptops and need encrypted access to VMs in an Azure VNet. There is no office network to connect, and the VMs must not get public IP addresses. Which connection fits?",
         "a": [
-          "VPN Gateway, with an encrypted tunnel over the public internet",
-          "ExpressRoute, for its guaranteed bandwidth",
-          "Physically transporting data on disks to the datacenter",
-          "Public IP addresses without encryption, for speed"
+          "Point-to-site VPN through a VPN Gateway",
+          "Site-to-site VPN through a VPN Gateway",
+          "ExpressRoute circuit to each home",
+          "Public endpoints restricted by NSG rules"
         ],
         "c": 0,
-        "e": "A VPN Gateway can be set up quickly because it uses the existing internet connection and creates an encrypted tunnel, ideal when there's no time to wait for a dedicated line to be physically provisioned. ExpressRoute offers better performance and privacy, but setting it up takes weeks to months due to the physical infrastructure involved, contradicting the requirement for speed. Unencrypted public IP addresses would be a security risk, and the scenario explicitly calls for a secure connection. Physically transporting data on disks doesn't address ongoing network connectivity, just a one-time transfer."
+        "e": "Point-to-site VPN connects individual devices to a VNet through an encrypted tunnel, which suits home workers without an office network. Site-to-site VPN connects a whole on-premises network through a VPN device, which these employees do not have. ExpressRoute is a dedicated circuit for sites, not for individual homes. Public endpoints would need public IP addresses, which are not allowed."
       },
       {
         "id": "heroic_13",
         "category": "Storage",
-        "q": "A company wants data in its Storage account to survive an outage of an entire datacenter within a region, but geographic distance and replication to another region aren't required. Which redundancy level will it choose?",
+        "q": "A storage account must keep data available if one datacenter in the region fails. Regulation forbids copies outside the country's single Azure region, and the workload needs a premium block blob account. Which redundancy option fits?",
         "a": [
-          "LRS, since it's the cheapest option available",
-          "ZRS, replicating synchronously across zones",
-          "GRS, replicating data to a distant paired region",
-          "Archive tier, the cheapest storage option overall"
+          "Locally redundant storage (LRS)",
+          "Zone-redundant storage (ZRS)",
+          "Geo-redundant storage (GRS)",
+          "Geo-zone-redundant storage (GZRS)"
         ],
         "c": 1,
-        "e": "ZRS (Zone-Redundant Storage) replicates data synchronously across multiple availability zones within a single region, exactly matching the requirement to survive a datacenter outage without needing geographic distance. LRS only replicates within a single datacenter and wouldn't protect the data if that datacenter went down. GRS would meet the requirement too, but it goes beyond the scenario, which explicitly says geographic replication isn't needed, and it's more expensive than necessary. Archive tier is a data access frequency level, not a geographic or zonal redundancy mechanism."
+        "e": "ZRS copies data synchronously across three availability zones in one region, survives a datacenter failure and is supported by premium block blob accounts. LRS keeps all copies in a single datacenter, so it does not survive that datacenter failing. GRS replicates to a second region, which breaks the single-region requirement. GZRS also copies to a secondary region and is not available for premium accounts."
       },
       {
         "id": "heroic_14",
         "category": "Storage",
-        "q": "A company is legally required to retain accounting documents for 10 years, but accesses them on average once every few years during an audit, and wants to minimize storage costs the whole time. Which tier will it choose?",
+        "q": "Accounting documents must be kept for 10 years and are read only during audits, which are always announced a week ahead. The company wants the lowest possible storage cost. How should the blobs be stored?",
         "a": [
-          "Hot tier, for guaranteed fast access at any time",
-          "Cool tier, for a reasonable balance between cost and access",
-          "Archive tier, for the lowest storage cost given rare access",
-          "Premium SSD, for very high disk performance"
+          "Cool tier as the account default",
+          "Archive tier as the account default",
+          "Archive tier set on each blob",
+          "Cold tier set on each blob"
         ],
         "c": 2,
-        "e": "Archive tier has the lowest storage cost of all the tiers, and even though restoring data takes hours, that's consistent with the very rare access — once every few years — described in the scenario. Hot tier has the highest storage cost, unsuited for data accessed this rarely. Cool tier suits moderately frequent access, on the order of once a month, not once every few years. Premium SSD is a high-performance disk for VMs with high speed requirements, completely unsuited and needlessly expensive for archival data with minimal access."
+        "e": "Archive is the cheapest tier for rarely read data, rehydration within hours fits audits announced a week ahead, and it is set on individual blobs. Cool is an online tier and costs more to store than archive. An account's default access tier cannot be archive; archive is only set per blob. Cold is cheaper than cool but still costs more to store than archive."
       },
       {
         "id": "heroic_15",
         "category": "Identity",
-        "q": "Employees complain they have to re-enter their password every time they switch between corporate apps like email, the intranet, and the CRM, even though all of them are connected to Microsoft Entra ID. What solution removes this problem?",
+        "q": "Employees sign in to Microsoft Entra ID once each morning with MFA, but must type a password again for the CRM and the intranet, which still use their own user databases. What removes the extra prompts without weakening security?",
         "a": [
-          "Disable MFA so sign-in is faster",
-          "Create multiple accounts per user, one for each application",
-          "Manually set the same password for every application",
-          "Turn on Single sign-on (SSO) across the connected applications"
+          "A Conditional Access policy for both apps",
+          "Passwordless sign-in for all employees",
+          "Microsoft Entra Domain Services for both apps",
+          "Integrate both apps with Entra ID for SSO"
         ],
         "c": 3,
-        "e": "Single sign-on enables one sign-in that's valid across all the connected applications, exactly solving the repeated password entry problem. Manually setting the same password is a security risk and isn't real SSO, just a shared password. Disabling MFA would reduce security and doesn't address the frequency of signing in between apps at all. Creating multiple accounts per user would make the problem worse, since they'd need to sign in even more often and into more accounts."
+        "e": "Connecting the apps to Entra ID for single sign-on lets one authenticated session, already protected by MFA, open both apps. Conditional Access decides when to allow or challenge a sign-in but does not merge separate app logins. Passwordless changes how users sign in to Entra ID, yet apps with their own user databases would still ask for credentials. Entra Domain Services provides a managed domain for legacy LDAP or Kerberos apps, not single sign-on for apps with their own accounts."
       },
       {
         "id": "heroic_16",
         "category": "Identity",
-        "q": "The security team wants employees signing in from risky locations or unrecognized devices to verify with an additional factor, while routine sign-in from the corporate network stays simpler. What solution enables this distinction?",
+        "q": "A company wants employees to stop using passwords entirely, yet every sign-in must still combine two different factor types: something they have and something they are or know. Which option meets this?",
         "a": [
-          "Set up a Conditional Access policy reacting to location and risk",
-          "Use only a simple password for absolutely every scenario",
-          "Require MFA for absolutely every employee, no exceptions",
-          "Completely block access outside the corporate network, no exceptions"
+          "Windows Hello for Business",
+          "Password plus a code sent by SMS",
+          "SSO with one strong password",
+          "Password plus security questions"
         ],
         "c": 0,
-        "e": "Conditional Access evaluates contextual signals like location, device type, or risk level and dynamically decides when to require additional verification, exactly matching the scenario described. Requiring MFA for absolutely everyone, with no distinction, doesn't differentiate between risky and routine situations the way the scenario requires. Fully blocking access outside the corporate network would prevent legitimate remote work. A simple password for every scenario would reduce security exactly in the risky situations that should be more protected."
+        "e": "Windows Hello for Business is passwordless and combines the device (something you have) with a biometric or PIN (something you are or know). A password plus an SMS code is MFA but still relies on a password. SSO reduces sign-in prompts, but the single sign-in still uses a password. Security questions are something you know, like the password, so this is neither passwordless nor two factor types."
       },
       {
         "id": "heroic_17",
         "category": "Identity",
-        "q": "A new foreign branch needs its own administrators managing only its local resources, but headquarters wants to retain the ability to audit and, in extreme cases, take control of the whole tenant. How will you best arrange this?",
+        "q": "Thirty consultants from a partner company need access to one internal app for six months. They already have work accounts in their own company's Microsoft Entra tenant, and your IT team wants no extra passwords to manage. What should you use?",
         "a": [
-          "Create a completely separate, unconnected tenant for the branch",
-          "A restricted role for local admins, Global Admin for headquarters",
-          "Assign the Global Administrator role to every employee at the branch",
-          "Grant no administrative permissions to the branch at all"
+          "New member accounts in your own tenant",
+          "Microsoft Entra B2B collaboration guests",
+          "Microsoft Entra Domain Services accounts",
+          "Microsoft Entra Connect synchronization"
         ],
         "c": 1,
-        "e": "Assigning local administrators a restricted role scoped to their resource group gives them control over their resources, while headquarters retains a Global Administrator role for auditing and, if necessary, taking control of the whole tenant. A separate, unconnected tenant would lose the central oversight the scenario requires. A Global Administrator role for every branch employee would give disproportionately broad access to the whole tenant, not just local resources. Granting no administrative permissions at all would prevent the branch from independently managing its local resources, as the scenario describes."
+        "e": "B2B collaboration invites the consultants as guests who sign in with their own organization's accounts, so you manage no passwords. Member accounts in your tenant would mean new credentials to manage and remove later. Domain Services provides a managed domain for legacy protocols, not partner access. Entra Connect synchronizes your own on-premises AD with your tenant, not another company's users."
       },
       {
         "id": "heroic_18",
         "category": "Governance",
-        "q": "An audit finds that dozens of storage accounts lack mandatory encryption at rest, even though internal policy requires it for all new and existing resources. Which solution ensures ongoing compliance for future resources too?",
+        "q": "An audit requires every storage account across 12 subscriptions to accept only HTTPS traffic. New non-compliant accounts must be blocked at deployment, and the existing ones must be listed so the team can fix them. What should be used?",
         "a": [
-          "Sending a one-time email asking administrators to remediate it",
-          "Deleting all non-compliant storage accounts with no replacement",
-          "Set Azure Policy with a DeployIfNotExists or Deny effect for encryption",
-          "Manually checking and fixing only the existing non-compliant accounts, once"
+          "A ReadOnly lock on each subscription",
+          "Microsoft Defender for Cloud recommendations",
+          "Azure Policy assigned at a management group",
+          "A custom RBAC role in each subscription"
         ],
         "c": 2,
-        "e": "Azure Policy with the right effect ensures new non-compliant resources are either never created (Deny) or have the missing setting automatically remediated (DeployIfNotExists), and the report can also be used to fix existing accounts — this addresses compliance permanently, not just as a one-off. A manual one-time fix doesn't address future newly created resources, which can violate the policy again. An email is just a recommendation with no technical enforcement and doesn't guarantee future compliance. Deleting non-compliant accounts with no replacement would cause data loss and service disruption, not a sensible solution to a configuration problem."
+        "e": "Azure Policy denies new non-compliant deployments and reports existing non-compliant resources, and assigning it at a management group covers all 12 subscriptions. A ReadOnly lock blocks every change, including fixing the accounts. Defender for Cloud can flag insecure settings, but it does not block new deployments on its own. RBAC controls who can act, not which configuration a resource must have."
       },
       {
         "id": "heroic_19",
         "category": "DevOps",
-        "q": "A DevOps team wants the same infrastructure (network, VMs, database) to be reliably and repeatedly deployable to both test and production environments with minimal risk of human error. What approach will it choose?",
+        "q": "A team rebuilds the same network, VMs and storage in test and production. It wants a version-controlled file that describes the desired end state, can be redeployed repeatedly without creating duplicates, and is processed by Azure Resource Manager. What should it use?",
         "a": [
-          "Manually creating resources via the Azure Portal over and over again",
-          "Copying resources via Azure CLI command by command, with no versioning",
-          "Relying on an administrator to remember the exact steps",
-          "Infrastructure as Code via ARM templates or Bicep with parameterization"
+          "Azure CLI scripts run from Cloud Shell",
+          "Azure portal deployments by hand",
+          "Azure Policy initiatives",
+          "ARM templates or Bicep files"
         ],
         "c": 3,
-        "e": "Infrastructure as Code via ARM templates or Bicep with parameterization enables repeatable, consistent, versioned deployment across environments, minimizing the risk of human error. Manually creating resources through the portal is prone to errors and inconsistencies between environments. CLI commands with no versioning or structure lack the repeatability and auditability that IaC offers. Relying on an administrator's memory is extremely risky and doesn't scale with a growing number of deployments or changes in team membership."
+        "e": "ARM templates and Bicep are declarative infrastructure as code: they describe the end state, live in version control, and redeploying them is idempotent. CLI scripts are imperative step-by-step commands that need extra logic to avoid duplicates. Portal deployments by hand are not version controlled and are error-prone to repeat. Policy initiatives enforce rules on resources but do not deploy them."
       },
       {
         "id": "heroic_20",
         "category": "Monitoring",
-        "q": "A production application occasionally experiences outages, but the team only notices once customers start complaining, not proactively. What solution lets them detect a problem before customers notice it?",
+        "q": "A web app's response time sometimes spikes, and the team only learns about it from customers. They want a notification within minutes whenever average response time exceeds two seconds, whether or not Azure itself has an incident. What should they set up?",
         "a": [
-          "Proactive alerts in Azure Monitor on key performance indicators",
-          "Relying on customer feedback as the primary source of information",
-          "Relying on a monthly manual log review by an administrator",
-          "Increasing customer support capacity for faster response"
+          "An Azure Monitor metric alert",
+          "An Azure Service Health alert",
+          "An Azure Advisor recommendation digest",
+          "A Resource Health alert"
         ],
         "c": 0,
-        "e": "Azure Monitor with alerts configured on key metrics (availability, error rate, response time) lets the team get notified of a problem in real time, before customers notice it. Waiting for customer feedback is the reactive approach the scenario specifically wants to remove. Increasing support capacity only addresses the speed of responding to already-reported problems, not detecting them early. A monthly manual log review is far too slow to catch outages in real time."
+        "e": "An Azure Monitor metric alert fires when a metric such as response time crosses a threshold and notifies the team through an action group. Service Health alerts cover Azure platform incidents and maintenance, not your app's response time. Advisor digests summarize recommendations periodically and are not real-time threshold alerts. Resource Health reports whether the resource is available, not whether it is slow."
       },
       {
         "id": "heroic_21",
         "category": "Security",
-        "q": "A security team needs to correlate suspicious events across dozens of different sources (firewalls, identities, applications) and automatically trigger a response, like temporarily blocking an account. What will they best use for this?",
+        "q": "After a breach, an architect proposes MFA for identities, NSGs between subnets, patched VMs and encrypted data. She stresses that each control must slow an attacker down even after the outer controls have already failed. Which principle does this describe?",
         "a": [
-          "Regularly reviewing logs manually, one source at a time",
-          "Microsoft Sentinel with analytics rules and automated playbooks",
-          "Just Azure Monitor on its own, with no other tools at all",
-          "Just a resource lock set on critical resources"
+          "Zero Trust",
+          "Defense in depth",
+          "Least privilege",
+          "Shared responsibility"
         ],
         "c": 1,
-        "e": "Microsoft Sentinel is designed exactly for correlating security data across many sources, and playbooks (connected to Logic Apps) enable an automated response like blocking an account. Azure Monitor alone collects metrics and logs, but lacks built-in security correlation and automated playbooks of the same caliber. A resource lock protects a resource from deletion or modification and has nothing to do with detecting and responding to security incidents. Manually reviewing logs one source at a time would be extremely slow and impractical across dozens of sources."
+        "e": "Defense in depth stacks independent security layers, from identity and network to compute and data, so one failed layer does not expose the data. Zero Trust means verifying every request explicitly and assuming breach, not specifically stacking layers. Least privilege limits each identity to the access it needs, which is only one of these controls. Shared responsibility describes which security tasks belong to the provider and which to the customer."
       },
       {
         "id": "heroic_22",
         "category": "Migration",
-        "q": "A company is planning to migrate hundreds of servers to Azure and first needs to find out their current utilization, dependencies between them, and an estimate of monthly costs after migration. What tool will it use as the first step?",
+        "q": "Before moving 300 on-premises VMware VMs, a company needs their real utilization, the dependencies between them, right-sized Azure VM recommendations and a monthly cost estimate, all from the same service that will later replicate them. What should it use first?",
         "a": [
-          "Launching the migration directly with no prior analysis at all",
-          "Azure Backup, to immediately back up absolutely all the servers",
-          "Azure Migrate, to assess the servers before migration",
-          "Azure Bastion, for remote access to individual servers"
+          "Pricing calculator",
+          "Azure Advisor",
+          "Azure Migrate",
+          "Azure Data Box"
         ],
         "c": 2,
-        "e": "Azure Migrate provides tools for assessing existing infrastructure, its utilization, dependencies between servers, and an estimate of post-migration costs — exactly what's needed as the first step before a large-scale migration. Azure Backup addresses backups, not assessing migration readiness. Azure Bastion provides secure VM access and has nothing to do with migration planning. Launching the migration directly with no analysis would be highly risky due to unknown dependencies and unpredictable costs."
+        "e": "Azure Migrate discovers on-premises servers, maps dependencies, recommends Azure sizes with cost estimates and then migrates them. The pricing calculator estimates costs only from configurations entered by hand, without measuring the servers. Advisor analyzes resources already running in Azure, not on-premises VMware VMs. Data Box ships large data volumes offline but does not assess servers."
       },
       {
         "id": "heroic_23",
         "category": "Hybrid",
-        "q": "An IT department manages servers in Azure, on-premises, and in another cloud, and wants a unified view of status, policies, and compliance across all three environments from one place. What solution enables this?",
+        "q": "A company keeps its on-premises Active Directory for file servers but moves email and new SaaS apps to Microsoft 365 and Microsoft Entra ID. Employees must use the same username and password in both environments. What should it deploy?",
         "a": [
-          "Ignoring resources outside Azure and managing only those in Azure",
-          "Three separate tools, one for each environment individually",
-          "Azure Migrate, to migrate everything into Azure",
-          "Azure Arc, to extend Azure management to resources outside Azure"
+          "Microsoft Entra Domain Services",
+          "Azure Arc-enabled servers",
+          "Microsoft Entra B2B collaboration",
+          "Microsoft Entra Connect"
         ],
         "c": 3,
-        "e": "Azure Arc extends Azure's management, policy, and monitoring tools to resources outside Azure, including on-premises and other clouds, so everything can be managed from one place. Three separate tools would mean a fragmented view with no unified picture, contradicting the scenario. Azure Migrate addresses moving servers into Azure, not unified management across environments that will never be in Azure. Ignoring resources outside Azure would mean losing visibility into part of the infrastructure that the scenario explicitly wants tracked."
+        "e": "Entra Connect synchronizes users and password hashes from on-premises AD to Entra ID, so employees use one identity in both places. Domain Services provides a managed domain in Azure, not synchronization from your own domain controllers. Arc-enabled servers bring servers under Azure management but do not sync user identities. B2B collaboration is for guests from other organizations, not your own employees."
       },
       {
         "id": "heroic_24",
         "category": "Governance",
-        "q": "A team wants to ensure a production database can't be accidentally deleted, even by an administrator with full RBAC permissions, until someone deliberately removes the protection. What solution ensures this?",
+        "q": "A production resource group must be protected so that nobody, not even an Owner, can delete it or anything in it. The team must still be able to update app settings and scale the VMs inside. What should be applied?",
         "a": [
-          "Set a CanNotDelete resource lock on the database",
-          "Assign the administrator a lower RBAC role",
-          "Rely on the administrator being careful",
-          "Use only a tag with a \"Do not delete\" warning"
+          "CanNotDelete lock on the resource group",
+          "ReadOnly lock on the resource group",
+          "Reader role for all users but Owners",
+          "CanNotDelete lock on each VM separately"
         ],
         "c": 0,
-        "e": "A CanNotDelete resource lock adds a protective layer independent of RBAC permissions — even an administrator with full access must deliberately remove the lock first before they can delete the resource. Lowering the administrator's RBAC role would also restrict their legitimate work with the database, not just protect against accidental deletion. Relying on human carefulness isn't a technical solution and won't prevent a mistake. A tag is just a visual warning with no technical enforcement at all, the administrator could still accidentally delete the database."
+        "e": "A CanNotDelete (Delete) lock on the resource group is inherited by everything in it and blocks deletion even for Owners, while updates stay allowed. A ReadOnly lock would also block updating settings and scaling. Reader roles would stop non-Owners from updating, and Owners could still delete. Locks on the VMs alone would leave the group and its other resources deletable."
       },
       {
         "id": "heroic_25",
         "category": "Security",
-        "q": "An application running in Azure App Service needs access to Azure SQL Database without storing credentials anywhere in code or configuration. Which solution enables this most securely?",
+        "q": "A company moves an internal app from its own servers to Azure App Service, a PaaS offering. Which set of responsibilities stays entirely with the company after the move?",
         "a": [
-          "Sharing one common password across all applications",
-          "Use App Service's managed identity to authenticate to the database",
-          "Encoding the password directly into the application's binary",
-          "Storing the connection string with a password in an environment variable"
+          "Its data, user accounts and OS patching",
+          "Its data, user accounts and access rights",
+          "Physical hosts, network and app runtime",
+          "OS patching, network controls and data"
         ],
         "c": 1,
-        "e": "A managed identity lets App Service authenticate to Azure SQL Database without any password or secret stored anywhere — Azure manages the identity verification automatically. An environment variable with a password is better than a hardcoded password, but it's still a secret that could be exposed, and the question is looking for a solution that stores no credentials at all. Sharing one password across applications is a security risk and doesn't let you distinguish which application accesses what. Encoding the password into the binary is still just another form of storing a secret that can be reverse-engineered and exposed."
+        "e": "In every service model the customer keeps responsibility for its data, devices, and accounts and identities, including who has access. In PaaS Microsoft patches the operating system, so OS patching is no longer the company's task. Physical hosts and the datacenter network are always Microsoft's, and the App Service runtime is managed by Microsoft. That last set again wrongly keeps OS patching with the company."
       },
       {
         "id": "heroic_26",
         "category": "Networking",
-        "q": "A global application has users in Europe, Asia, and the Americas, and the company wants each user automatically routed to the geographically nearest, currently available instance of the app. What solution will they use?",
+        "q": "A head office needs a private connection to Azure that never crosses the public internet and has predictable bandwidth. A small branch office needs encrypted access to the same VNet within days, on a tight budget. Which combination fits?",
         "a": [
-          "A single application instance in one region for absolutely everyone",
-          "Manually redirecting users based on their email domain",
-          "Multiple instances across regions with Traffic Manager for routing",
-          "Azure Load Balancer in just one region, for spreading load"
+          "Head office: VPN Gateway; branch: ExpressRoute",
+          "Head office: VNet peering; branch: VPN Gateway",
+          "Head office: ExpressRoute; branch: VPN Gateway",
+          "Head office: ExpressRoute; branch: VNet peering"
         ],
         "c": 2,
-        "e": "Multiple application instances across regions, together with Azure Traffic Manager, enable DNS-based routing of users to the geographically nearest, available instance. A single instance in one region would mean high latency for distant users and no resilience during a regional outage. Azure Load Balancer works at the network layer within a single region, it can't route between multiple geographic regions like Traffic Manager. Manually redirecting based on email domain has nothing to do with a user's geographic location and isn't a scalable or reliable solution."
+        "e": "ExpressRoute is a private, dedicated link with predictable bandwidth, and a VPN Gateway gives an encrypted tunnel over the existing internet connection quickly and cheaply. Swapping them gives the branch a costly, slow-to-provision line and sends head-office traffic over the internet. VNet peering connects Azure VNets to each other, so it cannot connect the head office's datacenter. Peering likewise cannot connect the branch office's on-premises network."
       },
       {
         "id": "heroic_27",
         "category": "Reliability",
-        "q": "A company wants to ensure that even if an entire VM running a web server failed, users would immediately and automatically switch to another working instance with no manual intervention. What solution ensures this?",
+        "q": "Two VMs run a legacy app in a region that does not offer availability zones. The team wants to avoid both VMs going down together because of a rack power failure or because Azure reboots hosts during planned maintenance. What should it use?",
         "a": [
-          "Backing up the VM once a day, nothing else",
-          "Relying on a fast administrator reaction to outages",
-          "Running just a single VM with very high performance",
-          "Load Balancer with multiple VMs and health probes"
+          "A zone-redundant storage account",
+          "One availability zone per VM",
+          "A single VM with Premium SSD",
+          "An availability set for both VMs"
         ],
         "c": 3,
-        "e": "Azure Load Balancer with multiple VMs in a backend pool and health probes automatically detects the failure of one instance and redirects traffic to healthy instances with no manual intervention. A single VM with high performance is a single point of failure — if it fails, the application would become completely unavailable. Relying on a fast administrator response is slower and less reliable than an automated mechanism. Daily backups address restoring data after a longer period, not immediately and automatically redirecting traffic during a current outage."
+        "e": "An availability set spreads VMs across fault domains (separate power and network) and update domains (rebooted at different times), so both VMs do not fail together. Zone-redundant storage protects data, not the VMs themselves. Availability zones would help, but this region does not offer them. A single VM, even with Premium SSD, is still a single point of failure."
       },
       {
         "id": "heroic_28",
         "category": "DevOps",
-        "q": "A development team wants tests to run automatically and the app to deploy to a test environment every time a pull request is approved, with no manual intervention. What approach enables this?",
+        "q": "An admin on a locked-down laptop cannot install software, but today she must run Azure CLI and Azure PowerShell commands against several subscriptions while signed in with her Entra ID account. What should she use?",
         "a": [
-          "An automated CI/CD pipeline running tests and deployment",
-          "Manual deployment by an administrator after every approved change",
-          "An email notification telling developers to deploy the code themselves",
-          "Deploying once a week regardless of how many changes there are"
+          "Azure Cloud Shell in the browser",
+          "Azure CLI installed on the laptop",
+          "ARM templates in the Azure portal",
+          "Azure Arc on the laptop"
         ],
         "c": 0,
-        "e": "A CI/CD pipeline connected to the repository automatically runs tests and deployment every time a change is approved, exactly matching the requirement for automation with no manual intervention. Manual deployment by an administrator is the exact opposite of the requested automation and introduces risk of human error and delay. An email notification to developers still requires manual action, so it doesn't provide automation. Deploying once a week regardless of approved changes would slow down delivery and doesn't match the requirement to deploy after every approval."
+        "e": "Cloud Shell runs in the browser with Azure CLI and Azure PowerShell preinstalled and uses the signed-in account, so nothing has to be installed. Installing the CLI locally is not possible on the locked-down laptop. ARM templates deploy resources declaratively but are not a shell for running commands. Arc brings servers under Azure management; it does not provide a command-line environment."
       },
       {
         "id": "heroic_29",
         "category": "Storage",
-        "q": "An application requires that older versions of every file be automatically preserved for 30 days, in case a user accidentally overwrites or deletes one. Which Blob Storage feature enables this?",
+        "q": "A team needs one storage account that holds blobs, file shares, queues and tables, supports geo-redundant replication and lets it set hot, cool or archive tiers on blobs. Which account type fits?",
         "a": [
-          "Only higher storage redundancy, like GRS",
-          "Blob versioning and soft delete with a retention policy",
-          "A lifecycle management policy, for automatically deleting old data",
-          "Only switching the whole account to Archive tier"
+          "Premium block blob account",
+          "Standard general-purpose v2",
+          "Premium file share account",
+          "Premium page blob account"
         ],
         "c": 1,
-        "e": "Blob versioning automatically preserves prior versions of an object with every change, and soft delete lets you restore deleted objects for a defined period, together exactly meeting the requirement described. Lifecycle management is for automatically moving or deleting data based on age, not preserving version history. Higher redundancy like GRS protects against infrastructure outages, not a user's accidental overwrite or deletion of a file. Archive tier only changes the price and speed of access, it doesn't address preserving version history."
+        "e": "Standard general-purpose v2 supports blobs, files, queues and tables, every redundancy option including geo-redundancy, and blob access tiers. Premium block blob accounts store only block and append blobs, with LRS or ZRS. Premium file share accounts hold only Azure Files shares. Premium page blob accounts hold only page blobs, such as unmanaged VM disks."
       },
       {
         "id": "heroic_30",
         "category": "Storage",
-        "q": "A company streams video content to users worldwide and wants to minimize latency by caching content close to end users, not just in one datacenter. Which service will it add in front of Blob Storage?",
+        "q": "A reporting app reads data from a storage account. If the primary region becomes unavailable, the app must keep reading from the secondary region without waiting for a failover, and the primary copies must survive a single zone outage. Which redundancy fits?",
         "a": [
-          "Azure Bastion, for secure access",
-          "Network Security Group, for filtering",
-          "Azure Content Delivery Network (CDN)",
-          "Azure Key Vault, for managing keys"
+          "Geo-zone-redundant storage (GZRS)",
+          "Read-access GRS (RA-GRS)",
+          "Read-access GZRS (RA-GZRS)",
+          "Zone-redundant storage (ZRS)"
         ],
         "c": 2,
-        "e": "Azure CDN caches content on edge nodes worldwide close to end users, significantly reducing the latency of content streamed from central Blob Storage. Azure Bastion addresses secure VM access and has nothing to do with distributing content to users. A Network Security Group filters network traffic by rules and doesn't address caching or speeding up content delivery. Azure Key Vault manages secrets and certificates and has nothing to do with distributing video content."
+        "e": "RA-GZRS keeps zone-redundant copies in the primary region and lets apps read the secondary copy at any time. GZRS has the same copies, but the secondary is readable only after a failover. RA-GRS allows secondary reads but keeps the primary copies in one datacenter, so it does not survive a zone outage. ZRS keeps data in one region only."
       },
       {
         "id": "heroic_31",
         "category": "Storage",
-        "q": "A team needs an application to securely share a specific file in Blob Storage with an external partner for a limited 24-hour window, without creating an account for the partner. What solution will they use?",
+        "q": "Every night a Linux server must copy several gigabytes of new log files to Blob Storage with a scheduled script that runs unattended, without any user interface. The office has a fast internet connection. Which tool fits?",
         "a": [
-          "Set the entire storage account as permanently publicly accessible",
-          "Send the partner the access key for the entire storage account",
-          "Create a full user account for the partner in Microsoft Entra ID",
-          "Generate a Shared Access Signature (SAS) token valid for 24 hours"
+          "Azure Storage Explorer",
+          "Azure File Sync agent",
+          "Azure Data Box Disk",
+          "AzCopy in a cron job"
         ],
         "c": 3,
-        "e": "A SAS token lets you grant time-limited and scope-limited access to a specific resource (file) without creating an account or sharing the primary access keys. Permanently making the whole account publicly accessible would expose all data to anyone on the internet, far more than the scenario calls for. Sharing the primary access key would give the partner unlimited access to all data in the account, not just one file for 24 hours. Creating a full account is administratively heavier than needed for a one-off, temporary sharing of a single file."
+        "e": "AzCopy is a command-line tool that copies files to Blob Storage and fits unattended scheduled scripts on Linux. Storage Explorer is a graphical app for managing storage by hand, not unattended nightly jobs. The File Sync agent runs on Windows Server and syncs file shares with Azure Files, not logs to Blob Storage. Data Box Disk ships data offline, which makes no sense for a few gigabytes a night over a fast link."
       },
       {
         "id": "heroic_32",
         "category": "Storage",
-        "q": "An application stores sensitive customer data, and regulation requires it to be encrypted both in transit and at rest, with the company itself managing the encryption keys. Which solution satisfies this?",
+        "q": "Several Linux VMs must mount the same shared file system over NFS at the same time. The team does not want to run its own file server VM, and no on-premises Windows server is involved. Which option fits?",
         "a": [
-          "Encryption at rest with custom keys stored in Key Vault",
-          "Relying only on default encryption managed by Microsoft",
-          "Completely disabling encryption for higher system performance",
-          "Encrypting data only in transit, not at rest"
+          "An Azure Files NFS share",
+          "Azure File Sync to the VMs",
+          "A managed disk on each VM",
+          "Blob Storage with AzCopy"
         ],
         "c": 0,
-        "e": "Encryption at rest with customer-managed keys stored in Key Vault gives the company full control over the encryption keys while keeping data encrypted at rest, exactly matching the regulatory requirement. Default Microsoft-managed encryption does encrypt the data, but doesn't let the company manage its own keys, as the scenario requires. Disabling encryption would directly violate the regulatory requirement to protect sensitive data. Encrypting only in transit would leave data unencrypted at rest, which the regulation also requires covering."
+        "e": "Azure Files offers fully managed shares that many VMs mount at once, including NFS shares for Linux on premium file share accounts. File Sync caches Azure file shares on Windows Server and does not apply to Linux VMs. A managed disk attaches to a single VM rather than acting as one shared file system. AzCopy copies data into Blob Storage but gives the VMs no mounted file system."
       },
       {
         "id": "heroic_33",
         "category": "Storage",
-        "q": "A data team needs to migrate 50 TB of data into Azure Storage, but over the company's internet connection, the transfer would take over a month. Which solution significantly speeds up the migration?",
+        "q": "A company must move 60 TB of archived video into Blob Storage within two weeks. Its internet connection would need about two months for the transfer, and the data must stay encrypted while in transit. Which option fits?",
         "a": [
-          "Start the transfer over the slow connection and wait a month",
-          "Use Azure Data Box for a physical transfer of data on a mailed device",
-          "Increase the speed of employees' home internet",
-          "Split the data into smaller files and transfer them gradually over the same connection"
+          "AzCopy over the internet link",
+          "Azure Data Box appliance",
+          "Azure File Sync to a share",
+          "A new ExpressRoute circuit"
         ],
         "c": 1,
-        "e": "Azure Data Box is a physical device that Microsoft ships to the company, onto which data is loaded locally over a fast network, and the device is shipped back for upload into Azure, which is significantly faster than transferring large volumes over a slow connection. Waiting a month over the slow connection doesn't meet the implicit requirement to speed up the process. Splitting into smaller files doesn't change the overall connection bandwidth, the total transfer time stays similar. The speed of employees' home internet has nothing to do with the company's datacenter connection used for the migration."
+        "e": "Data Box is a rugged, encrypted appliance shipped to the company, filled locally and returned to Microsoft for upload, which beats a two-month network transfer. AzCopy over the existing link would still take about two months. File Sync synchronizes over the same network, with the same bandwidth limit. A new ExpressRoute circuit takes weeks to provision and is a costly permanent link for a one-time move."
       },
       {
         "id": "heroic_34",
         "category": "Storage",
-        "q": "A company needs a specific subnet to access an Azure Storage account only over the private Azure network, never over the public internet, even if someone knew the access keys. What solution will they use?",
+        "q": "A storage account keeps project files in the hot tier. Files older than 60 days are opened only about twice a year, but then they must open within seconds. Which tier gives the lowest storage cost for those older files?",
         "a": [
-          "Setting only a strong password on the entire storage account",
-          "Relying on the storage account's default settings",
-          "Use a Private Endpoint for the storage account in that VNet",
-          "Using a public IP address with NSG rules for the account"
+          "Cool tier",
+          "Archive tier",
+          "Cold tier",
+          "Premium tier"
         ],
         "c": 2,
-        "e": "A Private Endpoint creates a private network interface for the storage account inside the VNet, so communication happens exclusively over the private Azure network and isn't reachable over the public internet, even with knowledge of the access keys. A strong password would protect access, but communication could still pass over the public internet. The storage account's default settings typically allow access via public endpoints. A public IP address with NSG rules still means the storage account has a publicly reachable endpoint, contradicting the requirement for exclusively private access."
+        "e": "Cold is an online tier with lower storage cost than cool, meant for rarely accessed data that is still needed instantly. Cool is also online but costs more to store than cold. Archive is cheaper still but offline, so files would need hours of rehydration. Premium is a performance tier for low latency at a higher price, the opposite of what rarely used files need."
       },
       {
         "id": "heroic_35",
         "category": "Networking",
-        "q": "A team manages three Azure regions connected in a star topology with a central hub VNet, to which the spoke VNets of individual departments connect. What architectural pattern does this describe?",
+        "q": "VNet A is peered with VNet B, and VNet B is peered with VNet C. VMs in A cannot reach VMs in C. All three VNets are in Azure, and traffic must stay private on the Microsoft backbone with low latency. What should the team do?",
         "a": [
-          "One large flat network with no segmentation",
-          "A full mesh topology with every VNet directly connected to every other",
-          "Isolated VNets with no connectivity at all",
-          "Hub-and-spoke topology with centralized network management"
+          "Create a private DNS zone for all three",
+          "Connect A and C with ExpressRoute",
+          "Assign public IPs to the VMs in C",
+          "Peer VNet A directly with VNet C"
         ],
         "c": 3,
-        "e": "Hub-and-spoke topology has a central hub VNet (typically with shared services like a firewall or VPN Gateway), to which individual spoke VNets connect, enabling centralized network management and security. A full mesh topology would mean every network directly connected to every other, which is significantly more complex and doesn't match the star structure described. One flat network with no segmentation wouldn't match the multi-region setup with departments described in the scenario. Isolated VNets with no connectivity would prevent the centralized management that a hub-and-spoke solution enables."
+        "e": "VNet peering is not transitive, so A and C need their own peering, which keeps traffic private on the Microsoft backbone. A private DNS zone resolves names but creates no network path. ExpressRoute connects on-premises networks to Azure, not two Azure VNets. Public IPs would route traffic through public endpoints instead of the private path."
       },
       {
         "id": "heroic_36",
         "category": "Networking",
-        "q": "An application receives traffic from the internet, and besides basic port filtering, the team wants protection against application-layer attacks like SQL injection or cross-site scripting. What solution will they add?",
+        "q": "In one VNet, the web subnet must accept HTTPS from the internet, while the database subnet must accept traffic only from the web subnet on port 1433. Which control implements both rules?",
         "a": [
-          "A Web Application Firewall (WAF) at the application layer",
-          "Only Azure DNS, for managing domain names",
-          "Only a VPN Gateway, for encrypting network traffic",
-          "Only a Network Security Group with port-based rules"
+          "NSG rules on the two subnets",
+          "A private DNS zone for the VNet",
+          "VNet peering between the two subnets",
+          "Azure DDoS Protection on the VNet"
         ],
         "c": 0,
-        "e": "A Web Application Firewall works at the application layer and protects against specific attacks like SQL injection or cross-site scripting, unlike basic port filtering. A Network Security Group filters traffic at the network layer by ports and IP addresses, but doesn't understand HTTP request content, so it won't catch application-layer attacks. A VPN Gateway encrypts connections between networks, it doesn't analyze request content for application attacks. Azure DNS only handles domain name resolution and has no security filtering function whatsoever."
+        "e": "Network security groups filter traffic by source, destination, port and protocol, so one allows HTTPS from the internet and the other allows only port 1433 from the web subnet. A private DNS zone resolves names and filters no traffic. Subnets in one VNet already communicate, so peering does not apply and filters nothing. DDoS Protection mitigates volumetric attacks but does not set per-subnet port rules."
       },
       {
         "id": "heroic_37",
         "category": "Networking",
-        "q": "A company has an app in one VNet and a database in another VNet in the same region, and wants low latency between them without routing traffic over the public internet or a VPN. What solution will it choose?",
+        "q": "An app VNet in West Europe must talk to a database VNet in North Europe over private IP addresses with low latency. The team wants no VPN gateways and no traffic over the public internet. What should it configure?",
         "a": [
-          "Creating a VPN Gateway between the two virtual networks",
-          "Virtual Network peering between the two VNets",
-          "Using public IP addresses with NSG rules",
-          "Setting up ExpressRoute between the two virtual networks"
+          "A VNet-to-VNet VPN connection",
+          "Global virtual network peering",
+          "An ExpressRoute circuit",
+          "Public endpoints with NSG rules"
         ],
         "c": 1,
-        "e": "Virtual Network peering connects two VNets directly over the Azure backbone network with low latency, with no need for a VPN or the public internet. A VPN Gateway would introduce unnecessary encryption overhead and complexity for connecting two networks in the same region. Public IP addresses with NSG rules would route traffic over the public internet, which the scenario wants to avoid. ExpressRoute is meant for connecting on-premises to Azure, not connecting two VNets to each other inside Azure."
+        "e": "Global VNet peering connects VNets in different regions over the Microsoft backbone with private IPs and no gateway. A VNet-to-VNet VPN also works but needs VPN gateways and adds encryption overhead and latency. ExpressRoute connects on-premises networks to Azure, not two Azure VNets. Public endpoints would put the traffic on the internet path that must be avoided."
       },
       {
         "id": "heroic_38",
         "category": "Networking",
-        "q": "A security audit found that NSG rules across different subnets are inconsistent and hard to manage across dozens of VNets in the organization. Which solution centralizes and simplifies managing the rules?",
+        "q": "A team tries to peer a new VNet with an existing one, but the operation fails. Both VNets use the address space 10.1.0.0/16, and the team needs private, low-latency connectivity between them. What must change?",
         "a": [
-          "Deleting all NSG rules and relying on default settings",
-          "Manually checking and syncing rules on each subnet",
-          "Azure Firewall or Azure Policy, for centralized rules",
-          "Creating independent rules for each subnet with no coordination"
+          "Use a VNet-to-VNet VPN instead of peering",
+          "Link both VNets to one private DNS zone",
+          "Give one VNet a non-overlapping range",
+          "Put both VNets into one resource group"
         ],
         "c": 2,
-        "e": "Azure Firewall provides a centralized gateway for managing network rules, and Azure Policy can enforce consistent NSG configurations across all VNets, addressing the problem of inconsistent manual management. Manually checking and syncing dozens of subnets is exactly the inefficient process the scenario describes as the problem. Deleting all rules and relying on default settings would reduce security, since the defaults may not match the organization's needs. Creating independent rules with no coordination would only deepen the inconsistency problem."
+        "e": "VNets with overlapping address spaces cannot be peered, so one VNet must be re-addressed to a range that does not overlap. A VNet-to-VNet VPN has the same requirement for non-overlapping ranges. A private DNS zone resolves names but does not fix an address conflict. Resource groups are management containers and have no effect on routing or peering."
       },
       {
         "id": "heroic_39",
         "category": "Networking",
-        "q": "A company needs DNS queries for internal private resources (like an internal database server) to work from an on-premises network connected to Azure too, but they must not be visible from the public internet. What solution will they use?",
+        "q": "VMs in two peered VNets must resolve each other by names such as db01.corp.internal. The names must never be resolvable from the internet, and the team does not want to run its own DNS servers. What should it use?",
         "a": [
-          "A public Azure DNS zone for every single record",
-          "Manually editing the hosts file on every client",
-          "Using a public third-party DNS server",
-          "A Private DNS zone connected to the VNet and on-premises"
+          "An Azure DNS public zone for corp.internal",
+          "DNS servers running on two Azure VMs",
+          "Public IP DNS name labels on each VM",
+          "A Private DNS zone linked to both VNets"
         ],
         "c": 3,
-        "e": "An Azure Private DNS zone resolves names for private resources inside a VNet, and when connected to an on-premises network (via VPN or ExpressRoute), it works from there too without the records being visible from the public internet. A public DNS zone would expose internal records to anyone on the internet, a security risk. Manually editing the hosts file on every client doesn't scale and is extremely error-prone with a larger number of devices. A public third-party DNS server would also mean exposing internal records outside the company's control."
+        "e": "A private DNS zone linked to both VNets provides name resolution only inside those VNets, with no DNS servers to run. A public zone would make the names resolvable from the internet. DNS servers on VMs would work but are the self-managed option the team wants to avoid. Public IP DNS labels give internet-resolvable Azure names, not private names in the team's own domain."
       },
       {
         "id": "heroic_40",
         "category": "Compute",
-        "q": "An application running in a Kubernetes cluster (AKS) needs to automatically add more pods and nodes under increased load, and remove them again when load drops, so the company doesn't pay for unused capacity. Which AKS feature enables this?",
+        "q": "A retailer runs a stateless web front end on identical Windows VMs. During sales the load triples and must be absorbed without anyone resizing machines, and capacity must also survive the failure of one datacenter in the region. What should it use?",
         "a": [
-          "Horizontal Pod Autoscaler together with Cluster Autoscaler",
-          "Shutting down the cluster outside business hours",
-          "Manual scaling by an administrator based on a daily check",
-          "A fixed number of pods set once and never changed"
+          "VM Scale Sets spread across availability zones",
+          "An availability set with VMs resized during sales",
+          "One larger VM with zone-redundant storage",
+          "Azure Container Instances in one zone"
         ],
         "c": 0,
-        "e": "Horizontal Pod Autoscaler scales the number of pods according to load, and Cluster Autoscaler scales the number of cluster nodes so there's enough capacity for the pods, together automating the whole process up and down with no manual intervention. Manual scaling by an administrator based on a daily check is slow and doesn't react to sudden real-time load swings. A fixed number of pods would either waste capacity at low load or fall short at high load. Shutting down the cluster outside business hours could disrupt operations if the app is needed continuously, and it doesn't address scaling during load within business hours."
+        "e": "Scale sets add and remove identical VMs automatically, and spreading them across availability zones keeps capacity if one datacenter fails. An availability set only spreads VMs across racks in one datacenter and does not add VMs by itself. One larger VM is vertical scaling and still a single point of failure. Container Instances run individual containers rather than autoscaling Windows VMs, and one zone does not survive a datacenter outage."
       },
       {
         "id": "heroic_41",
         "category": "Compute",
-        "q": "A company runs dozens of microservices in containers and needs a failed container to be automatically restarted with no loss of availability for the whole application. What orchestration feature ensures this?",
+        "q": "A team runs a dozen microservices in containers. It wants automatic scaling driven by HTTP traffic, including scaling to zero overnight, but has no Kubernetes skills and does not want to manage clusters. Which service fits best?",
         "a": [
-          "Manually restarting containers by an administrator after a report",
-          "The Kubernetes self-healing mechanism, with automatic pod restart",
-          "Running just a single container with no redundancy at all",
-          "Relying on containers never failing"
+          "Azure Kubernetes Service",
+          "Azure Container Apps",
+          "Azure Container Instances",
+          "Virtual Machine Scale Sets"
         ],
         "c": 1,
-        "e": "Self-healing in Kubernetes automatically detects a pod's failure and restarts it or replaces it with a new instance with no manual intervention, preserving the application's availability. Manually restarting by an administrator is slow and doesn't react immediately to failure in production. Relying on containers never failing is an unrealistic assumption in real-world operation with dozens of services. Running just a single container with no redundancy would mean its failure immediately affects the availability of that entire service."
+        "e": "Container Apps runs containerized microservices with automatic, traffic-based scaling, including to zero, and hides the cluster management. AKS gives full Kubernetes control, but the team would have to run and understand the cluster. Container Instances run single containers quickly but offer no built-in autoscaling for a set of microservices. Scale sets scale VMs, leaving the team to manage the OS and the container runtime."
       },
       {
         "id": "heroic_42",
         "category": "Compute",
-        "q": "A team wants to deploy a function that runs just once a day at a precisely defined time to process a batch report, with no need to keep a server running the rest of the day. What solution will it choose?",
+        "q": "A nightly job runs for about four minutes to build a report from files in Blob Storage. The team wants to pay nothing while it is idle, write only the code, and let Azure provision and scale whatever runs it. Which option fits?",
         "a": [
-          "An on-premises server started manually by an administrator",
-          "Azure Kubernetes Service, with a permanently running pod",
-          "Azure Functions, with a timer trigger",
-          "An Azure Virtual Machine running continuously, 24/7"
+          "A Windows VM started by a schedule",
+          "An App Service web app, always on",
+          "Azure Functions with a timer trigger",
+          "A container instance that always runs"
         ],
         "c": 2,
-        "e": "Azure Functions with a timer trigger runs code exactly on a defined schedule (such as once a day) and doesn't run at all outside that time, so you only pay for the actual execution time. An Azure VM running continuously would be needlessly costly, since it would sit idle most of the day. AKS with a permanently running pod would also consume resources continuously, even though the function is only needed once a day. An on-premises server started manually by an administrator requires human intervention and risks the start being forgotten at the right time."
+        "e": "Azure Functions is serverless: a timer trigger runs the code on schedule, and on a Consumption plan you pay only for executions. A scheduled VM still needs OS management and pays for its disks while idle. An always-on web app keeps paying for its App Service plan all day. A container instance that always runs is billed for every second, including the idle hours."
       },
       {
         "id": "heroic_43",
         "category": "Cloud",
-        "q": "A startup isn't sure whether its new product will succeed in the market and doesn't want to lock up capital in its own datacenter if the project ends after a few months. Which cloud trait helps it most?",
+        "q": "A startup is unsure its product will survive the first year. It wants to avoid buying servers, pay only for the resources it actually uses, and be able to shut everything down at short notice. Which combination of characteristics addresses this?",
         "a": [
-          "Higher hardware performance compared to on-premises servers",
-          "Better security compared to on-premises solutions in general",
-          "Greater control over the physical location of servers",
-          "Low upfront investment and the ability to end the project anytime"
+          "CapEx spending with consumption-based pricing",
+          "OpEx spending with three-year reservations",
+          "CapEx spending with a private cloud",
+          "OpEx spending with consumption-based pricing"
         ],
         "c": 3,
-        "e": "The cloud lets you start with minimal upfront investment and end a project at any time without locking up capital in your own hardware, exactly matching a startup's situation with an uncertain outcome. Higher hardware performance isn't the primary reason in this scenario, where financial flexibility is the main concern. Better security is a possible general advantage of the cloud, but it isn't directly related to uncertainty about the project's future. Greater control over physical location is, by contrast, a trait of on-premises solutions, not an advantage of the cloud in this context."
+        "e": "Operational expenditure means no upfront hardware purchase, and consumption-based pricing charges only for resources used, which can stop at any time. CapEx is the upfront purchase of servers the startup wants to avoid. Three-year reservations commit the startup to paying for capacity even if the product ends. A private cloud on its own hardware is a capital investment that cannot be ended at short notice."
       },
       {
         "id": "heroic_44",
         "category": "Cloud",
-        "q": "An international company wants part of its infrastructure under full control because of sensitive data, but also wants to use the public cloud's scalability for routine customer-facing apps with variable load. Which strategy will it choose?",
+        "q": "A hospital group runs virtualization with self-service provisioning on its own hardware, used only by its own departments. Later it adds Azure for public-facing apps and connects both environments. How are the two stages classified?",
         "a": [
-          "A hybrid strategy combining private and public cloud",
-          "Running everything exclusively in a private cloud, for consistency",
-          "Moving all data, including sensitive data, to an external SaaS",
-          "Running everything exclusively in the public cloud, with no exceptions"
+          "Private cloud, then hybrid cloud",
+          "Public cloud, then multi-cloud",
+          "On-premises only, then multi-cloud",
+          "Private cloud, then multi-cloud"
         ],
         "c": 0,
-        "e": "A hybrid strategy lets you keep sensitive data in an environment under the company's full control while also using the public cloud's elasticity for apps with variable load, exactly matching both requirements in the scenario. A purely private cloud wouldn't let you fully leverage the public cloud's scalability for customer-facing apps, as required. A purely public cloud with no distinction wouldn't provide the required full control over sensitive data. Moving all data to an external SaaS provider, including sensitive data, would go directly against the requirement to keep it fully under control."
+        "e": "Cloud capabilities on hardware used by a single organization form a private cloud, and connecting it with a public cloud makes a hybrid cloud. It was never a public cloud, because the hardware served only one organization. Self-service provisioning goes beyond plain on-premises hosting, and one public provider is not multi-cloud. Multi-cloud means using several public cloud providers, while this is a private cloud plus one public cloud."
       },
       {
         "id": "heroic_45",
         "category": "Cost",
-        "q": "A company running multiple projects in a shared subscription wants individual project managers to see only their own project's costs, not the whole organization's. What solution enables this without major restructuring?",
+        "q": "Each project in a shared subscription has its own resource group. Project managers must see only their own project's costs in Cost Management and must not be able to change any resources. What should you assign?",
         "a": [
-          "Creating a new subscription for each project separately",
-          "Consistent project-based resource tagging with filtered reports",
-          "Cost Management access for all managers at the subscription level",
-          "Sending a monthly summary report for the whole subscription"
+          "Cost Management Reader on the subscription",
+          "Cost Management Reader per resource group",
+          "Contributor per resource group",
+          "Billing Reader on the billing account"
         ],
         "c": 1,
-        "e": "Consistent project-based resource tagging together with filtered reports and restricted access lets managers see only their project's costs without needing to change the subscription structure. Cost Management access at the whole subscription level would expose all projects' costs to managers, not just their own, contradicting the scenario. Sending a summary report with no breakdown doesn't address the requirement for visibility into just one's own project. Creating a new subscription per project would work, but the scenario explicitly wants a solution without major restructuring."
+        "e": "Cost Management Reader scoped to a project's resource group shows that group's costs only and allows no resource changes. The same role on the subscription would show every project's costs. Contributor allows changing resources, which managers must not do. Billing Reader at the billing account exposes billing data for the whole organization."
       },
       {
         "id": "heroic_46",
         "category": "Cost",
-        "q": "A company has stable, well-predictable production load all year and wants to minimize compute costs with no risk of disrupting operations. Which purchasing model will it choose?",
+        "q": "A company compares running the same app in a nearby region or in a cheaper distant region. Either way, users download about 30 TB per month from the app, and uploads are small. Which pair of cost factors decides the comparison?",
         "a": [
-          "Spot VMs, for their lowest possible price",
-          "Pay-as-you-go, with no long-term commitment at all",
-          "Reserved Instances, for stable predictable load",
-          "Buying its own physical servers for the datacenter"
+          "Region pricing plus inbound data transfer",
+          "Resource locks plus outbound data transfer",
+          "Region pricing and outbound data transfer",
+          "Subscription count and inbound data transfer"
         ],
         "c": 2,
-        "e": "Reserved Instances offer a substantial discount in exchange for a 1- or 3-year commitment, ideal for stable, predictable load with no risk of disruption. Spot VMs are the cheapest, but Microsoft can evict them at any time, contradicting the requirement for zero risk of disrupting production. Pay-as-you-go with no commitment is flexible, but more expensive than Reserved Instances for stable long-term load. Buying physical servers would mean reverting to a CapEx model and losing cloud benefits like scaling flexibility."
+        "e": "Service prices differ by region, and outbound data transfer is billed per GB, with rates that depend on the source region. Inbound data transfer into Azure is generally free, so small uploads do not change the comparison. Resource locks protect resources and have no cost. The number of subscriptions does not change the price of the resources themselves."
       },
       {
         "id": "heroic_47",
         "category": "Cost",
-        "q": "A company wants to process large batch machine learning jobs that can be interrupted at any time and resumed later, and wants to pay as little as possible for compute. Which purchasing model will it choose?",
+        "q": "A team lead wants an email when the subscription's spending reaches 80 % of the monthly plan and another one at 100 %. No resources may be stopped or blocked automatically. What should be configured?",
         "a": [
-          "An on-demand VM with no discount or commitment at all",
-          "Reserved Instances, for their stable fixed price",
-          "A Premium VM with guaranteed continuous availability",
-          "Spot VMs, for a lower price with tolerance for interruption"
+          "An Azure Monitor metric alert",
+          "An Azure Policy with a cost rule",
+          "An Azure Advisor cost digest",
+          "A budget in Cost Management"
         ],
         "c": 3,
-        "e": "Spot VMs use unused Azure capacity at a significantly lower price, with a risk of interruption, which is acceptable for batch jobs that can be resumed at any time, exactly as the scenario describes. Reserved Instances are good for stable, uninterrupted load, not primarily for the lowest possible price on interruption-tolerant jobs. An on-demand VM with no discount would cost significantly more than Spot VMs for the same type of job. A Premium VM with guaranteed availability addresses a different problem — high availability, not minimizing cost — contradicting the scenario's goal."
+        "e": "A Cost Management budget sends alerts at thresholds such as 80 % and 100 % of the planned amount and does not stop resources on its own. Monitor metric alerts watch resource metrics like CPU, not subscription spending. Azure Policy controls resource configuration and has no spending thresholds. Advisor digests list cost recommendations, not alerts against a planned amount."
       },
       {
         "id": "heroic_48",
         "category": "Reliability",
-        "q": "An architecture team is designing a critical system and wants not only to survive a datacenter outage, but also to minimize data loss to a maximum of a few seconds in the event of a regional catastrophe. Which solution best satisfies both requirements?",
+        "q": "A web tier on VMs spread across availability zones has a 99.99 % SLA, and it depends on a managed data service that also has a 99.99 % SLA. Both must be up for the app to work. What is the approximate composite SLA of the app?",
         "a": [
-          "Multi-region deployment with synchronous replication",
-          "Daily backups within the company's own region",
-          "LRS storage, one copy in a single datacenter",
-          "A single high-performance VM with zero replication"
+          "99.98 %",
+          "99.99 %",
+          "99.999 %",
+          "99.9 %"
         ],
         "c": 0,
-        "e": "Multi-region deployment with synchronous or near-synchronous replication minimizes both the outage (RTO) and data loss (RPO) to seconds, even in the event of a regional catastrophe. LRS only protects within a single datacenter and doesn't address an outage of the entire region at all. Daily backups would mean up to 24 hours of data loss in a catastrophe, far short of the requirement for a maximum of a few seconds. A single VM with no replication is a single point of failure and doesn't even meet the basic requirement to survive a datacenter outage."
+        "e": "Services that depend on each other multiply their SLAs: 0.9999 × 0.9999 ≈ 0.9998, so about 99.98 %. 99.99 % ignores that a failure of either service breaks the app. 99.999 % would need extra redundancy that raises availability above each component, which this chain does not have. 99.9 % is far lower than the product of two 99.99 % SLAs."
       },
       {
         "id": "heroic_49",
         "category": "Reliability",
-        "q": "After defining a disaster recovery plan, a team wants to verify it actually works in practice before a real disaster occurs. What step is necessary for this?",
+        "q": "An app must keep running if one datacenter in its region fails. If the whole region is lost, a few hours of downtime are acceptable, but the data in its storage account must still be recoverable. Which design meets this at the lowest cost?",
         "a": [
-          "Relying on the plan's documentation being enough alone",
-          "Regularly testing failover to the secondary region",
-          "Setting up the plan once and never updating it",
-          "Waiting for the first real disaster to improvise"
+          "Availability set VMs with GRS storage",
+          "Zone-spread VMs with GZRS storage",
+          "Zone-spread VMs with ZRS storage",
+          "Two active regions with RA-GZRS storage"
         ],
         "c": 1,
-        "e": "Regular test failovers verify that the disaster recovery plan actually works in practice, reveal weaknesses before a real disaster happens, and let the plan be gradually improved. Relying only on documentation with no real-world verification is risky, since a theoretical plan may not work as designed. Waiting for a real disaster with no prior testing increases the risk that the plan fails exactly when it's most needed. Setting up the plan once with no updates ignores changes in infrastructure and applications over time that can invalidate the plan."
+        "e": "VMs across availability zones survive a datacenter failure, and GZRS keeps zone-redundant copies in the primary region plus an asynchronous copy in the secondary region. An availability set protects only against rack failures inside one datacenter, and GRS keeps the primary copies in a single datacenter. ZRS keeps every copy in one region, so a regional loss would lose the data. Two active regions with RA-GZRS also works but costs more than needed when hours of downtime are acceptable."
       },
       {
         "id": "heroic_50",
         "category": "Governance",
-        "q": "A large organization with many teams wants to ensure nobody can bypass central security standards, while also letting individual teams quickly experiment within their own resource groups. What Azure Policy approach will it choose?",
+        "q": "Central IT wants security rules that every current and future subscription inherits and that local teams cannot remove. Each team may still add stricter rules for its own resource groups. Where should central IT assign its policies?",
         "a": [
-          "Having no central rules at all for teams",
-          "Banning all new resources without central IT approval",
-          "Baseline rules at management group level, plus local additions",
-          "Strictly applying all rules at resource group level"
+          "On each team's resource group",
+          "In each subscription by its Owner",
+          "On a management group above them",
+          "As tags on every subscription"
         ],
         "c": 2,
-        "e": "A layered approach with mandatory rules at the management group level ensures baseline security standards can't be bypassed, while additional rules at the resource group level give teams room to quickly experiment within set boundaries. Strictly applying all rules only at the resource group level would risk gaps if some team forgot to set a rule. Having no central rules at all wouldn't ensure standards can't be bypassed, as the scenario requires. Banning any resource creation without approval would completely prevent the rapid experimentation the scenario also requires."
+        "e": "Policies assigned at a management group are inherited by all subscriptions and resource groups below it, and teams with rights only at lower scopes cannot remove them. Assigning on each resource group would let teams with Owner rights there change or remove them. Subscription Owners could edit or delete assignments made at their own scope. Tags only label resources and enforce nothing."
       },
       {
         "id": "heroic_51",
         "category": "Governance",
-        "q": "An auditor needs to prove that nobody made an unauthorized configuration change to a critical network resource over the past 90 days. Where will they find this information?",
+        "q": "An auditor asks who changed the rules of a production NSG last month and when. No extra logging or diagnostic settings were configured, and the answer is needed today. Where will the team find it?",
         "a": [
-          "In the Cost Management report for the relevant period",
-          "In Azure Advisor's recommendations",
-          "In the resource's description directly in the Azure Portal",
-          "In that resource's Activity log, filtered to the past 90 days"
+          "Azure Service Health history",
+          "Application Insights traces",
+          "Azure Advisor recommendations",
+          "The Azure Activity Log"
         ],
         "c": 3,
-        "e": "The Activity log records all control-plane operations performed on a resource, including who made what change and when, exactly the source for an audit verification over any period. A Cost Management report shows costs, not a history of configuration changes. Azure Advisor gives optimization recommendations, it doesn't contain a historical record of actions taken. A resource's description in the portal shows the current configuration state, not a history of changes over recent months."
+        "e": "The Activity Log records control-plane operations such as changing NSG rules, including who made them and when, and keeps 90 days without extra setup. Service Health history lists Azure platform incidents, not your own changes. Application Insights traces application requests, not changes to network resources. Advisor offers recommendations and records no change history."
       },
       {
         "id": "heroic_52",
         "category": "Governance",
-        "q": "A company wants to prevent a situation where an administrator accidentally deploys a resource in the wrong region, given regulatory requirements on data location. Which solution best eliminates this risk?",
+        "q": "Regulation requires customer-data resources to be created only in EU regions. A team must be blocked when it tries to deploy a storage account in East US, and existing resources outside the EU must be reported. What should be used?",
         "a": [
-          "Azure Policy with Deny for disallowed regions",
-          "Sending an email listing the allowed regions",
-          "A weekly manual check of regions after creation",
-          "Relying on administrator training and attentiveness"
+          "Azure Policy with allowed locations",
+          "Microsoft Purview data classification",
+          "An Azure sovereign region",
+          "A ReadOnly lock on the subscription"
         ],
         "c": 0,
-        "e": "Azure Policy with a Deny effect technically blocks the creation of any resource outside the allowed regions, eliminating the risk of human error entirely, unlike relying on a person's attentiveness. Training and administrator attentiveness reduce risk, but don't guarantee one hundred percent prevention of human error. An email with a list of allowed regions is just informational, with no technical enforcement it can be ignored or forgotten. A weekly manual check after resource creation addresses the problem only after the mistake has already happened, rather than preventing it."
+        "e": "The built-in allowed-locations policy denies deployments outside the listed regions and reports existing resources that are out of compliance. Purview classifies and governs data but does not block deployments by region. Sovereign regions are isolated clouds for specific governments, not a way to keep resources inside the EU. A ReadOnly lock would block all changes, not just non-EU deployments."
       },
       {
         "id": "heroic_53",
         "category": "Security",
-        "q": "A security team found that several developers have the Owner role on a production subscription, even though their work only requires deploying applications, not managing others' access. Which solution best reduces the risk?",
+        "q": "Developers hold the Owner role on the production subscription. They still need to deploy and update resources, but they must no longer be able to grant access to anyone else. Which role should replace Owner?",
         "a": [
-          "Raising every developer's permissions to Global Administrator",
-          "Reassessing roles by least privilege, using the Contributor role",
-          "Removing all access to the production subscription entirely",
-          "Leaving the current state as is, since the work gets done"
+          "Reader role",
+          "Contributor role",
+          "User Access Administrator",
+          "Owner with a Delete lock"
         ],
         "c": 1,
-        "e": "Reassessing roles according to the principle of least privilege and granting a role like Contributor (which allows deployment without managing access) reduces the risk of misuse or accidental mistakes, without restricting the work developers actually need to do. Leaving the current state as is preserves needlessly high risk tied to excessive permissions. Raising permissions to Global Administrator would significantly worsen the risk, going exactly the opposite direction from the security recommendation. Removing all access entirely would prevent developers from doing their legitimate work of deploying applications."
+        "e": "Contributor can create and manage all resources but cannot assign roles, which applies least privilege. Reader cannot deploy or update anything. User Access Administrator manages access but cannot deploy resources, the reverse of what is needed. Owner with a Delete lock would still let developers grant access to others."
       },
       {
         "id": "heroic_54",
         "category": "Security",
-        "q": "A company wants encryption keys used for sensitive data to never leave hardware security modules (HSMs) and to meet strict FIPS 140-2 Level 3 regulatory certification. Which Azure service will they use for this?",
+        "q": "A company drops the idea that its corporate network is trusted. Every request is now checked using identity, device and location, users get only the access they need, and the network is segmented as if an attacker were already inside. Which model is this?",
         "a": [
-          "Storing keys directly in the application's code",
-          "Sharing keys between developers over encrypted email",
-          "Azure Key Vault Managed HSM or Premium tier, with HSM support",
-          "The standard Azure Key Vault tier, with no HSM support"
+          "Defense-in-depth model",
+          "Shared responsibility model",
+          "The Zero Trust model",
+          "Perimeter-based security"
         ],
         "c": 2,
-        "e": "Azure Key Vault Managed HSM or Premium tier with hardware security module support ensures keys are generated and stored directly in a certified HSM and never leave it, meeting strict regulatory requirements. The standard Key Vault tier uses software-protected keys, not a dedicated HSM certified to FIPS 140-2 Level 3, as the scenario requires. Storing keys directly in application code is a major security risk and the exact opposite of secure key management. Sharing keys over email, even encrypted, creates unnecessary copies of the key outside a secure environment and doesn't match the requirement for HSM protection."
+        "e": "Zero Trust's principles are verify explicitly, use least-privilege access and assume breach, exactly as described. Defense in depth layers several controls but does not by itself drop trust in the internal network. The shared responsibility model divides security duties between Microsoft and the customer. Perimeter-based security trusts the internal network, which this company has abandoned."
       },
       {
         "id": "heroic_55",
-        "category": "Security",
-        "q": "After a security incident, a company wants to determine the exact timeline of events across firewalls, servers, and applications to understand how the attacker proceeded. What tool will they best use for this?",
+        "category": "Governance",
+        "q": "A compliance team must find where personal data such as passport numbers is stored across Azure storage, on-premises SQL Server and Microsoft 365, classify it automatically and see one map of the whole data estate. Which service fits?",
         "a": [
-          "A Cost Management report for that period",
-          "Azure Advisor, for general optimization tips",
-          "A resource lock set on the affected resources",
-          "Microsoft Sentinel, for correlation across sources"
+          "Microsoft Defender for Cloud",
+          "Azure Policy",
+          "Azure Monitor Log Analytics",
+          "Microsoft Purview"
         ],
         "c": 3,
-        "e": "Microsoft Sentinel lets you correlate and analyze logs from many different sources (firewalls, servers, applications) and reconstruct an exact event timeline during an incident investigation. Azure Advisor gives general optimization recommendations, it isn't a tool for forensic incident investigation. A resource lock protects resources from deletion or modification, it provides no data about the course of an attack. A Cost Management report shows financial costs and has no connection to reconstructing a security incident."
+        "e": "Microsoft Purview scans and classifies sensitive data across Azure, on-premises and Microsoft 365 and builds a unified data map. Defender for Cloud protects workloads and their configuration, not a catalog of personal data. Azure Policy enforces resource settings and does not scan data contents. Log Analytics queries collected logs and does not classify stored data."
       },
       {
         "id": "heroic_56",
         "category": "Reliability",
-        "q": "A team found that an application has good response time under normal load, but outages occur during a stress test at ten times the usual load. What architectural approach would reduce the risk of a similar situation in production?",
+        "q": "A load test shows an app copes with ten times normal traffic only after an admin adds VMs by hand, and the extra VMs then keep running until someone removes them. Which cloud benefit is the app not yet using?",
         "a": [
-          "Auto-scaling architecture, verified by repeated tests",
-          "Ignoring the test results as an unlikely case",
-          "Assuming users will never generate that load",
-          "A one-time VM size bump with no further testing"
+          "Elasticity through autoscaling",
+          "Vertical scaling of each VM",
+          "High availability across zones",
+          "Predictable reserved pricing"
         ],
         "c": 0,
-        "e": "An architecture with automatic scaling, verified through repeated load testing at various levels, prepares the application for unexpected spikes and reduces the risk of an outage in production. Ignoring the test results would leave the risk uncovered, even though the test already revealed the problem. A one-time VM size increase with no further testing doesn't address scalability under even higher or variable load in the future. Relying on users never generating that kind of load is a risky assumption that the load test has already shown to be uncertain."
+        "e": "Elasticity means capacity grows and shrinks automatically with demand, which autoscaling provides instead of manual changes. Vertical scaling makes VMs bigger and would still need manual action here. High availability keeps the app running through failures but does not adjust capacity to load. Reserved pricing makes costs predictable but does nothing for changing load."
       },
       {
         "id": "heroic_57",
         "category": "Cost",
-        "q": "A company is planning next year's budget and wants to know exactly how much running a new application in Azure will cost before deploying anything, so it can compare architecture alternatives. What tool will they use?",
+        "q": "Before deploying anything, an architect wants to compare the monthly cost of two designs: VMs in one region versus App Service in another, including storage and bandwidth. Nothing exists in Azure or on-premises yet. Which tool fits?",
         "a": [
-          "Azure Advisor, for recommendations on an already-running environment",
-          "Pricing calculator, for estimating costs before deployment",
-          "Cost Management, since it tracks costs already incurred",
-          "Activity log, for the history of actions already taken"
+          "Cost Management cost analysis",
+          "Azure pricing calculator",
+          "Azure Advisor cost tab",
+          "Azure Migrate assessment"
         ],
         "c": 1,
-        "e": "The pricing calculator lets you estimate the cost of different service configurations before they're deployed, exactly matching the need to compare architecture alternatives during budget planning. Cost Management tracks actual costs incurred by already-running resources, not a hypothetical estimate before deployment. Azure Advisor gives optimization recommendations for an existing environment, not a cost estimate for something that doesn't exist yet. The Activity log records the history of actions taken on resources and has no connection to estimating future costs."
+        "e": "The pricing calculator estimates costs for planned configurations before anything is deployed and lets you compare options. Cost analysis reports costs of resources that already exist and incur charges. Advisor recommends savings for resources already running. Migrate assessment sizes and prices existing on-premises servers, and none exist here."
       },
       {
         "id": "heroic_58",
         "category": "Storage",
-        "q": "A team found that most of the cost on a Storage account comes from data that hasn't been accessed in over 90 days, but nobody manually moves it to a cheaper tier. Which solution automates this process?",
+        "q": "A legacy app runs on three Windows VMs. It needs one shared folder that all three VMs mount at the same time over SMB, plus a separate disk attached to each VM for its own operating system. Which pair of storage services fits?",
         "a": [
-          "A manual monthly check and transfer by an administrator",
-          "Deleting all the old data with no backup at all",
-          "A lifecycle management policy, for automatic transfer over time",
-          "Switching the entire account to a more expensive Premium tier"
+          "Blob Storage and managed disks",
+          "Azure Files and Queue Storage",
+          "Azure Files and managed disks",
+          "Managed disks and Table Storage"
         ],
         "c": 2,
-        "e": "A lifecycle management policy automatically moves data to a cheaper tier (Cool or Archive) according to defined rules based on age or last activity, with no manual intervention. A manual monthly check is time-consuming and prone to being forgotten, exactly the problem automation solves. Deleting data with no backup could cause irreversible loss of information that might still be needed. Switching to Premium tier would actually increase costs, the opposite of the desired reduction for rarely accessed data."
+        "e": "Azure Files provides SMB shares that several VMs mount at once, and managed disks are the block storage volumes attached to each VM. Blob Storage is object storage reached over HTTP, not an SMB share the VMs mount. Queue Storage passes messages and cannot act as a VM disk. Table Storage stores key-value entities and is neither a share nor a disk."
       },
       {
         "id": "heroic_59",
         "category": "Storage",
-        "q": "A company is migrating a 5 TB database and needs to minimize production downtime to the shortest possible time, ideally on the order of minutes. What migration approach will it choose?",
+        "q": "A company in Germany needs its storage data copied to a second region hundreds of kilometres away, but the copy must stay within Germany's geography. It does not need to read the copy unless the primary region fails. Which option fits?",
         "a": [
-          "Shutting down the production database for the whole weekend to copy it",
-          "Migrating with no plan at all and handling problems as they arise",
-          "Exporting the data to a CSV file and importing it manually",
-          "An online migration tool with ongoing synchronization and a cutover"
+          "ZRS in one German region",
+          "RA-GZRS to a pair outside Germany",
+          "LRS with daily AzCopy to a second region",
+          "GRS, using the Germany region pair"
         ],
         "c": 3,
-        "e": "An online migration with ongoing synchronization lets you copy most of the data while the source database keeps running, and only synchronize the final small delta during a brief cutover, minimizing downtime to minutes. Shutting down the database for the whole weekend would cause a much longer outage than the scenario requires. Exporting to CSV and importing manually is a slow process unsuited to 5 TB of data and risks a longer outage as well as errors during manual processing. Migrating with no plan would be highly risky and could lead to a longer outage than acceptable."
+        "e": "GRS copies data asynchronously to the paired region, and the German regions are paired with each other, so the copy stays in Germany. ZRS spreads copies across the zones of one region only, not hundreds of kilometres away. The secondary of RA-GZRS is always the paired region, so a pair outside Germany cannot be chosen, and read access is not needed anyway. LRS with AzCopy copies is a manual snapshot process, not storage redundancy."
       },
       {
         "id": "heroic_60",
         "category": "Storage",
-        "q": "A company has an application storing a large volume of structured data (billions of records) needing very fast key-based reads and writes of individual records, with no complex relational queries. Which storage will it choose?",
+        "q": "An IoT app writes billions of small sensor readings, and each reading is read back by device ID and timestamp. It needs no joins or complex queries, and storage must be as cheap as possible. Which Azure Storage service fits?",
         "a": [
-          "Table Storage or Cosmos DB, for key-value access",
-          "Blob Storage, for its very low storage cost",
-          "A local disk attached directly to the virtual machine",
-          "Azure SQL Database, for its strict relational relationships"
+          "Azure Table Storage",
+          "Azure Queue Storage",
+          "Azure Files",
+          "Azure Disk Storage"
         ],
         "c": 0,
-        "e": "Table Storage or Cosmos DB are designed for massively scalable, fast key-based data access with no need for complex relational queries, exactly matching the scenario described. Azure SQL Database is optimized for relational data with relationships and complex queries, which the scenario explicitly doesn't require, and the relational model would be unnecessary overhead here. Blob Storage is meant for binary objects like files, not billions of structured records with fast key-based access. A local disk on a VM wouldn't provide the scalability or reliability needed for that volume of data."
+        "e": "Table Storage is a low-cost NoSQL key-value store for huge numbers of structured entities read back by key, without joins. Queue Storage holds messages for one-time processing, not records read back later by key. Azure Files offers file shares, which would need custom file formats for billions of readings. Disk Storage provides block volumes for VMs, not a store queried by key."
       },
       {
         "id": "heroic_61",
         "category": "Storage",
-        "q": "A security team wants to prevent anyone outside the corporate VNet from even attempting to connect to an Azure SQL Database, even with valid credentials. What solution ensures this?",
+        "q": "A partner's on-premises servers upload files to a storage account over the internet from two fixed public IP addresses. All other sources must be blocked, and the partner has no VPN or ExpressRoute connection. What should be configured?",
         "a": [
-          "Use firewall rules allowing all IP addresses, for simplicity",
-          "Set up a Private Endpoint for the database and disable public access",
-          "Relying only on a strong database password",
-          "Share the credentials only with trusted people"
+          "A private endpoint for the partner",
+          "Storage firewall allowing the two IPs",
+          "An NSG attached to the storage account",
+          "A Private DNS zone for the account"
         ],
         "c": 1,
-        "e": "A Private Endpoint combined with disabling public access ensures the database is reachable exclusively from the private Azure network, so a connection attempt from outside fails at the network level before credentials are even checked. A strong password protects against guessing it, but doesn't prevent the connection attempt itself from outside the internet. Firewall rules allowing all IP addresses would, on the contrary, open the database to anyone on the internet, the exact opposite of the desired security. Sharing credentials only with trusted people doesn't address network-level protection, the credentials could still leak through other channels."
+        "e": "The storage account's public endpoint can be restricted with firewall rules that allow only the partner's two public IP addresses. A private endpoint lives inside an Azure VNet, which the partner cannot reach without VPN or ExpressRoute. NSGs attach to subnets and network interfaces, not to a storage account. A private DNS zone only resolves names and blocks no traffic."
       },
       {
         "id": "heroic_62",
         "category": "Storage",
-        "q": "A company wants traffic between its web app and database to stay inside the Azure backbone network, even though both services are PaaS and don't have their own VNet by default. What solution will they use?",
+        "q": "A branch office must move 60 TB of archived video into Blob Storage once. Its internet link is 50 Mbps, so an online copy would take months. Afterwards, staff will only occasionally browse a few files. What should the team use for the initial transfer?",
         "a": [
-          "Assuming PaaS services are automatically secure",
-          "The public internet with SSL encryption as sufficient protection",
-          "VNet integration and Private Endpoints for both PaaS services",
-          "Relying on the default public endpoints of both services"
+          "AzCopy over the internet",
+          "Azure File Sync agent",
+          "Azure Data Box (80 TB)",
+          "Azure Storage Explorer"
         ],
         "c": 2,
-        "e": "VNet integration for App Service together with a Private Endpoint for the database lets you connect both PaaS services over a private network, so traffic never leaves the Azure backbone network. Relying on the default public endpoints would mean traffic passes through a public interface, even if it physically stays within the Azure network. SSL encryption protects the content of the traffic, but doesn't address whether the traffic goes through public or private endpoints. The claim that PaaS services are automatically secure with no configuration is mistaken — default settings often include public endpoints that need to be deliberately secured."
+        "e": "Data Box is a physical device Microsoft ships to you: 60 TB over a 50 Mbps link would take more than three months, while Data Box moves it offline in days. AzCopy is the right tool for online transfers, but this link is far too slow. File Sync keeps a Windows file server in sync with Azure Files, not a one-time move to Blob Storage. Storage Explorer is a graphical tool for occasional browsing, which staff can use after the move."
       },
       {
         "id": "heroic_63",
         "category": "Networking",
-        "q": "A company wants to prevent DDoS attacks on its publicly accessible web application while keeping legitimate user traffic flowing with no delay. What solution will it deploy?",
+        "q": "A company connects its datacenter to Azure with ExpressRoute. It wants a cheaper backup path that takes over automatically if the ExpressRoute provider fails, without paying for a second dedicated circuit. What should be added?",
         "a": [
-          "Relying only on NSG rules for filtering ports",
-          "Shutting down the application during suspected activity",
-          "Preventively blocking all inbound traffic",
-          "Azure DDoS Protection combined with Application Gateway"
+          "A second dedicated ExpressRoute circuit",
+          "Global VNet peering to on-premises",
+          "Point-to-site VPN for the servers",
+          "A site-to-site VPN as failover"
         ],
         "c": 3,
-        "e": "Azure DDoS Protection detects and automatically mitigates volumetric attacks in real time, while Application Gateway or Front Door add another layer of protection and routing, together keeping the app available for legitimate users even during an attack. Preventively blocking all traffic would prevent access for legitimate users too, contradicting the requirement to keep their access. NSG rules filter by ports and IP addresses, but aren't designed to detect and mitigate volumetric DDoS attacks the way a specialized service is. Shutting down the application during an attack would cause a complete outage for all users, a worse outcome than targeted protection."
+        "e": "A site-to-site VPN over the internet can coexist with ExpressRoute and serve as a lower-cost failover path. A second ExpressRoute circuit is exactly the extra dedicated circuit the company wants to avoid. VNet peering connects Azure VNets and cannot reach the on-premises datacenter. Point-to-site VPN connects individual clients, not the whole datacenter network."
       },
       {
         "id": "heroic_64",
         "category": "Networking",
-        "q": "A company has multiple Azure subscriptions for different departments and wants all of them to share a central firewall and VPN Gateway instead of duplicating these costly resources in each subscription. What architecture will it choose?",
+        "q": "Departments have VNets in different subscriptions of the same tenant and region. Their VMs must communicate privately with low latency and no gateway costs, while each department keeps managing its own VNet. What should be configured?",
         "a": [
-          "A hub-and-spoke topology with shared network resources via peering",
-          "A separate firewall and VPN Gateway in each subscription",
-          "Completely leaving out both the firewall and VPN Gateway, to save money",
-          "Isolated networks per department with no central management"
+          "VNet peering across the subscriptions",
+          "Merging all VNets into one subscription",
+          "VNet-to-VNet VPN gateway connections",
+          "Public endpoints with NSG rules"
         ],
         "c": 0,
-        "e": "A hub-and-spoke topology with central network resources in a hub VNet, connected to the individual departments' spoke VNets via peering, lets you share costly resources like a firewall and VPN Gateway instead of duplicating them. A separate firewall and VPN Gateway in each subscription would mean unnecessary cost duplication and more complex management, exactly what the company wants to avoid. Completely leaving out the firewall and VPN Gateway would reduce security and connectivity, not a sensible solution to a cost problem. Isolated networks with no central management would prevent resource sharing and complicate management across departments."
+        "e": "VNet peering works across subscriptions, keeps traffic private on the Microsoft backbone with low latency, and needs no gateway. Merging everything into one subscription would take away each department's separate management. VNet-to-VNet VPN connections need VPN gateways, which add cost and latency. Public endpoints would send traffic over the internet instead of a private path."
       },
       {
         "id": "heroic_65",
         "category": "Networking",
-        "q": "An application needs to connect to an external third-party payment gateway outside Azure, but security policy requires all outbound traffic to go through a central control point with logging. What solution ensures this?",
+        "q": "A company's ExpressRoute circuit carries its traffic to Azure. An auditor asks two things: is the traffic encrypted by ExpressRoute itself, and does it cross the public internet? Which answer is correct?",
         "a": [
-          "Banning all outbound traffic entirely, which would break the application",
-          "Routing all outbound traffic through Azure Firewall, with rules and logging",
-          "Relying on the payment gateway itself to log all communication",
-          "Allowing direct outbound connections from every VM with no central control"
+          "Encrypted by default; not over the internet",
+          "Not encrypted by default; not over the internet",
+          "Encrypted by default; partly over the internet",
+          "Not encrypted by default; partly over the internet"
         ],
         "c": 1,
-        "e": "Azure Firewall as a central point for outbound traffic lets you define rules and log all outgoing communication centrally, exactly matching a security policy requiring central control. Direct outbound connections from every VM with no central control wouldn't provide unified logging or the ability to centrally enforce rules. Banning all outbound traffic would prevent the application from functioning at all, since it couldn't connect to the payment gateway. Relying on the third-party payment gateway's own logging doesn't give the company control or visibility over its own outbound traffic, as the policy requires."
+        "e": "ExpressRoute is a private connection that does not cross the public internet, but it does not encrypt traffic by default; encryption such as IPsec or MACsec must be added. Claiming it is encrypted by default is wrong, because its privacy comes from the dedicated path. ExpressRoute traffic never travels partly over the public internet. The last option gets encryption right but wrongly claims an internet path."
       },
       {
         "id": "heroic_66",
         "category": "Compute",
-        "q": "A team runs a web app with bursty traffic where it's hard to predict the required VM capacity in advance, and wants to minimize the administrative burden of manually managing scaling. Which compute model will it choose?",
+        "q": "A company with 200 call-center agents wants each agent's Windows desktop and apps to run in Azure, reachable from cheap thin clients, with several agents sharing one VM to save cost. Which service fits?",
         "a": [
-          "One extremely powerful VM sized for the worst-case scenario",
-          "Manually adding VMs by an administrator as traffic increases",
-          "App Service or Container Apps, with automatic scaling",
-          "A fixed number of VMs set once and never changed"
+          "Windows VMs, one per agent",
+          "Azure App Service",
+          "Azure Virtual Desktop",
+          "Azure Container Instances"
         ],
         "c": 2,
-        "e": "Azure App Service or Container Apps with automatic scaling respond to current load with no manual intervention, minimizing both administrative burden and the risk of insufficient or excess capacity. A fixed number of VMs would either fall short at peak or waste capacity off-peak, and would additionally require manual adjustment whenever traffic patterns changed. Manually adding VMs is exactly the administrative burden the team wants to avoid. One extremely powerful VM sized for the worst case would be needlessly expensive most of the time, when load doesn't reach peak."
+        "e": "Azure Virtual Desktop delivers Windows desktops and apps from Azure and supports multi-session Windows, so several users share one VM. One VM per agent works but costs far more and needs more management. App Service hosts web apps, not full Windows desktops. Container Instances run containers, not interactive desktops."
       },
       {
         "id": "heroic_67",
         "category": "DevOps",
-        "q": "A development team wants to test a new app version with a small percentage of real production traffic before rolling it out to all users, with the ability to roll back immediately if there's a problem. What deployment pattern will they use?",
+        "q": "An admin changes a VM in the Azure portal while a colleague changes the same VM with Azure PowerShell. Both requests are authenticated, checked against RBAC and applied consistently. Which component makes this possible?",
         "a": [
-          "Deploying the new version and immediately deleting the old one",
-          "Testing only locally, with no real production data",
-          "Deploying the new version straight to all users at once",
-          "Deployment slots in App Service, for a gradual rollout"
+          "Azure Cloud Shell sessions",
+          "Azure Policy engine",
+          "Microsoft Entra Connect",
+          "Azure Resource Manager"
         ],
         "c": 3,
-        "e": "Deployment slots in Azure App Service let you deploy a new version into a separate slot, gradually shift a small percentage of traffic to it, and immediately switch back to the stable version if there's a problem. Deploying straight to all users would risk a bug's impact hitting the entire user base at once, with no chance for gradual verification. Testing only locally won't reveal problems specific to the production environment and real traffic. Immediately deleting the old version would prevent a quick rollback if the new version had a problem."
+        "e": "Every request from the portal, PowerShell, CLI or templates goes through Azure Resource Manager, which authenticates it, checks RBAC and applies it consistently. Cloud Shell is only one place to run PowerShell or CLI, and it also sends requests to Resource Manager. Azure Policy evaluates resource settings but is not the layer that receives and executes every request. Entra Connect synchronizes on-premises identities and does not handle resource requests."
       },
       {
         "id": "heroic_68",
         "category": "DevOps",
-        "q": "A team wants the whole process to stop and prevent buggy code from reaching production if an automated deployment step fails (such as a failed test). What CI/CD pipeline principle ensures this?",
+        "q": "A template defines a VNet, a storage account and a VM that needs both. The team wants Azure to work out the order, create independent resources in parallel and report one result for the whole deployment. What provides this?",
         "a": [
-          "A pipeline that halts on the failure of a step like tests",
-          "Ignoring test results and deploying even when they fail",
-          "Running deployment in parallel with tests with no waiting",
-          "Continuing deployment regardless of the result of any step"
+          "An ARM template deployment",
+          "A Bash script in Cloud Shell",
+          "An Azure Policy initiative",
+          "Manual steps in the Azure portal"
         ],
         "c": 0,
-        "e": "A pipeline designed so that the failure of a step (such as failed tests) halts further progress prevents buggy code from reaching production, and is a standard principle of safe CI/CD. Ignoring test results would allow buggy code to be deployed, exactly what we want to avoid. Running deployment in parallel with tests with no waiting could deploy code before discovering it contains a bug. Continuing regardless of the result of any step completely defeats the purpose of automated quality checks in the pipeline."
+        "e": "Resource Manager reads a template's dependencies, deploys independent resources in parallel and tracks the deployment as one operation. A Bash script runs commands in the order written, so ordering and parallelism are up to the author. A policy initiative groups policy rules and does not deploy resources. Manual portal steps are sequential and give no single deployment result."
       },
       {
         "id": "heroic_69",
         "category": "Monitoring",
-        "q": "An operations team wants a high-CPU-usage alert to trigger not just an email notification, but also an automatic action like restarting a service or adding instances, with no waiting for a human to act manually. What solution enables this?",
+        "q": "Logs from 50 VMs and several apps are already sent to Azure Monitor. An engineer wants to query them together, for example failed sign-ins per server in the last hour, and save the query for a dashboard. Which feature fits?",
         "a": [
-          "Only an email notification, with no further action",
-          "A Monitor alert connected to an automated runbook",
-          "Ignoring high CPU as long as the application is still running",
-          "A manual metrics check by an administrator once an hour"
+          "Azure Advisor recommendations",
+          "Log Analytics queries",
+          "Metrics explorer charts",
+          "Azure Service Health view"
         ],
         "c": 1,
-        "e": "An Azure Monitor alert connected to an Azure Automation runbook or Logic App lets you trigger an automated action, like restarting a service or adding instances, immediately once the alert condition is met, with no waiting for a person. Only an email notification informs the team, but still requires manual intervention, which the scenario wants to automate. A manual metrics check once an hour is too slow a response to an acute high-CPU problem. Ignoring high CPU usage just because the application is still running risks a future outage if the trend gets worse."
+        "e": "Log Analytics stores collected logs in a workspace and lets you query across sources with Kusto Query Language, then pin results to dashboards. Advisor gives recommendations and does not query logs. Metrics explorer charts numeric metrics, not detailed log records like sign-in events. Service Health shows Azure platform incidents, not your servers' logs."
       },
       {
         "id": "heroic_70",
         "category": "Monitoring",
-        "q": "A company has dozens of applications with their own monitoring dashboards, but wants one central view of the health of the whole infrastructure across all applications and environments. What solution enables this?",
+        "q": "Many customers report outages. The team must find out whether a Microsoft platform incident affects the specific services and regions the company uses, and it wants advance notice of planned maintenance there. Where should it look?",
         "a": [
-          "Maintaining dozens of separate, unconnected dashboards",
-          "Relying on each team to monitor only its own application",
-          "A centralized Monitor workbook aggregating data across sources",
-          "Disabling monitoring for less critical applications"
+          "The public Azure status page",
+          "Azure Resource Health",
+          "Azure Service Health",
+          "Azure Monitor Log Analytics"
         ],
         "c": 2,
-        "e": "A centralized Azure Monitor workbook or dashboard can aggregate metrics and logs across many sources and applications into one clear view of the whole infrastructure's health. Maintaining dozens of separate, unconnected dashboards doesn't provide the desired central overview and makes it harder to quickly identify problems across the system. Relying on each team to monitor only its own application creates a risk that broader systemic problems go unnoticed. Disabling monitoring for less critical applications would reduce visibility and could mean a problem originating there shows up only later, elsewhere."
+        "e": "Service Health is personalized to the services and regions you use and covers incidents, planned maintenance and health advisories, with alerts. The public status page shows broad incidents for everyone, not a view tailored to your subscriptions. Resource Health reports the health of individual resources, not platform incidents or planned maintenance. Log Analytics queries your own logs and does not report Microsoft incidents."
       },
       {
         "id": "heroic_71",
         "category": "Migration",
-        "q": "After migrating hundreds of servers to Azure, a team finds that some VMs are significantly oversized and the company is paying needlessly for unused performance. What tool will help them systematically identify this problem?",
+        "q": "Three months after moving servers with Azure Migrate, several VMs run below 5 % CPU. The team wants Azure to recommend specific smaller sizes based on that real usage, together with the expected savings. Which tool fits?",
         "a": [
-          "Resource lock, protecting resources from deletion",
-          "Azure DNS, for company domain name management",
-          "Azure Bastion, for secure remote VM access",
-          "Azure Advisor, with usage-based sizing tips"
+          "Azure Migrate",
+          "Pricing calculator",
+          "Service Health",
+          "Azure Advisor"
         ],
         "c": 3,
-        "e": "Azure Advisor analyzes actual resource usage and provides specific right-sizing recommendations for oversized VMs, systematically identifying opportunities to save costs after migration. Azure Bastion addresses secure VM access, it has no function for analyzing usage or recommending sizing. Azure DNS manages domain name resolution and has nothing to do with optimizing compute resource sizing. A resource lock protects resources from deletion or modification, it provides no usage analysis or cost optimization recommendations."
+        "e": "Advisor analyzes the actual utilization of running VMs and recommends resizing or shutting down underused ones, with estimated savings. Azure Migrate assesses servers before migration, not Azure VMs after it. The pricing calculator only estimates configurations you enter yourself. Service Health reports platform incidents, not sizing advice."
       },
       {
         "id": "heroic_72",
         "category": "Hybrid",
-        "q": "A company with thousands of IoT devices in the field, outside Azure, wants to manage them centrally, monitor their security posture, and apply consistent policies to them as if they were native Azure resources. What solution enables this?",
+        "q": "A retailer runs Kubernetes clusters in its stores and at another public cloud provider. It wants to see them all in Azure and apply Azure Policy to them, while keeping them where they are instead of rebuilding them in AKS. What should it use?",
         "a": [
-          "Azure Arc, to extend Azure management to devices outside Azure",
-          "Manually managing each device individually, with no tool at all",
-          "Ignoring devices outside Azure and managing only those in the cloud",
-          "Migrating all the physical devices into Azure as VMs"
+          "Azure Arc-enabled Kubernetes",
+          "Azure Kubernetes Service (AKS)",
+          "Azure Container Apps",
+          "Azure Lighthouse delegation"
         ],
         "c": 0,
-        "e": "Azure Arc extends Azure's management, policy, and monitoring tools to resources outside Azure, including physical devices in the field, so they can be managed consistently like native Azure resources. Manually managing thousands of devices individually would be extremely inefficient and wouldn't scale. Migrating physical IoT devices into Azure as VMs isn't technically possible, since they're physical devices in the field, not virtualizable servers. Ignoring devices outside Azure would mean losing visibility and control over a significant part of the infrastructure that the scenario specifically wants addressed."
+        "e": "Azure Arc-enabled Kubernetes connects clusters running anywhere to Azure, so they appear as Azure resources and can be governed with Azure Policy. AKS would require rebuilding the clusters in Azure. Container Apps is a managed Azure service for running containers, not a way to manage existing clusters. Lighthouse delegates access to other Azure tenants, not to clusters outside Azure."
       },
       {
         "id": "heroic_73",
         "category": "Identity",
-        "q": "A company wants to ensure that even administrators with the highest permissions must go through an additional approval process to access the most sensitive production resources, rather than having standing access. What solution enables this?",
+        "q": "All administrators already use MFA. The security team now wants admin sign-ins from unmanaged devices or from outside the EU to be blocked, while regular employees keep signing in as they do today. Which feature implements this?",
         "a": [
-          "Completely banning administrator access to production resources",
-          "Privileged Identity Management, for time-limited access",
-          "Relying on administrators being careful",
-          "A permanent Owner role for administrators with no restrictions"
+          "A scoped Azure RBAC role",
+          "A Conditional Access policy",
+          "An Azure Policy allowed-locations rule",
+          "Passwordless sign-in for admin accounts"
         ],
         "c": 1,
-        "e": "Privileged Identity Management (PIM) lets you configure highly privileged roles to activate only temporarily and after approval, instead of being permanently assigned, reducing the risk of misuse or accidental mistakes affecting sensitive resources. A permanent, unrestricted Owner role would mean an administrator has standing access with no additional check at all, exactly the opposite of the desired solution. Relying on administrators being careful isn't a technical measure and guarantees no real access control. Completely banning access would prevent administrators from carrying out the necessary management of production resources when it's genuinely needed."
+        "e": "Conditional Access evaluates signals such as role, device state and location at sign-in and can block access for a targeted group. An RBAC role controls what a signed-in identity may do on resources, not where it may sign in from. Azure Policy's allowed locations restricts the regions where resources are deployed, not where users sign in. Passwordless sign-in changes how users authenticate but does not block sign-ins by device or location."
       },
       {
         "id": "heroic_74",
-        "category": "Governance",
-        "q": "A company with branches in ten countries wants employees to see a localized Azure portal interface, and wants its compliance team to be able to prove exactly where each country's employee data is stored. What design aspect does this primarily affect?",
+        "category": "Architecture",
+        "q": "A company creates a resource group in West Europe. It then deploys a new storage account into that group but chooses North Europe as the account's location. Where is the data in that storage account stored?",
         "a": [
-          "Only the choice of pricing tier for individual Azure services",
-          "Only the language setting in the user profile",
-          "The choice of regions, based on data location requirements",
-          "Only the redundancy type of the chosen storage"
+          "In West Europe, the group's region",
+          "In the management group's region",
+          "In North Europe, its own region",
+          "In the tenant's home region"
         ],
         "c": 2,
-        "e": "Choosing Azure regions according to each country's data residency requirements ensures that employee data from that country is stored in compliance with local regulations, and the compliance team can document this based on the actual location of resources. Service pricing tiers do vary between regions, but that doesn't primarily address the regulatory requirement on data location. The language setting in the user profile only affects how the interface is displayed, not the physical location of stored data. The storage redundancy type addresses resilience against an outage, not the question of which country or region the data is legally allowed to reside in."
+        "e": "A resource's data lives in the region chosen for that resource; the resource group's location only stores the group's metadata. The group's West Europe location does not move the account's data there. Management groups have no region and do not decide where data is stored. The tenant's location does not decide where individual resources keep their data."
       },
       {
         "id": "heroic_75",
         "category": "Cloud",
-        "q": "A company's application must stay online during a full regional Azure outage, not just survive a single server crash. Which combination of properties is most directly responsible for that specific capability, as opposed to merely tolerating one failed component?",
+        "q": "A company runs its HR system on Azure VMs and uses Microsoft 365 for email. An auditor asks who is responsible for patching the operating systems behind each service. Which statement is correct?",
         "a": [
-          "Fault tolerance within a single datacenter",
-          "Vertical scaling of the primary VM",
-          "Disaster recovery with a secondary region",
-          "Horizontal scaling within one region"
+          "Microsoft patches both, as both run in its datacenters",
+          "The company patches both, as it owns both subscriptions",
+          "The company patches the VMs; Microsoft patches email",
+          "Microsoft patches the VMs; the company patches email"
         ],
         "c": 2,
-        "e": "Surviving the loss of an entire region specifically requires disaster recovery architecture with a ready secondary region, since fault tolerance and horizontal scaling within one region don't help if that whole region goes down. Fault tolerance protects against individual component failures, not a full regional outage. Vertical scaling only changes the size of one VM and offers no redundancy at all."
+        "e": "On IaaS VMs the customer is responsible for the guest operating system, while in SaaS such as Microsoft 365 the provider manages the whole platform. Running in Microsoft datacenters does not make Microsoft responsible for a customer's VM operating system. Owning the subscriptions gives the company no access to patch Microsoft 365's servers. The last option reverses both responsibilities."
       },
       {
         "id": "heroic_76",
         "category": "Cloud",
-        "q": "A team says their system is 'elastic' because it can handle ten times the normal load. A colleague points out this alone doesn't prove elasticity. What additional behavior would actually confirm elasticity rather than just scalability?",
+        "q": "A CFO wants monthly cloud bills that can be forecast and tracked, and the CTO wants consistent app performance no matter how many customers sign up. Which single cloud benefit covers both concerns?",
         "a": [
-          "The system can be manually resized to handle ten times the load",
-          "The system uses larger virtual machines instead of more machines",
-          "The system has passed a one-time load test at ten times capacity",
-          "The system automatically scales back down once demand drops, without manual action"
+          "Reliability",
+          "Scalability",
+          "Security and governance",
+          "Predictability"
         ],
         "c": 3,
-        "e": "Elasticity specifically requires automatic scaling in both directions — up under load and back down once demand falls — done without manual intervention. Being able to handle high load through manual resizing demonstrates scalability, not elasticity, since a human is still involved. Using bigger machines describes vertical scaling, a method, not proof of elasticity. Passing a one-time load test shows capacity exists, not that it adjusts automatically over time."
+        "e": "Predictability covers both cost predictability (forecasting and tracking spend) and performance predictability (consistent performance through autoscaling and load balancing). Reliability is about recovering from failures, not forecasting bills. Scalability helps performance under load but says nothing about forecasting costs. Security and governance cover policies and compliance, not costs or performance."
       },
       {
         "id": "heroic_77",
         "category": "Cloud",
-        "q": "A CFO wants to reduce upfront capital spending and instead pay based on usage, but is also told that at very high, constant usage levels, reserved capacity purchased upfront can sometimes be cheaper overall than pure pay-as-you-go. Which statement best reconciles both points?",
+        "q": "A CFO prefers paying for usage instead of buying servers. The architect notes that one workload runs at constant load 24/7, so committing to three years of capacity would cost less. Which statement reconciles both views?",
         "a": [
-          "Consumption-based pricing reduces upfront risk, but reserved/upfront commitments can lower long-term cost for predictable, steady workloads",
-          "Consumption-based pricing is always cheaper than any upfront commitment, without exception",
-          "Reserved capacity eliminates the benefits of moving to the cloud entirely",
-          "CapEx and OpEx produce identical costs regardless of usage pattern"
+          "Both are OpEx; reservations cut steady-use cost",
+          "A reservation is CapEx, so cloud benefits are lost",
+          "Pay-as-you-go is always cheaper than commitment",
+          "Constant load should move to owned hardware"
         ],
         "c": 0,
-        "e": "Cloud pricing flexibility means a company can choose pure consumption-based pricing to avoid upfront risk, or commit to reserved capacity for predictable workloads to get a lower rate — both options can coexist and be chosen per workload. It's not true that pay-as-you-go is always cheaper; reserved pricing exists precisely because it can beat it for steady usage. Reserved capacity is still a cloud commitment, not a step back to owning hardware, so it doesn't eliminate cloud benefits. CapEx and OpEx are different cost structures with different cash-flow and risk implications, not identical outcomes."
+        "e": "A reservation still pays for a service rather than owning hardware, so it remains operational expenditure while lowering the price of constant usage. A reservation is not a capital purchase of servers, and the other cloud benefits remain. Pay-as-you-go is the most flexible option but usually costs more than a reservation for constant use. Moving to owned hardware turns the cost back into CapEx and gives up cloud benefits that reservations keep."
       },
       {
         "id": "heroic_78",
         "category": "Cloud",
-        "q": "A company uses AWS for one application and Azure for another, purely for cost-optimization reasons, with no need to keep any on-premises infrastructure. A separate team keeps some servers physically on-site while also using Azure. How should these two situations be classified?",
+        "q": "Team A runs one app on AWS and another on Azure and has no on-premises servers. Team B keeps servers in its own datacenter and connects them to Azure. How are the two setups classified?",
         "a": [
-          "Both are hybrid cloud",
-          "Multi-cloud, and hybrid cloud, respectively",
-          "Both are multi-cloud",
-          "Hybrid cloud, and multi-cloud, respectively"
+          "Team A: hybrid cloud; Team B: multi-cloud",
+          "Team A: multi-cloud; Team B: hybrid cloud",
+          "Team A: hybrid cloud; Team B: hybrid cloud",
+          "Team A: multi-cloud; Team B: private cloud"
         ],
         "c": 1,
-        "e": "Using two different public cloud providers with no on-premises component is multi-cloud, while combining on-premises infrastructure with a public cloud is hybrid cloud — these are distinct concepts describing different combinations. Calling both hybrid cloud ignores that the first team has no on-premises servers at all. Calling both multi-cloud ignores that the second team is combining on-prem with one cloud, not two clouds. Reversing the order swaps the two correctly-matched definitions."
+        "e": "Using several public cloud providers is multi-cloud, and combining your own datacenter with a public cloud is hybrid cloud. Swapping the labels reverses both definitions. Team A has no on-premises infrastructure, so its setup is not hybrid. Team B's servers are connected to Azure, so its setup is hybrid, not a private cloud alone."
       },
       {
         "id": "heroic_79",
         "category": "Cloud models",
-        "q": "A team wants to run individual pieces of backend logic that execute only in response to specific events, scale to zero when idle, and require no server or runtime management at all. A colleague suggests PaaS instead. What is the key distinction that makes serverless (FaaS) the better fit here?",
+        "q": "A team needs small pieces of code that run only when a file is uploaded, scale to zero when idle and are billed per execution. A colleague suggests a classic PaaS web app instead. Why is serverless the better fit?",
         "a": [
-          "FaaS and PaaS are functionally identical, so either works equally well",
-          "PaaS cannot run backend code at all",
-          "FaaS scales to zero and bills per execution, while typical PaaS still expects a running, provisioned app even when idle",
-          "FaaS requires managing the underlying virtual machines, while PaaS does not"
+          "PaaS web apps cannot react to events",
+          "Serverless gives full control of the OS",
+          "A web app plan is billed even when idle",
+          "PaaS requires managing the VMs underneath"
         ],
         "c": 2,
-        "e": "The defining difference is that FaaS can scale all the way down to zero instances and bill only for actual execution, while a typical PaaS-hosted app remains provisioned and billed even during idle periods. They are not identical — that's exactly why the distinction matters here. PaaS absolutely can run backend code; that's its core purpose. It's FaaS, not PaaS, that hides virtual machines entirely from the customer."
+        "e": "A PaaS web app runs on an App Service plan that is billed while provisioned, even without traffic, whereas serverless functions scale to zero and bill per execution. PaaS apps can react to events too, so that is not the difference. Serverless gives less control of the OS, not more. PaaS does not require managing the underlying VMs; Microsoft manages them."
       },
       {
         "id": "heroic_80",
         "category": "Cloud",
-        "q": "An application is described as having 99.99% uptime. A reviewer argues this number alone doesn't prove the system is fault tolerant. What is the strongest justification for that argument?",
+        "q": "A provider's SLA promises 99.99 % availability for an app. A reviewer says this number alone does not prove the app keeps running when a server fails. Which statement best supports the reviewer?",
         "a": [
-          "99.99% uptime is mathematically impossible without fault tolerance",
-          "Uptime percentage and fault tolerance always measure exactly the same thing",
-          "Fault tolerance is only relevant to on-premises systems, not cloud-hosted ones",
-          "A high uptime percentage could be achieved with quick manual recovery after failures, rather than the system continuing to run through a failure automatically"
+          "99.99 % is impossible without redundancy",
+          "SLAs never apply to cloud-hosted apps",
+          "Fault tolerance is measured by the same SLA",
+          "An SLA is a promise, not a design"
         ],
         "c": 3,
-        "e": "A system could hit a high uptime percentage through very fast detection and manual or automated restart after each failure, without ever having redundant components that let it keep running uninterrupted through the failure itself — that's the distinction between recovering quickly and being fault tolerant. High uptime is achievable through several different strategies, not exclusively fault tolerance, so it isn't mathematically tied to it. The two concepts measure related but different things: one is an outcome (uptime), the other is an architectural property (surviving failure without interruption). Fault tolerance is just as relevant to cloud-hosted systems as on-premises ones."
+        "e": "An SLA is a contractual availability commitment with credits if it is missed; it does not describe how the system handles a failure, which is what fault tolerance means. High uptime can also come from quick recovery, so it is not impossible without redundancy. Azure SLAs do apply to cloud services and define their availability commitments. Fault tolerance is an architectural property, not something an SLA percentage measures."
+      },
+      {
+        "id": "heroic_81",
+        "category": "Monitoring",
+        "q": "Users say an Azure web app is slow, but VM CPU and memory look normal. The team needs to see which page requests and database calls are slow and wants to be notified automatically when the failure rate rises. Which combination fits?",
+        "a": [
+          "VM insights with metric alerts on CPU",
+          "Application Insights with Azure Monitor alerts",
+          "Azure Service Health with activity log alerts",
+          "Azure Advisor performance recommendations"
+        ],
+        "c": 1,
+        "e": "Application Insights traces requests, dependency calls and failures inside the app, and an Azure Monitor alert can fire on its failure-rate metric. VM insights shows guest OS performance, which already looks normal, not individual page requests. Service Health reports Azure platform incidents and maintenance, not slowness in your own code. Advisor gives periodic optimization tips and does not trace requests or send failure-rate alerts."
+      },
+      {
+        "id": "heroic_82",
+        "category": "Cost",
+        "q": "A company will run several Windows Server VMs at constant load, 24/7, for the next three years. It already owns Windows Server licenses with active Software Assurance. Which combination lowers the compute bill the most without risking interruptions?",
+        "a": [
+          "Spot VMs with Azure Hybrid Benefit",
+          "Reservations with pay-as-you-go licensing",
+          "Reservations with Azure Hybrid Benefit",
+          "Autoscaling with Azure Hybrid Benefit"
+        ],
+        "c": 2,
+        "e": "A reservation discounts steady, predictable usage for a 1- or 3-year term, and Azure Hybrid Benefit reuses the owned licenses so you do not pay for Windows again. Spot VMs are cheap but can be evicted at any time, which risks interruptions. Pay-as-you-go licensing pays for Windows a second time despite the owned licenses. Autoscaling saves money only when load varies, and this load is constant."
+      },
+      {
+        "id": "heroic_83",
+        "category": "Hybrid",
+        "q": "A company keeps Linux servers in its own datacenter and VMs at another cloud provider. Without migrating them, it wants to see them in the Azure portal, assign RBAC on them and audit them with the same Azure Policy rules as its Azure VMs. What should it use?",
+        "a": [
+          "Azure Migrate appliance",
+          "Site-to-site VPN Gateway",
+          "Azure Lighthouse",
+          "Azure Arc-enabled servers"
+        ],
+        "c": 3,
+        "e": "Azure Arc projects servers outside Azure into Azure Resource Manager, so they appear in the portal and accept RBAC and Azure Policy. The Azure Migrate appliance discovers and assesses servers for moving them into Azure, not for managing them where they are. A site-to-site VPN only provides network connectivity and adds no management. Azure Lighthouse delegates management of other Azure tenants, not of servers outside Azure."
+      },
+      {
+        "id": "heroic_84",
+        "category": "Cloud",
+        "q": "A legacy order system keeps session state in memory, so it can only ever run as a single instance. Its VM now reaches 100 % CPU at peak hours, and redesigning the app is not an option this year. How should it be scaled?",
+        "a": [
+          "Scale up the VM to a larger size",
+          "Scale out with more instances",
+          "Add an availability set",
+          "Move it to another region"
+        ],
+        "c": 0,
+        "e": "Vertical scaling (scaling up) adds CPU and memory to the single instance, which fits an app that cannot run on several instances. Scaling out adds instances, which this single-instance app cannot use. An availability set improves resilience across racks but adds no capacity to the one VM. Another region changes the location, not the VM's capacity."
+      },
+      {
+        "id": "heroic_85",
+        "category": "Cloud",
+        "q": "An architect explains the manageability benefit of the cloud to a new manager. Which of these examples is management of the cloud, as opposed to management in the cloud?",
+        "a": [
+          "Resources scale automatically with demand",
+          "Admins deploy resources with templates",
+          "Engineers use the CLI to update VMs",
+          "The team views resources in the portal"
+        ],
+        "c": 0,
+        "e": "Management of the cloud covers what the platform does for you, such as scaling automatically, monitoring and replacing failing resources. Deploying with templates is management in the cloud, done through the tools you use. Using the CLI is also management in the cloud. Viewing and managing resources in the portal is management in the cloud as well."
+      },
+      {
+        "id": "heroic_86",
+        "category": "Cloud",
+        "q": "A bank moves workloads to Azure PaaS. Microsoft now applies operating system patches, and the bank uses templates and policies so every new resource meets its internal standards and regulatory rules. Which cloud benefit does this illustrate?",
+        "a": [
+          "Scalability and elasticity",
+          "Security and governance",
+          "Cost predictability",
+          "High availability"
+        ],
+        "c": 1,
+        "e": "Provider-managed patching plus templates and policies that enforce standards and compliance illustrate the security and governance benefit. Scalability and elasticity concern adjusting capacity, not compliance. Cost predictability is about forecasting spending. High availability is about keeping services running, not meeting regulatory rules."
+      },
+      {
+        "id": "heroic_87",
+        "category": "Cloud",
+        "q": "A team picks a design whose SLA guarantees the app stays accessible with minimal downtime even when individual components fail, although its capacity stays fixed. Which cloud benefit is the team prioritizing?",
+        "a": [
+          "Elastic compute capacity",
+          "Horizontal scalability",
+          "Cost predictability",
+          "High availability"
+        ],
+        "c": 3,
+        "e": "High availability means keeping a service accessible with minimal downtime despite component failures, usually backed by an SLA. Elastic capacity changes resources with demand, but this design keeps capacity fixed. Horizontal scalability adds instances for more load, which is not the stated goal. Cost predictability concerns forecasting spending, not uptime."
+      },
+      {
+        "id": "heroic_88",
+        "category": "Cloud",
+        "q": "A team stores 2 TB in Blob Storage for three months and runs a VM only during office hours, then deletes everything. It paid for the gigabytes stored, the transactions and the VM's running hours, and pays nothing afterwards. Which model is this?",
+        "a": [
+          "Consumption-based model",
+          "Capital expenditure model",
+          "Reserved capacity model",
+          "Fixed monthly subscription"
+        ],
+        "c": 0,
+        "e": "In the consumption-based model you pay only for what you use, such as gigabytes stored, transactions and VM running hours, and nothing once resources are deleted. Capital expenditure means buying infrastructure upfront. Reserved capacity commits you to a term regardless of actual use. A fixed monthly subscription charges the same amount regardless of usage."
+      },
+      {
+        "id": "heroic_89",
+        "category": "Cloud",
+        "q": "A defense contractor must own its servers, keep them in a building it controls and decide exactly which hardware runs each workload, while still offering its departments self-service VM provisioning. Which cloud model fits?",
+        "a": [
+          "Public cloud",
+          "Private cloud",
+          "Hybrid cloud",
+          "Multi-cloud"
+        ],
+        "c": 1,
+        "e": "A private cloud runs on infrastructure owned and controlled by one organization while still offering cloud-style self-service. A public cloud runs on the provider's hardware in its datacenters, which the contractor cannot own or control. Hybrid cloud adds a public cloud, which the requirements do not include. Multi-cloud uses several public providers, again on hardware the contractor does not own."
+      },
+      {
+        "id": "heroic_90",
+        "category": "Cloud",
+        "q": "A design studio runs its rendering farm in its own datacenter. Before big deadlines, demand exceeds local capacity, so extra render jobs temporarily run on Azure VMs, which are removed once the deadline passes. What is this approach called?",
+        "a": [
+          "Multi-cloud failover setup",
+          "Private cloud scale-up",
+          "Hybrid cloud bursting",
+          "Public cloud migration"
+        ],
+        "c": 2,
+        "e": "Cloud bursting is a hybrid pattern in which workloads run on-premises and overflow into a public cloud when local capacity runs out. Multi-cloud failover means switching between several public providers after a failure. Scaling up the private cloud would mean buying more local hardware. A migration moves workloads permanently, while here the Azure capacity is temporary."
+      },
+      {
+        "id": "heroic_91",
+        "category": "Cloud",
+        "q": "Developers want to upload code that runs whenever a message arrives, with no servers to provision, automatic scaling and billing only while the code executes. A new hire asks how serverless works. Which statement is correct?",
+        "a": [
+          "No servers are involved at any point",
+          "Developers patch the runtime themselves",
+          "Billing is per reserved VM instance",
+          "Servers exist, but Azure manages them"
+        ],
+        "c": 3,
+        "e": "Serverless still runs on servers, but the provider provisions, scales and maintains them, so developers supply only code. Saying no servers exist at all is a common misconception. In serverless the provider maintains the runtime, not the developers. Serverless bills per execution and resources consumed, not per reserved VM."
+      },
+      {
+        "id": "heroic_92",
+        "category": "Cloud",
+        "q": "A company runs web servers on Azure VMs. Its auditor asks who must configure the network security group rules and the firewall inside the guest operating system. Which party is responsible in this IaaS model?",
+        "a": [
+          "The customer configures both",
+          "Microsoft configures both",
+          "Microsoft the NSG, the customer the OS",
+          "The customer the NSG, Microsoft the OS"
+        ],
+        "c": 0,
+        "e": "In IaaS the customer controls the network controls and the guest operating system, including NSG rules and the OS firewall. Microsoft secures the physical network and hosts, not the customer's NSG rules or guest OS settings. NSG rules are the customer's settings in IaaS, so Microsoft does not configure them. The guest OS of an IaaS VM is the customer's to configure and patch."
+      },
+      {
+        "id": "heroic_93",
+        "category": "Cloud",
+        "q": "A company rents rack space in a colocation datacenter for a monthly fee and buys its own servers to install there, depreciating them over five years. How are these two costs classified?",
+        "a": [
+          "Rent is CapEx; servers are OpEx",
+          "Rent is OpEx; servers are CapEx",
+          "Both are OpEx, paid over time",
+          "Both are CapEx, as assets"
+        ],
+        "c": 1,
+        "e": "A monthly rental fee for a service is operational expenditure, while buying servers that are depreciated over years is capital expenditure. Swapping them reverses the definitions. The servers are an upfront asset purchase, not a pay-as-you-go cost, even though they are depreciated over time. Rent buys no asset, so it is not capital expenditure."
+      },
+      {
+        "id": "heroic_94",
+        "category": "Cloud",
+        "q": "A stateless API runs on two small VMs that share the incoming traffic. Traffic is expected to grow fivefold, and the team wants to add capacity without any downtime, including the restarts that resizing a VM causes. What should it do?",
+        "a": [
+          "Scale up both VMs to larger sizes",
+          "Move the VMs to an availability set",
+          "Scale out by adding more VM instances",
+          "Switch to reserved VM instances"
+        ],
+        "c": 2,
+        "e": "Scaling out adds instances alongside the existing ones without restarting the existing ones, which suits a stateless API. Scaling up requires resizing, which restarts each VM. An availability set improves resilience to rack failures but adds no capacity. Reservations change the price, not the capacity."
+      },
+      {
+        "id": "heroic_95",
+        "category": "Cloud",
+        "q": "A media company deploys its app in three Azure regions on different continents. When a hurricane takes one region offline, users are automatically served from the other two. Which cloud benefit does this design mainly rely on?",
+        "a": [
+          "Elasticity through autoscaling",
+          "Predictability of performance",
+          "Governance through Azure Policy",
+          "Reliability from global reach"
+        ],
+        "c": 3,
+        "e": "Reliability is the ability to recover from failures and keep working, and the cloud's global footprint lets an app run in several regions so one region's loss does not stop it. Elasticity adjusts capacity to demand, not to a regional disaster. Performance predictability is about consistent response times under load. Governance through Azure Policy enforces standards, not recovery from outages."
+      },
+      {
+        "id": "heroic_96",
+        "category": "Cloud models",
+        "q": "A company must move a 15-year-old app to Azure within a month. The app depends on a custom Windows registry setting and a third-party agent installed on the server, and its code cannot be changed. Which service type fits?",
+        "a": [
+          "IaaS virtual machines",
+          "PaaS App Service",
+          "SaaS replacement",
+          "Serverless functions"
+        ],
+        "c": 0,
+        "e": "IaaS VMs give full control of the operating system, so custom registry settings and third-party agents keep working without code changes. App Service does not allow installing arbitrary agents or changing the host's registry. A SaaS replacement would mean abandoning the app rather than moving it. Serverless functions would require rewriting the app as event-driven code."
+      },
+      {
+        "id": "heroic_97",
+        "category": "Cloud models",
+        "q": "A team builds a new web API. It wants to choose the language and framework and simply deploy its code, while Microsoft handles the operating system, patching and load balancing of the hosts. Which service model and example fit?",
+        "a": [
+          "IaaS, such as Azure Virtual Machines",
+          "PaaS, such as Azure App Service",
+          "SaaS, such as Microsoft 365",
+          "IaaS, such as VM Scale Sets"
+        ],
+        "c": 1,
+        "e": "PaaS such as App Service lets developers deploy their own code and framework while Microsoft manages the OS, patching and host infrastructure. IaaS VMs leave the OS and patching to the team. SaaS like Microsoft 365 is a finished application, not a platform for custom APIs. Scale sets are still IaaS, so the team would manage the VMs' operating systems."
+      },
+      {
+        "id": "heroic_98",
+        "category": "Cloud models",
+        "q": "A 40-person sales team needs a CRM by next week. It has no developers, wants to pay per user per month, and expects the vendor to handle hosting, updates and backups. Which service model fits?",
+        "a": [
+          "Platform as a service (PaaS)",
+          "Infrastructure as a service (IaaS)",
+          "Software as a service (SaaS)",
+          "A private cloud CRM deployment"
+        ],
+        "c": 2,
+        "e": "SaaS delivers a finished application licensed per user, with the vendor responsible for hosting, updates and backups. PaaS would require developers to build or deploy the CRM. IaaS would leave the team installing and maintaining the CRM on VMs. A private cloud deployment needs the team's own infrastructure and administrators."
+      },
+      {
+        "id": "heroic_99",
+        "category": "Cloud models",
+        "q": "Testers need many short-lived environments with specific OS versions and full administrator rights. Each environment must be ready in minutes and deleted after its test run so that nothing is paid afterwards. Which approach fits?",
+        "a": [
+          "SaaS test-management subscription",
+          "Reserved VMs for three years",
+          "PaaS web apps without OS access",
+          "IaaS VMs created and deleted on demand"
+        ],
+        "c": 3,
+        "e": "IaaS VMs give full OS control and administrator rights, and with consumption pricing they cost nothing once deleted. A SaaS test-management tool does not provide custom OS environments. Three-year reservations commit to capacity that short-lived environments do not need. PaaS web apps hide the OS, so testers would not get administrator rights."
+      },
+      {
+        "id": "heroic_100",
+        "category": "Cloud models",
+        "q": "A company uses IaaS for one app, PaaS for another and SaaS for email. Its auditor asks which responsibility stays with the company in all three service models. Which one is it?",
+        "a": [
+          "Its information and data",
+          "Operating system patching",
+          "Network controls",
+          "Physical datacenter security"
+        ],
+        "c": 0,
+        "e": "Information and data, devices, and accounts and identities are always the customer's responsibility in every cloud service model. OS patching belongs to the customer only in IaaS. Network controls belong to the customer in IaaS but move to Microsoft in SaaS. Physical datacenter security is always Microsoft's responsibility."
+      },
+      {
+        "id": "heroic_101",
+        "category": "Cloud models",
+        "q": "A payroll company wants to sell its software to other firms over the internet without managing any servers. It will host the app on Azure App Service. Which model does the payroll company use, and which do its customers use?",
+        "a": [
+          "It uses SaaS; customers use PaaS",
+          "It uses PaaS; customers use SaaS",
+          "It uses IaaS; customers use PaaS",
+          "It and its customers use PaaS"
+        ],
+        "c": 1,
+        "e": "The payroll company builds on App Service, a PaaS offering, and its customers use the finished payroll software as SaaS. Swapping the models reverses who builds and who consumes. App Service is PaaS, not IaaS, and the customers deploy nothing themselves. Customers only use the finished app, so they are not using PaaS."
+      },
+      {
+        "id": "heroic_102",
+        "category": "Reliability",
+        "q": "An architect pins a VM to availability zone 1 and puts its data on ZRS storage. When zone 1 fails, the storage stays available but the VM does not. Which statement explains this?",
+        "a": [
+          "The VM is zone-redundant; ZRS storage is zonal",
+          "Both are zonal, but storage fails over faster",
+          "The VM is zonal; ZRS storage is zone-redundant",
+          "ZRS copies data to a paired region"
+        ],
+        "c": 2,
+        "e": "A zonal resource is pinned to one zone and fails with it, while a zone-redundant resource such as ZRS storage is replicated across zones and survives one zone's failure. The second option reverses the two labels. ZRS is zone-redundant, not zonal, so it does not fail with a single zone. ZRS keeps its copies across zones in one region, not in a paired region."
+      },
+      {
+        "id": "heroic_103",
+        "category": "Reliability",
+        "q": "A team needs the highest VM connectivity SLA that Microsoft offers for a two-VM web tier in a region with availability zones, using standard VM features only. How should it deploy the two VMs?",
+        "a": [
+          "In one availability set",
+          "As one VM with Premium SSD",
+          "In a single availability zone",
+          "Across two availability zones"
+        ],
+        "c": 3,
+        "e": "Two or more VMs across availability zones carry the highest VM SLA, 99.99 %. An availability set gives 99.95 %, because all VMs are still in one datacenter. A single VM with Premium SSD has a lower SLA of 99.9 %. Two VMs in a single zone fail together if that zone fails."
+      },
+      {
+        "id": "heroic_104",
+        "category": "Reliability",
+        "q": "A compliance team wants disaster-recovery copies far enough away that one natural disaster is unlikely to hit both locations, yet inside the same geography for data residency. Which Azure concept is designed around exactly these two goals?",
+        "a": [
+          "Azure region pairs",
+          "Availability zones",
+          "Availability sets",
+          "Sovereign regions"
+        ],
+        "c": 0,
+        "e": "Region pairs are two regions in the same geography, usually hundreds of kilometres apart, so one disaster is unlikely to hit both while data stays in the geography. Availability zones are close together within one region, so a large disaster could affect all of them. Availability sets protect against rack failures within one datacenter. Sovereign regions are isolated Azure instances for specific governments, not disaster-recovery pairs."
+      },
+      {
+        "id": "heroic_105",
+        "category": "Reliability",
+        "q": "An app runs active-active in two regions, and users are sent to whichever region is up. Each regional deployment has a 99.9 % SLA, the regions fail independently, and the routing layer can be ignored. What is the approximate combined availability?",
+        "a": [
+          "About 99.8 %",
+          "About 99.9999 %",
+          "About 99.9 %",
+          "About 99.95 %"
+        ],
+        "c": 1,
+        "e": "With two independent copies in parallel, the app is down only if both fail: 1 − (0.001 × 0.001) ≈ 99.9999 %. Multiplying the SLAs (about 99.8 %) applies to services that must all work, not to redundant copies. 99.9 % ignores the second region entirely. 99.95 % understates how much a second independent region adds."
+      },
+      {
+        "id": "heroic_106",
+        "category": "Reliability",
+        "q": "A manager believes an availability zone is simply one building. An architect corrects her. Which description of an availability zone is accurate?",
+        "a": [
+          "One datacenter shared by several regions",
+          "A group of racks inside one datacenter",
+          "Datacenters with own power, cooling and network",
+          "A pair of regions hundreds of km apart"
+        ],
+        "c": 2,
+        "e": "An availability zone is a physically separate location within a region, made up of one or more datacenters with independent power, cooling and networking. A datacenter is not shared by regions, and each zone belongs to exactly one region. A group of racks in one building describes fault domains in an availability set. A pair of distant regions describes a region pair."
+      },
+      {
+        "id": "heroic_107",
+        "category": "Reliability",
+        "q": "An internal app may be down for up to a day after a regional disaster, and the budget is tight. Its data is already replicated to the paired region, and the infrastructure is defined in templates. Which disaster-recovery design fits?",
+        "a": [
+          "Run full active-active copies in both regions",
+          "Spread the VMs across availability zones only",
+          "Keep everything in one region with LRS",
+          "Redeploy in the paired region after a disaster"
+        ],
+        "c": 3,
+        "e": "When a day of downtime is acceptable, redeploying from templates in the paired region, using the replicated data, is the cheapest design that still survives a regional disaster. Active-active copies recover instantly but double the running cost. Availability zones protect against datacenter failures, not the loss of the whole region. One region with LRS has no copy outside the region to recover from."
+      },
+      {
+        "id": "heroic_108",
+        "category": "Reliability",
+        "q": "A company needs zone redundancy for a new app and the lowest latency for users in one specific country. Its architect assumes every Azure region offers availability zones. What must be checked before choosing the region?",
+        "a": [
+          "That the region supports availability zones",
+          "That the region has a sovereign twin",
+          "That the region holds three availability sets",
+          "That the subscription is in that region"
+        ],
+        "c": 0,
+        "e": "Not every Azure region has availability zones; regions that do have at least three, so zone support must be confirmed first. Sovereign regions are separate clouds for governments and have nothing to do with zone support. Availability sets can be created in any region, so they say nothing about zones. Subscriptions are not tied to a region, so that check is meaningless."
+      },
+      {
+        "id": "heroic_109",
+        "category": "Identity",
+        "q": "A company lifts an old app onto Azure VMs. The app authenticates users with LDAP and Kerberos and needs domain-joined servers, but the company does not want to deploy or patch domain controllers in Azure. What should it use?",
+        "a": [
+          "Microsoft Entra ID alone",
+          "Microsoft Entra Domain Services",
+          "Microsoft Entra Connect",
+          "Microsoft Entra B2B collaboration"
+        ],
+        "c": 1,
+        "e": "Entra Domain Services provides a managed domain with LDAP, Kerberos and domain join, without domain controllers to deploy or patch. Entra ID alone uses modern web protocols and offers no LDAP, Kerberos or domain join for servers. Entra Connect synchronizes on-premises AD to Entra ID but provides no domain services in Azure. B2B collaboration gives guest access to external users."
+      },
+      {
+        "id": "heroic_110",
+        "category": "Identity",
+        "q": "A security team reviews proposed sign-in methods. Which combination counts as genuine multifactor authentication, because it combines two different factor categories?",
+        "a": [
+          "Password plus a memorized security PIN",
+          "Password plus answers to security questions",
+          "Password plus a code from an authenticator app",
+          "Two different passwords for one sign-in"
+        ],
+        "c": 2,
+        "e": "A password is something you know, and an authenticator app code proves something you have, so the factors come from two categories. A memorized PIN used as an extra secret is still something you know. Security questions are also something you know. Two passwords are two knowledge factors, which is not multifactor authentication."
+      },
+      {
+        "id": "heroic_111",
+        "category": "Identity",
+        "q": "Factory workers share computers, may not carry phones on the production floor, and keep forgetting complex passwords. The company wants phishing-resistant, passwordless sign-in for them. Which method fits?",
+        "a": [
+          "Microsoft Authenticator app",
+          "Windows Hello for Business",
+          "SMS one-time codes",
+          "FIDO2 security keys"
+        ],
+        "c": 3,
+        "e": "FIDO2 security keys are portable hardware keys that give phishing-resistant, passwordless sign-in on shared computers without a phone. The Authenticator app needs a phone, which workers cannot carry. Windows Hello for Business is tied to a user's own device, which fits poorly with shared computers. SMS codes need a phone and still sit on top of a password."
+      },
+      {
+        "id": "heroic_112",
+        "category": "Identity",
+        "q": "Employees may read company email on personal phones, but the HR app must open only on devices that are enrolled and marked compliant. Users must not be blocked from email. Which feature enforces this per app?",
+        "a": [
+          "Conditional Access with device compliance",
+          "Azure Policy that requires compliant devices",
+          "MFA required for every sign-in",
+          "An RBAC role scoped to the HR app"
+        ],
+        "c": 0,
+        "e": "A Conditional Access policy can target only the HR app and grant access only from compliant, managed devices, leaving email untouched. Azure Policy governs Azure resources, not the devices users sign in from. MFA proves the user's identity but says nothing about the state of the device. An RBAC role controls actions on Azure resources, not device conditions at sign-in."
+      },
+      {
+        "id": "heroic_113",
+        "category": "Identity",
+        "q": "A retailer launches a loyalty app where millions of customers sign up themselves, many with existing Google or Facebook accounts. Customer identities must stay separate from the employee directory. Which Microsoft Entra capability fits?",
+        "a": [
+          "B2B collaboration in the employee tenant",
+          "Microsoft Entra External ID for customers",
+          "Microsoft Entra Domain Services",
+          "Microsoft Entra Connect sync"
+        ],
+        "c": 1,
+        "e": "Entra External ID for customers is built for customer-facing apps, with self-service sign-up, social identity providers and a directory separate from employees. B2B collaboration invites business partners as guests into the employee tenant, mixing them with the workforce directory. Domain Services provides a managed domain for legacy protocols, not customer sign-up. Entra Connect synchronizes on-premises employee accounts to Entra ID."
+      },
+      {
+        "id": "heroic_114",
+        "category": "Identity",
+        "q": "Fifteen operators need the same rights to restart VMs in two resource groups, and the team changes every few months. Admins want to add or remove people without editing role assignments each time. What should they do?",
+        "a": [
+          "Assign the role to each user directly",
+          "Give every operator the Owner role",
+          "Assign the role to an Entra group",
+          "Put a lock on the resource groups"
+        ],
+        "c": 2,
+        "e": "Assigning the role once to a Microsoft Entra group means membership changes automatically change who has access. Assigning the role to each user means editing assignments every time the team changes. The Owner role grants far more than restarting VMs, breaking least privilege. A lock restricts deletion or changes and grants nobody any rights."
+      },
+      {
+        "id": "heroic_115",
+        "category": "Migration",
+        "q": "A company ends a research project and must hand 90 TB of results stored in Blob Storage to a partner that has only a slow internet connection. The data must leave Azure quickly and securely. Which option fits?",
+        "a": [
+          "AzCopy download over the link",
+          "Azure File Sync to the partner",
+          "Azure Migrate replication",
+          "A Data Box export order"
+        ],
+        "c": 3,
+        "e": "Data Box also supports export: Microsoft copies data from Azure Storage onto the encrypted device and ships it out. AzCopy over a slow link would take far too long for 90 TB. File Sync syncs file shares over the network, so it hits the same bandwidth limit. Azure Migrate moves servers into Azure, not data out of it."
+      },
+      {
+        "id": "heroic_116",
+        "category": "Migration",
+        "q": "A company moves 40 on-premises VMs to Azure. Each server may be offline only for a short switchover window, so changes must keep replicating to Azure until the switch. Which service handles the replication and the final switch?",
+        "a": [
+          "Azure Migrate server migration",
+          "Azure Data Box offline transfer",
+          "AzCopy copying the VM files",
+          "Azure Arc-enabled servers"
+        ],
+        "c": 0,
+        "e": "Azure Migrate's server migration replicates VMs continuously to Azure and lets you cut over in a short window. Data Box ships a one-time offline copy, so changes made after shipping would be lost. Copying VM files with AzCopy gives no ongoing replication or managed cutover. Arc manages servers where they are and does not migrate them."
+      },
+      {
+        "id": "heroic_117",
+        "category": "Migration",
+        "q": "Before moving 60 ASP.NET web apps from on-premises IIS servers, a company wants to know which ones can run on Azure App Service without changes and which need fixes first. Which tool provides this assessment?",
+        "a": [
+          "Azure Advisor",
+          "Azure Migrate",
+          "Pricing calculator",
+          "Defender for Cloud"
+        ],
+        "c": 1,
+        "e": "Azure Migrate discovers web apps on IIS servers and assesses whether they are ready for App Service, flagging what needs changing. Advisor reviews resources that already run in Azure. The pricing calculator estimates costs from configurations you enter but checks no compatibility. Defender for Cloud assesses security posture, not migration readiness."
+      },
+      {
+        "id": "heroic_118",
+        "category": "Migration",
+        "q": "A 70 TB media archive must move to Azure, and editors keep adding a few gigabytes per day during the move. The internet link is too slow for the bulk data but fine for the daily changes. Which plan fits?",
+        "a": [
+          "AzCopy for everything over the link",
+          "Data Box Disk shipped every day",
+          "Data Box for the bulk, AzCopy for changes",
+          "Azure Migrate for the media files"
+        ],
+        "c": 2,
+        "e": "Data Box moves the large initial volume offline, and AzCopy over the network handles the small daily changes. AzCopy alone would take too long for 70 TB on a slow link. Shipping a disk every day is slow, costly and unnecessary for a few gigabytes. Azure Migrate migrates servers, not loose media files."
+      },
+      {
+        "id": "heroic_119",
+        "category": "Compute",
+        "q": "Once a week, a containerized script converts video files for about 20 minutes. It needs no orchestration, no web endpoint and no VM management, and it should cost nothing between runs. Which option fits best?",
+        "a": [
+          "Azure Kubernetes Service (AKS)",
+          "An always-on App Service plan",
+          "A Windows VM that keeps running",
+          "Azure Container Instances"
+        ],
+        "c": 3,
+        "e": "Container Instances start a single container on demand without VMs or orchestration and bill only while it runs. AKS adds a cluster to manage, which one weekly task does not need. An always-on App Service plan keeps charging between runs. A VM kept running costs money all week and needs OS management."
+      },
+      {
+        "id": "heroic_120",
+        "category": "Storage",
+        "q": "A team moves 5 TB of old logs to the archive tier to save money, then learns after 30 days that the data must be deleted. Which extra charge will the deletion trigger, and why?",
+        "a": [
+          "An early deletion fee for the rest of 180 days",
+          "A rehydration fee for reading data back first",
+          "No fee, because archive has no minimum period",
+          "A fee for the rest of a 30-day minimum period"
+        ],
+        "c": 0,
+        "e": "Archive has a 180-day minimum storage period, so deleting after 30 days incurs an early deletion charge for the remaining 150 days. Deleting does not require reading the data back, so no rehydration is needed. Archive does have a minimum period, unlike the hot tier. A 30-day minimum applies to the cool tier, not to archive."
+      },
+      {
+        "id": "heroic_121",
+        "category": "Governance",
+        "q": "To prepare for an ISO 27001 audit, a team must apply about 100 related policy definitions to several subscriptions and track compliance with all of them as a single unit. What should it assign?",
+        "a": [
+          "100 separate policy assignments",
+          "A policy initiative",
+          "A management group lock",
+          "A custom RBAC role"
+        ],
+        "c": 1,
+        "e": "A policy initiative groups many policy definitions so they are assigned and reported on as one unit, and built-in initiatives exist for standards such as ISO 27001. Separate assignments work but must be managed and tracked one by one. Locks prevent deletion or changes and do not evaluate compliance. An RBAC role controls permissions, not resource compliance."
+      },
+      {
+        "id": "heroic_122",
+        "category": "Governance",
+        "q": "Every new resource group must carry a CostCenter tag. Deployments without the tag must fail, and the rule must apply automatically across all current and future subscriptions. What should be configured?",
+        "a": [
+          "A tag added to the root management group",
+          "A Cost Management budget per subscription",
+          "A require-tag policy at a management group",
+          "A ReadOnly lock on each subscription"
+        ],
+        "c": 2,
+        "e": "A policy that requires the tag denies non-compliant resource groups, and assigning it at a management group covers every subscription below it. Tags are not inherited down the hierarchy, so tagging a higher level neither tags new resource groups nor blocks untagged ones. Budgets track spending and cannot require tags. A ReadOnly lock would block all deployments, not just untagged ones."
+      },
+      {
+        "id": "heroic_123",
+        "category": "Governance",
+        "q": "A Contributor on a subscription must scale a VM, but a ReadOnly lock set at subscription level blocks the change. She then tries to remove the lock herself and fails. Why, and who can remove it?",
+        "a": [
+          "Locks can't be removed; the VM must be redeployed",
+          "Only Microsoft support can remove subscription locks",
+          "She needs the Reader role to remove it",
+          "Contributors can't manage locks; an Owner can"
+        ],
+        "c": 3,
+        "e": "Managing locks requires Microsoft.Authorization/locks permissions, which Owner and User Access Administrator have but Contributor does not. Locks can be removed by anyone with those permissions, so nothing has to be redeployed. Microsoft support is not needed, because authorized users in the tenant remove locks themselves. The Reader role has even fewer permissions than Contributor and cannot manage locks."
+      },
+      {
+        "id": "heroic_124",
+        "category": "Governance",
+        "q": "A subscription is moved from the Dev management group to the Prod management group. Prod has stricter policies and different role assignments than Dev. What happens to the subscription's inherited settings?",
+        "a": [
+          "It inherits Prod's policies and roles",
+          "It keeps Dev's policies until redeployed",
+          "It keeps both groups' policies",
+          "Only new resources get Prod's policies"
+        ],
+        "c": 0,
+        "e": "Policies and role assignments are inherited from the hierarchy, so after the move the subscription gets Prod's settings and loses those inherited from Dev. Inheritance follows the new position; nothing waits for a redeployment. A subscription has one parent, so it cannot inherit from both groups. Existing resources are also evaluated against Prod's policies, not just new ones."
+      },
+      {
+        "id": "heroic_125",
+        "category": "Governance",
+        "q": "A team lead decides that developers may create VMs in the test resource group, but no VM there may ever exceed four vCPUs, whoever creates it. Which pair of tools implements both parts of the rule?",
+        "a": [
+          "Azure Policy for who; RBAC for which sizes",
+          "RBAC for who; Azure Policy for which sizes",
+          "Locks for who; Azure Policy for which sizes",
+          "RBAC for who; locks for which sizes"
+        ],
+        "c": 1,
+        "e": "RBAC grants developers the right to create VMs in the group, and Azure Policy restricts the allowed VM sizes for everyone. Policy does not grant permissions, and RBAC cannot limit VM sizes. Locks block deletion or changes and do not grant anyone the right to create VMs. Locks cannot restrict VM sizes either."
+      },
+      {
+        "id": "heroic_126",
+        "category": "Governance",
+        "q": "A company wants development and production costs on separate invoices, and developers must get Contributor rights in development without any inherited access to production. What is the simplest structure?",
+        "a": [
+          "Separate resource groups in one subscription",
+          "Separate regions in one subscription",
+          "Separate subscriptions for dev and prod",
+          "Separate tags on shared resources"
+        ],
+        "c": 2,
+        "e": "Subscriptions are both a billing boundary and an access boundary, so each gets its own invoice and its own role assignments. Resource groups can split access but share one subscription's invoice, and roles at subscription level would reach both. Regions are locations and separate neither billing nor access. Tags help report costs but do not separate invoices or permissions."
+      },
+      {
+        "id": "heroic_127",
+        "category": "Governance",
+        "q": "An allowed-locations policy that blocks non-compliant deployments is assigned to a subscription that already has 20 VMs in a now-forbidden region. What happens to those existing VMs?",
+        "a": [
+          "Azure deletes them automatically within a day",
+          "Azure migrates them to an allowed region",
+          "They are stopped until someone moves them",
+          "They keep running but show as non-compliant"
+        ],
+        "c": 3,
+        "e": "Azure Policy evaluates existing resources and marks them non-compliant, while the blocking applies only to new or updated deployments. Policy does not delete existing resources. Policy does not move resources between regions. Policy does not stop running VMs."
+      },
+      {
+        "id": "heroic_128",
+        "category": "Cost",
+        "q": "To save money over a long holiday, a team stops and deallocates its VMs in the portal. The next invoice still shows charges related to those VMs. What is still being billed?",
+        "a": [
+          "Managed disks and static public IPs",
+          "Compute hours at a reduced idle rate",
+          "OS licenses for the stopped time",
+          "Inbound data to the stopped VMs"
+        ],
+        "c": 0,
+        "e": "Deallocating stops compute charges, but storage such as managed disks and static public IP addresses are still billed. Deallocated VMs incur no compute charge at all, reduced or otherwise. Windows license costs are part of the compute price, which stops with deallocation. Inbound data transfer is generally free, and stopped VMs receive none anyway."
+      },
+      {
+        "id": "heroic_129",
+        "category": "Cost",
+        "q": "A team deploys a third-party firewall appliance from Azure Marketplace. Finance sees two cost lines for it on the Azure invoice and asks why. Which statement explains this?",
+        "a": [
+          "Marketplace items are always free to deploy",
+          "Azure bills both the VM and the vendor's software",
+          "The vendor sends a separate invoice only",
+          "The firewall is billed as Azure support"
+        ],
+        "c": 1,
+        "e": "Paid Marketplace solutions carry the vendor's software charge on top of the Azure infrastructure they run on, and both appear on the Azure invoice. Many Marketplace items are not free; paid offers add the vendor's price. Purchases through Marketplace are billed on the Azure invoice rather than only by the vendor. A firewall appliance is not an Azure support plan."
+      },
+      {
+        "id": "heroic_130",
+        "category": "Cost",
+        "q": "This month's Azure bill is 40 % higher than last month's. The finance lead wants to see which services and resource groups caused the increase, day by day, using data that Azure already has. What should she use?",
+        "a": [
+          "The Azure pricing calculator",
+          "Azure Service Health history",
+          "Cost analysis in Cost Management",
+          "Azure Advisor cost recommendations"
+        ],
+        "c": 2,
+        "e": "Cost analysis breaks actual costs down by service, resource group, tag and day, so the cause of the increase becomes visible. The pricing calculator estimates planned configurations, not past spending. Service Health reports platform incidents, not costs. Advisor recommends savings but does not explain which services drove a past increase."
+      },
+      {
+        "id": "heroic_131",
+        "category": "Cost",
+        "q": "A three-week hackathon created dozens of VMs, disks, public IPs and a storage account, all in one resource group. Now that it has ended, finance wants every related charge to stop immediately. What is the simplest action?",
+        "a": [
+          "Stop and deallocate the VMs",
+          "Set a budget of zero euros",
+          "Remove all role assignments",
+          "Delete the resource group"
+        ],
+        "c": 3,
+        "e": "Deleting the resource group deletes every resource in it, so all related charges stop. Deallocating the VMs stops compute, but disks, public IPs and storage keep costing money. A budget only alerts on spending and stops nothing. Removing role assignments changes who has access, not what is billed."
+      },
+      {
+        "id": "heroic_132",
+        "category": "Cost",
+        "q": "A company whose developers have Visual Studio subscriptions runs many non-production environments that must not be evicted at random. It wants discounted rates for them without any long-term commitment. What should it use?",
+        "a": [
+          "An Azure Dev/Test subscription offer",
+          "Three-year reservations for the VMs",
+          "Spot VMs for all test environments",
+          "A Free account for each developer"
+        ],
+        "c": 0,
+        "e": "Dev/Test offers give discounted rates, such as no Windows license charge, for non-production workloads of Visual Studio subscribers without a long-term commitment. Reservations require a one- or three-year commitment. Spot VMs can be evicted at any time, which these environments must avoid. Free accounts are time- and credit-limited trials, not a basis for ongoing team environments."
+      },
+      {
+        "id": "heroic_133",
+        "category": "Cost",
+        "q": "A lab subscription must not overspend. When forecast spending reaches 100 % of the monthly budget, an automated process should shut down the lab VMs without anyone acting. How can this be set up?",
+        "a": [
+          "A ReadOnly lock that activates at the limit",
+          "A budget alert that triggers an action group",
+          "An Azure Policy deny rule based on cost",
+          "An Advisor recommendation set to auto-apply"
+        ],
+        "c": 1,
+        "e": "Budget alerts can call an action group, which can start automation such as shutting down VMs when a threshold is reached. Locks do not switch on based on spending. Azure Policy evaluates resource properties, not costs. Advisor recommendations are suggestions and are not applied automatically at a budget threshold."
+      },
+      {
+        "id": "heroic_134",
+        "category": "Cost",
+        "q": "A team keeps 200 TB of intermediate files that can be regenerated from source data within a day. The account currently uses GRS. How can the team cut storage cost the most while keeping protection against a single disk failure?",
+        "a": [
+          "Change redundancy to RA-GRS",
+          "Change redundancy to GZRS",
+          "Change redundancy to LRS",
+          "Keep GRS with a CanNotDelete lock"
+        ],
+        "c": 2,
+        "e": "LRS keeps three copies in one datacenter, which protects against disk failures at the lowest cost, and losing the region is acceptable for data that can be regenerated. RA-GRS costs more than GRS because it adds read access to the secondary. GZRS is more expensive still. Keeping GRS with a lock does not change the storage price."
+      },
+      {
+        "id": "heroic_135",
+        "category": "Monitoring",
+        "q": "A company wants to know when its public website stops responding from the point of view of users in Europe, Asia and America, even at night when no real users visit, and to be alerted. Which feature fits?",
+        "a": [
+          "Azure Resource Health checks",
+          "Service Health region alerts",
+          "VM heartbeat queries in Log Analytics",
+          "App Insights availability tests"
+        ],
+        "c": 3,
+        "e": "Application Insights availability tests probe the site on a schedule from locations around the world and alert when it stops responding, even without real traffic. Resource Health reports whether the Azure resource itself is healthy, not what users in different regions see. Service Health covers Azure platform incidents, not your site's reachability. VM heartbeats show that a VM is alive, not that the website answers visitors."
+      },
+      {
+        "id": "heroic_136",
+        "category": "Monitoring",
+        "q": "When a critical alert fires, the on-call engineer must get an SMS and a phone call, and the ticketing system must receive the details through its webhook. This should be defined once and reused by many alerts. What should be configured?",
+        "a": [
+          "An Azure Monitor action group",
+          "A Log Analytics workspace",
+          "A Service Health advisory",
+          "A Cost Management budget"
+        ],
+        "c": 0,
+        "e": "An action group defines notifications such as SMS, voice calls and email plus actions such as webhooks, and many alert rules can reuse it. A Log Analytics workspace stores logs but sends no notifications. A Service Health advisory is a platform notice, not a reusable set of notifications. A budget tracks spending and is not a notification target for other alerts."
+      },
+      {
+        "id": "heroic_137",
+        "category": "Monitoring",
+        "q": "One VM was unreachable for 20 minutes last night, and no region-wide incident was reported. The team wants to know whether that specific VM was down because of an Azure platform problem or something they did. Where should they look?",
+        "a": [
+          "Azure status page",
+          "Azure Resource Health",
+          "Azure Advisor",
+          "Service Health incidents"
+        ],
+        "c": 1,
+        "e": "Resource Health shows the health history of an individual resource and whether downtime came from the platform or a user-initiated action. The status page lists only broad incidents affecting many customers. Advisor offers recommendations, not a health history. Service Health incidents cover region- or service-wide events, and none was reported."
+      },
+      {
+        "id": "heroic_138",
+        "category": "Monitoring",
+        "q": "An architect wants a free, built-in review of all subscriptions that flags reliability risks, such as single VMs without redundancy, together with security, performance and cost recommendations, without installing anything. What should she use?",
+        "a": [
+          "Azure Service Health advisories",
+          "Microsoft Purview data map",
+          "Azure Advisor recommendations",
+          "Azure Monitor alert rules"
+        ],
+        "c": 2,
+        "e": "Advisor analyzes your configuration and usage and gives recommendations in reliability, security, performance, operational excellence and cost. Service Health advisories announce Azure platform issues, not risks in your own design. Purview maps and classifies data, not VM redundancy. Alert rules notify you when conditions occur but do not review your architecture."
+      },
+      {
+        "id": "heroic_139",
+        "category": "Monitoring",
+        "q": "An engineer needs near real-time charts of CPU percentage for 30 VMs and an alert within about a minute when it exceeds 90 %. Detailed event records are not needed. Which type of Azure Monitor data fits best?",
+        "a": [
+          "Log Analytics logs",
+          "Application traces",
+          "Activity log entries",
+          "Platform metrics"
+        ],
+        "c": 3,
+        "e": "Metrics are lightweight numeric values collected at regular intervals, ideal for near real-time charts and fast alerts on CPU. Logs hold detailed records for complex queries and arrive with more delay than metrics. Application traces describe code execution, not VM CPU. The Activity Log records management operations, not performance counters."
+      },
+      {
+        "id": "heroic_140",
+        "category": "Monitoring",
+        "q": "A company monitors its Azure VMs with Azure Monitor. It wants the same performance data, logs and alerts for 100 servers in its own datacenter, managed as Azure resources, without moving them. Which combination fits?",
+        "a": [
+          "Azure Arc plus the Azure Monitor agent",
+          "Azure Migrate plus Azure Advisor",
+          "VPN Gateway plus Service Health",
+          "Azure Policy plus Resource Health"
+        ],
+        "c": 0,
+        "e": "Arc-enabled servers make on-premises machines Azure resources, and the Azure Monitor agent sends their performance data and logs to Azure Monitor for the same alerts. Azure Migrate is for moving servers, and Advisor reviews Azure resources. A VPN provides network connectivity, and Service Health reports platform incidents. Policy collects no performance data, and Resource Health covers the platform health of Azure resources."
+      },
+      {
+        "id": "heroic_141",
+        "category": "Monitoring",
+        "q": "Security wants an alert whenever more than 20 failed sign-ins to Linux servers occur within 10 minutes. The data already sits in a Log Analytics workspace, and the condition needs a query over log records. Which alert type fits?",
+        "a": [
+          "A metric alert",
+          "A log search alert",
+          "An activity log alert",
+          "A Service Health alert"
+        ],
+        "c": 1,
+        "e": "Log search alerts run a query against Log Analytics on a schedule and fire when the result meets a condition, such as a count of failed sign-ins. Metric alerts watch numeric metrics, while failed sign-in records are log data. Activity log alerts react to Azure control-plane events, not sign-ins inside a server. Service Health alerts cover Azure platform incidents."
+      },
+      {
+        "id": "heroic_142",
+        "category": "Monitoring",
+        "q": "The operations team wants to be notified immediately whenever anyone deletes a resource in the production subscription, whatever the resource type. Deletions themselves must stay possible, and no extra logging should be needed. What should it create?",
+        "a": [
+          "A metric alert on resource count",
+          "A CanNotDelete lock on the subscription",
+          "An activity log alert on delete operations",
+          "An Advisor alert for deleted resources"
+        ],
+        "c": 2,
+        "e": "The Activity Log records delete operations automatically, and an activity log alert notifies the team whenever one occurs. There is no standard metric that counts all resources in a subscription. A lock would block deletions, which must stay possible, and it sends no notification. Advisor alerts are about new recommendations, not deletions."
+      },
+      {
+        "id": "heroic_143",
+        "category": "Hybrid",
+        "q": "A company has 200 SQL Server instances on its own servers. It wants one inventory of them in the Azure portal, with Azure tags, RBAC and Microsoft Defender protection, without moving any databases. What should it use?",
+        "a": [
+          "Azure SQL Managed Instance",
+          "Azure Migrate database assessment",
+          "Azure Data Box for the databases",
+          "SQL Server enabled by Azure Arc"
+        ],
+        "c": 3,
+        "e": "Azure Arc projects on-premises SQL Server instances into Azure, giving inventory, tags, RBAC and Defender protection where they run. SQL Managed Instance would require moving the databases into Azure. A Migrate assessment prepares a migration rather than managing the instances in place. Data Box transfers data offline and manages nothing."
+      },
+      {
+        "id": "heroic_144",
+        "category": "Hybrid",
+        "q": "On-premises users reach Azure over a site-to-site VPN. A storage account now has a private endpoint and public access is disabled, but on-premises clients still resolve its name to the public IP and fail. What is missing?",
+        "a": [
+          "DNS resolution of the private endpoint name",
+          "A second private endpoint on-premises",
+          "VNet peering to the on-premises network",
+          "An ExpressRoute circuit instead of VPN"
+        ],
+        "c": 0,
+        "e": "Clients must resolve the account's name to the private endpoint's IP, which requires the private DNS zone's records to be reachable from on-premises, for example through DNS forwarding. Private endpoints are created in Azure VNets, not on-premises. Peering connects VNets and cannot target an on-premises network. ExpressRoute changes the connection type but not how the name resolves."
+      },
+      {
+        "id": "heroic_145",
+        "category": "Hybrid",
+        "q": "A company keeps its VMware vSphere environment on-premises, but developers should create and manage VMs there through the Azure portal with Azure RBAC, just like Azure VMs. What should it use?",
+        "a": [
+          "Azure VMware Solution",
+          "Azure Arc-enabled VMware vSphere",
+          "Azure Migrate VMware replication",
+          "Azure Virtual Desktop host pools"
+        ],
+        "c": 1,
+        "e": "Arc-enabled VMware vSphere connects an on-premises vCenter to Azure so its VMs can be created and managed from the portal with Azure RBAC. Azure VMware Solution runs VMware in Azure datacenters, which means moving the environment rather than keeping it on-premises. Migrate replication moves VMware VMs into Azure. Azure Virtual Desktop delivers desktops and does not manage vSphere."
+      },
+      {
+        "id": "heroic_146",
+        "category": "DevOps",
+        "q": "A team finds ARM template JSON hard to read and review. It wants a shorter, declarative language with the same capabilities that is still deployed through Azure Resource Manager. What should it adopt?",
+        "a": [
+          "Azure CLI scripts",
+          "PowerShell scripts",
+          "Bicep templates",
+          "Policy definitions"
+        ],
+        "c": 2,
+        "e": "Bicep is a declarative language with simpler syntax than ARM JSON; Bicep files are compiled to ARM templates and deployed through Resource Manager. Azure CLI scripts are imperative commands, not a declarative template language. PowerShell scripts are imperative as well. Policy definitions describe rules for resources and deploy no infrastructure."
+      },
+      {
+        "id": "heroic_147",
+        "category": "Management",
+        "q": "A team lead wants one screen in the Azure portal showing CPU charts of key VMs, the cost of the project's resource group and recent alerts, shared with the whole team, without building a separate app. What should she create?",
+        "a": [
+          "A Log Analytics workspace",
+          "A Cloud Shell script",
+          "An Azure Advisor digest",
+          "A shared portal dashboard"
+        ],
+        "c": 3,
+        "e": "Azure portal dashboards combine tiles from different resources, such as metric charts, cost views and alerts, and can be shared with the team. A Log Analytics workspace stores log data but is not itself a shared overview screen. A Cloud Shell script prints text output instead of a persistent shared view. An Advisor digest emails recommendations and shows no charts or alerts."
+      },
+      {
+        "id": "heroic_148",
+        "category": "DevOps",
+        "q": "Someone changed a production VNet's settings by hand, and it now differs from the approved ARM template kept in source control. The team wants to bring it back to the approved state with minimal effort and risk. What should it do?",
+        "a": [
+          "Redeploy the approved template",
+          "Recreate the VNet by hand in the portal",
+          "Apply a ReadOnly lock to the VNet",
+          "Assign a policy initiative to the VNet"
+        ],
+        "c": 0,
+        "e": "Because templates are declarative and idempotent, redeploying the approved template returns the VNet to the defined state. Recreating it by hand is slow and repeats the risk of manual changes. A ReadOnly lock would only freeze the current wrong state. A policy initiative audits or enforces rules but does not redeploy the approved configuration."
+      },
+      {
+        "id": "heroic_149",
+        "category": "DevOps",
+        "q": "A Linux build server runs nightly Bash scripts that create and delete test resources in Azure. The scripts run unattended, and the team prefers Bash syntax to PowerShell cmdlets. Which tool should the scripts call?",
+        "a": [
+          "Azure PowerShell in Cloud Shell",
+          "Azure CLI installed on the server",
+          "The Azure portal in a browser",
+          "Azure Storage Explorer app"
+        ],
+        "c": 1,
+        "e": "Azure CLI runs on Linux, is called from Bash scripts and can run unattended on the build server. Azure PowerShell uses cmdlets, which the team wants to avoid, and Cloud Shell is an interactive browser session, not a nightly scheduler. The portal is an interactive graphical interface. Storage Explorer manages storage only and cannot create other resources."
       }
     ]
   },
@@ -5864,1261 +6761,1261 @@ window.AZURE_DB = {
       "id": "exam_0",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company currently spends heavily on new server hardware every three years, regardless of whether it's fully utilized. Moving to Azure and paying only for consumed compute would shift this spending from which model to which model?",
+      "q": "A company buys new server hardware every three years, even when much of it sits idle. After moving to Azure it pays monthly only for the compute it uses. How has its spending changed?",
       "a": [
-        "CapEx to OpEx",
-        "OpEx to CapEx",
-        "OpEx to TCO",
-        "TCO to CapEx"
+        "From CapEx to OpEx",
+        "From OpEx to CapEx",
+        "From CapEx to TCO",
+        "From OpEx to TCO"
       ],
       "c": 0,
-      "e": "Buying hardware upfront is Capital Expenditure (CapEx) — a large investment regardless of use. Paying for consumption as it happens is Operational Expenditure (OpEx). Moving to the cloud is the classic CapEx-to-OpEx shift tested throughout AZ-900."
+      "e": "Buying hardware upfront is capital expenditure (CapEx), while paying monthly for what you consume is operational expenditure (OpEx). OpEx to CapEx is the reverse direction, typical of buying hardware instead of renting it. CapEx to TCO is wrong because TCO is a way of comparing total costs, not a type of spending. OpEx to TCO is wrong for the same reason."
     },
     {
       "id": "exam_1",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A startup wants to launch a new product quickly and avoid a large upfront hardware purchase in case the product doesn't succeed. Which cloud benefit does this scenario primarily describe?",
+      "q": "A company moves its email and document collaboration to a SaaS suite. Microsoft now runs the application, the operating system and the datacenters. Which responsibility still stays fully with the company?",
       "a": [
-        "Redundancy",
-        "Agility",
-        "High availability",
-        "Fault tolerance"
+        "Patching the application's code",
+        "Accounts, identities and data access",
+        "Securing the physical network",
+        "Updating the host operating system"
       ],
       "c": 1,
-      "e": "Agility refers to the ability to rapidly provision and de-provision resources, letting organizations experiment and pivot quickly without heavy upfront investment. The scenario is about speed and low commitment, not uptime or automatic scaling."
+      "e": "In every service model the customer keeps responsibility for its data, devices, and accounts and identities. In SaaS the provider patches the application code itself. Physical network security is always the provider's job in the cloud. The host operating system is also managed by the provider in SaaS."
     },
     {
       "id": "exam_2",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "During a regional promotional event, an e-commerce site's traffic increases tenfold for six hours, then returns to normal. Which cloud characteristic allows the infrastructure to expand and then automatically shrink back afterward?",
+      "q": "An online shop's traffic jumps tenfold during a six-hour sale. Azure adds web servers automatically during the peak and removes them afterwards. Which cloud benefit does this show?",
       "a": [
-        "Redundancy",
-        "Fault tolerance",
-        "Elasticity",
-        "Scalability"
+        "Reliability",
+        "Governance",
+        "Scalability",
+        "High availability"
       ],
       "c": 2,
-      "e": "Elasticity specifically means resources scale both up and down automatically in response to demand, without manual intervention. Scalability is the broader, more general ability to handle growth, which may or may not be automatic."
+      "e": "Scalability is the ability to add or remove resources to match demand, here automatically by scaling out and back in. Reliability is about recovering from failures and continuing to function. Governance is about enforcing standards and policies on resources. High availability is about minimizing downtime, not about following changes in demand."
     },
     {
       "id": "exam_3",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company wants to guarantee that if an entire Azure datacenter loses power, their application keeps running without any downtime. Which concept BEST addresses this requirement?",
+      "q": "A company's contract promises customers that its ordering app will be reachable 99.95% of the time. Which cloud benefit must its Azure design deliver to keep that promise?",
       "a": [
-        "Elasticity",
-        "Scalability",
-        "Agility",
+        "Cost predictability",
+        "Vertical scaling",
+        "Data governance",
         "High availability"
       ],
       "c": 3,
-      "e": "High availability is about designing a system to remain operational and accessible even when individual components fail, often expressed as an uptime percentage such as 99.9%."
+      "e": "High availability means keeping a service accessible with as little downtime as possible, usually expressed as an uptime percentage in an SLA. Cost predictability is about forecasting spending. Vertical scaling adds power to one resource and does not by itself guarantee uptime. Data governance controls how data is classified and used."
     },
     {
       "id": "exam_4",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which statement correctly distinguishes Disaster Recovery (DR) from High Availability (HA)?",
+      "q": "A company wants its system to recover from failures and keep functioning, so it spreads its workload across several Azure regions around the world. Which cloud benefit is this?",
       "a": [
-        "DR recovers from regional outages; HA handles smaller failures",
-        "DR guarantees zero downtime in every single case",
-        "HA only applies to on-premises systems, never cloud",
-        "DR and HA are simply two different names for identical concepts"
+        "Reliability",
+        "Manageability",
+        "Predictability",
+        "Elasticity"
       ],
       "c": 0,
-      "e": "High availability keeps a system running through everyday component failures. Disaster recovery is the broader plan for recovering after a catastrophic, region-wide event — a different scope and severity of failure."
+      "e": "Reliability is the ability of a system to recover from failures and continue to function, and the cloud's decentralized, global design supports it. Manageability is about how easily resources are managed and monitored. Predictability is about forecasting cost and performance. Elasticity is about automatically matching resources to demand."
     },
     {
       "id": "exam_5",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A retail company operates its own datacenter for sensitive financial data but also uses Azure for its public-facing website during peak seasons. Which deployment model does this describe?",
+      "q": "A hospital keeps patient records on servers in its own datacenter but runs its appointment booking website in Azure, and the two systems exchange data. Which deployment model is this?",
       "a": [
-        "Multi-cloud",
+        "Private cloud",
         "Hybrid cloud",
         "Public cloud",
-        "Private cloud"
+        "Multi-cloud"
       ],
       "c": 1,
-      "e": "Combining on-premises (or private) infrastructure with public cloud resources is the definition of a hybrid cloud deployment."
+      "e": "Hybrid cloud combines on-premises (private) infrastructure with public cloud resources that work together. A private cloud alone would keep everything in the hospital's own environment. Public cloud alone would run both systems in Azure. Multi-cloud means using two or more public cloud providers."
     },
     {
       "id": "exam_6",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company uses both Microsoft Azure and another public cloud provider simultaneously for different workloads, with no on-premises infrastructure involved. Which deployment model is this?",
+      "q": "After an acquisition, a company runs some workloads in Azure and others with a second public cloud provider. It has no datacenter of its own. Which deployment model describes this?",
       "a": [
+        "Hybrid cloud",
         "Private cloud",
-        "Community cloud",
         "Multi-cloud",
-        "Hybrid cloud"
+        "Sovereign cloud"
       ],
       "c": 2,
-      "e": "Multi-cloud specifically refers to using services from two or more public cloud providers. Hybrid cloud, by contrast, requires a combination with private or on-premises infrastructure."
+      "e": "Multi-cloud means using services from two or more public cloud providers. Hybrid cloud requires on-premises or private infrastructure, which this company does not have. A private cloud is used by a single organization, usually in its own datacenter. Sovereign clouds are isolated Azure instances for governments, not a mix of providers."
     },
     {
       "id": "exam_7",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which of the following is the BEST example of Total Cost of Ownership (TCO) as opposed to simple upfront cost comparison?",
+      "q": "A defense contractor builds a cloud environment in its own datacenter. Its teams get self-service virtual machines, but no other organization shares the hardware. Which deployment model is this?",
       "a": [
-        "Comparing one server's sticker price to one month of Azure spend",
-        "Comparing list prices from two different hardware vendors",
-        "Comparing license fees between two operating system vendors",
-        "Five-year hardware, power, and staff cost vs. five-year Azure cost"
+        "Public cloud",
+        "Hybrid cloud",
+        "Multi-cloud",
+        "Private cloud"
       ],
       "c": 3,
-      "e": "TCO accounts for the full lifetime cost of ownership — not just the purchase price, but ongoing operational costs like power, cooling, space, and staffing — compared against the equivalent cloud costs over the same period."
+      "e": "A private cloud is cloud infrastructure used by a single organization, often in its own datacenter, with cloud-style self-service. Public cloud runs on provider-owned hardware shared by many customers. Hybrid cloud would combine this environment with a public cloud. Multi-cloud means using several public cloud providers."
     },
     {
       "id": "exam_8",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A finance team wants Azure spending to closely track actual usage, with no obligation to pay for unused capacity. Which pricing model satisfies this requirement?",
+      "q": "A finance team wants the Azure bill to follow actual usage each month, with no commitment and nothing paid for capacity that sits unused. Which pricing approach fits?",
       "a": [
-        "Consumption-based pricing",
-        "CapEx-based procurement",
-        "A three-year Reserved Instance",
-        "A fixed annual license"
+        "Pay-as-you-go pricing",
+        "A three-year reservation",
+        "A fixed annual license",
+        "A one-year savings plan"
       ],
       "c": 0,
-      "e": "Consumption-based (pay-as-you-go) pricing charges only for resources actually used, with no long-term commitment — the opposite of a reservation, which trades flexibility for a lower rate."
+      "e": "Pay-as-you-go (consumption-based) pricing charges only for what you actually use, with no commitment. A three-year reservation gives a discount in exchange for a long commitment. A fixed annual license is paid regardless of usage. A savings plan also requires committing to a fixed hourly spend."
     },
     {
       "id": "exam_9",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which scenario BEST illustrates vertical scaling (scaling up)?",
+      "q": "A reporting VM runs out of memory every month-end. The team resizes it from 8 GB to 32 GB of RAM instead of adding more VMs. What kind of scaling is this?",
       "a": [
-        "Removing unused VMs overnight",
-        "Upgrading a VM from 4 vCPUs to 16 vCPUs",
-        "Adding five more VMs behind a load balancer",
-        "Migrating a VM to another region"
+        "Scaling out (horizontal)",
+        "Scaling up (vertical)",
+        "Scaling in (horizontal)",
+        "Scaling down (vertical)"
       ],
       "c": 1,
-      "e": "Vertical scaling (scaling up) means increasing the resources of an existing single machine. Adding more machines instead is horizontal scaling (scaling out)."
+      "e": "Increasing the resources of an existing machine, such as RAM or CPU, is vertical scaling up. Scaling out adds more instances instead of making one larger. Scaling in removes instances. Scaling down reduces the size of a machine, the opposite of what happened."
     },
     {
       "id": "exam_10",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which scenario BEST illustrates horizontal scaling (scaling out)?",
+      "q": "A company moves its existing servers to Azure as virtual machines without changing the apps. It wants to keep managing the operating systems itself. Which cloud service type is this?",
       "a": [
-        "Reducing a VM's CPU core count",
-        "Upgrading a single VM to a larger size",
-        "Adding more VM instances behind a load balancer",
-        "Switching a VM's operating system"
+        "PaaS",
+        "SaaS",
+        "IaaS",
+        "FaaS"
       ],
       "c": 2,
-      "e": "Horizontal scaling (scaling out) adds more machines to distribute load, rather than making one machine larger."
+      "e": "Running your own VMs in the cloud and managing their operating systems is Infrastructure as a Service, the type with the most customer control. In PaaS the provider manages the operating system and you only deploy apps. In SaaS you simply use a finished application. FaaS (serverless functions) runs individual pieces of code with no servers to manage."
     },
     {
       "id": "exam_11",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "An organization needs its cloud provider to demonstrate compliance with ISO 27001 and GDPR for an upcoming audit. Where would they find this documentation?",
+      "q": "Developers want to deploy their web code to Azure without managing operating systems, patches or runtime installation, but they still write and own the application. Which service type fits?",
       "a": [
-        "Azure Advisor",
-        "Azure Marketplace",
-        "Azure Cost Management",
-        "Microsoft Trust Center"
+        "Infrastructure as a Service",
+        "Software as a Service",
+        "On-premises hosting",
+        "Platform as a Service"
       ],
       "c": 3,
-      "e": "The Microsoft Trust Center (and Service Trust Portal) publishes Microsoft's compliance certifications and audit reports, giving customers documented evidence for their own compliance needs."
+      "e": "In PaaS the provider manages the OS, patches and runtime, while you deploy and own the application code. IaaS would leave the operating system and patching with the developers. SaaS delivers a finished application, so there would be no own code to deploy. On-premises hosting means running and patching your own servers."
     },
     {
       "id": "exam_12",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which of the following is an example of a cloud economic benefit resulting directly from 'economies of scale'?",
+      "q": "A small firm wants a ready-to-use CRM that staff open in a browser. It does not want to install, host or update any part of the software. Which service type is this?",
       "a": [
-        "Lower per-unit compute cost from Microsoft's bulk purchasing",
-        "The exact same services being available in every Azure region",
-        "Consistent resource tagging enforced across all subscriptions",
-        "A guarantee of 100 percent uptime across every Azure service"
+        "Software as a Service",
+        "Platform as a Service",
+        "Infrastructure as a Service",
+        "Private cloud hosting"
       ],
       "c": 0,
-      "e": "Economies of scale means the cost per unit decreases as purchasing volume increases. Microsoft's massive scale lets it negotiate better hardware pricing and pass some of that savings to customers."
+      "e": "SaaS delivers a complete application that users simply sign in to, while the provider hosts and updates everything. PaaS would require the firm to build and deploy its own application. IaaS would require installing and maintaining the CRM on virtual machines. Private cloud hosting means running the software on the firm's own dedicated infrastructure."
     },
     {
       "id": "exam_13",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company wants a solution that can automatically detect increased demand and provision more resources without a human approving each change. Which term describes this capability?",
+      "q": "A team wants to run code only when a message arrives, with no servers to provision and no charge while nothing is running. Which cloud computing model is this?",
       "a": [
-        "High availability",
-        "Elasticity",
-        "Manual scaling",
-        "Redundancy"
+        "Virtual machine hosting",
+        "Serverless computing",
+        "Reserved capacity",
+        "Private cloud"
       ],
       "c": 1,
-      "e": "Elasticity implies automatic, demand-driven scaling in both directions — no human needs to intervene for resources to expand or contract."
+      "e": "Serverless computing runs code in response to events, with the provider managing all servers and billing only for execution. Virtual machine hosting requires you to provision servers that are charged while running. Reserved capacity is a pricing commitment, not a model where idle time is free. A private cloud runs on dedicated infrastructure that you pay for even when idle."
     },
     {
       "id": "exam_14",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which of these is generally considered a potential DISADVANTAGE of public cloud compared to on-premises infrastructure, according to AZ-900 exam guidance?",
+      "q": "A company compares keeping its own datacenter with moving to the public cloud. Which is a trade-off it accepts by choosing the public cloud?",
       "a": [
-        "A higher upfront capital cost than on-premises",
-        "An inability to scale resources on demand",
-        "Less direct physical control over hardware",
-        "Slower provisioning of new compute resources"
+        "Higher upfront hardware investment",
+        "Slower provisioning of new servers",
+        "Less control over physical hardware",
+        "Capacity that is hard to change"
       ],
       "c": 2,
-      "e": "Because the cloud provider owns and operates the physical infrastructure, customers have less direct physical control than they would with hardware in their own datacenter — a common trade-off discussed on the exam."
+      "e": "In the public cloud the provider owns and runs the hardware, so the customer has less direct physical control. A higher upfront investment is a trait of on-premises, not of the cloud. Provisioning in the cloud is faster, not slower. Cloud capacity can be changed on demand, unlike a fixed datacenter."
     },
     {
       "id": "exam_15",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company deploys identical copies of its application across three different Azure regions on different continents. What is the PRIMARY benefit of this approach?",
+      "q": "A team hosts its web app on Azure App Service. A security audit asks who must patch the web server's operating system and who must fix a vulnerability in the team's own application code. What is the correct split?",
       "a": [
-        "Faster ARM template deployment speed",
-        "Lower monthly billing across all regions",
-        "Simplified role-based access control setup",
-        "Protection from a large regional disaster"
+        "Customer: OS; Microsoft: app code",
+        "Customer: both OS and app code",
+        "Microsoft: both OS and app code",
+        "Microsoft: OS; customer: app code"
       ],
       "c": 3,
-      "e": "Deploying across widely separated regions protects against a disaster that could take an entire region offline — a disaster recovery strategy, not primarily a cost or governance benefit."
+      "e": "In PaaS such as App Service, Microsoft patches the operating system and platform, while the customer stays responsible for its own application code. The reversed split puts each task on the wrong side. The customer patches the OS only in IaaS, not in App Service. Microsoft does not fix the customer's own code, even in PaaS."
     },
     {
       "id": "exam_16",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which best describes the relationship between fault tolerance and redundancy?",
+      "q": "A company wants every new cloud resource to follow its corporate standards, with built-in templates and automatic auditing that flags anything non-compliant. Which cloud benefit is this?",
       "a": [
-        "Redundancy is a key mechanism used to achieve fault tolerance",
-        "Redundancy is always manual; fault tolerance is always automatic",
-        "They are unrelated concepts",
-        "Fault tolerance applies only to storage"
+        "Governance",
+        "Elasticity",
+        "Reliability",
+        "Scalability"
       ],
       "c": 0,
-      "e": "Redundancy (having backup components ready) is a key building block used to achieve fault tolerance, which is the broader property of a system continuing to operate correctly despite a failure."
+      "e": "Governance in the cloud means using templates, policies and auditing to keep resources compliant with corporate standards. Elasticity is automatic matching of resources to demand. Reliability is recovering from failures. Scalability is adding or removing resources as load changes."
     },
     {
       "id": "exam_17",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A business wants to convert a large capital expense for new servers into a smaller, predictable monthly operating expense. Which cloud characteristic makes this possible?",
+      "q": "On the AZ-900 exam, manageability is split into management of the cloud and management in the cloud. Which example describes management of the cloud rather than in the cloud?",
       "a": [
-        "Increased physical security",
-        "Consumption-based pricing",
-        "Global datacenter footprint",
-        "Role-Based Access Control"
+        "Managing resources through the Azure portal",
+        "Automatic scaling and alerts from metrics",
+        "Running scripts with Azure CLI or PowerShell",
+        "Calling the Azure REST API from a tool"
       ],
       "c": 1,
-      "e": "Pay-as-you-go, consumption-based pricing is what enables the shift from a large upfront capital cost to smaller, ongoing operational costs."
+      "e": "Management of the cloud means managing the resources themselves, for example scaling automatically and getting alerts based on metrics. Using the Azure portal is management in the cloud, through a web interface. Azure CLI and PowerShell scripts are also ways of managing in the cloud. Calling the REST API is a programmatic way of managing in the cloud."
     },
     {
       "id": "exam_18",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which of the following is an example of the shared responsibility model as applied to an IaaS virtual machine?",
+      "q": "A company runs a Windows Server virtual machine in Azure (IaaS). Under the shared responsibility model, which task belongs to the company?",
       "a": [
-        "No shared responsibility exists for IaaS",
-        "Microsoft secures everything, including app code",
-        "Microsoft secures the host; customer patches the guest OS",
-        "Customer secures Microsoft's datacenters"
+        "Patching the hypervisor",
+        "Replacing failed disks",
+        "Patching the guest OS",
+        "Securing the datacenter"
       ],
       "c": 2,
-      "e": "In IaaS, Microsoft secures the physical infrastructure and virtualization layer, but the customer remains responsible for the guest OS, patching, and anything they deploy on top of it."
+      "e": "In IaaS the customer manages the guest operating system, including installing its security updates. The hypervisor is part of the host infrastructure that Microsoft maintains. Failed physical disks are replaced by Microsoft. Physical datacenter security is Microsoft's responsibility in every cloud service model."
     },
     {
       "id": "exam_19",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A company evaluating cloud adoption is most concerned with being able to try a new workload cheaply and abandon it quickly if it doesn't work out. Which benefit are they prioritizing?",
+      "q": "One team wants maximum control over security settings, including the OS configuration. Another team wants the provider to apply OS patches for them. Which service types match the two teams?",
       "a": [
-        "Global reach",
-        "Fault tolerance",
-        "Compliance",
-        "Agility"
+        "PaaS for control; IaaS for patching",
+        "SaaS for control; PaaS for patching",
+        "PaaS for control; SaaS for patching",
+        "IaaS for control; PaaS for patching"
       ],
       "c": 3,
-      "e": "Agility is specifically about the speed and low cost of experimenting — provisioning and de-provisioning resources quickly with minimal risk."
+      "e": "IaaS gives the most control, including over the OS, while in PaaS the provider patches the OS for you. PaaS for control with IaaS for patching swaps the two, since IaaS leaves patching to the customer. SaaS for control fails because SaaS offers the least control of all service types. PaaS for control fails because PaaS hides the OS configuration from the customer."
     },
     {
       "id": "exam_20",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which of these best distinguishes 'scalability' from 'elasticity' on the AZ-900 exam?",
+      "q": "Before a launch, a company uses Azure tools to forecast its monthly spending and relies on autoscaling so performance stays steady under the expected load. Which cloud benefit is this?",
       "a": [
-        "Scalability may be manual; elasticity is always automatic",
-        "They are identical, fully interchangeable exam terms",
-        "Scalability always requires planned downtime",
-        "Elasticity applies only to storage services"
+        "Predictability",
+        "Governance",
+        "Manageability",
+        "High availability"
       ],
       "c": 0,
-      "e": "Scalability is the broader concept — a system CAN handle more load, possibly through manual resizing. Elasticity is a more specific, automatic form of scalability that also shrinks back down."
+      "e": "Predictability covers both cost predictability (forecasting spend) and performance predictability (keeping performance steady with tools like autoscaling). Governance is about enforcing standards and policies. Manageability is about how resources are managed and monitored. High availability is about minimizing downtime, not forecasting cost."
     },
     {
       "id": "exam_21",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "An organization's leadership wants proof that Azure datacenters undergo independent, third-party security audits. Which Microsoft resource directly addresses this need?",
+      "q": "Which list orders the cloud service types from the MOST customer responsibility to the LEAST?",
       "a": [
-        "Azure Resource Manager",
-        "Microsoft Trust Center",
-        "Azure Advisor",
-        "Azure Cost Management"
+        "SaaS, PaaS, IaaS",
+        "IaaS, PaaS, SaaS",
+        "PaaS, IaaS, SaaS",
+        "IaaS, SaaS, PaaS"
       ],
       "c": 1,
-      "e": "The Trust Center centralizes Microsoft's compliance certifications and independent audit reports, exactly the kind of evidence needed to satisfy this leadership concern."
+      "e": "IaaS leaves the most to the customer (OS, apps, data), PaaS less (apps and data), and SaaS the least (mainly data, identities and access). SaaS, PaaS, IaaS is the reverse order, from least to most. PaaS before IaaS is wrong, because IaaS also makes the customer manage the operating system. Putting SaaS in the middle is wrong, because SaaS leaves the customer the least to manage."
     },
     {
       "id": "exam_22",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "A small business wants to avoid maintaining physical servers altogether but still needs occasional, unpredictable bursts of extra compute capacity. Which cloud benefit is MOST relevant?",
+      "q": "A small business has no servers of its own and needs extra compute only during unpredictable bursts. It wants capacity added without manual steps and to pay for it only while it is used. Which combination fits?",
       "a": [
-        "A fixed three-year Reserved Instance",
-        "More physical space in a datacenter",
-        "Elasticity with consumption-based pricing",
-        "Manual vertical scaling alone"
+        "Autoscaling with a three-year reservation",
+        "Manual scaling with pay-as-you-go pricing",
+        "Autoscaling with pay-as-you-go pricing",
+        "Manual scaling with a three-year reservation"
       ],
       "c": 2,
-      "e": "Elasticity handles the unpredictable bursts automatically, and consumption-based pricing ensures they only pay for the extra capacity while it's actually being used."
+      "e": "Autoscaling adds capacity automatically for the bursts, and pay-as-you-go charges only while it runs. A three-year reservation commits to paying for capacity even when it is not used. Manual scaling with pay-as-you-go still needs a person to add capacity each time. Manual scaling with a reservation fails on both requirements."
     },
     {
       "id": "exam_23",
       "track": "cloudConcepts",
       "category": "Cloud concepts",
-      "q": "Which statement about the relationship between CapEx and cloud computing is MOST accurate?",
+      "q": "A company builds a private cloud in its own datacenter so teams can self-provision VMs. Compared with using Azure, which statement about its costs is accurate?",
       "a": [
-        "CapEx and OpEx don't apply to cloud",
-        "Cloud eliminates OpEx entirely",
-        "Cloud increases CapEx, reduces OpEx",
-        "Cloud shifts most spending from CapEx to OpEx"
+        "It removes all hardware maintenance costs",
+        "It turns all spending into pure OpEx",
+        "It is billed per minute of VM usage",
+        "It requires upfront CapEx for hardware"
       ],
       "c": 3,
-      "e": "Cloud adoption doesn't eliminate spending — it shifts the majority of infrastructure-related spending from upfront CapEx to ongoing, consumption-based OpEx."
+      "e": "A private cloud runs on hardware the company buys and owns, which is an upfront capital expense (CapEx). The company still pays to maintain, power and cool that hardware. Spending does not become pure OpEx, because the equipment is purchased. Per-minute billing for VM usage is a public cloud consumption model, not how owned hardware is paid for."
     },
     {
       "id": "exam_24",
       "track": "coreServices",
       "category": "Compute",
-      "q": "A company needs to run a legacy Windows application that requires full control over the operating system, including custom driver installations. Which Azure service is the BEST fit?",
+      "q": "A company must move a legacy Windows app to Azure quickly. The app needs a custom kernel-mode driver and specific registry settings, and the vendor will not change the code. Which service should host it?",
       "a": [
         "Azure Virtual Machines",
         "Azure App Service",
-        "Azure Functions",
-        "Azure Container Instances"
+        "Azure Container Apps",
+        "Azure Virtual Desktop"
       ],
       "c": 0,
-      "e": "Virtual Machines provide full control over the guest OS, which is required here. PaaS and serverless options abstract away OS-level control."
+      "e": "Only a virtual machine gives full control of the operating system, which a custom kernel-mode driver and registry changes require. App Service is PaaS and does not let you install drivers on the underlying OS. Container Apps runs containers on a managed platform without access to the host kernel. Azure Virtual Desktop delivers desktops to users and is not meant for hosting a server app."
     },
     {
       "id": "exam_25",
       "track": "coreServices",
       "category": "Compute",
-      "q": "A development team wants to deploy a web API and have Azure automatically handle patching, scaling, and load balancing, without managing any servers directly. Which service fits BEST?",
+      "q": "A web agency hosts many customer websites written in .NET, Java and Node.js. It wants a managed platform with built-in autoscaling and no servers to patch. Which service fits?",
       "a": [
-        "Azure Virtual Network",
+        "Azure Virtual Desktop",
         "Azure App Service",
-        "Azure Bastion",
+        "Azure Functions",
         "Azure Virtual Machines"
       ],
       "c": 1,
-      "e": "App Service is a fully managed PaaS specifically designed for hosting web apps and APIs, with Azure handling the underlying infrastructure."
+      "e": "App Service is a managed PaaS for web apps and APIs in many languages, with autoscaling and no OS patching. Azure Virtual Desktop delivers remote desktops, not website hosting. Azure Functions runs short event-driven code rather than hosting full websites. Virtual Machines would leave the agency patching the servers."
     },
     {
       "id": "exam_26",
       "track": "coreServices",
       "category": "Compute",
-      "q": "A company wants to run a small piece of code only when a new file is uploaded to storage, and not be charged when no files are being uploaded. Which Azure service is designed for this?",
+      "q": "Each time an image is uploaded to a storage account, a small piece of code must create a thumbnail. Between uploads nothing should run or be billed. Which service fits?",
       "a": [
         "Azure App Service",
         "Azure Virtual Machines",
         "Azure Functions",
-        "Azure Kubernetes Service"
+        "Azure VM Scale Sets"
       ],
       "c": 2,
-      "e": "Azure Functions is Azure's serverless compute offering, triggered by events like a file upload, and billed only for actual execution time."
+      "e": "Azure Functions is serverless: code runs when an event such as a blob upload triggers it, and the Consumption plan bills only for execution. An App Service plan is billed while it runs, even with no uploads. Virtual machines are billed while running and must be managed. VM scale sets scale whole VMs and are not designed to run a small piece of code per event."
     },
     {
       "id": "exam_27",
       "track": "coreServices",
       "category": "Compute",
-      "q": "A team is containerizing a complex application made up of many microservices that need to be orchestrated, scaled, and restarted automatically. Which Azure service is the BEST fit?",
+      "q": "A team runs dozens of containerized microservices. It needs the full Kubernetes API and control over cluster configuration, but wants Azure to manage the control plane. Which service fits?",
       "a": [
-        "Azure Blueprints",
-        "Azure Functions",
-        "Azure Virtual Machines",
-        "Azure Kubernetes Service (AKS)"
+        "Azure Container Apps",
+        "Azure Container Instances",
+        "Azure App Service",
+        "Azure Kubernetes Service"
       ],
       "c": 3,
-      "e": "AKS is Azure's managed Kubernetes service, purpose-built for orchestrating multiple interdependent containerized services at scale."
+      "e": "AKS is managed Kubernetes: Azure runs the control plane while the team keeps full access to the Kubernetes API and cluster settings. Container Apps runs microservices on a managed platform but hides the Kubernetes API. Container Instances runs single containers without orchestration. App Service hosts web apps and is not a Kubernetes cluster."
     },
     {
       "id": "exam_28",
       "track": "coreServices",
       "category": "Compute",
-      "q": "Which Azure compute service requires the customer to manually apply operating system patches and updates?",
+      "q": "An app runs on identical VMs. The company wants Azure to add identical VMs automatically when CPU load rises and remove them again when the load drops. What should it use?",
       "a": [
-        "Azure Virtual Machines",
-        "Azure App Service",
-        "Azure Logic Apps",
-        "Azure Functions"
+        "VM scale sets",
+        "Availability sets",
+        "Resource groups",
+        "Region pairs"
       ],
       "c": 0,
-      "e": "As an IaaS offering, Virtual Machines put OS patching responsibility on the customer. The PaaS and serverless options in the other choices handle OS maintenance for you."
+      "e": "Virtual Machine Scale Sets manage a group of identical VMs and can add or remove instances automatically based on load. Availability sets spread VMs across fault and update domains but do not add VMs. Resource groups only organize resources. Region pairs are about disaster recovery between regions."
     },
     {
       "id": "exam_29",
       "track": "coreServices",
       "category": "Storage",
-      "q": "A media company needs to store millions of video files that are accessed unpredictably and don't follow a fixed folder structure. Which storage service is the BEST fit?",
+      "q": "A streaming service stores millions of video files and thumbnails that apps read over HTTP. The data has no fixed structure and keeps growing. Which storage service fits?",
       "a": [
-        "Azure managed disks",
+        "Azure Files",
         "Azure Blob Storage",
-        "Azure SQL Database",
-        "Azure Files"
+        "Azure managed disks",
+        "Azure Queue Storage"
       ],
       "c": 1,
-      "e": "Blob Storage is designed for large volumes of unstructured data like video and image files, accessed via a flat namespace rather than a traditional folder hierarchy."
+      "e": "Blob Storage is object storage for massive amounts of unstructured data such as video and images, accessed over HTTP/HTTPS. Azure Files provides SMB/NFS file shares for apps that expect a network drive. Managed disks are block storage attached to a single VM. Queue Storage stores messages between application components, not media files."
     },
     {
       "id": "exam_30",
       "track": "coreServices",
       "category": "Storage",
-      "q": "An organization wants to migrate an on-premises file share to Azure so that existing applications can continue accessing it using the standard SMB protocol. Which service should they use?",
+      "q": "A company retires its on-premises file server. Office PCs must keep mapping the share as a network drive over SMB, and IT wants no file server VM to patch. Which option fits?",
       "a": [
-        "Azure managed disks",
-        "Azure Blob Storage",
-        "Azure Files",
-        "Azure Table Storage"
+        "A Blob Storage container",
+        "A managed disk on a VM",
+        "An Azure Files share",
+        "An Azure File Sync server"
       ],
       "c": 2,
-      "e": "Azure Files specifically provides fully managed file shares accessible over SMB (and NFS), making it ideal for lift-and-shift scenarios expecting a traditional network drive."
+      "e": "Azure Files provides fully managed file shares that clients map over SMB, so no file server VM is needed. A Blob Storage container is accessed over HTTP and is not mapped as an SMB drive. A managed disk would need a VM acting as a file server, which IT wants to avoid. Azure File Sync keeps a Windows file server on-premises, which the company is retiring."
     },
     {
       "id": "exam_31",
       "track": "coreServices",
       "category": "Storage",
-      "q": "A company has compliance data that must be retained for seven years but is almost never accessed. Which Blob Storage access tier minimizes cost for this scenario?",
+      "q": "Audit logs must be kept for seven years and are read perhaps once a year. A retrieval delay of several hours is acceptable. Which option gives the lowest storage cost?",
       "a": [
-        "Cool",
-        "Premium",
-        "Hot",
-        "Archive"
+        "Cold access tier",
+        "Cool access tier",
+        "Premium block blobs",
+        "Archive access tier"
       ],
       "c": 3,
-      "e": "The Archive tier offers the lowest storage cost, intended for data that's rarely accessed and can tolerate a retrieval delay of several hours — ideal for long-term compliance retention."
+      "e": "Archive is the cheapest tier for data that is rarely read and can wait hours to be rehydrated. The Cold tier is cheaper than Cool but more expensive to store than Archive. The Cool tier suits data read about monthly and costs more to store than Cold or Archive. Premium block blobs offer low latency at the highest storage price."
     },
     {
       "id": "exam_32",
       "track": "coreServices",
       "category": "Storage",
-      "q": "Which Blob Storage access tier is MOST appropriate for data accessed frequently, such as images served by an active website?",
+      "q": "A developer must copy 2 TB of blobs from a storage account in one region to a storage account in another region by running a command in Cloud Shell. Which tool fits?",
       "a": [
-        "Hot",
-        "Standard",
-        "Archive",
-        "Cool"
+        "AzCopy",
+        "Data Box",
+        "File Sync",
+        "Robocopy"
       ],
       "c": 0,
-      "e": "The Hot tier is optimized for frequently accessed data, offering the lowest access cost at the expense of higher storage cost compared to Cool or Archive."
+      "e": "AzCopy is a command-line utility that copies data between storage accounts, including across regions, and it is available in Cloud Shell. Data Box is a physical device for offline transfers into Azure, not between two storage accounts. Azure File Sync synchronizes Windows file servers with Azure Files shares. Robocopy copies between file paths and cannot copy between Blob Storage accounts."
     },
     {
       "id": "exam_33",
       "track": "coreServices",
       "category": "Storage",
-      "q": "A company wants storage that survives the loss of an entire Azure region, not just a single datacenter. Which redundancy option should they choose?",
+      "q": "A company's backup data must survive the loss of an entire Azure region. No app needs to read the copy in the secondary region unless Microsoft fails over. Which option meets this at the lowest cost?",
       "a": [
-        "Locally Redundant Storage (LRS)",
-        "Geo-Redundant Storage (GRS)",
-        "No redundancy needed",
-        "Zone-Redundant Storage (ZRS)"
+        "Zone-redundant storage",
+        "Geo-redundant storage",
+        "Locally redundant storage",
+        "Read-access geo-redundant storage"
       ],
       "c": 1,
-      "e": "GRS replicates data to a second, geographically distant paired region, protecting against a full regional outage — something LRS and ZRS alone do not cover."
+      "e": "GRS copies data to the paired secondary region, so it survives a regional outage, and it costs less than read-access options. ZRS spreads copies across zones in one region, so it does not survive the loss of the whole region. LRS keeps all copies in a single datacenter. RA-GRS also survives a regional outage, but you pay extra for read access the company does not need."
     },
     {
       "id": "exam_34",
       "track": "coreServices",
       "category": "Networking",
-      "q": "A company wants two Azure resources in different Virtual Networks to communicate privately using Microsoft's backbone network instead of the public internet. What should they configure?",
+      "q": "VMs in a VNet in West Europe must talk to VMs in another VNet in North Europe using private IP addresses over the Microsoft backbone. What should be configured?",
       "a": [
-        "Azure Firewall",
-        "A Network Security Group",
+        "A private endpoint",
+        "An NSG rule",
         "VNet peering",
-        "Azure Bastion"
+        "A DNS zone"
       ],
       "c": 2,
-      "e": "VNet peering connects two virtual networks so resources can communicate privately over Microsoft's backbone, without traversing the public internet."
+      "e": "VNet peering connects two virtual networks, even across regions, so resources communicate with private IPs over the Microsoft backbone. A private endpoint gives a PaaS service a private IP in one VNet and does not connect two VNets. An NSG rule filters traffic but cannot create a connection between networks. A DNS zone resolves names and does not route traffic between VNets."
     },
     {
       "id": "exam_35",
       "track": "coreServices",
       "category": "Networking",
-      "q": "An organization needs a dedicated, private connection from their on-premises datacenter to Azure that does not travel over the public internet at all. Which service fits BEST?",
+      "q": "A bank needs a link from its datacenter to Azure with predictable latency and more bandwidth than its internet line. Compliance forbids the traffic from crossing the public internet, even when encrypted. What should the bank use?",
       "a": [
-        "Azure Load Balancer",
-        "Azure VPN Gateway",
-        "Azure Front Door",
+        "Site-to-site VPN Gateway",
+        "Point-to-site VPN",
+        "Global VNet peering",
         "Azure ExpressRoute"
       ],
       "c": 3,
-      "e": "ExpressRoute provides a private, dedicated connection to Azure that completely bypasses the public internet, unlike VPN Gateway, which uses an encrypted tunnel over the internet."
+      "e": "ExpressRoute is a private connection through a connectivity provider that does not travel over the public internet and offers more consistent latency and bandwidth. A site-to-site VPN encrypts traffic but still sends it across the internet. A point-to-site VPN connects individual devices over the internet, not a whole datacenter. VNet peering connects Azure virtual networks to each other, not an on-premises site."
     },
     {
       "id": "exam_36",
       "track": "coreServices",
       "category": "Networking",
-      "q": "A remote branch office needs a cost-effective, encrypted connection to Azure over the existing internet connection, without dedicated new hardware from a telecom provider. Which service is the BEST fit?",
+      "q": "A few consultants work from home and need encrypted access from their laptops to VMs in an Azure VNet. The company has no office network to connect. What should it set up?",
       "a": [
-        "Azure VPN Gateway",
+        "Point-to-site VPN",
+        "Site-to-site VPN",
         "Azure ExpressRoute",
-        "Azure Bastion",
-        "Azure Front Door"
+        "VNet peering"
       ],
       "c": 0,
-      "e": "VPN Gateway creates an encrypted tunnel over the public internet — a much cheaper and faster-to-set-up option than ExpressRoute, appropriate for smaller or less latency-sensitive connections."
+      "e": "A point-to-site VPN connects individual devices to an Azure VNet over an encrypted tunnel across the internet. A site-to-site VPN connects a whole on-premises network, which the company does not have. ExpressRoute is a private circuit for datacenters and offices via a connectivity provider. VNet peering connects Azure VNets to each other, not laptops."
     },
     {
       "id": "exam_37",
       "track": "coreServices",
       "category": "Networking",
-      "q": "Which Azure resource acts as a basic, rule-based network-layer firewall for a subnet or network interface based on source, destination, and port?",
+      "q": "A subnet with web servers should accept inbound traffic only on port 443 from the internet and deny everything else. What should be associated with the subnet?",
       "a": [
-        "Azure DNS",
-        "Network Security Group (NSG)",
-        "Azure Load Balancer",
-        "Azure Application Gateway"
+        "A private endpoint",
+        "A network security group",
+        "An Azure DNS zone",
+        "A virtual network gateway"
       ],
       "c": 1,
-      "e": "An NSG is a simple, rule-based filter for allowing or denying traffic based on properties like source, destination, port, and protocol."
+      "e": "A network security group contains allow and deny rules by port, protocol, source and destination, and can be associated with a subnet. A private endpoint gives a PaaS service a private IP and does not filter ports. An Azure DNS zone hosts name records and does not block traffic. A virtual network gateway connects networks via VPN or ExpressRoute rather than filtering inbound ports."
     },
     {
       "id": "exam_38",
       "track": "coreServices",
       "category": "Networking",
-      "q": "A company needs to distribute incoming web traffic across multiple backend servers based on URL path, and also wants a built-in web application firewall. Which service fits BEST?",
+      "q": "A storage account must be reachable only from VMs in the company's VNet. Public network access will be disabled, and traffic should use a private IP address inside the VNet. What should be added?",
       "a": [
-        "Azure Load Balancer",
-        "Azure VPN Gateway",
-        "Azure Application Gateway",
-        "Azure ExpressRoute"
+        "VNet peering",
+        "A public endpoint with HTTPS",
+        "A private endpoint",
+        "A point-to-site VPN"
       ],
       "c": 2,
-      "e": "Application Gateway operates at Layer 7 and can route based on URL path while also offering a Web Application Firewall — capabilities the network-layer Load Balancer does not provide."
+      "e": "A private endpoint gives the storage account a private IP inside the VNet, so traffic stays private and public access can be turned off. VNet peering connects two VNets but does not give a PaaS service a private address. A public endpoint is exactly what the company wants to disable, even with HTTPS. A point-to-site VPN connects individual devices to the VNet, not the storage account itself."
     },
     {
       "id": "exam_39",
       "track": "coreServices",
       "category": "Networking",
-      "q": "Which Azure service is specifically designed to cache static content at edge locations close to end users, reducing latency for a globally distributed audience?",
+      "q": "A company plans to host the DNS zone for its domain in Azure DNS. Which statement about Azure DNS is accurate?",
       "a": [
-        "Azure Bastion",
-        "Azure Virtual Network",
-        "Azure ExpressRoute",
-        "Azure Content Delivery Network"
+        "It registers and sells new domain names",
+        "It replaces the need for a public IP address",
+        "It only resolves names inside one VNet",
+        "It hosts zones but does not register domains"
       ],
       "c": 3,
-      "e": "Azure CDN caches static content at edge locations physically closer to users, reducing the distance data has to travel and improving load times."
+      "e": "Azure DNS hosts DNS zones and records, but you cannot buy a domain name through it; registration happens with a domain registrar. Registering and selling new domain names is therefore not something Azure DNS does. DNS maps names to addresses and does not replace public IP addresses. Azure DNS hosts public zones for the internet as well as private zones, so it is not limited to one VNet."
     },
     {
       "id": "exam_40",
       "track": "coreServices",
       "category": "Networking",
-      "q": "What is the PRIMARY purpose of a Virtual Network (VNet) in Azure?",
+      "q": "A VNet has two subnets: one for web VMs and one for database VMs. No custom routes or NSGs have been added yet. Can the web VMs reach the database VMs over private IP addresses?",
       "a": [
-        "A private, isolated network boundary for Azure resources",
-        "Automatic encryption applied to all stored data",
-        "Managing billing across multiple subscriptions",
-        "Public internet access granted to all resources by default"
+        "Yes, subnets in one VNet can communicate by default",
+        "No, each subnet is isolated until peering is set up",
+        "No, a VPN gateway is required between subnets",
+        "Yes, but only after a public IP is assigned"
       ],
       "c": 0,
-      "e": "A VNet is your own isolated network space within Azure, letting resources communicate privately while giving you control over what traffic is allowed in or out."
+      "e": "By default, resources in different subnets of the same VNet can reach each other over private IPs through Azure's system routes. Peering connects different VNets, not subnets inside one VNet. A VPN gateway connects external networks or other VNets and is not needed between subnets. Public IP addresses are for internet access and are not needed for private traffic inside the VNet."
     },
     {
       "id": "exam_41",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which Azure feature allows administrators to manage, deploy, and monitor all Azure resources through a single, consistent API regardless of the tool used?",
+      "q": "Whether an admin uses the Azure portal, Azure CLI, PowerShell or an SDK, every create or update request goes through the same Azure layer. What is it?",
       "a": [
-        "Azure Policy assignments",
-        "Azure Resource Manager (ARM)",
-        "Azure Monitor dashboards",
-        "Azure Advisor recommendations"
+        "Microsoft Entra ID",
+        "Azure Resource Manager",
+        "Azure Service Health",
+        "Azure Cloud Shell"
       ],
       "c": 1,
-      "e": "ARM is the unified management layer behind the Portal, CLI, PowerShell, and SDKs — every request to create or modify a resource goes through it."
+      "e": "Azure Resource Manager (ARM) is the deployment and management layer that receives every request from the portal, CLI, PowerShell and SDKs. Microsoft Entra ID authenticates the user but does not create resources. Service Health reports Azure incidents and maintenance. Cloud Shell is just one of the tools that sends requests to ARM."
     },
     {
       "id": "exam_42",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A team wants to deploy the exact same infrastructure configuration repeatedly across dev, test, and production environments with no manual configuration drift. Which approach BEST supports this?",
+      "q": "A team must create the same network, VMs and storage in dev, test and production, with no drift between them and the definition kept in version control. Which approach fits?",
       "a": [
-        "Creating a new subscription per environment",
-        "Using only the mobile app",
-        "ARM templates (Infrastructure as Code)",
-        "Manually configuring each environment"
+        "Manual setup in the Azure portal",
+        "A separate subscription per environment",
+        "Infrastructure as code (ARM templates)",
+        "Resource locks on each environment"
       ],
       "c": 2,
-      "e": "ARM templates let you declare infrastructure as code, ensuring identical, repeatable deployments across environments without manual, error-prone configuration."
+      "e": "Infrastructure as code with ARM templates defines resources in files that can be versioned and deployed identically to every environment. Manual setup in the portal is error-prone and leads to drift. Separate subscriptions isolate environments but do not make their contents identical. Resource locks prevent deletion or changes but do not create anything."
     },
     {
       "id": "exam_43",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "What is the defining characteristic of an Azure Region Pair?",
+      "q": "A company deploys its app to a region and to that region's pair. Which behaviour of Azure region pairs helps it during platform maintenance and large outages?",
       "a": [
-        "Any two regions located on the same continent",
-        "Two subscriptions linked together for billing purposes",
-        "Two Availability Zones within one single datacenter",
-        "Two regions 300+ miles apart, paired for disaster recovery"
+        "Both regions in a pair are updated at the same time",
+        "Paired regions sit on different continents",
+        "Every service copies its data to the pair automatically",
+        "Updates roll out to one region of a pair at a time"
       ],
       "c": 3,
-      "e": "Region pairs are specific Microsoft-designated pairings of regions at a safe distance apart, used for coordinated disaster recovery and planned maintenance rollouts."
+      "e": "Azure rolls out planned updates to one region of a pair at a time and prioritizes recovering one region of each pair in a broad outage. Updating both regions at once is exactly what pairing is designed to avoid. Paired regions are usually in the same geography, such as two regions in Europe, not on different continents. Replication to the pair happens only for services you configure, such as GRS storage, not for every service automatically."
     },
     {
       "id": "exam_44",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company needs their application to survive the failure of an entire Azure datacenter within a region, without failing over to a different region. Which architecture feature should they use?",
+      "q": "An online booking system must stay up if a single datacenter in Sweden Central fails. Moving the workload to another region is not allowed for legal reasons. How should its VMs be deployed?",
       "a": [
-        "Availability Zones",
-        "Azure Front Door",
-        "Reserved Instances",
-        "Region pairs"
+        "Across Availability Zones",
+        "Across a region pair",
+        "In one availability set",
+        "In two resource groups"
       ],
       "c": 0,
-      "e": "Availability Zones are physically separate datacenters within the same region, each with independent power and networking — protecting against a single datacenter failure without needing to leave the region."
+      "e": "Availability Zones are physically separate datacenters within one region, so spreading VMs across them survives a datacenter failure without leaving the region. A region pair would place workloads in a second region, which is not allowed. An availability set protects against rack and update failures but stays inside one datacenter. Resource groups only organize resources and give no physical separation."
     },
     {
       "id": "exam_45",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which of the following BEST describes an Azure Resource Group?",
+      "q": "A team builds a short-lived test environment with a VM, a database and a storage account. When the test ends, it wants to delete all three in one step. How should it organize them?",
       "a": [
-        "A particular type of virtual machine size",
-        "A container for resources sharing one lifecycle",
-        "A specific physical datacenter location",
-        "A billing method used for enterprise customers"
+        "Under one tag value",
+        "In one resource group",
+        "In one availability set",
+        "In one management group"
       ],
       "c": 1,
-      "e": "A resource group is a logical grouping for resources that belong together and share a lifecycle — deleting the group deletes everything inside it."
+      "e": "Resources in one resource group share a lifecycle, and deleting the group deletes everything in it. A tag labels resources, but there is no single built-in delete-by-tag step. An availability set is for VM resilience and cannot hold a database or storage account. Management groups contain subscriptions, not individual resources."
     },
     {
       "id": "exam_46",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which best describes the relationship between an Azure Subscription and a Management Group?",
+      "q": "A company has 12 subscriptions for different business units. It wants one policy assignment and one role assignment to apply to all of them, including subscriptions created later. What should it use?",
       "a": [
-        "Management Groups and subscriptions are unrelated",
-        "Management Groups always nest inside one subscription",
-        "Management Groups apply governance above subscriptions",
-        "Management Groups fully replace subscriptions"
+        "A resource group containing the subscriptions",
+        "A tag applied to every subscription",
+        "A management group above the subscriptions",
+        "One Microsoft Entra group per subscription"
       ],
       "c": 2,
-      "e": "Management Groups organize multiple subscriptions above the subscription level, letting governance tools like Azure Policy apply consistently across all of them at once."
+      "e": "Management groups sit above subscriptions, and policy and role assignments made on them are inherited by every subscription beneath, including new ones. A resource group lives inside a subscription and cannot contain subscriptions. Tags label resources but do not carry policy or role assignments. Entra groups define who gets access, but they would still need assignments on each subscription."
     },
     {
       "id": "exam_47",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company wants its infrastructure deployment to be idempotent — meaning running the same deployment twice produces the same result without errors or duplicates. Which Azure approach supports this?",
+      "q": "A company has Windows and Linux servers in its own datacenter and at another cloud provider. It wants to manage them from the Azure portal and apply Azure Policy to them. Which service fits?",
       "a": [
-        "Manually clicking through the Portal",
-        "Azure Advisor recommendations",
-        "A new PowerShell script every time",
-        "ARM templates (declarative deployment)"
+        "Azure Migrate",
+        "Azure Monitor",
+        "Azure DNS",
+        "Azure Arc"
       ],
       "c": 3,
-      "e": "Declarative ARM templates describe the desired end state, and Azure reconciles the actual environment to match it — running the same template again produces the same result rather than duplicating resources."
+      "e": "Azure Arc projects servers outside Azure into Azure Resource Manager, so they can be managed in the portal and governed with Azure Policy. Azure Migrate assesses and moves servers into Azure rather than managing them where they are. Azure Monitor can collect their telemetry but cannot apply Azure Policy to them. Azure DNS hosts domain records and does not manage servers."
     },
     {
       "id": "exam_48",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which Azure service allows an organization to package a set of ARM templates, policies, and role assignments together as a single repeatable, compliant environment definition?",
+      "q": "Two departments share one Microsoft Entra tenant. Each needs its own Azure invoice, and admins of one department should not reach the other's resources by default. What should the company create?",
       "a": [
-        "Azure Blueprints",
-        "Azure Bastion",
-        "Azure Monitor",
-        "Azure Advisor"
+        "A separate subscription per department",
+        "A separate resource group per department",
+        "A separate region per department",
+        "A separate tag per department"
       ],
       "c": 0,
-      "e": "Azure Blueprints packages templates, policies, and role assignments together so a fully governed environment can be reliably reproduced from the first deployment."
+      "e": "A subscription is both a billing boundary (its own invoice) and an access-control boundary. Resource groups organize resources inside one subscription and share its invoice. A region is a physical location and does not separate billing or access. Tags help split cost reports but do not create separate invoices or block access."
     },
     {
       "id": "exam_49",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company is deciding between Azure Container Apps and a traditional Virtual Machine for a new microservice. Which factor MOST strongly favors containers over a VM?",
+      "q": "A team builds a new microservice that must run the same way on developer laptops, in testing and in Azure. It needs no OS-level access and should scale without managing servers. Which option fits best?",
       "a": [
-        "Wanting to avoid Azure Resource Manager entirely",
-        "Needing the app to run identically across environments",
-        "Needing full control of the guest operating system",
-        "Wanting the absolute lowest cost option"
+        "A Windows VM per environment",
+        "Containers on Azure Container Apps",
+        "A VM scale set with custom images",
+        "Azure Virtual Desktop host pools"
       ],
       "c": 1,
-      "e": "Containers package an application with everything it needs to run consistently anywhere, which is their main advantage over a VM when portability and consistency matter more than deep OS-level control."
+      "e": "Containers package the app with its dependencies so it runs identically everywhere, and Container Apps scales them without servers to manage. A VM per environment means maintaining separate operating systems and risks differences between environments. A VM scale set still requires managing VM images and operating systems. Azure Virtual Desktop host pools deliver desktops to users, not microservices."
     },
     {
       "id": "exam_50",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which statement correctly describes the relationship between Azure Regions and Availability Zones?",
+      "q": "Which statement about Azure regions and Availability Zones is accurate?",
       "a": [
-        "Zones and Regions describe the exact same thing",
-        "Availability Zones can span across multiple regions",
-        "Most regions contain multiple physically separate zones",
-        "Every single Azure region has exactly one zone"
+        "A zone is a group of regions within one geography",
+        "All zones of a region share one power supply",
+        "Zones are separate datacenters within a region",
+        "A zone can stretch across two paired regions"
       ],
       "c": 2,
-      "e": "A region is a broad geography; most regions are further subdivided into multiple physically separate Availability Zones for extra resilience within that region."
+      "e": "Availability Zones are physically separate locations, each made up of one or more datacenters, inside a single region. A group of regions in one geography is called a geography, not a zone. Each zone has independent power, cooling and networking. Zones belong to one region and do not stretch across paired regions."
     },
     {
       "id": "exam_51",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company running many small independent event-driven functions wants to be billed ONLY for the exact compute time each function actually uses. Which pricing/compute model matches this requirement?",
+      "q": "Call-center staff use personal tablets and home PCs. The company wants them to get a managed Windows desktop with company apps, while no company data is stored on the devices. Which service fits?",
       "a": [
-        "Reserved VM Instances",
-        "A fixed App Service Plan",
-        "On-premises hardware",
-        "Azure Functions Consumption plan"
+        "Azure App Service",
+        "Point-to-site VPN",
+        "Microsoft Entra ID",
+        "Azure Virtual Desktop"
       ],
       "c": 3,
-      "e": "The Functions Consumption plan bills purely by execution time and resource consumption during that execution — no charge while idle, matching a true pay-only-for-use model."
+      "e": "Azure Virtual Desktop delivers Windows desktops and apps from Azure to any device, keeping data in the cloud rather than on the device. App Service hosts web apps but does not provide a full Windows desktop. A point-to-site VPN connects a device to a network, so data could still end up on the device. Microsoft Entra ID handles sign-in, not desktop delivery."
     },
     {
       "id": "exam_52",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which of the following is TRUE about Azure Resource Manager templates written in JSON versus Bicep?",
+      "q": "A company launches a service for customers in mainland China. It must use the Azure cloud that is run locally by a Chinese operator and kept separate from global Azure. Which option fits?",
       "a": [
-        "Bicep compiles down to the same underlying ARM JSON",
-        "JSON templates can't be idempotent",
-        "Bicep only works for storage resources",
-        "Bicep uses an entirely separate deployment engine"
+        "Azure operated by 21Vianet",
+        "Azure Government",
+        "Azure East Asia region",
+        "Availability Zones in Asia"
       ],
       "c": 0,
-      "e": "Bicep is a more human-readable authoring language that transpiles into standard ARM JSON, so both ultimately go through the same ARM deployment engine."
+      "e": "Azure in mainland China is a sovereign cloud operated by 21Vianet and physically separated from global Azure. Azure Government is the sovereign cloud for US government agencies, not for China. The East Asia region belongs to global Azure, not to the separately operated cloud in mainland China. Availability Zones add resilience inside a region but do not change who operates the cloud."
     },
     {
       "id": "exam_53",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company wants a single place to view the health of Azure services specifically affecting their own subscriptions, not just a general public status page. Which service provides this?",
+      "q": "Two VMs run an older app that must stay in a single datacenter. The company wants to avoid both VMs going down together during a rack failure or planned host maintenance. What should it use?",
       "a": [
-        "Azure Policy",
-        "Azure Service Health",
-        "Azure Advisor",
-        "Azure Status page"
+        "A region pair",
+        "An availability set",
+        "A resource lock",
+        "Two resource groups"
       ],
       "c": 1,
-      "e": "Azure Service Health is personalized — it reports specifically on incidents affecting the customer's own resources, unlike the general public Azure Status page."
+      "e": "An availability set spreads VMs across fault domains (separate racks) and update domains (separate maintenance batches) within one datacenter. A region pair would move a workload to a second region, which is a disaster recovery design. A resource lock blocks deletion or changes but does not prevent outages. Resource groups organize resources and do not influence physical placement."
     },
     {
       "id": "exam_54",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which choice BEST reflects when a company should choose Azure Virtual Machines over Azure App Service for hosting a web application?",
+      "q": "A standard ASP.NET web app is moving to Azure. It needs no OS access, must scale out automatically during peaks, and the team does not want to patch any servers. Which hosting option fits best?",
       "a": [
-        "Wanting the absolute minimum infrastructure management",
-        "Wanting Azure to automatically manage all OS patching",
-        "Needing OS customization App Service doesn't support",
-        "Hosting a simple, stateless REST API endpoint"
+        "Azure Virtual Machines",
+        "VM scale sets",
+        "Azure App Service",
+        "Azure Virtual Desktop"
       ],
       "c": 2,
-      "e": "VMs are the right choice specifically when deep OS-level control or custom software installations are required — otherwise, App Service's managed platform is typically the better fit."
+      "e": "App Service is a managed platform for web apps that scales out automatically and patches the OS for you. Virtual Machines would leave OS patching with the team. VM scale sets also autoscale, but the team would still manage and patch the VM images. Azure Virtual Desktop delivers desktops to users, not web app hosting."
     },
     {
       "id": "exam_55",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "What is the main advantage of using Azure Container Instances (ACI) for a short-lived batch job compared to provisioning a full Virtual Machine?",
+      "q": "A data team needs to run a single container for 20 minutes each night to process a file. It needs no orchestration and no VM to manage, and should pay only while the container runs. Which service fits?",
       "a": [
-        "Guaranteed availability across every Azure region",
-        "Built-in Kubernetes orchestration and scaling",
-        "Full control over the guest operating system kernel",
-        "Fast startup, billed only while running, no VM to manage"
+        "Azure Kubernetes Service",
+        "Azure Virtual Machines",
+        "Azure Virtual Desktop",
+        "Azure Container Instances"
       ],
       "c": 3,
-      "e": "ACI lets you run containers directly without provisioning or managing VMs, starting quickly and billing per second — ideal for short-lived, bursty workloads like batch jobs."
+      "e": "Container Instances runs a single container on demand without orchestration or VMs, billed per second while it runs. AKS adds a Kubernetes cluster, which is unnecessary orchestration for one container. A virtual machine would have to be managed and patched. Azure Virtual Desktop delivers user desktops, not batch processing."
     },
     {
       "id": "exam_56",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "A company needs a database service where Azure fully manages patching, backups, and high availability, without the customer having to manage a database server. Which is the BEST example?",
+      "q": "A film studio must move 400 TB of footage to Azure Blob Storage within a month. Uploading it over its internet line would take many months. Which option fits?",
       "a": [
-        "Azure SQL Database (PaaS)",
-        "Azure Blob Storage",
-        "An on-premises SQL Server",
-        "SQL Server installed on an Azure VM"
+        "Azure Data Box",
+        "AzCopy over the internet",
+        "Azure File Sync",
+        "Azure Migrate"
       ],
       "c": 0,
-      "e": "Azure SQL Database is a fully managed PaaS offering — Microsoft handles patching, backups, and high availability, unlike SQL Server self-installed on a VM."
+      "e": "Data Box is a physical device that Microsoft ships to you: you copy the data locally and send it back for upload into Azure Storage, avoiding the slow network. AzCopy would still send 400 TB over the slow internet line. Azure File Sync synchronizes file servers with Azure Files over the network, so it has the same bandwidth problem. Azure Migrate focuses on assessing and migrating servers and apps, not shipping bulk data offline."
     },
     {
       "id": "exam_57",
       "track": "coreServices",
       "category": "Architecture",
-      "q": "Which best explains why deploying resources through ARM templates is generally preferred over manually creating them in the Azure Portal for production environments?",
+      "q": "A migration team wants one central hub in Azure to track the move of its on-premises servers, databases and web apps, from the first inventory through to the cutover. Which service provides this hub?",
       "a": [
-        "Manually created resources can't be modified",
-        "Templates are repeatable and version-controllable",
-        "The Portal can't create most resource types",
-        "Templates always deploy faster than the Portal"
+        "Azure Advisor",
+        "Azure Migrate",
+        "Pricing calculator",
+        "Azure Data Box"
       ],
       "c": 1,
-      "e": "Infrastructure as Code (ARM templates) can be stored in version control, reviewed, and reliably repeated — reducing the human error and drift that comes with manual, click-through configuration."
+      "e": "Azure Migrate is the central hub for discovering, assessing and migrating on-premises servers, databases and web apps to Azure. Azure Advisor gives recommendations for resources that already run in Azure. The Pricing calculator estimates costs but does not track migrations. Data Box transfers large amounts of data offline and does not track servers or apps."
     },
     {
       "id": "exam_58",
       "track": "securityGovernance",
       "category": "Identity",
-      "q": "Which Microsoft service serves as the central identity provider for authenticating users and applications across Azure and Microsoft 365?",
+      "q": "An organization creates new hires only in its on-premises Active Directory. Their accounts must then appear in Microsoft Entra ID automatically so they can open Azure and Microsoft 365 apps. What provides this?",
       "a": [
-        "Azure Key Vault",
-        "Azure Policy",
-        "Microsoft Entra ID",
-        "Azure Firewall"
+        "Microsoft Entra Domain Services",
+        "Microsoft Entra External ID",
+        "Microsoft Entra Connect",
+        "Conditional Access"
       ],
       "c": 2,
-      "e": "Microsoft Entra ID (formerly Azure Active Directory) is the identity backbone for Azure and Microsoft 365, handling authentication for users, groups, and applications."
+      "e": "Microsoft Entra Connect synchronizes accounts from on-premises Active Directory to Microsoft Entra ID, so new hires appear in the cloud automatically. Entra Domain Services provides managed domain features such as Kerberos and Group Policy in Azure, not syncing from on-premises. External ID is for guests and customers from outside the organization. Conditional Access decides when sign-ins are allowed but does not create or sync accounts."
     },
     {
       "id": "exam_59",
       "track": "securityGovernance",
       "category": "Identity",
-      "q": "A company wants to require a second verification step, such as a phone prompt, in addition to a password for signing in. Which feature should they enable?",
+      "q": "A company's MFA policy must combine two different types of authentication factor. Which sign-in combination meets this requirement?",
       "a": [
-        "Role-Based Access Control",
-        "Network Security Groups",
-        "Azure Policy",
-        "Multi-Factor Authentication (MFA)"
+        "Password plus a security question",
+        "Password plus a memorized PIN",
+        "Fingerprint plus a face scan",
+        "Password plus a phone app code"
       ],
       "c": 3,
-      "e": "MFA specifically adds an additional authentication factor — something the user has or is — beyond just a password."
+      "e": "A password is something you know and a code from a phone app is something you have, so they are two different factor types. A security question is also something you know, like the password. A memorized PIN is again something you know. A fingerprint and a face scan are both something you are, so they count as the same factor type."
     },
     {
       "id": "exam_60",
       "track": "securityGovernance",
       "category": "Identity",
-      "q": "Which statement about Conditional Access is MOST accurate?",
+      "q": "A company wants sign-ins from outside the EU to require MFA, while sign-ins from the office network do not, decided automatically at each sign-in. Which feature fits?",
       "a": [
-        "It adds controls, like MFA, only for risky sign-ins",
-        "It replaces the need for passwords entirely",
-        "It only ever applies to Virtual Machines",
-        "It permanently blocks every sign-in from off-site"
+        "Conditional Access",
+        "Azure Policy",
+        "Network security groups",
+        "Azure RBAC roles"
       ],
       "c": 0,
-      "e": "Conditional Access evaluates signals like location, device compliance, and risk level in real time, applying stricter controls only when those signals warrant it — not a blanket restriction."
+      "e": "Conditional Access evaluates signals such as location at every sign-in and can require MFA only when the conditions match. Azure Policy governs resource configurations, not user sign-ins. Network security groups filter network traffic to Azure resources, not sign-ins to the identity service. RBAC roles decide what a user may do after signing in, not how the sign-in is verified."
     },
     {
       "id": "exam_61",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A company needs to grant a contractor read-only access to a single resource group without giving them access to anything else in the subscription. Which feature should they use?",
+      "q": "An external auditor must view all resources in the Finance resource group but must not see anything else in the subscription or change anything. What should be assigned?",
       "a": [
-        "Azure Blueprints",
-        "RBAC scoped to the resource group",
-        "Azure Advisor",
-        "A Conditional Access policy"
+        "Reader role on the subscription",
+        "Reader role on the resource group",
+        "A ReadOnly lock on the resource group",
+        "An Azure Policy on the resource group"
       ],
       "c": 1,
-      "e": "RBAC lets you assign a role, like Reader, scoped precisely to the resource group needed, without granting broader subscription-wide access."
+      "e": "Azure RBAC with the Reader role scoped to the resource group gives view-only access to exactly those resources. Reader on the subscription would expose every resource in the subscription. A ReadOnly lock blocks changes for everyone but does not grant the auditor any access. Azure Policy controls resource configuration rules and does not give users access."
     },
     {
       "id": "exam_62",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which Azure feature can automatically prevent the creation of a storage account that isn't configured with encryption, according to organizational rules?",
+      "q": "Due to data-residency rules, no one may create resources outside West Europe and North Europe, even with Owner rights. What should be used to enforce this?",
       "a": [
-        "Azure Advisor",
-        "Azure Cost Management",
+        "Azure RBAC",
+        "Resource locks",
         "Azure Policy",
-        "Microsoft Entra ID"
+        "Microsoft Purview"
       ],
       "c": 2,
-      "e": "Azure Policy can enforce rules that actively deny non-compliant resource creation — like blocking an unencrypted storage account — rather than merely flagging it afterward."
+      "e": "Azure Policy can deny the creation of resources in locations that are not allowed, regardless of the user's role. RBAC controls who can act, so an Owner could still pick any region. Resource locks protect existing resources from deletion or changes and do not restrict regions. Microsoft Purview governs and classifies data rather than blocking resource deployments."
     },
     {
       "id": "exam_63",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A company wants a single numeric score reflecting the overall security posture of their Azure environment, updated continuously as they make changes.",
+      "q": "A security team wants one continuously updated number that shows how well its Azure environment follows security best practices, plus a list of steps to raise it. What should it use?",
       "a": [
-        "Advisor cost score",
-        "Reserved Instance utilization",
-        "Cost Management budget",
-        "Secure Score"
+        "Advisor Score in Azure Advisor",
+        "Compliance view in Azure Policy",
+        "Service Health in the portal",
+        "Secure Score in Defender for Cloud"
       ],
       "c": 3,
-      "e": "Secure Score, provided by Microsoft Defender for Cloud, is a single continuously updated number reflecting how well an environment follows security best practices."
+      "e": "Secure Score in Microsoft Defender for Cloud measures security posture as a single number and lists recommendations that improve it. Advisor Score rates best practices across cost, reliability and more, and is not the dedicated security posture measure. Azure Policy compliance shows which resources meet assigned policies, without an overall security score. Service Health reports Azure incidents, not your security posture."
     },
     {
       "id": "exam_64",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which Azure service should be used to securely store and manage API keys, connection strings, and certificates, rather than hardcoding them into application source code?",
+      "q": "A company applies defense in depth. It uses NSGs to limit communication between subnets, denies traffic by default and restricts inbound internet access. Which layer do these controls belong to?",
       "a": [
-        "Azure Key Vault",
-        "Azure Policy",
-        "Azure Monitor",
-        "Azure Blueprints"
+        "Network layer",
+        "Perimeter layer",
+        "Compute layer",
+        "Application layer"
       ],
       "c": 0,
-      "e": "Key Vault is purpose-built as a secure, access-controlled store for secrets, keys, and certificates — exactly what should replace hardcoded credentials in source code."
+      "e": "In defense in depth, the network layer limits communication between resources, denies traffic by default and restricts inbound internet access, which is what these NSG rules do. The perimeter layer protects the edge of the network, for example against DDoS attacks. The compute layer secures the VMs themselves, for example through patching and endpoint protection. The application layer focuses on secure code and keeping secrets out of the app."
     },
     {
       "id": "exam_65",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Under the shared responsibility model, which of the following is ALWAYS the customer's responsibility, regardless of whether they use IaaS, PaaS, or SaaS?",
+      "q": "A company runs some workloads as IaaS, some as PaaS and some as SaaS. For which responsibility does it stay accountable in all three models?",
       "a": [
-        "Maintaining physical network hardware",
-        "Their own data and who can access it",
-        "Patching the hypervisor",
-        "Physical datacenter security"
+        "Maintaining the physical network hardware",
+        "Its information, data and access",
+        "Patching the virtualization hypervisor",
+        "Updating the guest operating system"
       ],
       "c": 1,
-      "e": "No matter which service model is used, the customer always retains responsibility for their own data, identities, and access management — that responsibility never shifts to Microsoft."
+      "e": "The customer is always accountable for its information and data, its devices, and its accounts and identities, in every service model. Physical network hardware is Microsoft's job in all three models. The hypervisor is part of the host that Microsoft manages. Guest OS updates are the customer's job only in IaaS; in PaaS and SaaS Microsoft handles them."
     },
     {
       "id": "exam_66",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A security team wants to enforce 'verify explicitly, use least privileged access, and assume breach' across their organization. Which security model does this describe?",
+      "q": "A security team adopts three rules: verify every request explicitly, grant least-privilege access, and assume a breach has already happened. Which security model is this?",
       "a": [
-        "Shared responsibility model",
-        "Defense in depth only",
-        "Zero Trust",
-        "RBAC alone"
+        "The defense-in-depth model",
+        "The shared responsibility model",
+        "The Zero Trust model",
+        "The perimeter model"
       ],
       "c": 2,
-      "e": "These three principles — verify explicitly, least privilege, assume breach — are the defining tenets of the Zero Trust security model."
+      "e": "Verify explicitly, use least privilege and assume breach are the three guiding principles of Zero Trust. Defense in depth is about layering several protections, not these three principles. The shared responsibility model splits duties between Microsoft and the customer. A perimeter model trusts everything inside the network, which Zero Trust rejects."
     },
     {
       "id": "exam_67",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which built-in Azure role grants full access to manage all resources, INCLUDING the ability to grant access to others?",
+      "q": "A team lead must create and delete resources in the Marketing resource group and also grant colleagues access to it, but must not manage anything else in the subscription. Which assignment follows least privilege?",
       "a": [
-        "Security Reader",
-        "Reader",
-        "Contributor",
-        "Owner"
+        "Owner on the subscription",
+        "Contributor on the resource group",
+        "Owner on the management group",
+        "Owner on the resource group"
       ],
       "c": 3,
-      "e": "Owner has full control, including the ability to manage access for others — Contributor can manage resources but cannot grant access, and Reader is view-only."
+      "e": "Owner can manage resources and grant access, and scoping it to the resource group keeps the rest of the subscription out of reach. Owner on the subscription gives the same rights across the whole subscription. Contributor on the resource group can manage resources but cannot grant access to others. A management group is an even broader scope than the subscription."
     },
     {
       "id": "exam_68",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which built-in Azure RBAC role allows a user to create and manage all types of Azure resources but NOT grant access to other users?",
+      "q": "A developer must create, change and delete resources in a subscription, but the company does not want her to grant access to anyone else. Which built-in role fits?",
       "a": [
         "Contributor",
-        "Reader",
         "Owner",
-        "Global Administrator"
+        "Reader",
+        "User Access Administrator"
       ],
       "c": 0,
-      "e": "Contributor can create, modify, and delete resources but explicitly cannot assign roles or manage access — that capability is reserved for Owner."
+      "e": "Contributor can manage all resources but cannot assign roles to others. Owner could also grant access, which the company wants to prevent. Reader can only view resources. User Access Administrator can manage access but cannot create or change resources."
     },
     {
       "id": "exam_69",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A company wants to ensure that only compliant, managed devices can access sensitive company applications, decided dynamically at sign-in time. Which feature supports this?",
+      "q": "Consultants from a partner firm need access to a company's internal app. They should sign in with their own partner work accounts instead of new passwords issued by the company. Which feature fits?",
       "a": [
-        "The Azure Cost Management + Billing blade",
-        "Conditional Access with device compliance",
-        "A general-purpose Azure Policy assignment",
-        "A basic Network Security Group rule"
+        "Microsoft Entra Connect sync",
+        "Microsoft Entra B2B collaboration",
+        "Microsoft Entra Domain Services",
+        "Single sign-on with Entra ID"
       ],
       "c": 1,
-      "e": "Conditional Access can require that a device be marked compliant (via Intune, for example) before granting access — evaluated dynamically at each sign-in."
+      "e": "B2B collaboration invites external users as guests who sign in with their own organization's credentials. Entra Connect syncs the company's own on-premises accounts, not partner accounts. Entra Domain Services provides managed domain services for legacy apps. Single sign-on lets one sign-in cover many apps but does not by itself let outside users use their own accounts."
     },
     {
       "id": "exam_70",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which Microsoft Defender for Cloud capability specifically provides just-in-time access to reduce exposure of a VM's management ports?",
+      "q": "A company runs servers in Azure, on-premises and in another cloud. It wants one service that assesses their security posture and alerts on threats across all three environments. Which service fits?",
       "a": [
-        "Policy compliance dashboard",
-        "Secure Score",
-        "Just-in-time (JIT) VM access",
-        "Advisor recommendations"
+        "Microsoft Entra ID Protection",
+        "Azure Monitor Log Analytics",
+        "Microsoft Defender for Cloud",
+        "Azure Policy compliance"
       ],
       "c": 2,
-      "e": "JIT VM access locks down management ports like RDP/SSH by default and opens them only for a limited time window when explicitly requested and approved."
+      "e": "Defender for Cloud assesses security posture and provides threat protection across Azure, on-premises and other clouds. Entra ID Protection focuses on risky sign-ins and identities, not server posture. Log Analytics stores and queries logs but does not assess security posture by itself. Azure Policy compliance shows rule violations, not threat alerts."
     },
     {
       "id": "exam_71",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A multinational organization needs documented evidence that Microsoft datacenters comply with regional data protection regulations like GDPR. Where should they look?",
+      "q": "For data governance, a company needs a single map of all its data sources across Azure, on-premises and SaaS, showing how data flows between systems. Which service provides this?",
       "a": [
-        "Azure Resource Manager docs",
-        "Azure Cost Management + Billing",
-        "The Azure status page",
-        "Microsoft Trust Center"
+        "Azure Policy",
+        "Defender for Cloud",
+        "Azure Monitor",
+        "Microsoft Purview"
       ],
       "c": 3,
-      "e": "The Trust Center and Service Trust Portal are Microsoft's central resources for compliance documentation and independent audit results across many regulatory frameworks."
+      "e": "Microsoft Purview provides a unified data map with data lineage across Azure, on-premises and SaaS sources. Azure Policy evaluates resource configurations, not where data flows. Defender for Cloud focuses on security posture and threat protection. Azure Monitor collects metrics and logs about resource performance, not a data map."
     },
     {
       "id": "exam_72",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which of the following BEST describes why Microsoft recommends using built-in RBAC roles over custom roles whenever possible?",
+      "q": "An engineer is given the Contributor role on a subscription. Later, a new resource group with a storage account is created in that subscription. What can the engineer do with the storage account?",
       "a": [
-        "Microsoft maintains and updates them automatically",
-        "Built-in roles always have fewer permissions",
-        "Custom roles need Entra ID Premium",
-        "Custom roles can't be assigned to multiple users"
+        "Manage it, because the role is inherited",
+        "Nothing until a role is assigned on the group",
+        "View it only, as inheritance grants Reader",
+        "Manage it only after an Owner approves"
       ],
       "c": 0,
-      "e": "Because Microsoft maintains built-in roles, they require no ongoing upkeep as new features are added — a benefit custom roles don't share, since they must be manually updated."
+      "e": "Role assignments are inherited from a scope down to every resource group and resource below it, including ones created later. No new assignment on the resource group is needed. Inheritance keeps the same role; it does not downgrade it to Reader. RBAC has no approval step, so the inherited Contributor role applies immediately."
     },
     {
       "id": "exam_73",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "Which statement about Azure Policy is MOST accurate?",
+      "q": "A team asks how Azure RBAC and Azure Policy differ when governing who may deploy which VM sizes. Which statement is accurate?",
       "a": [
-        "It can only report on non-compliant resources",
-        "It can audit, deny, or auto-remediate resources",
-        "It applies only to virtual machine resources",
-        "It completely replaces the need for RBAC"
+        "RBAC: which settings are allowed; Policy: who can act",
+        "RBAC: who can act; Policy: which settings are allowed",
+        "Both control only who can act, at different scopes",
+        "Policy grants access; RBAC audits resource settings"
       ],
       "c": 1,
-      "e": "Azure Policy can do more than just report — depending on its effect setting, it can actively deny non-compliant deployments or even automatically remediate them."
+      "e": "RBAC decides which users can perform actions, while Azure Policy decides which resource configurations, such as VM sizes, are allowed. Swapping the two describes each tool's job backwards. Policy does not control who can act, so the two tools are not two scopes of the same thing. Policy does not grant access, and RBAC does not audit settings."
     },
     {
       "id": "exam_74",
       "track": "securityGovernance",
       "category": "Governance",
-      "q": "A company's compliance officer wants to know, at a glance, which Azure resources currently violate an organization-wide encryption requirement. Which Azure feature provides this visibility?",
+      "q": "A governance lead explains the difference between a policy definition and a policy initiative. Which statement is accurate?",
       "a": [
-        "Reserved Instance recommendations",
-        "Cost Management + Billing",
-        "Azure Policy compliance dashboard",
-        "Advisor cost recommendations"
+        "A definition is a group of initiatives",
+        "An initiative assigns RBAC roles to users",
+        "An initiative is a group of policy definitions",
+        "An initiative locks resources against deletion"
       ],
       "c": 2,
-      "e": "The Azure Policy compliance dashboard shows exactly which resources are compliant or non-compliant against assigned policies, like an encryption requirement."
+      "e": "A policy initiative (policy set) groups several policy definitions so they can be assigned and evaluated together. The hierarchy is the other way round: definitions are grouped into initiatives, not initiatives into definitions. Assigning roles to users is the job of RBAC, not Azure Policy. Protecting resources against deletion is done with resource locks."
     },
     {
       "id": "exam_75",
       "track": "securityGovernance",
       "category": "Identity",
-      "q": "Which of the following is an example of something you HAVE, as used in Multi-Factor Authentication?",
+      "q": "Employees complain about signing in separately to the HR portal, the expense app and Microsoft 365. The company wants one sign-in with Microsoft Entra ID to give access to all of them. Which capability is this?",
       "a": [
-        "The username permanently tied to your account",
-        "The password you always type in to sign in",
-        "Your official job title within the company",
-        "A code from an authenticator app on your phone"
+        "Conditional Access",
+        "Passwordless sign-in",
+        "Multifactor authentication",
+        "Single sign-on (SSO)"
       ],
       "c": 3,
-      "e": "MFA combines different factor types: something you know (password), something you have (a phone or hardware token), and something you are (biometrics). An authenticator app code is a 'something you have' factor."
+      "e": "Single sign-on lets one sign-in with Entra ID give access to many applications. Conditional Access decides under which conditions a sign-in is allowed, not how many sign-ins are needed. Passwordless sign-in replaces the password with another method, but without SSO users would still sign in to each app. Multifactor authentication adds verification steps rather than reducing sign-ins."
     },
     {
       "id": "exam_76",
       "track": "managementMonitoring",
       "category": "Cost",
-      "q": "A finance manager wants to be automatically notified by email once Azure spending reaches 80% of a predefined monthly limit. Which feature should they configure?",
+      "q": "A team lead wants a warning before month-end if spending is on track to exceed a planned amount, based on forecasted rather than only actual cost. Nothing should be blocked. What should be set up?",
       "a": [
-        "An Azure Budget with an alert threshold",
-        "An Azure Policy assignment rule",
-        "A three-year Reserved Instance",
-        "The Azure Advisor recommendations blade"
+        "A budget with a forecast alert",
+        "An Azure Policy deny rule",
+        "An Azure Monitor metric alert",
+        "An Advisor cost recommendation"
       ],
       "c": 0,
-      "e": "Azure Budgets let you define a spending threshold and configure alerts that fire automatically once spending crosses a set percentage of that budget."
+      "e": "Cost Management budgets can alert on forecasted as well as actual spending, warning early without stopping resources. An Azure Policy deny rule blocks deployments instead of warning about spending. Azure Monitor metric alerts react to resource metrics such as CPU, not costs. Azure Advisor suggests savings but does not watch a planned amount."
     },
     {
       "id": "exam_77",
       "track": "managementMonitoring",
       "category": "Cost",
-      "q": "Which Azure tool proactively analyzes actual resource usage and recommends specific actions, such as resizing an underutilized VM, to reduce cost?",
+      "q": "An admin wants Azure to review the VMs that already run and point out which ones are barely used and could be resized or shut down to save money. Which service does this?",
       "a": [
-        "Microsoft Entra ID",
+        "Pricing calculator",
         "Azure Advisor",
-        "Azure Policy",
-        "Azure Budgets"
+        "Azure Migrate",
+        "Azure Policy"
       ],
       "c": 1,
-      "e": "Azure Advisor actively scans usage patterns and provides personalized, specific recommendations for cost savings, performance, security, and reliability."
+      "e": "Azure Advisor analyzes how existing resources are used and recommends actions such as resizing or shutting down underused VMs. The Pricing calculator estimates costs before deployment and does not look at running VMs. Azure Migrate assesses on-premises servers for migration. Azure Policy enforces rules but does not analyze utilization."
     },
     {
       "id": "exam_78",
       "track": "managementMonitoring",
       "category": "Cost",
-      "q": "A company wants to commit to using a specific VM size for three years in exchange for a significantly discounted hourly rate. Which pricing option should they choose?",
+      "q": "A database server VM runs 24/7 and will keep running for at least three more years. The company wants the biggest discount in exchange for a long commitment. Which option fits?",
       "a": [
-        "Spot pricing only",
-        "A free trial subscription",
-        "A Reserved Instance",
-        "Pay-as-you-go pricing"
+        "Pay-as-you-go pricing",
+        "Spot Virtual Machines",
+        "A three-year reservation",
+        "A one-year reservation"
       ],
       "c": 2,
-      "e": "Reserved Instances offer a substantial discount in exchange for a 1- or 3-year usage commitment, ideal for predictable, steady-state workloads."
+      "e": "A three-year reservation gives the largest discount for a steady workload in exchange for the commitment. Pay-as-you-go has no commitment and no discount. Spot VMs are cheap but can be evicted at any time, which does not suit a server that must run 24/7. A one-year reservation also gives a discount, but a smaller one than three years."
     },
     {
       "id": "exam_79",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which Azure feature allows an organization to apply a single governance policy that automatically cascades to every subscription within a management group, including subscriptions added later?",
+      "q": "An architect plans to deploy 10 new VMs and a storage account in Azure next month. Before deploying anything, she needs an estimated monthly cost for that exact configuration. Which tool fits?",
       "a": [
-        "Azure Cost Management on its own",
-        "Azure Advisor's recommendations",
-        "A single tag on a Resource Group",
-        "Management Group policy inheritance"
+        "Azure TCO calculator",
+        "Cost Management + Billing",
+        "Azure Migrate assessment",
+        "Azure Pricing calculator"
       ],
       "c": 3,
-      "e": "Policies assigned at a management group level inherit down to every subscription beneath it, automatically, even ones created after the policy was assigned."
+      "e": "The Pricing calculator estimates the monthly cost of a specific set of Azure resources before they are deployed. The TCO calculator compares running on-premises with moving to Azure, rather than pricing a new configuration. Cost Management + Billing analyzes the costs of resources that already run. An Azure Migrate assessment estimates costs for existing on-premises servers being moved, not for new resources."
     },
     {
       "id": "exam_80",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "A company wants to organize resources with simple name/value labels, such as 'Environment:Production', to support cost reporting and automation. What should they use?",
+      "q": "Finance wants to split the monthly Azure bill by project and by environment, such as Project: Atlas and Environment: Prod, across many resource groups. What should be applied to the resources?",
       "a": [
-        "Tags",
+        "Resource tags",
         "Resource locks",
-        "Management groups",
-        "Azure Blueprints"
+        "Policy initiatives",
+        "Management groups"
       ],
       "c": 0,
-      "e": "Tags are simple metadata labels attached to resources, commonly used to organize cost reports and drive policy-based automation."
+      "e": "Tags are name/value pairs on resources that let Cost Management group and filter costs by project or environment. Resource locks prevent deletion or changes and carry no reporting data. Policy initiatives group policy rules; they can require tags but do not label costs themselves. Management groups organize subscriptions, not individual resources across resource groups."
     },
     {
       "id": "exam_81",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which Azure feature can prevent a critical production resource from being accidentally deleted, even by a user with Contributor access?",
+      "q": "Admins must keep changing the configuration of a production database, but nobody, not even an Owner, should be able to delete it by accident. What should be applied?",
       "a": [
-        "An Availability Zone",
-        "A resource lock (Delete lock)",
-        "A Network Security Group",
-        "Cost Management"
+        "A ReadOnly lock",
+        "A CanNotDelete lock",
+        "The Reader role for admins",
+        "An Azure Policy audit rule"
       ],
       "c": 1,
-      "e": "Resource locks (CanNotDelete or ReadOnly) override normal RBAC permissions to specifically prevent accidental deletion or modification, even for users who otherwise have sufficient access."
+      "e": "A CanNotDelete (Delete) lock lets authorized users read and modify a resource but blocks its deletion for everyone, including Owners, until the lock is removed. A ReadOnly lock would also block the configuration changes the admins need. The Reader role would stop admins from changing the database at all. An audit policy only reports on resources and does not prevent deletion."
     },
     {
       "id": "exam_82",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "A team wants near real-time numerical data, such as CPU percentage, to power a live operational dashboard. Which Azure Monitor component is BEST suited?",
+      "q": "An operations team wants to be notified by SMS whenever average CPU on a VM stays above 85% for ten minutes. What should it create?",
       "a": [
-        "Application Insights alone",
-        "Log Analytics",
-        "Metrics",
-        "Azure Advisor"
+        "A Cost Management budget alert",
+        "An Advisor recommendation",
+        "An Azure Monitor alert rule",
+        "A Service Health alert"
       ],
       "c": 2,
-      "e": "Metrics provide lightweight, near real-time numerical data ideal for dashboards and fast alerting, as opposed to the more detailed, queryable data in Logs."
+      "e": "Azure Monitor alert rules watch metrics such as CPU and notify through action groups by SMS, email or other channels. Budget alerts react to spending, not CPU load. Advisor recommendations are periodic suggestions, not real-time notifications. Service Health alerts tell you about Azure incidents and maintenance, not about your VM's CPU."
     },
     {
       "id": "exam_83",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which Azure Monitor component would an engineer use to run a detailed query investigating exactly what happened before an application crash?",
+      "q": "After an outage, an engineer wants to query event and diagnostic logs from several VMs and correlate what happened in the hour before the failure. Which tool fits?",
       "a": [
         "Azure Advisor",
-        "Cost Management",
-        "Metrics alone",
-        "Log Analytics (Logs)"
+        "Service Health",
+        "Metrics explorer",
+        "Log Analytics"
       ],
       "c": 3,
-      "e": "Log Analytics stores detailed, queryable event and diagnostic data, making it the right tool for in-depth investigation rather than at-a-glance dashboards."
+      "e": "Log Analytics in Azure Monitor lets you write queries over logs collected from many resources to investigate an incident. Azure Advisor gives best-practice recommendations rather than querying logs. Service Health shows Azure platform incidents, not your VMs' own events. Metrics explorer charts numeric metrics but does not query detailed event logs."
     },
     {
       "id": "exam_84",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "A company has resources deployed across production, staging, and multiple subscriptions but needs to see status of Azure incidents affecting specifically their own resources. Which service should they check?",
+      "q": "An IT team wants to know when an Azure outage or planned maintenance affects the specific regions and services it uses, and to get alerts for this. The public status page is too general. What should it use?",
       "a": [
         "Azure Service Health",
+        "Azure Monitor metric alerts",
         "Azure Advisor",
-        "The general Azure Status page",
-        "Cost Management"
+        "Microsoft Defender for Cloud"
       ],
       "c": 0,
-      "e": "Azure Service Health is personalized to the customer's own subscriptions and resources, unlike the general public Azure Status page, which reports global incidents only."
+      "e": "Service Health gives a personalized view of Azure incidents, planned maintenance and health advisories for the services and regions you use, with alerts. Metric alerts watch your resources' own metrics, not Azure platform incidents. Azure Advisor gives recommendations, not outage notifications. Defender for Cloud covers security posture and threats, not service outages."
     },
     {
       "id": "exam_85",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which of the following BEST describes a Service Level Agreement (SLA) in the context of Azure?",
+      "q": "A consultant on a borrowed laptop must run Azure CLI and PowerShell commands against a subscription without installing anything locally. Which option fits?",
       "a": [
-        "A discount applied after one year",
-        "A measurable uptime commitment with service credits owed",
-        "An internal document not shared with customers",
-        "A guarantee of zero downtime ever"
+        "Azure Virtual Desktop",
+        "Azure Cloud Shell",
+        "Azure Advisor",
+        "Azure portal dashboard"
       ],
       "c": 1,
-      "e": "An SLA is Microsoft's measurable, published uptime commitment (like 99.9%), with defined service credits owed to the customer if that commitment isn't met."
+      "e": "Cloud Shell is a browser-based shell with Azure CLI and PowerShell preinstalled and authenticated, so nothing has to be installed locally. Azure Virtual Desktop could provide a desktop, but the tools would still have to be installed on it. Azure Advisor gives recommendations and does not run commands. Portal dashboards display tiles and charts but cannot run CLI or PowerShell commands."
     },
     {
       "id": "exam_86",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "If two chained Azure services each individually offer a 99.9% SLA, what happens to the application's overall composite SLA?",
+      "q": "An app has a web tier and a database tier, each with a 99.9% SLA, and the app is down whenever either tier is down. What is the approximate composite SLA of the app?",
       "a": [
-        "It automatically rises to 99.99%",
-        "Composite SLA math doesn't apply to this case",
-        "It drops below 99.9%, since the SLAs multiply",
-        "It stays at exactly 99.9% regardless"
+        "99.99%",
+        "99.9%",
+        "99.8%",
+        "99.95%"
       ],
       "c": 2,
-      "e": "When services are chained, the composite SLA is the product of the individual SLAs, which is mathematically lower than any single service's SLA on its own."
+      "e": "When an app depends on both tiers, you multiply their SLAs: 0.999 × 0.999 ≈ 0.998, so about 99.8%. 99.99% would need redundant copies, not a chain of dependencies. 99.9% ignores that a failure in either tier takes the app down. 99.95% is higher than either tier alone, which a chain of dependencies cannot reach."
     },
     {
       "id": "exam_87",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which Azure Monitor component is specifically designed to track application-level behavior such as response times, exception rates, and dependency calls, rather than infrastructure health?",
+      "q": "Developers want to see their web app's response times, failed requests, exceptions and calls to external dependencies, rather than the health of the VMs underneath. Which feature fits?",
       "a": [
-        "Azure Policy",
-        "Resource locks",
+        "Azure Monitor VM insights",
+        "Azure Service Health",
         "Azure Advisor",
         "Application Insights"
       ],
       "c": 3,
-      "e": "Application Insights focuses on application performance monitoring — response times, exceptions, and dependencies — distinct from infrastructure-level Metrics or Logs."
+      "e": "Application Insights monitors application performance, including response times, failures, exceptions and dependency calls. VM insights focuses on the health and performance of the virtual machines underneath. Service Health reports Azure platform incidents. Azure Advisor gives best-practice recommendations, not live application telemetry."
     },
     {
       "id": "exam_88",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "A company's IT department wants to know, at a glance, whether a trending Azure incident is actually affecting any of their own deployed resources.",
+      "q": "A company prices the same VM size and storage in two Azure regions within one subscription and gets different monthly totals, although usage is identical. Which cost factor explains the difference?",
       "a": [
-        "Azure Service Health",
-        "Azure Advisor",
-        "Policy compliance dashboard",
-        "Reserved Instance recommendations"
+        "Resource prices vary by region",
+        "The SLA differs between regions",
+        "Data traffic within each region",
+        "The subscription offer type"
       ],
       "c": 0,
-      "e": "Service Health filters incident information down to what specifically affects the customer's own subscription and resources, answering exactly this kind of question."
+      "e": "Azure prices can differ between regions because of local costs, taxes and demand, so the same resources cost different amounts in different locations. The SLA for a VM depends on its configuration, not on the region's price. Traffic within a region cannot explain it, because usage is identical in both estimates. The subscription offer type is the same for both estimates, so it cannot explain the difference."
     },
     {
       "id": "exam_89",
       "track": "managementMonitoring",
       "category": "Management",
-      "q": "Which combination BEST reflects how Azure Budgets and Azure Advisor work together for cost control?",
+      "q": "A company wants to be warned when spending passes a set amount and also to get suggestions on how to cut costs before that happens. Which pairing of tools covers both needs?",
       "a": [
-        "Advisor sets limits; Budgets makes recommendations",
-        "Budgets alert reactively; Advisor recommends proactively",
-        "Neither tool manages cost",
-        "They perform the exact same function"
+        "Advisor for warnings; budgets for suggestions",
+        "Budgets for warnings; Advisor for suggestions",
+        "Policy for warnings; Advisor for suggestions",
+        "Budgets for warnings; Migrate for suggestions"
       ],
       "c": 1,
-      "e": "Budgets are a reactive notification mechanism — they alert after a threshold is crossed. Advisor is proactive, recommending specific actions before costs get out of hand."
+      "e": "Cost Management budgets send alerts when spending crosses a threshold, and Azure Advisor recommends specific savings. Advisor does not watch a spending threshold, and budgets do not give recommendations. Azure Policy enforces resource rules and cannot alert on spending. Azure Migrate assesses servers for migration rather than suggesting savings for running resources."
     }
   ],
   "examConfig": {
