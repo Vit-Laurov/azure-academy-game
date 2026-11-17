@@ -1,4 +1,4 @@
-// app.js — v16.10 (screens + input). Game rules live in engine.js.
+// app.js — v16.12 (screens + input; v16c2: Collection, Profile). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -726,97 +726,147 @@ function renderShopPage(){mount('shop',renderLoot())}
 function renderLearnPage(){mount('learn',renderLearn())}
 function renderMasteryPage(){mount('mastery',renderMastery())}
 
+// ---------- v16c2: Collection = inventory (15 slots), tap a slot for the item card ----------
+let collSel=null; // selected item id
+function selectCollSlot(id){collSel=collSel===id?null:id;render()}
+
+function collEffectLines(owned){
+  return owned.map(itemById).filter(Boolean).map(it=>`<div class="ls-log-l">&gt; ${escapeHtml(it.name)}: ${escapeHtml(it.effect)}</div>`).join('');
+}
+
+function collItemCard(it,has){
+  let th=it.effectCode&&it.effectCode.theme;
+  let actions='';
+  if(has&&th)actions=(S.activeTheme||'default')===th
+    ?`<span class="ls-owned">${sprite('check',14)} THEME ACTIVE</span>`
+    :`<button type="button" class="btn btn-primary" onclick="setTheme('${th}')">EQUIP THEME</button>`;
+  else if(!has)actions=`${shardPrice(it.cost,S.shards<it.cost)}<button type="button" class="btn btn-ghost" onclick="goTo('shop')">LOOT SHOP ${sprite('play',10)}</button>`;
+  return `<div class="ls-item r-${it.rarity} ${has?'':'cl-missing'}" style="--rc:${rarityColor(it.rarity)}">
+      <div class="ls-slot">${iconFor(it.type,44)}${has?'':'<span class="cl-q">?</span>'}</div>
+      <div class="ls-main">
+        <div class="ls-name">${has?escapeHtml(it.name):'???'}</div>
+        <div class="ls-tags"><span class="ls-rar">${rarityLabel(it.rarity).toUpperCase()}</span><span class="ls-type">${escapeHtml(it.type).toUpperCase()}</span></div>
+        <div class="ls-desc">${has?escapeHtml(it.desc):'Not found yet. Drops from quest chests — or buy it in the Loot Shop.'}</div>
+        ${has?`<div class="ls-effect">&gt; ${escapeHtml(it.effect)}</div>`:''}
+        ${actions?`<div class="ls-buy">${actions}</div>`:''}
+      </div>
+    </div>`;
+}
+
 function renderCollectionPage(){
-  const owned=ownedIds();
+  const loot=AZURE_DB.loot||[],owned=ownedIds();
+  if(collSel&&!itemById(collSel))collSel=null;
+  let slots=loot.map(it=>{
+    let has=owned.includes(it.id),sel=collSel===it.id;
+    return `<button type="button" class="cl-slot ${has?'has':'missing'} ${sel?'sel':''} r-${it.rarity}" style="--rc:${rarityColor(it.rarity)}"
+        onclick="selectCollSlot('${it.id}')" aria-pressed="${sel}" aria-label="${has?escapeHtml(it.name):'Unknown '+rarityLabel(it.rarity)+' item'}">
+        ${iconFor(it.type,36)}${has?'':'<span class="cl-q">?</span>'}
+      </button>`;
+  }).join('');
+  let selIt=collSel?itemById(collSel):null;
+  let detail=selIt
+    ?collItemCard(selIt,owned.includes(selIt.id))
+    :`<div class="q-explain cl-hint"><div class="q-guide">${sprite('guide',38)}</div>
+        <div class="q-bubble">${owned.length?'Tap a slot to inspect an item. Dark slots are still out there.':'Your bag is empty. Open quest chests or visit the Loot Shop.'}</div></div>`;
+  let titles=unlockedTitles();
+  let effects=owned.length
+    ?collEffectLines(owned)+(titles.length?`<div class="ls-log-l">&gt; title equipped: ${titles.map(escapeHtml).join(', ')}</div>`:'')
+    :'<div class="ls-log-l dim">&gt; no active effects_</div>';
   let html=`
     <div class="page-header">
-      <div><div class="page-title">Collection</div><div class="page-subtitle">${owned.length} / ${AZURE_DB.loot.length} items</div></div>
-    </div>`;
-  if(owned.length){
-    let effectLines=owned.map(itemById).filter(Boolean).map(it=>`<div class="loot-effect" style="margin-bottom:6px">${it.name}: ${it.effect}</div>`).join('');
-    let titles=unlockedTitles();
-    html+=`<div class="card">
-      <div class="card-title">Active Effects</div>
-      <div class="card-sub">Everything your collection is currently doing for you, all in one place.</div>
-      ${effectLines}
-      ${titles.length?`<div class="loot-meta" style="margin-top:10px">${titles.map(t=>`<span class="loot-badge"><svg class="ic-inline" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg> ${t}</span>`).join('')}</div>`:''}
-    </div>`;
-  }
-  if(!owned.length){
-    html+=`<div class="empty-state">No items yet. Open chests or visit the Loot Shop.</div>`;
-  }else{
-    html+=`<div class="loot-grid">${owned.map(id=>{
-      let it=itemById(id);if(!it)return'';
-      return `<div class="loot-card ${it.rarity}">
-        <div class="loot-icon ${it.rarity}">${iconFor(it.type)}</div>
-        <div class="loot-name ${it.rarity}">${it.name}</div>
-        <div class="loot-meta"><span class="loot-badge">${it.type}</span><span class="loot-badge">${it.rarity}</span></div>
-        <div class="loot-desc">${it.desc}</div>
-        <div class="loot-effect">${it.effect}</div>
-      </div>`;
-    }).join('')}</div>`;
-  }
+      <div><div class="page-title">COLLECTION</div><div class="page-subtitle">Every item works the moment it lands in your bag.</div></div>
+      <div class="ls-wallet cl-count" aria-label="${owned.length} of ${loot.length} items">${sprite('itTrinket',18)}<b>${owned.length}/${loot.length}</b></div>
+    </div>
+    <section class="card">
+      <div class="card-title">Inventory</div>
+      <div class="cl-grid">${slots}</div>
+      <div class="cl-prog">${learnCells(owned.length,loot.length,15)}</div>
+    </section>
+    <div class="cl-detail">${detail}</div>
+    <section class="card">
+      <div class="card-title">Active effects</div>
+      <div class="ls-log cl-effects">${effects}</div>
+    </section>`;
   mount('collection',html);
 }
 
+// ---------- v16c2: Profile = hero, character sheet, game menu ----------
+function profileStatRow(label,value,extra){
+  return `<div class="pf-stat"><span class="pf-k">${label}</span><i class="pf-dots"></i><b class="pf-v">${value}</b>${extra||''}</div>`;
+}
+function menuRow(label,value,act,cls){
+  return `<button type="button" class="pf-row ${cls||''}" onclick="${act}"><span class="pf-cur">${sprite('play',8)}</span><span class="pf-label">${label}</span>${value?`<span class="pf-val">${value}</span>`:''}</button>`;
+}
 function renderProfilePage(){
-  let l=levelOf(S.xp),pct=Math.round(((S.xp%200)/200)*100);
+  let l=levelOf(S.xp),into=S.xp-(l-1)*200;
   let all=[...S.history.easy,...S.history.normal,...S.history.heroic,...S.history.practical];
   let totalAnswered=all.length,totalCorrect=all.filter(x=>x.correct).length;
+  let name=getProfile().name||'';
+  let lootTitle=(typeof unlockedTitles==='function'&&unlockedTitles()[0])||null;
+  let title=lootTitle||levelTitle();
+  let lessonsTotal=0;Object.values(AZURE_DB.learnContent||{}).forEach(t=>lessonsTotal+=(t.lessons||[]).length);
+  let mRanks=(typeof masteryTracks==='function'?masteryTracks():[]).reduce((n,t)=>n+masteryRank(t.id),0);
+  let light=document.documentElement.getAttribute('data-theme')==='light';
   let html=`
     <div class="page-header">
-      <div><div class="page-title">Profile</div><div class="page-subtitle">${levelTitle()}</div></div>
+      <div><div class="page-title">HERO</div><div class="page-subtitle">Your character sheet and settings.</div></div>
     </div>
-    <div class="card" style="display:flex;gap:18px;align-items:center">
-      <div class="avatar-ring">${getInitials(getProfile().name)}</div>
-      <div style="flex:1">
-        <div style="font-weight:600;font-size:16px;margin-bottom:2px">${getProfile().name||levelTitle()}</div>
-        <div class="muted-hint">${getProfile().name?levelTitle()+' · ':''}Level ${l} · ${S.xp} XP total</div>
-        <div class="level-track"><div class="level-fill" style="width:${pct}%"></div></div>
-        <div class="muted-hint mono">${S.xp%200} / 200 XP to next level</div>
+    <section class="card pf-hero">
+      <div class="pf-portrait">${sprite('heroBig',96)}<span class="pf-lv">LV ${l}</span></div>
+      <div class="pf-id">
+        <div class="pf-name">${escapeHtml(name||'Hero')}</div>
+        <div class="pf-title">${escapeHtml(title).toUpperCase()}</div>
+        <div class="pf-xp">${learnCells(into,200,20)}</div>
+        <div class="pf-xp-l"><b>${into}/200 XP</b> to LV ${l+1} · ${S.xp} total</div>
       </div>
-    </div>
-    <div class="grid">
-      <div class="metric"><div class="metric-label">Azure Shards</div><div class="metric-value">${S.shards}</div></div>
-      <div class="metric"><div class="metric-label">Current streak</div><div class="metric-value">${S.streak} <svg class="ic-inline" viewBox="0 0 24 24"><path d="M12 2c1 4-3 5-3 9a5 5 0 0 0 10 0c0-2-1-3-2-4 0 2-1 3-2 2 1-3-1-5-3-7Z"/></svg></div></div>
-      <div class="metric"><div class="metric-label">Answered today</div><div class="metric-value">${totalAnswered}</div></div>
-      <div class="metric"><div class="metric-label">Accuracy today</div><div class="metric-value">${totalAnswered?Math.round(totalCorrect/totalAnswered*100):0}%</div></div>
-      <div class="metric"><div class="metric-label">Collection</div><div class="metric-value">${ownedIds().length}/${AZURE_DB.loot.length}</div></div>
-      <div class="metric"><div class="metric-label">Weak questions</div><div class="metric-value">${S.weakness.length}</div></div>
-    </div>
-    <div class="card">
-      <div class="card-title">Settings</div>
-      <div class="card-sub">Local settings and progress reset. · App v${APP_VERSION}</div>
-      <div style="display:flex;gap:8px;margin-bottom:16px">
-        <input id="profile-settings-name-input" type="text" value="${getProfile().name}" placeholder="Your name" maxlength="40"
-          onkeydown="if(event.key==='Enter'){saveProfileSettingsName()}" class="profile-name-input" style="margin-bottom:0;flex:1">
-        <button class="btn btn-ghost" onclick="saveProfileSettingsName()">Save</button>
+    </section>
+    <section class="card">
+      <div class="card-title">Stats</div>
+      <div class="pf-sheet">
+        ${profileStatRow('SHARDS',`${sprite('shard',14)} ${S.shards}`)}
+        ${profileStatRow('STREAK',`${sprite('flame',14)} ${S.streak} ${S.streak===1?'day':'days'}`)}
+        ${profileStatRow('FREEZES',`×${S.streakFreezes||0}`)}
+        ${profileStatRow('TODAY',`${totalAnswered} answered`)}
+        ${profileStatRow('ACCURACY',`${totalAnswered?Math.round(totalCorrect/totalAnswered*100):0}%`)}
+        ${profileStatRow('GEAR',`${ownedIds().length}/${AZURE_DB.loot.length}`)}
+        ${profileStatRow('LESSONS',`${(S.learnRead||[]).length}/${lessonsTotal}`)}
+        ${profileStatRow('MASTERY',`${mRanks} ranks`)}
+        ${profileStatRow('WEAK SPOTS',`${S.weakness.length}`)}
       </div>
-      <div class="btn-row">
-        <button class="btn btn-ghost" onclick="toggleSound()">🔊 Sound effects: ${S.soundEnabled?'On':'Off'}</button>
-        <button class="btn btn-ghost" onclick="toggleLightMode()">${document.documentElement.getAttribute('data-theme')==='light'?'Night mode':'Day mode'}</button>
-        <button class="btn btn-ghost" onclick="resetCurrent()">Reset current quest</button>
-        <button class="btn btn-ghost" onclick="fullReset()" style="border-color:var(--red)">Reset all progress</button>
+    </section>
+    <section class="card pf-menu">
+      <div class="card-title">Menu</div>
+      <div class="pf-group">HERO NAME</div>
+      <div class="pf-namebox">
+        <input id="profile-settings-name-input" type="text" value="${escapeHtml(name)}" placeholder="Your name" maxlength="40"
+          onkeydown="if(event.key==='Enter'){saveProfileSettingsName()}" class="profile-name-input" aria-label="Hero name">
+        <button type="button" class="btn btn-ghost" onclick="saveProfileSettingsName()">SAVE</button>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-title">🎬 Preview animations</div>
-      <div class="card-sub">Trigger any chest tier on demand — doesn't touch your real progress, XP, or Shards.</div>
-      <div class="btn-row">
-        <button class="btn btn-ghost" onclick="previewChest('common')">Common</button>
-        <button class="btn btn-ghost" onclick="previewChest('rare')">Rare/Epic</button>
-        <button class="btn btn-ghost" onclick="previewChest('legendary')">Legendary</button>
+      <div class="pf-group">SYSTEM</div>
+      <div class="pf-list">
+        ${menuRow('Sound effects',S.soundEnabled?'ON':'OFF','toggleSound()',S.soundEnabled?'on':'')}
+        ${menuRow('Display',light?'DAY':'NIGHT','toggleLightMode()')}
       </div>
-    </div>
-    <div class="card">
-      <div class="card-title">Backup</div>
-      <div class="card-sub">Your progress lives only in this browser. Export a backup file regularly, especially before switching devices or browsers.</div>
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="exportProgress()">Export progress (.json)</button>
-        <button class="btn btn-ghost" onclick="document.getElementById('import-file').click()">Import progress</button>
-        <input type="file" id="import-file" accept="application/json" style="display:none" onchange="importProgress(event)">
+      <div class="pf-group">FX PREVIEW</div>
+      <div class="pf-list">
+        ${menuRow('Common crate','','previewChest(\'common\')')}
+        ${menuRow('Rare / Epic crate','','previewChest(\'rare\')')}
+        ${menuRow('Legendary crate','','previewChest(\'legendary\')')}
       </div>
-    </div>
+      <div class="pf-group">SAVE DATA</div>
+      <div class="pf-note">Progress lives only in this browser. Export a backup before switching devices.</div>
+      <div class="pf-list">
+        ${menuRow('Export backup','.JSON','exportProgress()')}
+        ${menuRow('Import backup','','document.getElementById(\'import-file\').click()')}
+      </div>
+      <input type="file" id="import-file" accept="application/json" style="display:none" onchange="importProgress(event)">
+      <div class="pf-group danger">DANGER ZONE</div>
+      <div class="pf-list">
+        ${menuRow('Reset current quest','','resetCurrent()','warn')}
+        ${menuRow('Reset all progress','','fullReset()','danger')}
+      </div>
+      <div class="pf-ver">APP v${APP_VERSION}</div>
+    </section>
   `;
   mount('profile',html);
 }

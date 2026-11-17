@@ -4,7 +4,7 @@ A gamified, offline-first web app for studying toward the Microsoft **AZ-900 (Az
 
 Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no build step, no backend. Hosted for free on GitHub Pages and installable as an app (PWA) on iPhone, Android and desktop. Works offline after the first visit.
 
-**Current version:** v16.10
+**Current version:** v16.12
 
 ---
 
@@ -75,7 +75,7 @@ admin_guide.html      standalone balancing tool
 
 ## Roadmap
 
-- v16c–v16d: pixel redesign of Learn, Shop, Collection, Mastery, Profile, Exam, Lab, History and popups
+- v16d: pixel redesign of Exam, Lab, History and popups (Learn, Shop, Collection, Mastery and Profile are done)
 - Hands-free voice mode (read question aloud, answer by voice — for long drives)
 - Accounts, cloud save and a friends leaderboard (Supabase)
 - Push reminders at a time you choose

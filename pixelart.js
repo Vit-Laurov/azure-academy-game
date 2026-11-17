@@ -1,4 +1,4 @@
-// pixelart.js — v16
+// pixelart.js — v16.12 (v16c2: heroBig, medal)
 // Pixel sprites drawn in code. Each sprite is a list of text rows; every character is one pixel,
 // '.' is transparent, other characters map to a colour in the palette. pxSvg() turns it into crisp SVG.
 const PX_PAL={
@@ -609,4 +609,42 @@ SPRITES.zMonitor=[
   ".....cc.....",
   "...cccccc...",
   "............"
+];
+
+// ---------- v16c2: Profile hero + Mastery title badge ----------
+SPRITES.heroBig=[
+  "......BBBB......",
+  "....BBBBBBBB....",
+  "...BBBBBBBBBB...",
+  "...BBSSSSSSBB...",
+  "...BSSKSSKSSB..W",
+  "....SSSSSSSS...C",
+  ".....SSppSS....C",
+  "......SSSS.....C",
+  "...RRRRRRRRRR..C",
+  "..RRRRRYYRRRRR.C",
+  "..SRRRRYYRRRRSOO",
+  "..SRRRRRRRRRRSS.",
+  "..S.RRRRRRRR....",
+  "....ssssYsss....",
+  "....RRRRRRRR....",
+  "....NNN..NNN....",
+  "....NNN..NNN....",
+  "....NNN..NNN....",
+  "...pppp..pppp...",
+  "...pppp..pppp..."
+];
+SPRITES.medal=[
+  ".Rr....rR.",
+  ".RRr..rRR.",
+  "..RRrrRR..",
+  "...KKKK...",
+  "..KccccK..",
+  ".KcWccccK.",
+  ".KccccccK.",
+  ".KccccccK.",
+  ".KccccccK.",
+  "..KccccK..",
+  "...KKKK...",
+  ".........."
 ];
