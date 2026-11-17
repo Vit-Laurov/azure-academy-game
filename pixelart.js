@@ -322,3 +322,291 @@ SPRITES.spark=[
   "..Y..",
   "..W.."
 ];
+
+// ---- v16c1: loot item icons (one per item type), Learn worlds + zones ----
+// 'c' = currentColor, so the same sprite takes the rarity / zone colour from CSS.
+SPRITES.itWeapon=[
+  ".........WWW",
+  "........WccW",
+  ".......WccW.",
+  "......WccW..",
+  ".....WccW...",
+  "..Y.WccW....",
+  "..YYccW.....",
+  "...YYW......",
+  "..sYYY......",
+  ".sss..Y.....",
+  "sss.........",
+  "ss.........."
+];
+SPRITES.itArmor=[
+  "cccc....cccc",
+  "cWccc..ccccc",
+  "cWcccccccccc",
+  ".cccccccccc.",
+  ".cWcccKcccc.",
+  ".cWcccKcccc.",
+  ".cccccKcccc.",
+  ".YYYYYYYYYY.",
+  ".cccccccccc.",
+  ".cccc..cccc.",
+  ".cccc..cccc.",
+  "............"
+];
+SPRITES.itTrinket=[
+  "............",
+  "...cccccc...",
+  "..cWWccccc..",
+  ".cWcccccccc.",
+  "cccccccccccc",
+  "KKKKKKKKKKKK",
+  ".cccccccccc.",
+  "..cccccccc..",
+  "...cccccc...",
+  "....cccc....",
+  ".....cc.....",
+  "............"
+];
+SPRITES.itPet=[
+  "............",
+  ".....c......",
+  "....cc......",
+  "...cccccc...",
+  "..cWcccccc..",
+  ".cWcccccccc.",
+  ".ccKcccKccc.",
+  ".ccKcccKccc.",
+  ".cccccccccc.",
+  ".ccccKKcccc.",
+  "..cccccccc..",
+  "............"
+];
+SPRITES.itRing=[
+  ".....WW.....",
+  "....WccW....",
+  "....cccc....",
+  ".....cc.....",
+  "...YYYYYY...",
+  "..YY....YY..",
+  ".YY......YY.",
+  ".Y........Y.",
+  ".Y........Y.",
+  ".YY......YY.",
+  "..YY....YY..",
+  "...YYYYYY..."
+];
+SPRITES.itShield=[
+  "cccccccccccc",
+  "cWWccccccccc",
+  "cWcccccccccc",
+  "cWccccccccWc",
+  "ccccccccWWcc",
+  "ccWccccWWccc",
+  "ccWWccWWcccc",
+  ".ccWWWWcccc.",
+  ".cccWWccccc.",
+  "..cccccccc..",
+  "...cccccc...",
+  ".....cc....."
+];
+SPRITES.itBoots=[
+  "...cccc.....",
+  "...cWcc.....",
+  "...cWcc.....",
+  "...cccc.....",
+  "...YYYY.....",
+  "...cccc.....",
+  "...ccccc....",
+  "...cccccc...",
+  "..ccccccccc.",
+  ".cWccccccccc",
+  ".ccccccccccc",
+  ".KKKKKKKKKKK"
+];
+SPRITES.itAmulet=[
+  "..Y......Y..",
+  "...Y....Y...",
+  "....Y..Y....",
+  ".....YY.....",
+  ".....YY.....",
+  "....cccc....",
+  "...cWWccc...",
+  "..cWcccccc..",
+  "..cccKKccc..",
+  "..cccKKccc..",
+  "...cccccc...",
+  "....cccc...."
+];
+SPRITES.itCompanion=[
+  "c.........c.",
+  "cc.......cc.",
+  "ccc.....ccc.",
+  "cccccccccccc",
+  "cccccccccccc",
+  "ccWKccccKWcc",
+  "ccKKccccKKcc",
+  "cccccccccccc",
+  ".cccccccccc.",
+  "..ccc.Kccc..",
+  "...ccccccc..",
+  "....cccc...."
+];
+SPRITES.itMount=[
+  "............",
+  "..c.........",
+  "..cc........",
+  "..cWc.......",
+  "..cWcc......",
+  "...cWcc..cc.",
+  "....cccccKc.",
+  "cccccccccccY",
+  ".cccccccccc.",
+  "...cccccc...",
+  "....c..c....",
+  "...cc.cc...."
+];
+SPRITES.itTitle=[
+  "............",
+  "c....c....c.",
+  "cc..ccc..cc.",
+  "ccc.ccc.ccc.",
+  "ccccccccccc.",
+  "cWcccRccccc.",
+  "cWccRRRcccc.",
+  "ccccRRRcccc.",
+  "ccccccccccc.",
+  "YYYYYYYYYYY.",
+  "ccccccccccc.",
+  "............"
+];
+SPRITES.itConsumable=[
+  ".....c......",
+  "..c..c..c...",
+  "...c.c.c....",
+  "....WcW.....",
+  "c..cWWWc..c.",
+  "ccccWWWcccc.",
+  "c..cWWWc..c.",
+  "....WcW.....",
+  "...c.c.c....",
+  "..c..c..c...",
+  ".....c......",
+  "............"
+];
+const ITEM_SPRITE={Weapon:'itWeapon',Armor:'itArmor',Trinket:'itTrinket',Pet:'itPet',Ring:'itRing',Shield:'itShield',
+  Boots:'itBoots',Amulet:'itAmulet',Companion:'itCompanion',Mount:'itMount',Title:'itTitle',Consumable:'itConsumable'};
+function itemSprite(type,size){return sprite(ITEM_SPRITE[type]||'itTrinket',size||48)}
+
+// Learn: one sprite per world (tier) and per zone (track)
+SPRITES.wSprout=[
+  "............",
+  ".......GGG..",
+  "......GGGGG.",
+  ".GGG..GGgGG.",
+  "GGGGG.GgGG..",
+  "GGgGGgg.....",
+  ".GGgg.g.....",
+  "......g.....",
+  "......g.....",
+  "...ssssss...",
+  "..ssssssss..",
+  "...ssssss..."
+];
+SPRITES.wBook=[
+  "............",
+  ".BBBBB.BBBBB",
+  ".BWWWBKBWWWB",
+  ".BWKWBKBWKWB",
+  ".BWWWBKBWWWB",
+  ".BWKWBKBWKWB",
+  ".BWWWBKBWWWB",
+  ".BWKWBKBWKWB",
+  ".BWWWBKBWWWB",
+  ".BBBBBKBBBBB",
+  "......K.....",
+  "............"
+];
+SPRITES.wTarget=[
+  "...RRRRRR...",
+  "..RRWWWWRR..",
+  ".RWWRRRRWWR.",
+  "RRWRRWWRRWRR",
+  "RWRRWWWWRRWR",
+  "RWRWWRRWWRWR",
+  "RWRWWRRWWRWR",
+  "RWRRWWWWRRWR",
+  "RRWRRWWRRWRR",
+  ".RWWRRRRWWR.",
+  "..RRWWWWRR..",
+  "...RRRRRR..."
+];
+SPRITES.wTrophy=[
+  "............",
+  "..YYYYYYYY..",
+  "YYYWYYYYYYYY",
+  "Y.YWYYYYYY.Y",
+  "Y.YYYYYYYY.Y",
+  ".YYYYYYYYYY.",
+  "...YYYYYY...",
+  ".....YY.....",
+  ".....YY.....",
+  "....OOOO....",
+  "...OOOOOO...",
+  "............"
+];
+SPRITES.zCloud=[
+  "............",
+  "............",
+  "....cccc....",
+  "...cWWccc...",
+  "..cWccccc...",
+  ".ccccccccc..",
+  "cccccccccccc",
+  "cWcccccccccc",
+  "cccccccccccc",
+  ".cccccccccc.",
+  "............",
+  "............"
+];
+SPRITES.zServer=[
+  "cccccccccccc",
+  "cKKKKKKKKGKc",
+  "cccccccccccc",
+  "............",
+  "cccccccccccc",
+  "cKKKKKKKKGKc",
+  "cccccccccccc",
+  "............",
+  "cccccccccccc",
+  "cKKKKKKKKYKc",
+  "cccccccccccc",
+  "............"
+];
+SPRITES.zShield=[
+  "cccccccccccc",
+  "cWcccccccccc",
+  "cWcccccccWcc",
+  "ccccccccWWcc",
+  "cccWccccWccc",
+  "cccWWccWWccc",
+  ".cccWWWWccc.",
+  ".ccccWWcccc.",
+  ".cccccccccc.",
+  "..cccccccc..",
+  "...cccccc...",
+  ".....cc....."
+];
+SPRITES.zMonitor=[
+  "cccccccccccc",
+  "cKKKKKKKKKKc",
+  "cKKKKKKKKGKc",
+  "cKKKKKKKGKKc",
+  "cKKGKKKGKKKc",
+  "cKGKGKGKKKKc",
+  "cGKKKGKKKKKc",
+  "cKKKKKKKKKKc",
+  "cccccccccccc",
+  ".....cc.....",
+  "...cccccc...",
+  "............"
+];

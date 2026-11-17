@@ -1,3 +1,4 @@
+// loot.js — v16.10 (v16c1: pixel Loot Shop, BUY? YES/NO dialog, pixel item icons). Drop/effect rules unchanged.
 function rarityLabel(r){return r==='legendary'?'Legendary':r==='epic'?'Epic':r==='rare'?'Rare':r==='uncommon'?'Uncommon':'Common'}
 function ownedIds(){return S.collection||[]}
 function itemById(id){return (AZURE_DB.loot||[]).find(x=>x.id===id)}
@@ -49,97 +50,112 @@ function petClicked(){triggerPetReaction(PET_CHEERS)}
 function themes(){let t=['default'];(S.collection||[]).forEach(id=>{let it=itemById(id);let th=it&&it.effectCode&&it.effectCode.theme;if(th&&!t.includes(th))t.push(th)});return t}
 function applyTheme(){document.body.className='';if(S.activeTheme&&S.activeTheme!=='default')document.body.classList.add('theme-'+S.activeTheme)}
 
-const themeSwatchColor={default:'#5B5FEF',bastion:'#3FD17A',iac:'#B873F5',gryphon:'#F4B740',phoenix:'#EF5A6F'};
+
+// ---------- themes (pixel palette; the colour lands in --accent / --theme-hi via body.theme-*) ----------
+const themeSwatchColor={default:'#29adff',bastion:'#00e436',iac:'#b873f5',gryphon:'#ffa300',phoenix:'#ff004d'};
 const themeLabel={default:'Default',bastion:'Bastion',iac:'Infrastructure as Code',gryphon:'Gryphon',phoenix:'Phoenix'};
-
-const svgWrap=inner=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
-const ICON_SVGS={
-  Weapon:svgWrap('<path d="M14 4 20 10 11 19 8 19 8 16 17 7"/><path d="M5 22 8 19"/><path d="M14 4 17 7"/>'),
-  Armor:svgWrap('<path d="M12 3 6 6v5c0 5 3 8 6 10 3-2 6-5 6-10V6Z"/><path d="M9 9v4"/><path d="M15 9v4"/>'),
-  Trinket:svgWrap('<path d="M6 9 12 3 18 9 12 21Z"/><path d="M6 9h12"/><path d="M9 9 12 21 15 9"/>'),
-  Pet:svgWrap('<circle cx="12" cy="16" r="4"/><circle cx="6" cy="9" r="2"/><circle cx="11" cy="6" r="2"/><circle cx="17" cy="9" r="2"/>'),
-  Ring:svgWrap('<circle cx="12" cy="15" r="6"/><path d="M9 9 12 3 15 9"/>'),
-  Shield:svgWrap('<path d="M12 3 19 6v6c0 5-3 8-7 9-4-1-7-4-7-9V6Z"/><path d="M9 12l2 2 4-4"/>'),
-  Boots:svgWrap('<path d="M8 3v9l-4 3v4h14v-3c0-2-2-3-4-4l-3-2V3Z"/><path d="M8 3h4"/>'),
-  Amulet:svgWrap('<path d="M8 3c2 2 6 2 8 0"/><circle cx="12" cy="14" r="6"/><path d="M9 14 12 10 15 14 12 18Z"/>'),
-  Companion:svgWrap('<path d="M6 10 4 4l5 3"/><path d="M18 10 20 4l-5 3"/><path d="M6 10c0-4 3-6 6-6s6 2 6 6c0 5-3 8-6 8s-6-3-6-8Z"/><circle cx="10" cy="10" r=".6" fill="currentColor"/><circle cx="14" cy="10" r=".6" fill="currentColor"/>'),
-  Mount:svgWrap('<path d="M3 14c4-1 6-4 6-9 3 2 4 5 3 9 3-1 6-1 9 2-3 4-7 5-11 4-4-1-7-3-7-6Z"/>'),
-  Title:svgWrap('<path d="M6 3h12v10l-6 4-6-4Z"/><path d="M9 3v5"/><path d="M15 3v5"/>'),
-  Consumable:svgWrap('<path d="M12 2v20"/><path d="M4.5 6.5 19.5 17.5"/><path d="M19.5 6.5 4.5 17.5"/><path d="M12 5 9.5 7"/><path d="M12 5 14.5 7"/><path d="M12 19 9.5 17"/><path d="M12 19 14.5 17"/>')
-};
-function iconFor(type){return ICON_SVGS[type]||ICON_SVGS.Trinket}
-
-function renderLoot(){
-  const loot=AZURE_DB.loot||[],owned=ownedIds();
-  let html=`
-    <div class="page-header">
-      <div><div class="page-title">Loot Shop</div><div class="page-subtitle">Spend Azure Shards on gear and bonuses</div></div>
-      <div class="stat-row"><div class="stat-chip"><span class="dot" style="background:var(--amber)"></span>${S.shards} Shards</div></div>
-    </div>
-    <div class="card">
-      <div class="card-title">Active theme</div>
-      <div class="card-sub">Unlock new themes by collecting special items.</div>
-      ${themes().map(t=>`<span class="theme-swatch ${S.activeTheme===t?'active':''}" onclick="setTheme('${t}')">
-        <span class="swatch-dot" style="background:${themeSwatchColor[t]||'#888'}"></span>${themeLabel[t]||t}
-      </span>`).join('')}
-    </div>
-    <div class="card">
-      <div class="card-title">Streak Insurance</div>
-      <div class="card-sub">Miss a day by accident? A Streak Freeze auto-protects your streak the next time you skip one day.</div>
-      <div class="loot-grid">
-        <div class="loot-card rare">
-          <div class="loot-icon rare">${iconFor('Consumable')}</div>
-          <div class="loot-name rare">Streak Freeze</div>
-          <div class="loot-meta">
-            <span class="loot-badge">Consumable</span>
-            <span class="loot-badge mono">${AZURE_DB.streakFreezeCost||15} 💎</span>
-          </div>
-          <div class="loot-desc">Automatically saves your streak once if you miss exactly one day.</div>
-          <div class="loot-effect">Currently owned: ${S.streakFreezes||0}</div>
-          <button class="btn ${S.shards>=(AZURE_DB.streakFreezeCost||15)?'btn-primary':'btn-ghost'}" ${S.shards<(AZURE_DB.streakFreezeCost||15)?'disabled':''} onclick="buyStreakFreeze()">
-            ${S.shards>=(AZURE_DB.streakFreezeCost||15)?'Buy':'Not enough Shards'}
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">Shop</div>
-      <div class="loot-grid">
-        ${loot.map(it=>{
-          let has=owned.includes(it.id),canAfford=S.shards>=it.cost,justBought=it.id===lastBoughtId;
-          let pct=Math.min(100,Math.round((S.shards/it.cost)*100));
-          let missing=it.cost-S.shards;
-          return `<div class="loot-card ${it.rarity} ${has?'owned':''} ${justBought?'just-bought':''}" data-id="${it.id}">
-            <div class="loot-icon ${it.rarity}">${iconFor(it.type)}</div>
-            <div class="loot-name ${it.rarity}">${it.name}</div>
-            <div class="loot-meta">
-              <span class="loot-badge">${it.type}</span>
-              <span class="loot-badge">${rarityLabel(it.rarity)}</span>
-              <span class="loot-badge mono">${it.cost} 💎</span>
-            </div>
-            <div class="loot-desc">${it.desc}</div>
-            <div class="loot-effect">${it.effect}</div>
-            ${!has&&!canAfford?`<div class="loot-progress"><div class="loot-progress-fill" style="width:${pct}%"></div></div>`:''}
-            <button class="btn ${has?'btn-ghost':canAfford?'btn-primary':'btn-ghost'}" ${has||!canAfford?'disabled':''} onclick="buyLoot('${it.id}')">
-              ${has?'Owned':canAfford?'Buy':`Missing ${missing} Shards`}
-            </button>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">Recent drops</div>
-      ${(S.drops||[]).length?(S.drops||[]).slice(0,10).map(d=>`<div class="history-item ok" style="border-left-color:var(--amber)">${d}</div>`).join(''):'<div class="empty-state">No drops yet.</div>'}
-    </div>
-  `;
-  return html;
+function allThemes(){ // every theme in the game, with the item that unlocks it
+  let out=[{id:'default',item:null}];
+  (AZURE_DB.loot||[]).forEach(it=>{let th=it.effectCode&&it.effectCode.theme;if(th&&!out.some(x=>x.id===th))out.push({id:th,item:it})});
+  return out;
 }
 
+// ---------- item icons: pixel sprites (pixelart.js), coloured by rarity through currentColor ----------
+function iconFor(type,size){return itemSprite(type,size||48)}
+const SHOP_RARITY_COLOR={common:'#c2c3c7',uncommon:'#00e436',rare:'#29adff',epic:'#b873f5',legendary:'#ffec27'};
+function rarityColor(r){return SHOP_RARITY_COLOR[r]||SHOP_RARITY_COLOR.common}
+function shardPrice(n,poor){return `<span class="ls-price ${poor?'poor':''}">${sprite('shard',14)}<b>${n}</b></span>`}
+function stripLeadingEmoji(t){return String(t||'').replace(/^[^\w(+-]+\s*/,'')}
+
+// ---------- shop page ----------
 let lastBoughtId=null;
+function freezeCost(){return AZURE_DB.streakFreezeCost||15}
+
+function renderLoot(){
+  const loot=AZURE_DB.loot||[],owned=ownedIds(),unlocked=themes();
+  let shopkeeper=`<div class="q-explain ls-keeper">
+      <div class="q-guide">${sprite('guide',38)}</div>
+      <div class="q-bubble">${owned.length>=loot.length?'You own every item I sell. Respect, legend.':'Shards in, gear out. Every item works the moment you buy it.'}</div>
+    </div>`;
+
+  let themeTiles=allThemes().map(t=>{
+    let has=unlocked.includes(t.id),active=(S.activeTheme||'default')===t.id,col=themeSwatchColor[t.id]||'#29adff';
+    let state=active?'active':has?'':'locked';
+    let sub=active?'ACTIVE':has?'TAP TO EQUIP':`${sprite('lock',10)} ${escapeHtml(t.item?t.item.name:'')}`;
+    return `<button type="button" class="ls-theme ${state}" style="--tc:${col}" ${has&&!active?`onclick="setTheme('${t.id}')"`:'disabled'} aria-pressed="${active}">
+      <span class="ls-swatch"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="ls-theme-name">${themeLabel[t.id]||t.id}</span>
+      <span class="ls-theme-sub">${sub}</span>
+    </button>`;
+  }).join('');
+
+  let fc=freezeCost(),fPoor=S.shards<fc;
+  let freeze=`<div class="ls-item" style="--rc:${rarityColor('rare')}">
+      <div class="ls-slot">${iconFor('Consumable',44)}</div>
+      <div class="ls-main">
+        <div class="ls-name">Streak Freeze</div>
+        <div class="ls-tags"><span class="ls-rar">CONSUMABLE</span><span class="ls-own">OWNED ×${S.streakFreezes||0}</span></div>
+        <div class="ls-desc">Miss exactly one day and your streak survives. Used up automatically.</div>
+        <div class="ls-buy">${shardPrice(fc,fPoor)}
+          <button type="button" class="btn ${fPoor?'btn-ghost':'btn-primary'}" ${fPoor?'disabled':''} onclick="shopAsk('freeze')">${fPoor?`NEED ${fc-S.shards} MORE`:'BUY'}</button>
+        </div>
+      </div>
+    </div>`;
+
+  let items=loot.map(it=>{
+    let has=owned.includes(it.id),poor=S.shards<it.cost,justBought=it.id===lastBoughtId;
+    let buy;
+    if(has)buy=`<span class="ls-owned">${sprite('check',14)} OWNED</span>`;
+    else if(poor)buy=`${shardPrice(it.cost,true)}<span class="ls-need">${learnCells(S.shards,it.cost,8)}<b>NEED ${it.cost-S.shards}</b></span>`;
+    else buy=`${shardPrice(it.cost,false)}<button type="button" class="btn btn-primary" onclick="shopAsk('item','${it.id}')">BUY</button>`;
+    return `<div class="ls-item ${has?'owned':''} ${justBought?'just-bought':''} r-${it.rarity}" style="--rc:${rarityColor(it.rarity)}" data-id="${it.id}">
+      <div class="ls-slot">${iconFor(it.type,44)}</div>
+      <div class="ls-main">
+        <div class="ls-name">${escapeHtml(it.name)}</div>
+        <div class="ls-tags"><span class="ls-rar">${rarityLabel(it.rarity).toUpperCase()}</span><span class="ls-type">${escapeHtml(it.type).toUpperCase()}</span></div>
+        <div class="ls-desc">${escapeHtml(it.desc)}</div>
+        <div class="ls-effect">&gt; ${escapeHtml(it.effect)}</div>
+        <div class="ls-buy">${buy}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  let drops=(S.drops||[]).slice(0,10);
+  let log=drops.length
+    ?drops.map(d=>`<div class="ls-log-l">&gt; ${escapeHtml(stripLeadingEmoji(d))}</div>`).join('')
+    :'<div class="ls-log-l dim">&gt; no drops yet_</div>';
+
+  return `
+    <div class="page-header">
+      <div><div class="page-title">LOOT SHOP</div><div class="page-subtitle">Spend Shards on gear with real effects.</div></div>
+      <div class="ls-wallet" aria-label="${S.shards} Shards">${sprite('shard',18)}<b>${S.shards}</b></div>
+    </div>
+    ${shopkeeper}
+    <section class="card">
+      <div class="card-title">Themes</div>
+      <div class="card-sub">Colour of your XP bar, map marker, pet and menu. Unlocked by items.</div>
+      <div class="ls-themes">${themeTiles}</div>
+    </section>
+    <section class="card">
+      <div class="card-title">Consumables</div>
+      <div class="ls-grid">${freeze}</div>
+    </section>
+    <section class="card">
+      <div class="card-title">Gear · ${owned.length}/${loot.length}</div>
+      <div class="ls-grid">${items}</div>
+    </section>
+    <section class="card">
+      <div class="card-title">Loot log</div>
+      <div class="ls-log">${log}</div>
+    </section>`;
+}
+
 function setTheme(t){S.activeTheme=t;saveState();render()}
+
+// purchases (same rules as before; the dialog below calls these)
 function buyLoot(id){
   let it=itemById(id);
-  if(!it||ownedIds().includes(id)||S.shards<it.cost)return;
+  if(!it||ownedIds().includes(id)||S.shards<it.cost)return false;
   S.shards-=it.cost;
   S.collection.push(id);
   S.drops.unshift(`Bought: ${it.name}`);
@@ -147,16 +163,95 @@ function buyLoot(id){
   saveState();render();
   initPetCompanion();
   setTimeout(()=>{lastBoughtId=null},700);
+  return true;
 }
 function buyStreakFreeze(){
-  let cost=AZURE_DB.streakFreezeCost||15;
-  if(S.shards<cost)return;
+  let cost=freezeCost();
+  if(S.shards<cost)return false;
   S.shards-=cost;
   S.streakFreezes=(S.streakFreezes||0)+1;
   S.drops=S.drops||[];
   S.drops.unshift('Bought: 🧊 Streak Freeze');
   saveState();render();
+  return true;
 }
+
+// ---------- JRPG purchase dialog: BUY? YES / NO ----------
+let shopDlg=null; // {kind:'item'|'freeze', id, step:'ask'|'done', sel:0}
+
+function shopAsk(kind,id){
+  if(kind==='item'){
+    let it=itemById(id);
+    if(!it||ownedIds().includes(id)||S.shards<it.cost)return;
+  }else if(S.shards<freezeCost())return;
+  shopDlg={kind,id:id||null,step:'ask',sel:0};
+  if(typeof playChime==='function')playChime(660,0.08);
+  drawShopDialog();
+}
+function shopDlgThing(){
+  if(!shopDlg)return null;
+  if(shopDlg.kind==='freeze')return {name:'Streak Freeze',cost:freezeCost(),type:'Consumable',rarity:'rare',effect:'Saves your streak once.'};
+  return itemById(shopDlg.id);
+}
+function shopDlgOptions(){
+  if(!shopDlg)return [];
+  if(shopDlg.step==='ask')return [{label:'YES',act:'shopConfirm()'},{label:'NO',act:'closeShopDialog()'}];
+  let it=shopDlgThing(),th=it&&it.effectCode&&it.effectCode.theme;
+  if(th&&S.activeTheme!==th)return [{label:'EQUIP THEME',act:`shopEquip('${th}')`},{label:'LATER',act:'closeShopDialog()'}];
+  return [{label:'OK',act:'closeShopDialog()'}];
+}
+function drawShopDialog(){
+  let ov=document.getElementById('shop-overlay');
+  if(!ov||!shopDlg)return;
+  let it=shopDlgThing();
+  if(!it){closeShopDialog();return}
+  let col=rarityColor(it.rarity);
+  let text=shopDlg.step==='ask'
+    ?`<b>${escapeHtml(it.name)}</b> for ${sprite('shard',14)}<b>${it.cost}</b>?<span class="sd-after">You'll have ${S.shards-it.cost} Shards left.</span>`
+    :`<span class="sd-got">GOT IT!</span><b>${escapeHtml(it.name)}</b> ${shopDlg.kind==='freeze'?`— you now hold ×${S.streakFreezes||0}.`:'is in your Collection.'}<span class="sd-after">&gt; ${escapeHtml(it.effect)}</span>`;
+  let opts=shopDlgOptions().map((o,i)=>`<button type="button" class="sd-opt ${i===shopDlg.sel?'sel':''}" onclick="${o.act}" onpointerenter="if(event.pointerType==='mouse')shopDlgHover(${i})">
+      <span class="sd-cur">${i===shopDlg.sel?sprite('play',8):''}</span>${o.label}</button>`).join('');
+  ov.innerHTML=`<div class="sd" onclick="event.stopPropagation()">
+      <div class="sd-stage ${shopDlg.step}" style="--rc:${col}">
+        <div class="sd-item">${iconFor(it.type,72)}</div>
+        ${shopDlg.step==='done'?'<i class="sd-spark a"></i><i class="sd-spark b"></i><i class="sd-spark c"></i>':''}
+      </div>
+      <div class="sd-box">
+        <div class="sd-who">${sprite('guide',30)}<span>SHOPKEEPER</span></div>
+        <div class="sd-text">${shopDlg.step==='ask'?'<span class="sd-q">BUY?</span>':''}${text}</div>
+      </div>
+      <div class="sd-menu" role="menu">${opts}</div>
+    </div>`;
+  ov.classList.remove('hidden');
+  requestAnimationFrame(()=>ov.classList.add('visible'));
+  let first=ov.querySelector('.sd-opt.sel');
+  if(first&&first.focus)first.focus({preventScroll:true});
+}
+function shopDlgHover(i){if(shopDlg&&shopDlg.sel!==i){shopDlg.sel=i;drawShopDialog()}}
+function shopConfirm(){
+  if(!shopDlg||shopDlg.step!=='ask')return;
+  let ok=shopDlg.kind==='freeze'?buyStreakFreeze():buyLoot(shopDlg.id);
+  if(!ok){closeShopDialog();return}
+  if(typeof playTune==='function')playTune([[988,.07],[1319,.07],[1568,.2]]);
+  shopDlg.step='done';shopDlg.sel=0;
+  drawShopDialog();
+}
+function shopEquip(th){setTheme(th);closeShopDialog()}
+function closeShopDialog(){
+  shopDlg=null;
+  let ov=document.getElementById('shop-overlay');
+  if(!ov)return;
+  ov.classList.remove('visible');
+  setTimeout(()=>{if(!shopDlg){ov.classList.add('hidden');ov.innerHTML=''}},160);
+}
+function shopDlgKey(e){
+  if(!shopDlg)return;
+  let n=shopDlgOptions().length;
+  if(e.key==='Escape'){e.preventDefault();closeShopDialog()}
+  else if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();shopDlg.sel=(shopDlg.sel+1)%n;drawShopDialog()}
+  else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();shopDlg.sel=(shopDlg.sel+n-1)%n;drawShopDialog()}
+}
+if(typeof document!=='undefined'&&document.addEventListener)document.addEventListener('keydown',shopDlgKey);
 function rollFromTable(mode){
   let table=AZURE_DB.dropTables[mode];
   let r=Math.random()*100,acc=0;

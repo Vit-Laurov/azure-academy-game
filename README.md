@@ -4,7 +4,7 @@ A gamified, offline-first web app for studying toward the Microsoft **AZ-900 (Az
 
 Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no build step, no backend. Hosted for free on GitHub Pages and installable as an app (PWA) on iPhone, Android and desktop. Works offline after the first visit.
 
-**Current version:** v16.3
+**Current version:** v16.10
 
 ---
 
@@ -15,11 +15,11 @@ Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no bui
 - **Boss fight** — JRPG battle against the Budget Golem: 3 HP vs 3 hearts, Heroic questions, the boss taunts you about your weakest topic.
 - **Data-crate rewards** — loot "decrypts" in a terminal and appears in a hologram coloured by rarity (Common → Legendary), with 8-bit jingles.
 - **XP, levels, Shards, streaks** — streak milestones and a Streak Freeze item; LEVEL UP and DAY CLEARED screens.
-- **Loot & pets** — 15 collectible items with real effects (XP bonuses, shard bonuses, themes, titles), including a Blob pet that cheers you on.
+- **Loot Shop & pets** — 15 collectible items with real effects (XP bonuses, shard bonuses, themes, titles), pixel item icons framed by rarity, a JRPG "BUY? YES / NO" shopkeeper dialog, and 5 colour themes. Includes a Blob pet that cheers you on.
 - **Mastery** — four topic tracks with unlimited ranks and permanent XP bonuses.
 - **Weak Spot Review** — questions you missed come back for extra practice.
 - **Practice Exam** — timed 10-question mock exam from a 90-question pool, with per-domain results and history.
-- **Learn** — 54 short lessons (Beginner + Intermediate) with real-world analogies.
+- **Learn** — 54 short lessons as quests in worlds (World 1 Beginner, World 2 Intermediate) and zones per exam domain, with real-world analogies and a guide who sums up each lesson.
 - **Day / Night mode**, sound effects, local profile name, export/import of progress.
 
 ## Question bank
@@ -28,7 +28,7 @@ Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no bui
 |---|---|
 | Easy | 108 |
 | Normal | 114 |
-| Heroic | 81 |
+| Heroic | 150 |
 | Practical labs | 30 |
 | Practice Exam pool | 90 |
 

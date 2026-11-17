@@ -1,4 +1,4 @@
-// app.js — v16.3 (screens + input). Game rules live in engine.js.
+// app.js — v16.10 (screens + input). Game rules live in engine.js.
 
 let audioCtx=null;
 function playChime(freq=880,duration=0.3){
@@ -75,6 +75,7 @@ function applySectionAccent(page){
 
 function goTo(page){
   if(page==='quests')questScreen=null; // QUEST tab always lands on the map
+  let changed=page!==currentPage;
   currentPage=page;
   document.querySelectorAll('.nav-item,.bn-item').forEach(n=>n.classList.toggle('active',n.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -82,6 +83,7 @@ function goTo(page){
   applySectionAccent(page);
   renderPage(page);
   closeMobileNav();
+  if(changed&&typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0); // v16.10: a new page starts at the top
 }
 function toggleMobileNav(){
   let sb=document.getElementById('sidebar'),bd=document.getElementById('mobile-nav-backdrop');
