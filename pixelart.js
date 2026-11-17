@@ -1,4 +1,4 @@
-// pixelart.js — v16.12 (v16c2: heroBig, medal)
+// pixelart.js — v16.13 (v16d: UI icons replacing emoji, MORE-menu icons, mode icons)
 // Pixel sprites drawn in code. Each sprite is a list of text rows; every character is one pixel,
 // '.' is transparent, other characters map to a colour in the palette. pxSvg() turns it into crisp SVG.
 const PX_PAL={
@@ -648,3 +648,203 @@ SPRITES.medal=[
   "...KKKK...",
   ".........."
 ];
+
+// ---------- v16d: UI icons that replace emoji, MORE-menu icons, quest-mode icons ----------
+SPRITES.hourglass=[ // ⏳ timers
+  "cccccccc",
+  ".cYYYYc.",
+  ".cYYYYc.",
+  "..cYYc..",
+  "...cc...",
+  "...cc...",
+  "..c.Yc..",
+  ".c..YYc.",
+  ".cYYYYc.",
+  "cccccccc"
+];
+SPRITES.freeze=[ // 🧊 Streak Freeze
+  ".LLLLLL.",
+  "LWWLLLLB",
+  "LWLLLLLB",
+  "LLLLLLLB",
+  "LLLLLLLB",
+  "LLLLLBLB",
+  "LLLLLLLB",
+  ".BBBBBB."
+];
+SPRITES.cap=[ // 🎓 zone / world cleared
+  "....KK....",
+  "..KKccKK..",
+  "KKccccccKK",
+  "..KKccKK.Y",
+  "...KccK..Y",
+  "...KccK..Y",
+  "...KKKK..Y",
+  ".........Y"
+];
+SPRITES.star=[ // ⭐ Mastery rank
+  "....Y....",
+  "....Y....",
+  "...YYY...",
+  "YYYYWYYYY",
+  ".YYYYYYY.",
+  "..YYYYY..",
+  "..YY.YY..",
+  ".YY...YY.",
+  ".Y.....Y."
+];
+SPRITES.raven=[ // Sentinel Raven (recurring weak spot)
+  "...KKK....",
+  "..KKYKK...",
+  "..KKKKKOO.",
+  ".KKKKKK...",
+  "KKKKKKK...",
+  "KKKKKKKK..",
+  "...KKKKKK.",
+  "....O..O.."
+];
+SPRITES.down=[
+  "ccccccc",
+  ".ccccc.",
+  "..ccc..",
+  "...c..."
+];
+SPRITES.up=[
+  "...c...",
+  "..ccc..",
+  ".ccccc.",
+  "ccccccc"
+];
+SPRITES.navStar=[ // Mastery
+  "....c....",
+  "...ccc...",
+  "ccccccccc",
+  ".ccccccc.",
+  "..ccccc..",
+  "..cc.cc..",
+  ".cc...cc.",
+  ".c.....c.",
+  "........."
+];
+SPRITES.navBag=[ // Collection
+  "...ccc...",
+  "..c...c..",
+  ".ccccccc.",
+  "c.......c",
+  "c.ccccc.c",
+  "c.......c",
+  "c.......c",
+  "ccccccccc",
+  "........."
+];
+SPRITES.navHero=[ // Profile
+  "...ccc...",
+  "..ccccc..",
+  "..c.c.c..",
+  "..ccccc..",
+  "...ccc...",
+  ".ccccccc.",
+  "ccccccccc",
+  "c.ccccc.c",
+  "..cc.cc.."
+];
+SPRITES.navLog=[ // History = Quest log
+  "..ccccc..",
+  "cccc.cccc",
+  "c.......c",
+  "c.c.ccc.c",
+  "c.......c",
+  "c.c.ccc.c",
+  "c.......c",
+  "c.c.cc..c",
+  "ccccccccc"
+];
+SPRITES.navInfo=[ // About
+  "..ccccc..",
+  ".c.....c.",
+  "c...c...c",
+  "c.......c",
+  "c...c...c",
+  "c...c...c",
+  "c...c...c",
+  ".c.....c.",
+  "..ccccc.."
+];
+SPRITES.mCompass=[ // Explorer Quest (normal)
+  "..ccccc..",
+  ".c..R..c.",
+  "c...R...c",
+  "c..RRR..c",
+  "c.WWKWW.c",
+  "c..WWW..c",
+  "c...W...c",
+  ".c..W..c.",
+  "..ccccc.."
+];
+SPRITES.mTerm=[ // Azure Lab
+  "cccccccccc",
+  "cKKKKKKKKc",
+  "cKGKKKKKKc",
+  "cKKGKKKKKc",
+  "cKGKKGGGKc",
+  "cKKKKKKKKc",
+  "cccccccccc",
+  "..cccccc.."
+];
+
+// ---------- v16.14: female hero look (chosen in CREATE YOUR HERO / Hero → Menu) ----------
+SPRITES.heroF=[
+  "...OOOOOO...",
+  "..OOOOOOOO..",
+  "..OSSSSSSO..",
+  "..OSKSSKSO..",
+  "..OSSSSSSO..",
+  "..OOSSSSOO..",
+  "..ORRRRRRO..",
+  ".SRRRYYRRRS.",
+  ".SRRRRRRRRS.",
+  "..RRRRRRRR..",
+  "...SS..SS...",
+  "...pp..pp..."
+];
+SPRITES.heroSwordF=[
+  "...OOOOOO...",
+  "..OOOOOOOO..",
+  "..OSSSSSSO..",
+  "..OSKSSKSO..",
+  "..OSSSSSSO..",
+  "..OOSSSSOOC.",
+  "..ORRRRRROC.",
+  ".SRRRYYRRRC.",
+  ".SRRRRRRRRS.",
+  "..RRRRRRRR..",
+  "...SS..SS...",
+  "...pp..pp..."
+];
+SPRITES.heroBigF=[
+  "......OOOO......",
+  "....OOOOOOOO....",
+  "...OOOOOOOOOO...",
+  "...OOSSSSSSOO...",
+  "...OSSKSSKSSO..W",
+  "...OSSSSSSSSO..C",
+  "...OOSSppSSOO..C",
+  "...OOOSSSSOOO..C",
+  "...ORRRRRRRRO..C",
+  "..RRRRRYYRRRRR.C",
+  "..SRRRRYYRRRRSOO",
+  "..SRRRRRRRRRRSS.",
+  "..S.RRRRRRRR....",
+  "....ssssYsss....",
+  "...RRRRRRRRRR...",
+  "..RRRRRRRRRRRR..",
+  "....SS....SS....",
+  "....SS....SS....",
+  "...pppp..pppp...",
+  "...pppp..pppp..."
+];
+// Picks the hero sprite for the chosen look: heroSpr('heroBig') → 'heroBigF' for the female look.
+function heroLook(){
+  try{let p=typeof getProfile==='function'?getProfile():null;return p&&p.avatar==='f'?'f':'m'}catch(e){return 'm'}
+}
+function heroSpr(base){return heroLook()==='f'&&SPRITES[base+'F']?base+'F':base}

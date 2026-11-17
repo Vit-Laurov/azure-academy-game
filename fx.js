@@ -34,7 +34,7 @@ function showLevelUpFX(level){
       <div class="fxp-rays"></div>
       <div class="fxp-burst">${fxSparks(12)}</div>
       <div class="fxp-title">LEVEL UP!</div>
-      <div class="fxp-hero">${sprite('hero',96)}</div>
+      <div class="fxp-hero">${sprite(heroSpr('hero'),96)}</div>
       <div class="fxp-sub">LV ${level-1} &gt; LV ${level}</div>
       <div class="fxp-name">${escapeHtml(levelTitle())}</div>
       <div class="fxp-hint">TAP TO CONTINUE</div>
@@ -49,7 +49,7 @@ function showDailyCompleteFX(onDone){
       <div class="fxp-burst">${fxSparks(16)}</div>
       <div class="fxp-burst b2">${fxSparks(10)}</div>
       <div class="fxp-title">DAY CLEARED!</div>
-      <div class="fxp-hero">${sprite('hero',96)}</div>
+      <div class="fxp-hero">${sprite(heroSpr('hero'),96)}</div>
       <div class="fxp-sub">+${gained} XP TODAY</div>
       <div class="fxp-name">Streak ${S.streak} · see you tomorrow</div>
       <div class="fxp-hint">TAP TO OPEN THE CAMPAIGN CRATE</div>

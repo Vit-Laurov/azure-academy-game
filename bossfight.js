@@ -138,7 +138,7 @@ function renderBossFight(){
         <div class="bx-boss"><div class="bx-boss-hit"><div class="bx-idle">${sprite('golemBig',176)}</div></div></div>
         <div class="bx-slash">${sprite('slash',120)}</div>
         <div class="bx-dmg">-1</div>
-        <div class="bx-hero">${sprite('heroSword',72)}</div>
+        <div class="bx-hero">${sprite(heroSpr('heroSword'),72)}</div>
         <div class="bx-hearts" aria-label="Your hearts: ${b.playerHP} of ${BOSS_MAX_HP}">${bossHearts(b.playerHP)}<span class="bx-ouch">-1</span></div>
         </div>
         <div class="bx-redflash"></div>

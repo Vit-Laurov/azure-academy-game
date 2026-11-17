@@ -1,37 +1,83 @@
-// app.js — v16.12 (screens + input; v16c2: Collection, Profile). Game rules live in engine.js.
+// app.js — v16.13 (screens + input; v16d: sound unlock, Lab terminal, Quest log, pixel popups + menu). Game rules live in engine.js.
 
-let audioCtx=null;
-function playChime(freq=880,duration=0.3){
-  if(!S.soundEnabled)return;
+// ---------- sound (v16d fix) ----------
+// iOS creates an AudioContext in the "suspended" state unless it is made inside a touch, and never
+// starts it by itself. So: make + resume the context on the first touch/key (and play one silent
+// sample, which is what really unlocks iOS), resume again before every sound and when the app comes
+// back to the foreground. Every sound still goes through playChime/playTune, which check S.soundEnabled.
+let audioCtx=null,audioUnlocked=false;
+function getAudioCtx(){
+  if(audioCtx)return audioCtx;
+  let AC=typeof window!=='undefined'&&(window.AudioContext||window.webkitAudioContext);
+  if(typeof AC!=='function')return null;
+  try{audioCtx=new AC()}catch(e){audioCtx=null}
+  return audioCtx;
+}
+function resumeAudio(){
+  let ctx=audioCtx;
+  if(!ctx||!ctx.resume||ctx.state==='running'||ctx.state==='closed')return Promise.resolve(ctx);
+  try{let p=ctx.resume();return p&&p.then?p.then(()=>ctx,()=>ctx):Promise.resolve(ctx)}
+  catch(e){return Promise.resolve(ctx)}
+}
+function unlockAudio(){
+  let ctx=getAudioCtx();
+  if(!ctx)return;
+  resumeAudio();
+  if(audioUnlocked)return;
   try{
-    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
-    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    let buf=ctx.createBuffer(1,1,22050),src=ctx.createBufferSource();
+    src.buffer=buf;src.connect(ctx.destination);
+    if(src.start)src.start(0);else if(src.noteOn)src.noteOn(0);
+    audioUnlocked=true;
+  }catch(e){console.warn('Audio unlock failed',e)}
+}
+function initAudioUnlock(){
+  if(typeof document==='undefined'||!document.addEventListener)return;
+  ['pointerdown','touchend','keydown'].forEach(ev=>document.addEventListener(ev,unlockAudio,{capture:true,passive:true}));
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')resumeAudio()});
+}
+// run fn(ctx) once the context is running (a suspended context would swallow the notes)
+function withAudio(fn){
+  if(!S.soundEnabled)return;
+  let ctx=getAudioCtx();
+  if(!ctx)return;
+  let go=()=>{try{fn(ctx)}catch(e){console.warn('Audio playback failed',e)}};
+  if(ctx.state==='suspended')resumeAudio().then(go);
+  else go();
+}
+function playChime(freq=880,duration=0.3){
+  withAudio(ctx=>{
+    const o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime;
     o.frequency.value=freq;o.type='sine';
-    g.gain.setValueAtTime(0.15,audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+duration);
-    o.connect(g);g.connect(audioCtx.destination);
-    o.start();o.stop(audioCtx.currentTime+duration);
-  }catch(e){console.warn('Audio playback failed',e)}
+    g.gain.setValueAtTime(0.15,t);
+    g.gain.exponentialRampToValueAtTime(0.001,t+duration);
+    o.connect(g);g.connect(ctx.destination);
+    o.start(t);o.stop(t+duration);
+  });
 }
 // 8-bit style melody: notes = [[frequency, seconds], ...] played back to back with a square wave
 function playTune(notes){
-  if(!S.soundEnabled||!notes||!notes.length)return;
-  try{
-    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
-    let t=audioCtx.currentTime+0.02;
+  if(!notes||!notes.length)return;
+  withAudio(ctx=>{
+    let t=ctx.currentTime+0.02;
     notes.forEach(([f,d])=>{
-      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      const o=ctx.createOscillator(),g=ctx.createGain();
       o.type='square';o.frequency.value=f;
       g.gain.setValueAtTime(0.06,t);
       g.gain.setValueAtTime(0.06,t+d*0.8);
       g.gain.linearRampToValueAtTime(0.0001,t+d);
-      o.connect(g);g.connect(audioCtx.destination);
+      o.connect(g);g.connect(ctx.destination);
       o.start(t);o.stop(t+d+0.01);
       t+=d;
     });
-  }catch(e){console.warn('Tune playback failed',e)}
+  });
 }
-function toggleSound(){S.soundEnabled=!S.soundEnabled;saveState();render()}
+function toggleSound(){S.soundEnabled=!S.soundEnabled;saveState();render();if(S.soundEnabled)testSound()}
+function testSound(){
+  if(!S.soundEnabled){showToast('Sound effects are OFF. Switch them on first.');return}
+  unlockAudio();
+  playTune([[523,.08],[659,.08],[784,.08],[1047,.22]]);
+}
 
 function escapeHtml(str){
   return String(str||'').replace(/[&<>"']/g, ch => ({
@@ -54,24 +100,6 @@ loadAdminOverrides();
 engineOn('milestone',m=>{if(typeof showAchievementToast==='function')showAchievementToast(`${m.day}-Day Streak!`,`+${m.shards} Shards`)});
 
 let currentPage='quests';
-const SECTION_ACCENTS={
-  learn:{a:'var(--teal)',b:'#5EEADB',g:'var(--teal-dim)'},
-  shop:{a:'var(--amber)',b:'#FFC966',g:'var(--amber-dim)'},
-  exam:{a:'var(--red)',b:'#FF7B8C',g:'var(--red-dim)'}
-};
-function applySectionAccent(page){
-  let s=SECTION_ACCENTS[page];
-  let st=document.body.style;
-  if(s){
-    st.setProperty('--section-accent',s.a);
-    st.setProperty('--section-accent-bright',s.b);
-    st.setProperty('--section-accent-glow',s.g);
-  }else{
-    st.removeProperty('--section-accent');
-    st.removeProperty('--section-accent-bright');
-    st.removeProperty('--section-accent-glow');
-  }
-}
 
 function goTo(page){
   if(page==='quests')questScreen=null; // QUEST tab always lands on the map
@@ -80,7 +108,6 @@ function goTo(page){
   document.querySelectorAll('.nav-item,.bn-item').forEach(n=>n.classList.toggle('active',n.dataset.page===page));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
-  applySectionAccent(page);
   renderPage(page);
   closeMobileNav();
   if(changed&&typeof window!=='undefined'&&window.scrollTo)window.scrollTo(0,0); // v16.10: a new page starts at the top
@@ -124,7 +151,7 @@ function updateDayTimer(){
   if(!el)return;
   let ms=msUntilMidnight();
   let h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000);
-  el.textContent=`⏳ Today's quests reset in ${h}h ${m}m`;
+  el.innerHTML=`${sprite('hourglass',10)}<span>RESET IN ${h}H ${m}M</span>`;
   el.classList.toggle('urgent',h<2);
   let ht=document.getElementById('hud-timer');
   if(ht){ht.textContent=`${h}H ${m}M`;ht.classList.toggle('urgent',h<2&&!S.claimed.campaign)}
@@ -159,11 +186,15 @@ function updateHud(){
 }
 function initPixelChrome(){
   let put=(id,html)=>{let el=document.getElementById(id);if(el)el.innerHTML=html};
-  put('hud-sprite',sprite('hero',44));
+  put('hud-sprite',sprite(heroSpr('hero'),44));
   put('hud-shard-ic',sprite('shard',18));
   put('hud-flame-ic',sprite('flame',18));
   put('pet-sprite',sprite('blob',40));
-  document.querySelectorAll('.bn-ic').forEach(el=>{el.innerHTML=sprite(el.dataset.ic,20)});
+  // v16d: every static pixel icon in index.html is a <span data-ic="name" data-size="n">
+  document.querySelectorAll('[data-ic]').forEach(el=>{
+    let n=el.dataset.ic;if(!SPRITES[n])return;
+    el.innerHTML=sprite(n,parseInt(el.dataset.size,10)||(el.classList.contains('bn-ic')?20:18));
+  });
 }
 
 const PROFILE_KEY='azureAcademyProfileV1';
@@ -174,20 +205,33 @@ function getProfile(){
   }catch(e){}
   return {name:''};
 }
-function getInitials(name){
-  name=(name||'').trim();
-  if(!name)return 'A';
-  let parts=name.split(/\s+/).slice(0,2).map(w=>w[0].toUpperCase()).join('');
-  return parts||'A';
-}
-function updateBrandMark(){
-  let mark=document.getElementById('brand-mark');
-  if(mark)mark.textContent=getInitials(getProfile().name);
+function saveProfileData(p){
+  try{localStorage.setItem(PROFILE_KEY,JSON.stringify(p))}catch(e){}
 }
 function setProfileName(name){
-  try{localStorage.setItem(PROFILE_KEY,JSON.stringify({name:(name||'').trim()}))}catch(e){}
-  updateBrandMark();
+  let p=getProfile();p.name=(name||'').trim(); // keep other profile fields (avatar)
+  saveProfileData(p);
   render();
+}
+// v16.14: hero look — 'm' (default, the original hero) or 'f'
+function setHeroLook(look){
+  let p=getProfile();p.avatar=look==='f'?'f':'m';
+  saveProfileData(p);
+  initPixelChrome();
+  renderHeroCreatePick();
+  render();
+}
+function toggleHeroLook(){setHeroLook(heroLook()==='f'?'m':'f')}
+function renderHeroCreatePick(){
+  let por=document.getElementById('hc-portrait-art');
+  if(por)por.innerHTML=sprite(heroSpr('heroBig'),96);
+  let look=heroLook();
+  [['m','hc-look-m','hero'],['f','hc-look-f','heroF']].forEach(([k,id,spr])=>{
+    let b=document.getElementById(id);if(!b)return;
+    b.classList.toggle('sel',look===k);
+    b.setAttribute('aria-pressed',look===k?'true':'false');
+    let ic=b.querySelector('.hc-look-ic');if(ic)ic.innerHTML=sprite(spr,30);
+  });
 }
 function saveProfileName(){
   let input=document.getElementById('profile-name-input');
@@ -211,41 +255,40 @@ function maybeShowProfileOnboarding(){
   if(getProfile().name)return false;
   let overlay=document.getElementById('profile-overlay');
   if(!overlay)return false;
+  renderHeroCreatePick();
   overlay.classList.remove('hidden');
   requestAnimationFrame(()=>overlay.classList.add('visible'));
+  let input=document.getElementById('profile-name-input');
+  if(input&&input.focus)setTimeout(()=>{try{input.focus({preventScroll:true})}catch(e){}},60);
   return true;
 }
 
 function refreshSidebar(){
-  document.getElementById('streak-text').textContent=S.streak+' day streak';
+  let stx=document.getElementById('streak-text');
+  if(stx)stx.textContent=`${S.streak} DAY STREAK`;
   let sub=document.getElementById('streak-sub');
   if(sub){
     let next=nextStreakMilestone();
     let parts=[];
-    if(next)parts.push(`${next.day-S.streak} day${next.day-S.streak===1?'':'s'} to +${next.shards} shard milestone`);
-    else parts.push('All milestones reached <svg class="ic-inline" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg>');
-    if((S.streakFreezes||0)>0)parts.push(`🧊 x${S.streakFreezes}`);
-    sub.innerHTML=parts.join(' · ');
+    if(next)parts.push(`<span>${next.day-S.streak} day${next.day-S.streak===1?'':'s'} to +${next.shards} ${sprite('shard',10)}</span>`);
+    else parts.push(`<span>All milestones ${sprite('wTrophy',12)}</span>`);
+    if((S.streakFreezes||0)>0)parts.push(`<span>${sprite('freeze',10)} ×${S.streakFreezes}</span>`);
+    sub.innerHTML=parts.join('');
   }
   updateDayTimer();
   updateChestBadge();
   updateHud();
-  updateBrandRing();
-  updateBrandMark();
+  updateSidebarHead();
 }
 
-function updateBrandRing(){
-  let ring=document.getElementById('brand-ring-fill');
-  let fill=document.getElementById('brand-xp-fill');
-  let sub=document.getElementById('brand-sub');
-  if(!ring&&!fill&&!sub)return;
-  let level=levelOf(S.xp);
-  let intoLevel=S.xp-(level-1)*200;
-  let pct=Math.min(100,Math.round((intoLevel/200)*100));
-  let circumference=125.6;
-  if(ring)ring.setAttribute('stroke-dashoffset',String(circumference*(1-pct/100)));
-  if(fill)fill.style.width=pct+'%';
-  if(sub)sub.textContent=`Lvl ${level} · ${intoLevel}/200 XP`;
+// v16d: small pixel header in the MORE menu / desktop sidebar (replaces the old XP ring + initials mark)
+function updateSidebarHead(){
+  let lv=document.getElementById('sb-lv'),xp=document.getElementById('sb-xp'),nm=document.getElementById('sb-name');
+  if(!lv&&!xp&&!nm)return;
+  let level=levelOf(S.xp),into=S.xp-(level-1)*200;
+  if(nm)nm.textContent=(getProfile().name||'Hero').toUpperCase();
+  if(lv)lv.textContent=`LV ${level} · ${into}/200 XP`;
+  if(xp)xp.innerHTML=learnCells(into,200,10);
 }
 
 const SIDEBAR_COLLAPSE_KEY='azureAcademySidebarCollapsed';
@@ -309,7 +352,7 @@ function renderHome(){
     let inner=done?`<span style="color:#000">${sprite('check',24)}</span>`:`<span class="node-count">${s.count}/${c.limit}</span>`;
     return `<button type="button" class="map-node ${state}" style="left:${pct(pos.x,340)};top:${pct(pos.y,400)}"
         onclick="mapNodeTap('${m}')" aria-label="${c.title}: ${s.count} of ${c.limit}${done?', complete':''}">${inner}${chest}</button>
-      <span class="map-label" style="left:${pct(pos.x,340)};top:calc(${pct(pos.y,400)} + 9%)">${c.short.toUpperCase()}</span>`;
+      <span class="map-label" style="left:${pct(pos.x,340)};top:calc(${pct(pos.y,400)} + 9%)"><b>${c.short.toUpperCase()}</b></span>`;
   }).join('');
 
   let bp=MAP_NODES.boss;
@@ -317,14 +360,14 @@ function renderHome(){
   let bossInner=p.bossDone?`<span style="color:#000">${sprite('check',26)}</span>`:sprite('golem',44);
   nodes+=`<button type="button" class="map-node boss ${bossState}" style="left:${pct(bp.x,340)};top:${pct(bp.y,400)}"
       onclick="mapNodeTap('boss')" aria-label="Boss: ${p.bossDone?'defeated':p.bossReady?'ready to fight':'locked'}">${bossInner}</button>
-    <span class="map-label" style="left:${pct(bp.x,340)};top:calc(${pct(bp.y,400)} + 11%);color:${p.bossReady?'var(--px-red)':'var(--px-white)'}">${p.bossDone?'CLEARED':p.bossReady?'BOSS!':'BOSS'}</span>`;
+    <span class="map-label" style="left:${pct(bp.x,340)};top:calc(${pct(bp.y,400)} + 11%)"><b style="color:${p.bossReady?'var(--px-red)':'var(--px-white)'}">${p.bossDone?'CLEARED':p.bossReady?'BOSS!':'BOSS'}</b></span>`;
 
   let hero='';
   if(cur){
     let hp=MAP_NODES[cur];
-    hero=`<span class="map-hero" style="left:${pct(hp.x,340)};top:calc(${pct(hp.y,400)} - 7%)">${sprite('hero',30)}</span>`;
+    hero=`<span class="map-hero" style="left:${pct(hp.x,340)};top:calc(${pct(hp.y,400)} - 7%)">${sprite(heroSpr('hero'),30)}</span>`;
   }else if(p.bossReady){
-    hero=`<span class="map-hero" style="left:calc(${pct(bp.x,340)} + 15%);top:calc(${pct(bp.y,400)} + 2%)">${sprite('hero',30)}</span>`;
+    hero=`<span class="map-hero" style="left:calc(${pct(bp.x,340)} + 15%);top:calc(${pct(bp.y,400)} + 2%)">${sprite(heroSpr('hero'),30)}</span>`;
   }
 
   // the one big button always says what to do next
@@ -477,7 +520,7 @@ function renderQuestClear(m){
     :engineDailyProgress().bossReady?`<button type="button" class="btn btn-danger" onclick="startBossFight()">FIGHT BOSS</button>`:'';
   return questHeader(c.title.toUpperCase(),`${c.limit}/${c.limit}`,questPips(m))+
     `<div class="card q-done">
-      ${sprite('hero',48)}
+      ${sprite(heroSpr('hero'),48)}
       <div class="big">QUEST CLEAR!</div>
       <div class="stats">${ok}/${h.length} correct · ${h.length-ok} added to review</div>
     </div>
@@ -552,24 +595,35 @@ function renderLabCard(){
     :(s.attempts||0)>=3?'Hint unlocked.'
     :`Attempts: ${s.attempts||0} / 5`;
 
-  let feedbackHtml=s.feedback?`<div class="feedback-banner ${s.passed?'good':s.reviewable?'warn':'bad'}">${s.feedback}</div>`
-    :'<p class="muted-hint">Write your answer in your own words, then click Check.</p>';
+  // v16d: terminal look. The feedback text itself is built by checkLab/showHint/giveUpLab (unchanged)
+  // and shown as console output; the command line above it only says which of the three produced it.
+  let state=s.passed?'good':s.reviewable?'warn':'bad';
+  let cmd=s.surrendered?'lab --give-up':/class="label">Hint</.test(s.feedback||'')?'lab --hint':`lab --check #${s.attempts||0}`;
+  let out=s.feedback
+    ?`<div class="lab-out ${state}" role="status"><div class="lab-l lab-run">$ ${cmd}</div><div class="lab-fb">${s.feedback}</div></div>`
+    :`<div class="lab-out idle"><div class="lab-l lab-run">$ awaiting input…</div><div class="lab-l dim">Write your answer in your own words, then press CHECK.</div></div>`;
 
-  return `<div class="card quest-card">
-    <span class="quest-tag">${c.icon} ${c.title} · ${s.count+1}/${c.limit}</span>
-    <div class="quest-q">${l.t}</div>
-    <p class="muted-hint" style="margin-bottom:12px">${l.d}</p>
-    <textarea oninput="labInput(this.value)" placeholder="Write your explanation in 2-3 sentences...">${escapeHtml(s.notes||'')}</textarea>
-    ${feedbackHtml}
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="checkLab()">Check answer</button>
-      ${(s.attempts||0)>=(3-effectValue('hintReduction'))&&!s.passed?'<button class="btn btn-ghost" onclick="showHint()">Show hint</button>':''}
-      ${(s.attempts||0)>=5&&!s.passed&&!s.surrendered?'<button class="btn btn-ghost" onclick="giveUpLab()">Give up (0 XP)</button>':''}
-      ${s.surrendered?'<button class="btn btn-primary" onclick="continueAfterGiveUp()">Continue</button>':''}
-      <button class="btn btn-gold" ${!s.checked||!s.passed?'disabled':''} onclick="finishLab(false)">Finish (+${c.xp} XP)</button>
-      ${s.reviewable&&!s.passed?'<button class="btn btn-ghost" onclick="finishLab(true)">Finish after review (+35 XP)</button>':''}
+  let hintBtn=(s.attempts||0)>=(3-effectValue('hintReduction'))&&!s.passed?'<button type="button" class="btn btn-ghost" onclick="showHint()">HINT</button>':'';
+  let giveUpBtn=(s.attempts||0)>=5&&!s.passed&&!s.surrendered?'<button type="button" class="btn btn-ghost lab-giveup" onclick="giveUpLab()">GIVE UP · 0 XP</button>':'';
+  let contBtn=s.surrendered?'<button type="button" class="btn btn-primary" onclick="continueAfterGiveUp()">CONTINUE</button>':'';
+  let reviewBtn=s.reviewable&&!s.passed?'<button type="button" class="btn btn-ghost lab-review" onclick="finishLab(true)">FINISH AFTER REVIEW · +35 XP</button>':'';
+
+  return `<div class="lab-term">
+    <div class="lab-bar"><span>${sprite('mTerm',14)} AZURE-LAB</span><span>${s.count+1}/${c.limit}</span></div>
+    <div class="lab-screen">
+      <div class="lab-cmd">&gt; explain ${escapeHtml(String(l.t).toLowerCase())}<span class="lab-caret">_</span></div>
+      <div class="lab-task">${escapeHtml(l.d)}</div>
+      <label class="lab-prompt" for="lab-input">&gt; your answer:</label>
+      <textarea id="lab-input" class="lab-input" oninput="labInput(this.value)" placeholder="Write your explanation in 2-3 sentences..." spellcheck="true">${escapeHtml(s.notes||'')}</textarea>
+      ${out}
+      <div class="lab-l dim lab-attempts">// ${escapeHtml(attemptNote)}</div>
     </div>
-    <p class="muted-hint" style="margin-top:12px">${attemptNote}</p>
+  </div>
+  <div class="lab-actions">
+    <button type="button" class="btn btn-primary" onclick="checkLab()">CHECK</button>
+    ${hintBtn}${giveUpBtn}${contBtn}
+    <button type="button" class="btn btn-gold lab-finish" ${!s.checked||!s.passed?'disabled':''} onclick="finishLab(false)">FINISH · +${c.xp} XP</button>
+    ${reviewBtn}
   </div>`;
 }
 
@@ -620,38 +674,6 @@ function finishLab(reduced){
   s.count++;
   s.currentId=null;s.notes='';s.checked=false;s.passed=false;s.reviewable=false;s.surrendered=false;s.feedback='';s.attempts=0;
   saveState();render();
-}
-
-function renderDoneCard(){
-  let h=S.history[S.mode]||[],wrong=h.filter(x=>!x.correct),c=cfg();
-  let chest=!S.claimed[S.mode]
-    ?`<div class="feedback-banner warn">⏳ Open your chest today — unclaimed chests are lost at midnight.</div><button class="btn btn-gold" onclick="claimChest('${S.mode}')">Open chest — ${c.title}</button>`
-    :`<div class="feedback-banner good"><span class="label">Chest claimed</span></div>`;
-  return `<div class="card">
-    <div class="card-title">✅ ${c.title} complete</div>
-    <div class="card-sub">${h.length} questions answered · ${wrong.length} to review</div>
-    ${chest}
-  </div>`;
-}
-
-function renderCampaignCard(){
-  if(!modeOrder.every(m=>st(m).count>=cfg(m).limit))return'';
-  let all=[...S.history.easy,...S.history.normal,...S.history.heroic,...S.history.practical];
-  let total=all.length,correct=all.filter(x=>x.correct).length,acc=total?Math.round(correct/total*100):0;
-  let gained=S.xp-(S.dayStartXP||0),shardsGained=S.shards-(S.dayStartShards||0);
-  let title=acc>=95?'Azure Champion':acc>=80?'Cloud Raider':acc>=60?'Resource Ranger':'Cloud Apprentice';
-  let chest=!S.claimed.campaign
-    ?`<div class="feedback-banner warn">⏳ Defeat the boss today — the fight won't carry over to tomorrow.</div><button class="btn btn-gold" onclick="startBossFight()">⚔️ Challenge the Boss</button>`
-    :`<div class="feedback-banner good"><span class="label">Campaign chest claimed</span></div>`;
-  return `<div class="card">
-    <div class="card-title">👑 Daily Campaign complete</div>
-    <div class="grid" style="margin:14px 0">
-      <div class="metric"><div class="metric-label">Today's title</div><div class="metric-value" style="font-size:15px">${title}</div></div>
-      <div class="metric"><div class="metric-label">Accuracy</div><div class="metric-value">${acc}%</div></div>
-      <div class="metric"><div class="metric-label">Today's gain</div><div class="metric-value">+${gained} XP · +${shardsGained} 💎</div></div>
-    </div>
-    ${chest}
-  </div>`;
 }
 
 function claimChest(mode){
@@ -812,7 +834,7 @@ function renderProfilePage(){
       <div><div class="page-title">HERO</div><div class="page-subtitle">Your character sheet and settings.</div></div>
     </div>
     <section class="card pf-hero">
-      <div class="pf-portrait">${sprite('heroBig',96)}<span class="pf-lv">LV ${l}</span></div>
+      <div class="pf-portrait">${sprite(heroSpr('heroBig'),96)}<span class="pf-lv">LV ${l}</span></div>
       <div class="pf-id">
         <div class="pf-name">${escapeHtml(name||'Hero')}</div>
         <div class="pf-title">${escapeHtml(title).toUpperCase()}</div>
@@ -842,11 +864,16 @@ function renderProfilePage(){
           onkeydown="if(event.key==='Enter'){saveProfileSettingsName()}" class="profile-name-input" aria-label="Hero name">
         <button type="button" class="btn btn-ghost" onclick="saveProfileSettingsName()">SAVE</button>
       </div>
+      <div class="pf-list">
+        ${menuRow('Hero look',heroLook()==='f'?'HEROINE':'HERO','toggleHeroLook()')}
+      </div>
       <div class="pf-group">SYSTEM</div>
       <div class="pf-list">
         ${menuRow('Sound effects',S.soundEnabled?'ON':'OFF','toggleSound()',S.soundEnabled?'on':'')}
+        ${menuRow('Test sound',S.soundEnabled?'PLAY':'OFF','testSound()','pf-test')}
         ${menuRow('Display',light?'DAY':'NIGHT','toggleLightMode()')}
       </div>
+      <div class="pf-note pf-note-after">On iPhone, sounds follow the silent switch.</div>
       <div class="pf-group">FX PREVIEW</div>
       <div class="pf-list">
         ${menuRow('Common crate','','previewChest(\'common\')')}
@@ -871,42 +898,63 @@ function renderProfilePage(){
   mount('profile',html);
 }
 
+// ---------- v16d: History = QUEST LOG ----------
+const MODE_SPRITE={easy:'itShield',normal:'mCompass',heroic:'itWeapon',practical:'mTerm'};
+// One row look for every answered question: Quest log, Practice Exam report and exam attempts.
+function questLogRow(o){ // {ok, num, q, your, right, e, raven}
+  return `<li class="ql-row ${o.ok?'ok':'bad'}">
+    <div class="ql-top">
+      <span class="ql-mark">${o.ok?sprite('check',12)+'<b>CLEAR</b>':sprite('cross',10)+'<b>MISS</b>'}</span>
+      ${o.num?`<span class="ql-num">${o.num}</span>`:''}
+      ${o.raven?`<span class="ql-raven">${sprite('raven',14)}<b>RECURRING</b></span>`:''}
+    </div>
+    <div class="ql-q">${escapeHtml(o.q)}</div>
+    ${o.raven?`<div class="ql-raven-note">Sentinel Raven: you've missed this one before — worth a closer look.</div>`:''}
+    ${o.ok?'':`<div class="ql-l your">&gt; YOU: ${escapeHtml(o.your||'—')}</div>`}
+    <div class="ql-l right">&gt; ANSWER: ${escapeHtml(o.right||'')}</div>
+    ${o.e?`<div class="ql-e">${escapeHtml(o.e)}</div>`:''}
+  </li>`;
+}
 function renderHistoryPage(){
-  let html=`
-    <div class="page-header">
-      <div><div class="page-title">Today's History</div><div class="page-subtitle">Review what you missed today</div></div>
-    </div>`;
-  html+=(typeof renderExamHistorySection==='function'?renderExamHistorySection():'');
   let showWeak=hasEffect('weakSummary');
   let weakIds=new Set((S.weakness||[]).map(w=>w.item&&w.item.id).filter(Boolean));
-  let any=false;
+  let all=[],sections='';
   modeOrder.forEach(m=>{
     let h=S.history[m]||[];
     if(!h.length)return;
-    any=true;
-    html+=`<div class="card"><div class="card-title">${cfg(m).icon} ${cfg(m).title}</div>`;
-    h.forEach(x=>{
-      let isRecurring=showWeak&&weakIds.has(x.id);
-      html+=`<div class="history-item ${x.correct?'ok':''}">
-        ${isRecurring?'<div class="feedback-banner warn" style="margin-bottom:8px"><span class="label">🔁 Recurring weak spot</span>You\'ve missed this one before — worth a closer look.</div>':''}
-        <div class="history-q">${x.q}</div>
-        ${!x.correct?`<div class="history-row your">Your answer: ${escapeHtml(x.your)||'—'}</div>`:''}
-        <div class="history-row correct">Correct: ${x.correctAnswer}</div>
-        <div class="history-explain">${x.e}</div>
-      </div>`;
-    });
-    html+=`</div>`;
+    all=all.concat(h);
+    let ok=h.filter(x=>x.correct).length;
+    let rows=h.map((x,i)=>questLogRow({ok:x.correct,num:`#${i+1}`,q:x.q,your:x.your,right:x.correctAnswer,e:x.e,
+      raven:showWeak&&!!x.id&&weakIds.has(x.id)})).join('');
+    sections+=`<section class="card ql-card">
+      <div class="ql-head"><span class="ql-ic">${sprite(MODE_SPRITE[m]||'navQuest',22)}</span>
+        <div class="card-title">${escapeHtml(cfg(m).title)}</div><span class="ql-score">${ok}/${h.length}</span></div>
+      <ol class="ql-list">${rows}</ol>
+    </section>`;
   });
-  let hasExamHistory=((S.history&&S.history.exam)||[]).length>0;
-  if(!any&&!hasExamHistory)html+=`<div class="empty-state">You haven't answered any questions today yet.</div>`;
+  let exam=typeof renderExamHistorySection==='function'?renderExamHistorySection():'';
+  let ok=all.filter(x=>x.correct).length;
+  let summary=all.length?`<div class="ql-sum">
+      <span><b>${all.length}</b>LOGGED</span><span class="ok"><b>${ok}</b>CLEAR</span><span class="bad"><b>${all.length-ok}</b>MISS</span>
+    </div>`:'';
+  let empty=!all.length&&!exam?`<div class="q-explain ql-empty"><div class="q-guide">${sprite('guide',38)}</div>
+      <div class="q-bubble">No quests logged today yet. Every answer you give lands here — misses go straight to Weak Spots.</div></div>`:'';
+  let html=`
+    <div class="page-header">
+      <div><div class="page-title">QUEST LOG</div><div class="page-subtitle">Today's answers. Misses are already waiting in Weak Spots.</div></div>
+    </div>
+    ${summary}${empty}${sections}${exam}`;
   mount('history',html);
 }
 
 function showAboutModal(){
   let overlay=document.getElementById('about-overlay');
   if(!overlay)return;
+  closeMobileNav();
   overlay.classList.remove('hidden');
   requestAnimationFrame(()=>overlay.classList.add('visible'));
+  let btn=overlay.querySelector&&overlay.querySelector('.sd-opt');
+  if(btn&&btn.focus)setTimeout(()=>{try{btn.focus({preventScroll:true})}catch(e){}},60);
 }
 function closeAboutModal(){
   let overlay=document.getElementById('about-overlay');
@@ -944,26 +992,12 @@ function syncThemeColor(){
   if(meta&&meta.setAttribute)meta.setAttribute('content',light?'#efe6cf':'#0b1020');
 }
 
-function initButtonRipple(){
-  document.addEventListener('click',function(e){
-    let btn=e.target&&e.target.closest?e.target.closest('.btn'):null;
-    if(!btn)return;
-    let rect=btn.getBoundingClientRect();
-    let x=e.clientX-rect.left,y=e.clientY-rect.top;
-    btn.style.setProperty('--x',x+'px');
-    btn.style.setProperty('--y',y+'px');
-    btn.classList.remove('rippling');
-    void btn.offsetWidth;
-    btn.classList.add('rippling');
-  });
-}
-
 initLightMode();
 initPixelChrome();
 goTo('quests');
 initPetCompanion();
 initSidebarCollapse();
-initButtonRipple();
+initAudioUnlock();
 if(!maybeShowProfileOnboarding())maybeShowWelcome();
 setInterval(function(){
   if(S.day!==today()){render();}

@@ -1,3 +1,4 @@
+// dailyfact.js — v16.13 (v16d: shown as the guide's TIP OF THE DAY dialogue). 41 facts, no repeats per cycle.
 function allFacts(){return AZURE_DB.dailyFacts||[]}
 
 function shuffledIndices(n){
@@ -40,6 +41,8 @@ function showDailyFactModal(fact){
   textEl.textContent=fact.text;
   overlay.classList.remove('hidden');
   requestAnimationFrame(()=>overlay.classList.add('visible'));
+  let btn=overlay.querySelector&&overlay.querySelector('.sd-opt');
+  if(btn&&btn.focus)setTimeout(()=>{try{btn.focus({preventScroll:true})}catch(e){}},60);
 }
 
 function closeDailyFactModal(){

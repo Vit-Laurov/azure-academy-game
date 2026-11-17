@@ -1,4 +1,4 @@
-// loot.js — v16.10 (v16c1: pixel Loot Shop, BUY? YES/NO dialog, pixel item icons). Drop/effect rules unchanged.
+// loot.js — v16.13 (v16c1: pixel Loot Shop, BUY? YES/NO dialog, pixel item icons; v16d: Loot log icons, no emoji). Drop/effect rules unchanged.
 function rarityLabel(r){return r==='legendary'?'Legendary':r==='epic'?'Epic':r==='rare'?'Rare':r==='uncommon'?'Uncommon':'Common'}
 function ownedIds(){return S.collection||[]}
 function itemById(id){return (AZURE_DB.loot||[]).find(x=>x.id===id)}
@@ -9,11 +9,11 @@ function unlockedTitles(){return (S.collection||[]).map(itemById).filter(it=>it&
 
 const PET_LINES=[
   'Blorp!','I believe in your RBAC skills.','Tip: Cool tier is cheaper for rarely-read blobs.',
-  "Don't forget today's streak!",'Squish squish.','One more question? 👀','Almost exam-ready!',
+  "Don't forget today's streak!",'Squish squish.','One more question?','Almost exam-ready!',
   'Availability Zones are my favorite rooms.','You got this.'
 ];
 const PET_CHEERS=[
-  "You've got this! 💪",'Doing great — keep going!','Believe in yourself!',
+  "You've got this!",'Doing great — keep going!','Believe in yourself!',
   'One step closer to AZ-900!','Nice work so far!','You can do this.','Stay sharp!','Proud of you!'
 ];
 const PET_CONSOLE=[
@@ -66,6 +66,18 @@ const SHOP_RARITY_COLOR={common:'#c2c3c7',uncommon:'#00e436',rare:'#29adff',epic
 function rarityColor(r){return SHOP_RARITY_COLOR[r]||SHOP_RARITY_COLOR.common}
 function shardPrice(n,poor){return `<span class="ls-price ${poor?'poor':''}">${sprite('shard',14)}<b>${n}</b></span>`}
 function stripLeadingEmoji(t){return String(t||'').replace(/^[^\w(+-]+\s*/,'')}
+// v16d: Loot log lines get a pixel icon picked from the text (old saves still hold emoji, which are stripped)
+function dropIcon(t){
+  t=stripLeadingEmoji(t);
+  if(/streak freeze/i.test(t))return 'freeze';
+  if(/streak/i.test(t))return 'flame';
+  if(/^lesson/i.test(t))return 'navLearn';
+  if(/cleared/i.test(t))return 'cap';
+  if(/mastery rank/i.test(t))return 'star';
+  if(/^bought/i.test(t))return 'shard';
+  return 'chest';
+}
+function dropLine(d){return `<div class="ls-log-l"><span class="ls-log-ic">${sprite(dropIcon(d),12)}</span>${escapeHtml(stripLeadingEmoji(d))}</div>`}
 
 // ---------- shop page ----------
 let lastBoughtId=null;
@@ -122,7 +134,7 @@ function renderLoot(){
 
   let drops=(S.drops||[]).slice(0,10);
   let log=drops.length
-    ?drops.map(d=>`<div class="ls-log-l">&gt; ${escapeHtml(stripLeadingEmoji(d))}</div>`).join('')
+    ?drops.map(dropLine).join('')
     :'<div class="ls-log-l dim">&gt; no drops yet_</div>';
 
   return `
@@ -171,7 +183,7 @@ function buyStreakFreeze(){
   S.shards-=cost;
   S.streakFreezes=(S.streakFreezes||0)+1;
   S.drops=S.drops||[];
-  S.drops.unshift('Bought: 🧊 Streak Freeze');
+  S.drops.unshift('Bought: Streak Freeze');
   saveState();render();
   return true;
 }

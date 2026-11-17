@@ -4,7 +4,7 @@ A gamified, offline-first web app for studying toward the Microsoft **AZ-900 (Az
 
 Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no build step, no backend. Hosted for free on GitHub Pages and installable as an app (PWA) on iPhone, Android and desktop. Works offline after the first visit.
 
-**Current version:** v16.12
+**Current version:** v16.14
 
 ---
 
@@ -18,9 +18,11 @@ Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no bui
 - **Loot Shop & pets** — 15 collectible items with real effects (XP bonuses, shard bonuses, themes, titles), pixel item icons framed by rarity, a JRPG "BUY? YES / NO" shopkeeper dialog, and 5 colour themes. Includes a Blob pet that cheers you on.
 - **Mastery** — four topic tracks with unlimited ranks and permanent XP bonuses.
 - **Weak Spot Review** — questions you missed come back for extra practice.
-- **Practice Exam** — timed 10-question mock exam from a 90-question pool, with per-domain results and history.
+- **Azure Lab** — open-answer exercises in a terminal: explain a concept in your own words, get console-style feedback, a hint after a few tries.
+- **Quest Log** — today's answers (and every Practice Exam attempt) as cleared / missed rows with explanations.
+- **Practice Exam** — timed 10-question mock exam from a 90-question pool in the same dialogue-box style, ending in an EXAM REPORT with per-domain bars and a full review.
 - **Learn** — 54 short lessons as quests in worlds (World 1 Beginner, World 2 Intermediate) and zones per exam domain, with real-world analogies and a guide who sums up each lesson.
-- **Day / Night mode**, sound effects, local profile name, export/import of progress.
+- **Day / Night mode**, sound effects (with a TEST SOUND button; on iPhone they follow the silent switch), local hero name, export/import of progress.
 
 ## Question bank
 
@@ -52,8 +54,8 @@ Built entirely in **vanilla HTML, CSS and JavaScript** — no frameworks, no bui
 
 ```
 index.html            app shell, HUD, bottom navigation, overlays
-style.css             base styles (v14) — overridden by pixel.css
-pixel.css             "Pixel Quest" look: tokens, Day/Night, HUD, map, question screen, crate, boss
+pixel.css             the whole look ("Pixel Quest"): tokens, Day/Night, HUD, map, questions, exam, lab, dialogs, crate, boss
+style.css             only for admin_guide.html (the app no longer loads it)
 pixelart.js           sprites as text grids → crisp SVG
 engine.js             game rules: daily flow, rewards, streak, review, boss rules (no DOM)
 save.js               save/load, schema migrations, backups

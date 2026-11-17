@@ -1,4 +1,4 @@
-// learn.js — v16.10 (v16c1: Learn as worlds + quests)
+// learn.js — v16.13 (v16c1: Learn as worlds + quests; v16d: Loot log lines without emoji)
 // Levels are "worlds", lesson tracks are "zones", lessons are "quests". Rules are unchanged:
 // first opening of a lesson = +5 XP, clearing every Beginner lesson of a track = +20 XP / +5 Shards.
 let expandedLesson=null;
@@ -92,7 +92,7 @@ function markLessonRead(id){
   S.learnRead.push(id);
   S.xp+=5;
   S.drops=S.drops||[];
-  S.drops.unshift(`📖 Lesson complete: +5 XP`);
+  S.drops.unshift(`Lesson complete: +5 XP`);
   let cleared=checkTrackCompletionBonus();
   saveState();
   if(cleared.length){
@@ -111,7 +111,7 @@ function checkTrackCompletionBonus(){
     if(S[flagKey])return;
     S[flagKey]=true;
     S.xp+=LEARN_TRACK_BONUS.xp;S.shards+=LEARN_TRACK_BONUS.shards;
-    S.drops.unshift(`🎓 Beginner cleared: ${learnTracks()[key].trackName} — +20 XP, +5 Shards`);
+    S.drops.unshift(`Beginner cleared: ${learnTracks()[key].trackName} — +20 XP, +5 Shards`);
     cleared.push(learnTracks()[key].trackName);
   });
   return cleared;

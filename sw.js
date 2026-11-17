@@ -1,8 +1,8 @@
-// sw.js — v16.2 service worker
+// sw.js — v16.14 service worker (v16d: style.css no longer used by the app, only by admin_guide.html)
 // Strategy: network first, cache as fallback. Online you always get the newest files;
 // offline (tunnel, roaming, plane) the last good copy is served.
 // It only touches files in its own folder, so another app in a sub-folder of the same site is left alone.
-const APP_VERSION='16.12';
+const APP_VERSION='16.14';
 const CACHE='az-academy-v'+APP_VERSION;
 const FONT_CACHE='az-academy-fonts';
 const V='?v='+APP_VERSION;
@@ -10,7 +10,6 @@ const PRECACHE=[
   './',
   './index.html',
   './manifest.webmanifest',
-  './style.css'+V,
   './pixel.css'+V,
   './database.js'+V,
   './save.js'+V,

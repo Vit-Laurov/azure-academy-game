@@ -16,136 +16,50 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="stylesheet" href="style.css?v=16.12">
-<link rel="stylesheet" href="pixel.css?v=16.12">
+<link rel="stylesheet" href="pixel.css?v=16.14">
 </head>
 <body>
-<div id="mobile-topbar" class="mobile-topbar">
-  <button id="mobile-nav-toggle" class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-  </button>
-  <span class="mobile-topbar-title">Azure Academy</span>
-</div>
 <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
-<svg id="bg-pattern" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <g id="ic-cloud"><g transform="translate(-12,-12)"><path d="M17 18H8a4 4 0 0 1-1-7.9A5.5 5.5 0 0 1 16.9 8h.4a4 4 0 0 1-.3 8Z"/></g></g>
-    <g id="ic-key"><g transform="translate(-12,-12)"><circle cx="8" cy="8" r="4"/><path d="M11 11 20 20"/><path d="M15.5 15.5 18.5 12.5"/><path d="M18 18 21 15"/></g></g>
-    <g id="ic-shield"><g transform="translate(-12,-12)"><path d="M12 3 19 6v6c0 5-3 8-7 9-4-1-7-4-7-9V6Z"/><path d="M9 12l2 2 4-4"/></g></g>
-    <g id="ic-gear"><g transform="translate(-12,-12)"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g></g>
-    <g id="ic-db"><g transform="translate(-12,-12)"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></g></g>
-    <g id="ic-net"><g transform="translate(-12,-12)"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M8 7l3 9M16 7l-3 9M8 6h8"/></g></g>
-    <g id="ic-mail"><g transform="translate(-12,-12)"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 7l9 6 9-6"/></g></g>
-    <g id="ic-person"><g transform="translate(-12,-12)"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2.5 3.5-3.5 5.5-3.5s4 1 5.5 3.5"/></g></g>
-    <pattern id="cloudTile" width="1200" height="900" patternUnits="userSpaceOnUse">
-      <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <use href="#ic-cloud" transform="translate(120,170) rotate(-10) scale(4.3)"/>
-        <use href="#ic-key" transform="translate(475,135) rotate(16) scale(3.9)"/>
-        <use href="#ic-shield" transform="translate(730,185) rotate(-13) scale(4.5)"/>
-        <use href="#ic-gear" transform="translate(1065,125) rotate(22) scale(4.0)"/>
-        <use href="#ic-db" transform="translate(180,465) rotate(-7) scale(4.6)"/>
-        <use href="#ic-net" transform="translate(425,430) rotate(13) scale(4.1)"/>
-        <use href="#ic-mail" transform="translate(770,480) rotate(-19) scale(3.8)"/>
-        <use href="#ic-person" transform="translate(1035,440) rotate(9) scale(4.4)"/>
-        <use href="#ic-gear" transform="translate(130,775) rotate(25) scale(4.0)"/>
-        <use href="#ic-cloud" transform="translate(480,735) rotate(-9) scale(4.5)"/>
-        <use href="#ic-key" transform="translate(720,770) rotate(15) scale(3.9)"/>
-        <use href="#ic-shield" transform="translate(1070,725) rotate(-6) scale(4.3)"/>
-      </g>
-    </pattern>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#cloudTile)"/>
-</svg>
 
 <div id="shell">
-  <aside id="sidebar">
-    <div class="brand">
-      <button class="sidebar-collapse-btn" onclick="toggleSidebarCollapse()" aria-label="Collapse sidebar" title="Collapse sidebar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      </button>
-      <div class="brand-ring-wrap">
-        <svg class="brand-ring" width="46" height="46" viewBox="0 0 46 46">
-          <circle cx="23" cy="23" r="20" stroke="var(--line-bright)" stroke-width="3" fill="none"/>
-          <circle id="brand-ring-fill" cx="23" cy="23" r="20" stroke="url(#brandRingGrad)" stroke-width="3" fill="none"
-            stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" transform="rotate(-90 23 23)"/>
-          <defs><linearGradient id="brandRingGrad"><stop offset="0%" stop-color="var(--section-accent)"/><stop offset="100%" stop-color="var(--teal)"/></linearGradient></defs>
-        </svg>
-        <div class="brand-mark" id="brand-mark">A</div>
+  <aside id="sidebar" aria-label="Menu">
+    <div class="sb-head">
+      <span class="sb-hero" data-ic="hero" data-size="36"></span>
+      <div class="sb-id">
+        <div class="sb-title">AZURE ACADEMY</div>
+        <div class="sb-name" id="sb-name">HERO</div>
+        <div class="sb-lv" id="sb-lv">LV 1 · 0/200 XP</div>
+        <div class="sb-xp" id="sb-xp"></div>
       </div>
-      <div class="brand-info">
-        <div class="brand-text">Azure Academy</div>
-        <div class="brand-sub" id="brand-sub">AZ-900 Quest Trainer</div>
-        <div class="brand-xp-bar"><div class="brand-xp-fill" id="brand-xp-fill"></div></div>
-      </div>
+      <button type="button" class="sidebar-collapse-btn" onclick="toggleSidebarCollapse()" aria-label="Collapse sidebar" title="Collapse sidebar"><span data-ic="back" data-size="8"></span></button>
     </div>
 
-    <nav class="nav-group">
-      <div class="nav-label">Play</div>
-      <div class="nav-item" data-page="quests" tabindex="0" role="button" onclick="goTo('quests')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('quests')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 6 19 18 12 22 5 18 5 6 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="19 6 12 9.5 5 6"></polyline></svg>
-        </span>
-        Daily Quests
-        <span id="chest-badge" class="nav-badge" style="display:none"></span>
-      </div>
-      <div class="nav-item" data-page="exam" tabindex="0" role="button" onclick="goTo('exam')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('exam')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-        </span>
-        Practice Exam
-      </div>
-      <div class="nav-item" data-page="shop" tabindex="0" role="button" onclick="goTo('shop')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('shop')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-        </span>
-        Loot Shop
-      </div>
-      <div class="nav-item" data-page="learn" tabindex="0" role="button" onclick="goTo('learn')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('learn')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-2-1.5-5-2-8-1v13c3-1 6-.5 8 1 2-1.5 5-2 8-1V5.5c-3-1-6-.5-8 1Z"></path><path d="M12 6.5v13"></path></svg>
-        </span>
-        Learn
-      </div>
+    <nav class="nav-group" aria-label="Play">
+      <div class="nav-label">PLAY</div>
+    <button type="button" class="nav-item" data-page="quests" onclick="goTo('quests')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navQuest" data-size="18"></span><span class="nav-txt">Daily Quests</span><span id="chest-badge" class="nav-badge" style="display:none"></span></button>
+    <button type="button" class="nav-item" data-page="exam" onclick="goTo('exam')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navExam" data-size="18"></span><span class="nav-txt">Practice Exam</span></button>
+    <button type="button" class="nav-item" data-page="shop" onclick="goTo('shop')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navLoot" data-size="18"></span><span class="nav-txt">Loot Shop</span></button>
+    <button type="button" class="nav-item" data-page="learn" onclick="goTo('learn')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navLearn" data-size="18"></span><span class="nav-txt">Learn</span></button>
     </nav>
 
-    <nav class="nav-group">
-      <div class="nav-label">Progress</div>
-      <div class="nav-item" data-page="mastery" tabindex="0" role="button" onclick="goTo('mastery')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('mastery')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9Z"></path></svg>
-        </span>
-        Mastery
-      </div>
-      <div class="nav-item" data-page="collection" tabindex="0" role="button" onclick="goTo('collection')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('collection')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
-        </span>
-        Collection
-      </div>
-      <div class="nav-item" data-page="profile" tabindex="0" role="button" onclick="goTo('profile')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('profile')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        </span>
-        Profile
-      </div>
-      <div class="nav-item" data-page="history" tabindex="0" role="button" onclick="goTo('history')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('history')}">
-        <span class="nav-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"></path><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path><path d="M12 7v5l4 2"></path></svg>
-        </span>
-        History
-      </div>
+    <nav class="nav-group" aria-label="Progress">
+      <div class="nav-label">PROGRESS</div>
+    <button type="button" class="nav-item" data-page="mastery" onclick="goTo('mastery')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navStar" data-size="18"></span><span class="nav-txt">Mastery</span></button>
+    <button type="button" class="nav-item" data-page="collection" onclick="goTo('collection')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navBag" data-size="18"></span><span class="nav-txt">Collection</span></button>
+    <button type="button" class="nav-item" data-page="profile" onclick="goTo('profile')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navHero" data-size="18"></span><span class="nav-txt">Hero</span></button>
+    <button type="button" class="nav-item" data-page="history" onclick="goTo('history')"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navLog" data-size="18"></span><span class="nav-txt">Quest Log</span></button>
     </nav>
 
     <div class="sidebar-footer">
       <div class="streak-pill" id="streak-pill">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
-        <div>
-          <div id="streak-text">0 day streak</div>
+        <span class="sb-flame" data-ic="flame" data-size="16"></span>
+        <div class="streak-txt">
+          <div id="streak-text">0 DAY STREAK</div>
           <div id="streak-sub" class="streak-sub"></div>
         </div>
       </div>
       <div class="day-timer" id="day-timer"></div>
-      <div class="about-link" onclick="showAboutModal()">ℹ️ About this app</div>
+      <button type="button" class="nav-item about-link" onclick="showAboutModal()"><span class="nav-cur" data-ic="play" data-size="8"></span><span class="nav-icon" data-ic="navInfo" data-size="18"></span><span class="nav-txt">About this app</span></button>
     </div>
   </aside>
 
@@ -190,43 +104,59 @@
 
 <div id="chest-overlay" class="chest-overlay px-overlay hidden" onclick="closeChestAnimation(event)" role="dialog" aria-label="Reward"></div>
 
-<div id="fact-overlay" class="fact-overlay hidden">
-  <div class="fact-card">
-    <div class="fact-kicker">💡 Daily Azure Fact</div>
-    <div class="fact-title" id="fact-title"></div>
-    <div class="fact-text" id="fact-text"></div>
-    <button class="btn btn-primary" onclick="closeDailyFactModal()">Got it</button>
-  </div>
-</div>
-
-<div id="about-overlay" class="fact-overlay hidden">
-  <div class="fact-card about-card">
-    <div class="fact-kicker">🎮 Welcome</div>
-    <div class="fact-title">Azure Academy — AZ-900 Quest Trainer</div>
-    <div class="fact-text">
-      <p>This is a free, gamified study tool for the Microsoft AZ-900 (Azure Fundamentals) exam — daily quests, XP, loot, and a Learn section, instead of a plain flashcard deck.</p>
-      <p><b>What's inside:</b></p>
-      <ul>
-        <li>275+ quiz questions across Easy / Normal / Heroic difficulty, plus open-answer Lab exercises</li>
-        <li>A daily streak system, Mastery ranks, and a Loot Shop with collectible items</li>
-        <li>A Boss Fight to close out each day, and a Weak Spot Review mode for questions you've missed</li>
-        <li>A Learn section with short, bite-sized lessons (Beginner tier live, more levels coming)</li>
-      </ul>
-      <p><b>Where this is headed:</b> more Learn tiers (Intermediate/Advanced/Senior), richer visuals, and possibly other certifications down the line. It's a personal side project, actively evolving — expect some rough edges.</p>
-      <p style="opacity:.75">Your progress is saved only in this browser (no account, no server). Export a backup from Profile → Backup if you want a safety net.</p>
+<div id="fact-overlay" class="px-overlay dlg-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="fact-title">
+  <div class="sd dlg">
+    <div class="dlg-stage"><span class="dlg-bob" data-ic="guide" data-size="96"></span></div>
+    <div class="sd-box">
+      <div class="sd-who"><span data-ic="guide" data-size="30"></span><span>GUIDE</span></div>
+      <span class="sd-q">TIP OF THE DAY</span>
+      <div class="dlg-title" id="fact-title"></div>
+      <div class="dlg-text" id="fact-text"></div>
     </div>
-    <button class="btn btn-primary" onclick="closeAboutModal()">Let's go</button>
+    <div class="sd-menu"><button type="button" class="sd-opt sel" onclick="closeDailyFactModal()"><span class="sd-cur" data-ic="play" data-size="8"></span>GOT IT</button></div>
   </div>
 </div>
 
-<div id="profile-overlay" class="fact-overlay hidden">
-  <div class="fact-card" style="max-width:320px;text-align:center">
-    <div class="profile-modal-mark">?</div>
-    <div class="fact-title" style="margin-top:2px">Jak se jmenuješ?</div>
-    <div class="fact-text" style="font-size:12.5px">Jméno zůstává jen v tomto prohlížeči — použije se na iniciály v appce.</div>
-    <input id="profile-name-input" type="text" placeholder="Petra Nováková" maxlength="40"
-      onkeydown="if(event.key==='Enter'){saveProfileName()}" class="profile-name-input">
-    <button class="btn btn-primary" style="width:100%" onclick="saveProfileName()">Pokračovat</button>
+<div id="about-overlay" class="px-overlay dlg-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="about-title">
+  <div class="sd dlg">
+    <div class="dlg-stage"><span class="dlg-bob" data-ic="heroBig" data-size="72"></span><span class="dlg-bob b" data-ic="guide" data-size="64"></span></div>
+    <div class="sd-box">
+      <div class="sd-who"><span data-ic="guide" data-size="30"></span><span>GUIDE</span></div>
+      <span class="sd-q" id="about-title">WELCOME, HERO!</span>
+      <div class="dlg-text">
+        <p>This is Azure Academy, a free, gamified trainer for the Microsoft <b>AZ-900</b> (Azure Fundamentals) exam — daily quests, XP and loot instead of a plain flashcard deck.</p>
+        <ul class="dlg-list">
+          <li>370+ quiz questions on Easy, Normal and Heroic, plus open-answer Azure Labs</li>
+          <li>A daily streak, Mastery ranks and a Loot Shop full of gear with real effects</li>
+          <li>A Boss Fight to close each day and Weak Spots for everything you missed</li>
+          <li>Learn: bite-sized lessons in Beginner and Intermediate worlds</li>
+          <li>A timed Practice Exam with a report per domain</li>
+        </ul>
+        <p>It's a personal side project and keeps evolving — expect the odd rough edge.</p>
+        <p class="dlg-dim">Progress is saved only in this browser (no account, no server). Make a backup in Hero → Menu → Export backup.</p>
+      </div>
+    </div>
+    <div class="sd-menu"><button type="button" class="sd-opt sel" onclick="closeAboutModal()"><span class="sd-cur" data-ic="play" data-size="8"></span>LET'S GO</button></div>
+  </div>
+</div>
+
+<div id="profile-overlay" class="px-overlay dlg-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="hero-create-title">
+  <div class="sd dlg hc">
+    <div class="hc-title" id="hero-create-title">CREATE YOUR HERO</div>
+    <div class="hc-portrait"><span id="hc-portrait-art"></span><span class="pf-lv">LV 1</span></div>
+    <div class="hc-looks" role="group" aria-label="Hero look">
+      <button type="button" id="hc-look-m" class="hc-look sel" aria-pressed="true" onclick="setHeroLook('m')"><span class="hc-look-ic"></span><span>HERO</span></button>
+      <button type="button" id="hc-look-f" class="hc-look" aria-pressed="false" onclick="setHeroLook('f')"><span class="hc-look-ic"></span><span>HEROINE</span></button>
+    </div>
+    <div class="sd-box">
+      <div class="sd-who"><span data-ic="guide" data-size="30"></span><span>GUIDE</span></div>
+      <div class="dlg-text">Welcome, traveller! What should the academy call you?</div>
+      <label class="hc-label" for="profile-name-input">HERO NAME</label>
+      <input id="profile-name-input" type="text" placeholder="Your name" maxlength="40" autocomplete="nickname" enterkeyhint="done"
+        onkeydown="if(event.key==='Enter'){saveProfileName()}" class="profile-name-input hc-input">
+      <div class="hc-note">Your name stays in this browser only. You can change name and look later in Hero → Menu.</div>
+    </div>
+    <div class="sd-menu"><button type="button" class="sd-opt sel" onclick="saveProfileName()"><span class="sd-cur" data-ic="play" data-size="8"></span>START ADVENTURE</button></div>
   </div>
 </div>
 
@@ -238,23 +168,21 @@
 
 <div id="achievement-toast" class="achievement-toast" onclick="this.classList.remove('show')"></div>
 
-
-
-<!-- v16.12: ?v= must match APP_VERSION in sw.js and engine.js -->
-<script src="database.js?v=16.12"></script>
-<script src="save.js?v=16.12"></script>
-<script src="engine.js?v=16.12"></script>
-<script src="loot.js?v=16.12"></script>
-<script src="mastery.js?v=16.12"></script>
-<script src="chestfx.js?v=16.12"></script>
-<script src="fx.js?v=16.12"></script>
-<script src="dailyfact.js?v=16.12"></script>
-<script src="learn.js?v=16.12"></script>
-<script src="bossfight.js?v=16.12"></script>
-<script src="exam.js?v=16.12"></script>
-<script src="practical.js?v=16.12"></script>
-<script src="pixelart.js?v=16.12"></script>
-<script src="app.js?v=16.12"></script>
-<script src="pwa.js?v=16.12"></script>
+<!-- v16.14: ?v= must match APP_VERSION in sw.js and engine.js -->
+<script src="database.js?v=16.14"></script>
+<script src="save.js?v=16.14"></script>
+<script src="engine.js?v=16.14"></script>
+<script src="loot.js?v=16.14"></script>
+<script src="mastery.js?v=16.14"></script>
+<script src="chestfx.js?v=16.14"></script>
+<script src="fx.js?v=16.14"></script>
+<script src="dailyfact.js?v=16.14"></script>
+<script src="learn.js?v=16.14"></script>
+<script src="bossfight.js?v=16.14"></script>
+<script src="exam.js?v=16.14"></script>
+<script src="practical.js?v=16.14"></script>
+<script src="pixelart.js?v=16.14"></script>
+<script src="app.js?v=16.14"></script>
+<script src="pwa.js?v=16.14"></script>
 </body>
 </html>

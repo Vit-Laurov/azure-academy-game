@@ -1,4 +1,4 @@
-// mastery.js — v16.12 (v16c2: Mastery as a pixel skill tree). Rank rules unchanged:
+// mastery.js — v16.13 (v16c2: Mastery as a pixel skill tree; v16d: Loot log line without emoji). Rank rules unchanged:
 // unlimited ranks, cost 12 * rank^1.6, +0.5 % XP per rank on the track's categories,
 // titles Adept / Expert / Master / Grandmaster at ranks 5 / 10 / 20 / 40.
 function masteryTracks(){return AZURE_DB.masteryTracks||[]}
@@ -53,7 +53,7 @@ function buyMasteryRank(trackId){
   let newRank=S.mastery[trackId];
   S.drops=S.drops||[];
   let tier=masteryTierLabel(newRank);
-  S.drops.unshift(`⭐ ${t?t.name:trackId} Mastery Rank ${newRank}${tier?' — '+tier+'!':''} (+${(newRank*0.5).toFixed(1)}% XP)`);
+  S.drops.unshift(`${t?t.name:trackId} Mastery Rank ${newRank}${tier?' — '+tier+'!':''} (+${(newRank*0.5).toFixed(1)}% XP)`);
   let milestone=[5,10,20,40].includes(newRank);
   if(milestone&&typeof showAchievementToast==='function'){
     showAchievementToast(`${tier} Reached!`,`${t?t.name:trackId} · Rank ${newRank}`);
